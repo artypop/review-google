@@ -1,0 +1,6 @@
+# Données : volumineuses et contenant des données personnelles (reviewer_name,
+# review_link, text). Le README de l'export interdit la rediffusion.
+data/
+.venv/
+__pycache__/
+*.pyc
