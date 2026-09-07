@@ -43,7 +43,7 @@ BEGIN = "<!-- genere:analysea — regenere par scripts/analysis_a.py, ne pas edi
 END = "<!-- /genere:analysea -->"
 
 SQL = """
-SELECT cid, region, country, industry, bucket,
+SELECT cid, region, country, industry, bucket, heavy_purge,
        n_reviews_panel, n_fresh, n_fresh_deleted, velocity_30d,
        mean_star_panel, mean_star_delta,
        (n_fresh_deleted > 0)::INT AS touche,

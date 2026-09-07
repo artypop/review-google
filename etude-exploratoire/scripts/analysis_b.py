@@ -26,19 +26,28 @@ Usage :  uv run scripts/analysis_b.py [--bootstrap N]
 """
 
 import argparse
+import os
 import pathlib
 import sys
 import warnings
 
+# Un seul coeur. Sans ça, statsmodels et numpy saturent toutes les unités de calcul pendant
+# des heures et WSL finit par lâcher la connexion de VSCode. À poser AVANT l'import de numpy.
+for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS",
+           "NUMEXPR_NUM_THREADS", "VECLIB_MAXIMUM_THREADS"):
+    os.environ.setdefault(_v, "1")
+
 import duckdb
 import numpy as np
 import pandas as pd
+import statsmodels.api as sm
 from statsmodels.discrete.conditional_models import ConditionalLogit
 
 SRC = pathlib.Path("data/build/fresh_hazard.parquet")
 BIZ = pathlib.Path("data/build/business_features.parquet")
 OUT = pathlib.Path("documentations/2026-09-06-analyse-b-quel-avis-tombe.md")
 CSV = pathlib.Path("data/resultats/analyse_b_effets.csv")
+TIRAGES = pathlib.Path("data/resultats/analyse_b_tirages.csv")
 BEGIN = "<!-- genere:analyseb — regenere par scripts/analysis_b.py, ne pas editer a la main -->"
 END = "<!-- /genere:analyseb -->"
 
@@ -102,7 +111,7 @@ SELECT s.cid, s.wave, s.died::INT AS y,
        CASE WHEN s.author_n_panel_biz > 1 THEN 'b_plusieurs_fiches'
             ELSE 'a_une_fiche' END AS multi_fiches,
        CASE WHEN s.author_same_day_burst THEN 'b_rafale' ELSE 'a_non' END AS rafale,
-       s.region
+       s.region, b.heavy_purge
 FROM s JOIN b USING (cid)
 WHERE b.n_fresh_deleted > 0
 """
@@ -149,32 +158,81 @@ def fit(d: pd.DataFrame) -> pd.Series:
     return pd.Series(res.params, index=names)
 
 
+def marges_rapides(d: pd.DataFrame) -> tuple[pd.Series, pd.Series, pd.Series]:
+    """Marges d'erreur en 3 minutes, sans rééchantillonnage.
+
+    Au lieu de refaire l'analyse 30 fois sur des tirages au sort d'établissements, on écrit
+    les strates fiche x jour comme autant de colonnes du modèle, et on demande des erreurs-types
+    groupées par établissement — deux avis d'une même fiche n'étant pas deux informations
+    indépendantes. Le résultat est directement une fourchette.
+
+    Écart connu avec la méthode de référence : la rafale d'auteur y est surestimée (26 contre
+    19). Sur tous les autres facteurs les deux méthodes concordent. **Ne pas utiliser cette
+    méthode pour communiquer l'effet de la rafale.**
+    """
+    X, names = design(d)
+    strates = pd.get_dummies(d["strate"], prefix="s", dtype=np.float32).iloc[:, 1:]
+    M = np.hstack([X.to_numpy(np.float32), strates.to_numpy(np.float32)])
+    del strates
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore")
+        res = sm.Logit(d["y"].to_numpy(), M).fit(
+            method="lbfgs", maxiter=300, disp=False,
+            cov_type="cluster", cov_kwds={"groups": d["cid"].to_numpy()})
+    k = len(names)
+    co = pd.Series(res.params[:k], index=names)
+    se = pd.Series(res.bse[:k], index=names)
+    return co, co - 1.96 * se, co + 1.96 * se
+
+
 def bootstrap(d: pd.DataFrame, n: int, seed: int = 12345) -> pd.DataFrame:
-    """Rééchantillonner les ÉTABLISSEMENTS, pas les lignes : c'est l'unité indépendante."""
+    """Rééchantillonner les ÉTABLISSEMENTS, pas les lignes : c'est l'unité indépendante.
+
+    Chaque tirage est écrit sur disque dès qu'il est calculé. Un arrêt en cours de route
+    ne perd rien : relancer la même commande reprend là où on s'était arrêté.
+    """
+    done = pd.DataFrame()
+    if TIRAGES.exists():
+        done = pd.read_csv(TIRAGES)
+        if len(done) >= n:
+            print(f"  {len(done)} tirages déjà en réserve, rien à recalculer", file=sys.stderr)
+            return done
+        print(f"  reprise : {len(done)} tirages déjà faits, {n - len(done)} restants",
+              file=sys.stderr)
+
     rng = np.random.default_rng(seed)
     cids = d["cid"].unique()
     by_cid = {k: v for k, v in d.groupby("cid")}
-    draws, failed = [], 0
-    for i in range(n):
+    # Rejouer les tirages déjà faits pour ne pas rejouer la même graine deux fois
+    for _ in range(len(done)):
+        rng.choice(cids, size=len(cids), replace=True)
+
+    failed = 0
+    for i in range(len(done), n):
         pick = rng.choice(cids, size=len(cids), replace=True)
         rep = pd.concat([by_cid[k].assign(strate=lambda x, j=j: x["strate"] + f"#{j}")
                          for j, k in enumerate(pick)], ignore_index=True)
         try:
-            draws.append(fit(informative(rep)))
+            row = fit(informative(rep))
+            done = pd.concat([done, row.to_frame().T], ignore_index=True)
+            TIRAGES.parent.mkdir(parents=True, exist_ok=True)
+            done.to_csv(TIRAGES, index=False)   # sauvegarde après chaque tirage
         except Exception:  # noqa: BLE001 — un tirage dégénéré est écarté, pas fatal
             failed += 1
-        if (i + 1) % 25 == 0:
-            print(f"  bootstrap {i + 1}/{n}", file=sys.stderr)
+        del rep
+        print(f"  tirage {i + 1}/{n}", file=sys.stderr, flush=True)
     if failed:
         print(f"  ({failed} tirages écartés)", file=sys.stderr)
-    return pd.DataFrame(draws)
+    return done
 
 
 def main() -> None:
     p = argparse.ArgumentParser(description=__doc__,
                                 formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument("--bootstrap", type=int, default=200,
-                   help="nombre de rééchantillonnages pour les marges d'erreur (0 = aucune)")
+    p.add_argument("--bootstrap", type=int, default=0,
+                   help="marges par rééchantillonnage : le plus juste, mais ~2 min PAR tirage")
+    p.add_argument("--marges-rapides", action="store_true",
+                   help="marges en 3 min au lieu d'une heure (réserve : surestime la rafale)")
     a = p.parse_args()
 
     raw = load()
@@ -184,9 +242,17 @@ def main() -> None:
     print(f"Comparaisons utilisables : {n_biz} fiches, {n_obs} observations, {n_death} disparitions")
     print(f"Écartées : {lost} disparitions survenues lors de purges totales (aucune comparaison possible)")
 
-    coefs = fit(d)
+    if a.marges_rapides:
+        print("Marges d'erreur, méthode rapide (~3 min)...")
+        coefs, lo, hi = marges_rapides(d)
+        methode = "rapide"
+    else:
+        coefs = fit(d)
+        methode = "bootstrap" if a.bootstrap else "aucune"
 
-    if a.bootstrap:
+    if a.marges_rapides:
+        pass
+    elif a.bootstrap:
         print(f"Marges d'erreur par rééchantillonnage des fiches ({a.bootstrap} tirages)...")
         bs = bootstrap(d, a.bootstrap)
         lo, hi = bs.quantile(0.025), bs.quantile(0.975)
@@ -217,12 +283,12 @@ def main() -> None:
     out.round(3).to_csv(CSV, index=False, sep=";", decimal=",", encoding="utf-8-sig")
     print(f"Écrit : {CSV}")
 
-    write_note(out, n_biz, n_obs, n_death, lost, a.bootstrap)
+    write_note(out, n_biz, n_obs, n_death, lost, a.bootstrap, methode)
     print(f"Écrit : {OUT}")
 
 
 def write_note(out: pd.DataFrame, n_biz: int, n_obs: int, n_death: int,
-               lost: int, nboot: int) -> None:
+               lost: int, nboot: int, methode: str = "bootstrap") -> None:
     f = lambda n: f"{n:,}".replace(",", " ")  # noqa: E731
     blocks = []
     for label in out["facteur"].unique():
@@ -279,10 +345,13 @@ besoin de retirer les fiches problématiques à la main.
 **L'effet** se lit comme un rapport de risque, la modalité de référence valant 1. « ×2 » signifie
 deux fois plus supprimé qu'un avis identique par ailleurs, dans la même fiche, le même jour.
 
-**La fourchette** est obtenue en retirant et rejouant au hasard les établissements
-{f(nboot)} fois. On rééchantillonne les établissements et non les lignes, parce que deux avis
-d'une même fiche ne sont pas deux informations indépendantes — les marges d'erreur affichées par
-défaut par un modèle l'oublient et sont trop étroites.
+**La fourchette** {"est calculée par la méthode rapide" if methode == "rapide" else
+f"est obtenue en retirant et rejouant au hasard les établissements {f(nboot)} fois"} :
+{"les strates fiche x jour entrent comme colonnes du modèle et les marges sont groupées par établissement" if methode == "rapide" else "on rééchantillonne les établissements et non les lignes"},
+parce que deux avis d'une même fiche ne sont pas deux informations indépendantes — les marges
+affichées par défaut par un modèle l'oublient et sont trop étroites.
+
+{"**Réserve sur cette méthode.** Elle surestime l'effet de la rafale d'auteur (26 contre 19 avec la méthode de référence). Sur tous les autres facteurs les deux méthodes concordent. Ne pas communiquer le chiffre de la rafale à partir de cette version." if methode == "rapide" else ""}
 
 **Écart net** vaut « oui » quand la fourchette ne contient pas 1, c'est-à-dire quand on peut
 exclure l'absence d'effet.

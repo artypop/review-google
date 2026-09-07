@@ -45,6 +45,10 @@ TABLES = {
     "waves_brut": (RAW / "waves.parquet", "Les 14 passages du robot, avec leurs dates."),
 }
 
+# Vue calculée (pas un simple passage de fichier) : avis disparus puis revenus,
+# 2 lignes par avis (disparition + retour). Construite dans connect().
+RESSUSCITES_DESC = "Avis disparus puis revenus : 2 lignes par avis (disparition + retour), 1 018 lignes pour 509 avis."
+
 EXEMPLES = {
     "note": ("Risque de suppression par note, sur les avis frais", """
         SELECT star AS note,
@@ -83,6 +87,9 @@ EXEMPLES = {
                round(100.0 * avg(touched::INT), 1) AS pct_touches,
                round(100.0 * sum(n_deleted) / sum(n_reviews_panel), 4) AS pct_avis_supprimes
         FROM etablissements WHERE n_reviews_panel >= 100 GROUP BY 1 ORDER BY min(velocity_30d)"""),
+    "ressuscites": ("Avis disparus puis revenus : comparer l'état avant/après", """
+        SELECT review_id, etat, star, length(text) AS taille_texte, created_at, deleted_detected_at
+        FROM ressuscites ORDER BY review_id, created_at LIMIT 20"""),
     "top": ("Les établissements les plus purgés (sans nom : données personnelles)", """
         SELECT region, industry AS secteur, bucket AS taille, country AS pays,
                n_reviews_panel AS avis, n_deleted AS supprimes,
@@ -92,7 +99,7 @@ EXEMPLES = {
 
 
 def connect() -> duckdb.DuckDBPyConnection:
-    c = duckdb.connect(config={'memory_limit': '1GB'})
+    c = duckdb.connect(config={'memory_limit': '2GB'})
     missing = []
     for name, (path, _) in TABLES.items():
         if path.exists():
@@ -104,6 +111,26 @@ def connect() -> duckdb.DuckDBPyConnection:
             print(f"  (absent : {name} -> {path})", file=sys.stderr)
         if not (BUILD / "reviews_features.parquet").exists():
             sys.exit("Tables non construites. Lancer : uv run scripts/build_tables.py")
+    if (RAW / "reviews.parquet").exists():
+        c.sql(f"""
+            CREATE VIEW ressuscites AS
+            WITH flags AS (
+                SELECT review_id,
+                       bool_or(deleted_detected_at IS NOT NULL) AS a_disparu,
+                       bool_or(deleted_detected_at IS NULL)     AS a_un_retour
+                FROM reviews_brut
+                WHERE NOT is_update
+                GROUP BY review_id
+                HAVING bool_or(deleted_detected_at IS NOT NULL) AND bool_or(deleted_detected_at IS NULL)
+            )
+            SELECT r.*,
+                   CASE WHEN r.deleted_detected_at IS NOT NULL THEN 'disparition'
+                        ELSE 'retour' END AS etat
+            FROM reviews_brut r
+            JOIN flags USING (review_id)
+            WHERE NOT r.is_update
+            ORDER BY r.review_id, r.created_at
+        """)
     return c
 
 
@@ -116,6 +143,10 @@ def show_tables(c: duckdb.DuckDBPyConnection) -> None:
         n = c.sql(f"SELECT count(*) FROM {name}").fetchone()[0]
         nf = f"{n:,}".replace(",", " ")
         print(f"  {name:18} {nf:>11} lignes   {desc}")
+    if (RAW / "reviews.parquet").exists():
+        n = c.sql("SELECT count(*) FROM ressuscites").fetchone()[0]
+        nf = f"{n:,}".replace(",", " ")
+        print(f"  {'ressuscites':18} {nf:>11} lignes   {RESSUSCITES_DESC}")
     print("\n  Détail des colonnes :  uv run scripts/query.py --colonnes avis\n")
 
 

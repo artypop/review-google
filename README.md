@@ -3,8 +3,16 @@
 Étude quantitative : quelles caractéristiques d'un avis Google sont associées à sa suppression.
 Angle du livrable : les faux positifs.
 
-**Pour comprendre les résultats, lire d'abord** [`documentations/2026-09-06-facteurs-et-programme-danalyse.md`](documentations/2026-09-06-facteurs-et-programme-danalyse.md).
-**Pour l'état d'avancement**, [`BACKLOG.md`](BACKLOG.md).
+Le projet a deux volets, dans deux dossiers séparés :
+
+- **`etude-exploratoire/`** — l'étude d'origine, en DuckDB sur les fichiers parquet en local. Ce
+  README la décrit en détail ci-dessous. Ses résultats chiffrés sont invalidés (voir son
+  `BACKLOG.md`) ; sa méthodologie reste une référence.
+- **`logistic-regression-study/`** — la table de panel pour la régression logistique, construite
+  en BigQuery. Voir `logistic-regression-study/sql/` et `logistic-regression-study/BACKLOG.md`.
+
+**Pour comprendre les résultats de l'étude d'origine, lire d'abord** [`etude-exploratoire/documentations/2026-09-06-facteurs-et-programme-danalyse.md`](etude-exploratoire/documentations/2026-09-06-facteurs-et-programme-danalyse.md).
+**Pour son état d'avancement**, [`etude-exploratoire/BACKLOG.md`](etude-exploratoire/BACKLOG.md).
 
 ---
 
@@ -17,9 +25,9 @@ Les données ne sont pas dans le dépôt (872 Mo et données personnelles). Il f
 `data/exports/exports/*.parquet` en place — voir « Les données » plus bas.
 
 ```bash
-uv run scripts/build_tables.py      # ~20 s, construit les tables d'analyse
-uv run scripts/level1_bivariate.py  # ~5 s, produit les résultats facteur par facteur
-uv run scripts/query.py --tables    # vérifier que tout est là
+uv run etude-exploratoire/scripts/build_tables.py      # ~20 s, construit les tables d'analyse
+uv run etude-exploratoire/scripts/level1_bivariate.py  # ~5 s, produit les résultats facteur par facteur
+uv run etude-exploratoire/scripts/query.py --tables    # vérifier que tout est là
 ```
 
 ---
@@ -28,32 +36,32 @@ uv run scripts/query.py --tables    # vérifier que tout est là
 
 Deux façons, selon qu'on veut une réponse chiffrée ou explorer visuellement.
 
-**Pour une question précise : `scripts/query.py`.** Il ouvre les tables et exécute du SQL, sans
+**Pour une question précise : `etude-exploratoire/scripts/query.py`.** Il ouvre les tables et exécute du SQL, sans
 rien installer ni écrire de code.
 
-**Pour explorer à la souris : `explore.py`**, à la racine. Ouvrir le fichier dans VS Code,
+**Pour explorer à la souris : `etude-exploratoire/explore.py`**, à la racine de ce dossier. Ouvrir le fichier dans VS Code,
 exécuter les cellules `# %%` avec `Shift+Entrée`, puis cliquer sur l'icône Data Wrangler à côté
 du DataFrame dans le panneau Variables. Les cellules chargent des extraits ciblés — Data
 Wrangler ne suit pas sur les 4,88 millions de lignes du corpus complet.
 
 ```bash
 # qu'est-ce qui existe
-uv run scripts/query.py --tables
-uv run scripts/query.py --colonnes avis
+uv run etude-exploratoire/scripts/query.py --tables
+uv run etude-exploratoire/scripts/query.py --colonnes avis
 
 # des questions déjà écrites, pour démarrer
-uv run scripts/query.py --exemples
-uv run scripts/query.py --exemple age
-uv run scripts/query.py --exemple rafale
+uv run etude-exploratoire/scripts/query.py --exemples
+uv run etude-exploratoire/scripts/query.py --exemple age
+uv run etude-exploratoire/scripts/query.py --exemple rafale
 
 # sa propre question
-uv run scripts/query.py "SELECT star, count(*) FROM avis WHERE is_fresh GROUP BY 1 ORDER BY 1"
+uv run etude-exploratoire/scripts/query.py "SELECT star, count(*) FROM avis WHERE is_fresh GROUP BY 1 ORDER BY 1"
 
 # sortir un CSV ouvrable dans Excel (séparateur ; et virgule décimale)
-uv run scripts/query.py "SELECT ..." --csv data/resultats/ma_question.csv
+uv run etude-exploratoire/scripts/query.py "SELECT ..." --csv data/resultats/ma_question.csv
 
 # console : on tape du SQL ligne à ligne, « quit » pour sortir
-uv run scripts/query.py
+uv run etude-exploratoire/scripts/query.py
 ```
 
 ### Les trois tables
@@ -85,8 +93,13 @@ délai, utiliser `suivi`.
 
 | Fichier | Contenu |
 |---|---|
-| [`documentations/2026-09-06-premiers-resultats-facteur-par-facteur.md`](documentations/2026-09-06-premiers-resultats-facteur-par-facteur.md) | Les 15 facteurs, avec le mode d'emploi des chiffres |
-| `data/resultats/niveau1_facteur_par_facteur.csv` | Les mêmes chiffres, pour Excel |
+| [`etude-exploratoire/documentations/2026-09-06-premiers-resultats-facteur-par-facteur.md`](etude-exploratoire/documentations/2026-09-06-premiers-resultats-facteur-par-facteur.md) | Les 15 facteurs, avec le mode d'emploi des chiffres |
+| [`etude-exploratoire/documentations/2026-09-06-analyse-a-quel-etablissement.md`](etude-exploratoire/documentations/2026-09-06-analyse-a-quel-etablissement.md) | Quel établissement subit une intervention |
+| [`etude-exploratoire/documentations/2026-09-06-analyse-b-quel-avis-tombe.md`](etude-exploratoire/documentations/2026-09-06-analyse-b-quel-avis-tombe.md) | Dans une fiche touchée, quel avis tombe |
+| [`etude-exploratoire/documentations/2026-09-06-controle-robustesse.md`](etude-exploratoire/documentations/2026-09-06-controle-robustesse.md) | A et B rejouées sans les 24 fiches purgées |
+| [`etude-exploratoire/documentations/2026-09-06-verif-contenu-textuel.md`](etude-exploratoire/documentations/2026-09-06-verif-contenu-textuel.md) | **93,7 % des avis supprimés ne portent aucune faute visible** |
+| [`etude-exploratoire/documentations/2026-09-06-test2-debordement-organique.md`](etude-exploratoire/documentations/2026-09-06-test2-debordement-organique.md) | **Le chiffre du livrable** : le stock ancien meurt 1,5 à 1,7× plus dans les fiches à fort afflux |
+| `data/resultats/*.csv` | Les mêmes chiffres, pour Excel |
 
 Le CSV contient, pour chaque facteur et chaque modalité : le nombre d'observations, le nombre de
 disparitions, le risque brut et le risque à âge comparable. C'est cette dernière colonne qu'il
@@ -96,11 +109,16 @@ faut lire — voir l'explication dans la note.
 
 ## Les scripts
 
+Tous dans `etude-exploratoire/scripts/`.
+
 | Script | Ce qu'il fait | Sortie | Durée |
 |---|---|---|---|
 | `build_tables.py` | Lit l'export d'origine, calcule les caractéristiques, écrit les trois tables. Dix contrôles de cohérence en fin d'exécution. | `data/build/*.parquet` | 20 s |
 | `level1_bivariate.py` | Risque de suppression facteur par facteur, à âge comparable, avec et sans les fiches purgées. | Note + CSV | 10 s |
-| `analysis_b.py` | Compare les avis d'une même fiche le même jour. `--bootstrap N` pour les marges d'erreur. | Note + CSV | 2 min, ou 1 h avec marges |
+| `analysis_b.py` | Compare les avis d'une même fiche le même jour. `--bootstrap N` pour les marges d'erreur. | Note + CSV | 2 min ; **compter ~2 min par tirage de bootstrap** (30 tirages ≈ 1 h, 200 ≈ 7 h) |
+| `controle_robustesse.py` | Rejoue A et B sans les 24 fiches massivement purgées et met les coefficients côte à côte. | Note + CSV | ~7 min |
+| `verif_texte.py` | Onze marqueurs textuels (insultes, spam, charabia…) : la suppression a-t-elle une cause visible ? | Note + CSV | ~2 min |
+| `test2_debordement.py` | Le stock ancien meurt-il plus dans les fiches à fort afflux récent ? | Note + CSV | ~1 min |
 | `machine_learning.py` | Contrôle par forêt aléatoire et gradient boosting : reste-t-il un signal non repéré ? | Note + CSV | ~15 min |
 | `query.py` | Interroge les tables en SQL. Ne modifie rien. | Écran ou CSV | immédiat |
 
@@ -115,13 +133,14 @@ Les scripts qui écrivent une note ne réécrivent que la partie comprise entre 
 terminal, pour qu'un plantage de l'éditeur ne les emporte pas :
 
 ```bash
-setsid nohup uv run scripts/analysis_b.py --bootstrap 30 \
+setsid nohup uv run etude-exploratoire/scripts/analysis_b.py --bootstrap 30 \
   > data/resultats/analyse_b_run.log 2>&1 < /dev/null &
 ```
 
-**Attention à la mémoire** : la machine de travail a 7 Go. Le noyau a déjà tué un lancement du
-machine learning. Éviter de faire tourner deux calculs lourds en même temps, et surveiller avec
-`free -m`.
+**Attention à la mémoire** : la machine de travail est passée de 7 à 16 Go le 2026-09-06. Le
+noyau avait tué un lancement du machine learning sous l'ancienne configuration. Le plafond
+DuckDB reste posé à 1-2 Go dans chaque script, et la règle tient : pas plus de deux calculs
+lourds en même temps, `free -m` avant de lancer.
 
 ---
 
