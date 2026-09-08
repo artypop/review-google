@@ -103,7 +103,7 @@ canon AS (
     ANY_VALUE(cid) AS cid,
     MIN(first_seen_at) AS first_seen_at,
     MIN(created_at) AS created_at,
-    MAX(CASE WHEN deleted_detected_at IS NOT NULL THEN deleted_detected_at END) AS raw_deleted_at
+    MAX(deleted_detected_at) AS raw_deleted_at  -- MAX ignore déjà les valeurs vides tout seul
   FROM base
   GROUP BY review_id
 ),
