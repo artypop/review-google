@@ -7,6 +7,15 @@ statut: à jour au 2026-09-06, décisions prises
 
 # Ce qu'on a trouvé dans les données, et comment on va analyser
 
+> ## MIXTE — vérifié le 2026-09-08
+>
+> **Méthode, décisions et questions ouvertes : toujours valables.**
+> **Chiffres de résultat : périmés**, calculés avant la correction du comptage. Dans ce
+> document : 84 % / 39 fiches / 20 %, 106 761, 2 853, 2,67 %, 0,107 %, 264 avis sur 816, 1 399 établissements touchés.
+>
+> Comptage de référence aujourd'hui : **4 747 suppressions** sur 5 230 disparitions brutes.
+> Résultats à jour : `2026-09-08-synthese-de-la-journee.md`. Inventaire : `INDEX.md`.
+
 Cette note fait deux choses : elle raconte les cinq découvertes qui ont changé le cadrage de
 l'étude, et elle décrit le programme d'analyse qui en découle.
 

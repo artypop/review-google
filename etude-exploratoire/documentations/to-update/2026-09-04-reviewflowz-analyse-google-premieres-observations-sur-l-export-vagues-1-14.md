@@ -6,6 +6,18 @@ titre: "Premières observations sur l'export vagues 1-14"
 
 # Premières observations sur l'export vagues 1-14
 
+> ## PÉRIMÉ — déplacé le 2026-09-08
+>
+> Les résultats chiffrés de ce document sont calculés sur le comptage d'avant la correction des
+> suppressions (résurrections et bugs d'édition non retirés). Ses verdicts en dépendent, donc
+> **aucun de ses chiffres ne doit être cité ni communiqué**.
+>
+> Comptage de référence aujourd'hui : **4 747 suppressions** sur 5 230 disparitions brutes.
+> Définition : `../../scripts/suppressions_corrigees.py`.
+> Résultats à jour : `../2026-09-08-synthese-de-la-journee.md` et `../INDEX.md`.
+>
+> Le document est conservé pour sa méthode, ses pièges documentés et ses questions ouvertes.
+
 Observations produites en lisant `local/exports.zip` (hors dépôt, gitignoré) et son
 `exports/README.md`. Tous les comptages portent sur les lignes de base — filtre
 `NOT is_update` — soit **4 878 151 avis** et **5 230 suppressions**, taux d'ensemble

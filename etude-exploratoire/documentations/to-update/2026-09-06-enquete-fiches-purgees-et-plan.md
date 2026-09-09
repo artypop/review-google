@@ -7,6 +7,18 @@ statut: résultats et décisions à prendre
 
 # Pourquoi ces entreprises ont perdu leurs avis
 
+> ## PÉRIMÉ — déplacé le 2026-09-08
+>
+> Les résultats chiffrés de ce document sont calculés sur le comptage d'avant la correction des
+> suppressions (résurrections et bugs d'édition non retirés). Ses verdicts en dépendent, donc
+> **aucun de ses chiffres ne doit être cité ni communiqué**.
+>
+> Comptage de référence aujourd'hui : **4 747 suppressions** sur 5 230 disparitions brutes.
+> Définition : `../../scripts/suppressions_corrigees.py`.
+> Résultats à jour : `../2026-09-08-synthese-de-la-journee.md` et `../INDEX.md`.
+>
+> Le document est conservé pour sa méthode, ses pièges documentés et ses questions ouvertes.
+
 Enquête sur les 24 entreprises les plus touchées du panel. Toutes les requêtes sont
 reproductibles ; elles seront rassemblées dans un programme (voir le plan d'action).
 

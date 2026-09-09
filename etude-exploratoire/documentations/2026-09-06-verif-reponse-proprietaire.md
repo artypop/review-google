@@ -7,6 +7,15 @@ statut: résultats
 
 # La réponse du patron protège-t-elle vraiment ?
 
+> ## MIXTE — vérifié le 2026-09-08
+>
+> **Méthode, décisions et questions ouvertes : toujours valables.**
+> **Chiffres de résultat : périmés**, calculés avant la correction du comptage. Dans ce
+> document : 1 406 avis avec réponse, et tous les dénominateurs du périmètre 2 853.
+>
+> Comptage de référence aujourd'hui : **4 747 suppressions** sur 5 230 disparitions brutes.
+> Résultats à jour : `2026-09-08-synthese-de-la-journee.md`. Inventaire : `INDEX.md`.
+
 Produit par `scripts/verif_reponse_proprietaire.py`.
 
 ## Pourquoi cette vérification est indispensable

@@ -7,6 +7,15 @@ statut: plan, à valider par Romain
 
 # Reprise de l'étude
 
+> ## MIXTE — vérifié le 2026-09-08
+>
+> **Méthode, décisions et questions ouvertes : toujours valables.**
+> **Chiffres de résultat : périmés**, calculés avant la correction du comptage. Dans ce
+> document : 509 sur 5 230, 617 résurrections, la cascade 5 314 / 5 230 / 2 705 / 2 853.
+>
+> Comptage de référence aujourd'hui : **4 747 suppressions** sur 5 230 disparitions brutes.
+> Résultats à jour : `2026-09-08-synthese-de-la-journee.md`. Inventaire : `INDEX.md`.
+
 Ce document remplace le programme d'analyse précédent. Il part d'un constat : l'étude a
 modélisé des suppressions sans jamais vérifier ce que contenait ce qu'elle comptait.
 

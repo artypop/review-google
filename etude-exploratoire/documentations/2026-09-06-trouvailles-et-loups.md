@@ -7,6 +7,15 @@ statut: document de référence
 
 # Toutes les trouvailles, tous les points à vérifier
 
+> ## MIXTE — vérifié le 2026-09-08
+>
+> **Méthode, décisions et questions ouvertes : toujours valables.**
+> **Chiffres de résultat : périmés**, calculés avant la correction du comptage. Dans ce
+> document : 84 % / 24 entreprises / 18 %, 509 sur 5 230, 124 sur 2 853, la cascade 5 314 / 2 705 / 2 853.
+>
+> Comptage de référence aujourd'hui : **4 747 suppressions** sur 5 230 disparitions brutes.
+> Résultats à jour : `2026-09-08-synthese-de-la-journee.md`. Inventaire : `INDEX.md`.
+
 Deux parties. Ce qui a été trouvé, avec son degré de fiabilité. Ce qui reste à vérifier, avec ce
 qu'il faut faire pour chaque point.
 
@@ -111,13 +120,24 @@ où elle existe vraiment, l'écart brut se réduit de 0,86 à 0,94.
 ### 10. Une attaque par avis négatifs, nettoyée par Google
 **Fiabilité : solide.**
 
-Deux salles de sport espagnoles. 361 avis d'une étoile publiés les 1er et 2 août 2026, sur une
-fiche notée 4,95, par 363 comptes différents. 270 des 399 avis supprimés n'avaient aucun texte.
-Un seul contenait une insulte. Google les a effacés dix à quatorze jours plus tard. Aucun n'est
-revenu.
+*Chiffres corrigés le 2026-09-08. Détail fiche par fiche :
+`2026-09-08-cas-attaque-salles-de-sport.md`.*
 
-Ces 399 avis pèsent 14 % des suppressions du périmètre de l'étude. Ils expliquent pourquoi
-« 1 étoile » et « sport et bien-être » ressortaient si forts avant contrôle.
+Deux salles de sport espagnoles, attaquées le même week-end, chacune avec son propre paquet
+d'avis d'une étoile publiés les 1er et 2 août 2026 :
+
+- **fiche A** : 219 avis, soit 28 % de ses 781 avis. Google en a supprimé 229 au total, la
+  plupart 14 à 15 jours après publication.
+- **fiche B** : 111 avis, soit 17 % de ses 668 avis. Google en a supprimé 135 au total, la
+  plupart 10 à 11 jours après publication.
+
+Un auteur distinct par avis, ou presque. Deux tiers sans aucun texte, un seul avis contenant une
+insulte : le signal n'était pas dans le contenu mais dans le rythme et dans l'écart à la note
+habituelle de la fiche. La note affichée par Google est passée de 3,81 à 4,95 sur A et de 4,67 à
+4,96 sur B entre le premier et le dernier passage. Aucun avis supprimé n'est revenu.
+
+Ces 364 avis expliquent pourquoi « 1 étoile » et « sport et bien-être » ressortaient si forts
+avant contrôle.
 
 ### 11. Une vraie purge de vieux avis, inexpliquée
 **Fiabilité : solide sur le constat, aucune explication.**

@@ -1,7 +1,11 @@
 # Passation — analyse des suppressions d'avis Google
 
 Document destiné à qui reprend le projet, humain ou assistant.
-Écrit le 2026-09-06.
+Écrit le 2026-09-06, chiffres mis à jour le 2026-09-08.
+
+> Point d'entrée pour la reprise : `documentations/INDEX.md` (inventaire de tous les documents
+> avec leur statut), puis `documentations/2026-09-08-synthese-de-la-journee.md` (résultats
+> valides) et `../BONNES-ET-MAUVAISES-PRATIQUES.md` (écueils à ne pas répéter).
 
 ---
 
@@ -97,7 +101,7 @@ et des données personnelles. Le README de l'export interdit leur rediffusion.
 Le comptage des suppressions est faux. Cinq défauts, détaillés dans `BACKLOG.md` et dans
 `documentations/2026-09-06-reprise-qualification-des-suppressions.md`.
 
-Le plus grave : 509 des 5 230 suppressions concernent un avis qui réapparaît ensuite. Le README
+Le plus grave : 509 des 5 230 disparitions concernent un avis qui réapparaît ensuite. Le README
 de l'export l'annonçait dès le départ. Le filtre n'a jamais été posé.
 
 Le deuxième : sept entreprises figurant parmi les 24 « massivement purgées » n'ont jamais rien
@@ -149,7 +153,8 @@ Deux points restent à trancher avec Romain avant de le reprendre :
 
 Ils sont réels et ils ont tous causé une erreur dans ce projet.
 
-**Un avis supprimé peut revenir.** 509 cas sur 5 230. Ne jamais compter une suppression sans
+**Un avis supprimé peut revenir.** 509 cas sur 5 230 disparitions brutes ; c'est ce qui ramène
+le compte à 4 747 suppressions réelles. Ne jamais compter une suppression sans
 vérifier que l'avis ne réapparaît pas plus tard sur la même fiche.
 
 **Le robot lit parfois une page de listing au lieu de deux.** Le contrôle de complétude du
@@ -173,8 +178,10 @@ le texte.
 après la publication puis s'effondre. Toute comparaison qui ne tient pas compte de l'âge mesure
 surtout une différence d'âge.
 
-**Les suppressions sont concentrées.** 84 % des entreprises n'ont rien perdu. Deux salles de
-sport espagnoles portent 399 suppressions, soit 14 % du périmètre de l'étude.
+**Les suppressions sont concentrées.** 85,4 % des établissements n'ont rien perdu. Les
+24 fiches ayant perdu plus de 5 % de leurs avis portent 14,4 % des 4 747 suppressions. Deux
+salles de sport espagnoles en portent 364 à elles deux — 229 sur une fiche de 781 avis, 135 sur
+une fiche de 668. Détail : `documentations/2026-09-08-cas-attaque-salles-de-sport.md`.
 
 ---
 
@@ -186,9 +193,11 @@ sport espagnoles portent 399 suppressions, soit 14 % du périmètre de l'étude.
 contrôles textuels : pas d'insulte, pas de lien, pas de charabia. Les insultes concernent 1 % des
 suppressions. Zéro suppression parmi les avis contenant un lien web ou une adresse e-mail.
 
-**Les salles de sport.** 361 avis d'une étoile publiés en deux jours sur une fiche notée 4,95,
-par 363 comptes différents, dont 68 % sans aucun texte. Google les a effacés dix à quatorze jours
-plus tard. Aucun n'est revenu. Cette modération a fonctionné.
+**Les salles de sport.** Deux fiches espagnoles attaquées le même week-end. La fiche A a reçu
+219 avis d'une étoile les 1er et 2 août, soit 28 % de ses 781 avis ; la fiche B en a reçu 111,
+soit 17 % de ses 668. Un auteur distinct par avis, deux tiers sans aucun texte. Google a
+supprimé 229 avis sur A (le plus souvent 14 à 15 jours après publication) et 135 sur B (10 à
+11 jours). Aucun n'est revenu. Cette modération a fonctionné.
 
 **La forme de la courbe d'âge.** Risque maximal à 7-13 jours, puis effondrement.
 

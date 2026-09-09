@@ -6,13 +6,33 @@ Angle du livrable : les faux positifs.
 Le projet a deux volets, dans deux dossiers séparés :
 
 - **`etude-exploratoire/`** — l'étude d'origine, en DuckDB sur les fichiers parquet en local. Ce
-  README la décrit en détail ci-dessous. Ses résultats chiffrés sont invalidés (voir son
-  `BACKLOG.md`) ; sa méthodologie reste une référence.
+  README la décrit en détail ci-dessous.
 - **`logistic-regression-study/`** — la table de panel pour la régression logistique, construite
   en BigQuery. Voir `logistic-regression-study/sql/` et `logistic-regression-study/BACKLOG.md`.
 
-**Pour comprendre les résultats de l'étude d'origine, lire d'abord** [`etude-exploratoire/documentations/2026-09-06-facteurs-et-programme-danalyse.md`](etude-exploratoire/documentations/2026-09-06-facteurs-et-programme-danalyse.md).
-**Pour son état d'avancement**, [`etude-exploratoire/BACKLOG.md`](etude-exploratoire/BACKLOG.md).
+## État au 2026-09-09
+
+Le comptage des suppressions a été corrigé le 2026-09-08 : **5 230 disparitions brutes ->
+4 747 suppressions retenues**, après retrait des ratés de collecte et de 24 bugs d'édition.
+Définition dans
+[`etude-exploratoire/scripts/suppressions_corrigees.py`](etude-exploratoire/scripts/suppressions_corrigees.py),
+seule copie hors BigQuery.
+
+Les résultats produits avant cette correction sont invalidés. Ils sont rassemblés dans
+`etude-exploratoire/documentations/to-update/` et **aucun de leurs chiffres ne doit être cité**.
+Les analyses A et B, le contrôle de robustesse et le Test 2 sont à relancer.
+
+**Trois points d'entrée, dans cet ordre :**
+
+1. [`etude-exploratoire/documentations/INDEX.md`](etude-exploratoire/documentations/INDEX.md) —
+   inventaire des 24 documents, chacun avec son statut : à jour, mixte, périmé.
+2. [`etude-exploratoire/documentations/2026-09-08-synthese-de-la-journee.md`](etude-exploratoire/documentations/2026-09-08-synthese-de-la-journee.md) —
+   les résultats valides, avec la commande qui régénère chacun.
+3. [`BONNES-ET-MAUVAISES-PRATIQUES.md`](BONNES-ET-MAUVAISES-PRATIQUES.md) — les écueils déjà
+   rencontrés et le contrôle qui aurait évité chacun. À lire avant de produire un chiffre.
+
+État d'avancement et prochaines étapes :
+[`etude-exploratoire/BACKLOG.md`](etude-exploratoire/BACKLOG.md).
 
 ---
 
@@ -21,12 +41,24 @@ Le projet a deux volets, dans deux dossiers séparés :
 Prérequis : [uv](https://docs.astral.sh/uv/). Rien d'autre à installer, `uv` s'occupe de Python
 et des dépendances à la première commande.
 
-Les données ne sont pas dans le dépôt (872 Mo et données personnelles). Il faut
+Les données ne sont pas dans le dépôt (838 Mo et données personnelles). Il faut
 `data/exports/exports/*.parquet` en place — voir « Les données » plus bas.
+
+Les scripts qui tournent sur le comptage corrigé n'ont besoin d'aucune table intermédiaire, ils
+lisent les parquet directement :
+
+```bash
+nice -n 19 .venv/bin/python etude-exploratoire/scripts/age_a_la_suppression.py
+nice -n 19 .venv/bin/python etude-exploratoire/scripts/histogramme_age_suppressions.py
+nice -n 19 .venv/bin/python etude-exploratoire/scripts/cas_attaque_salles_de_sport.py
+```
+
+Les scripts de l'étude d'origine passent par trois tables intermédiaires, construites par
+`build_tables.py`. **Ces tables reposent sur le comptage d'avant correction** : elles restent
+utilisables pour explorer, pas pour produire un résultat.
 
 ```bash
 uv run etude-exploratoire/scripts/build_tables.py      # ~20 s, construit les tables d'analyse
-uv run etude-exploratoire/scripts/level1_bivariate.py  # ~5 s, produit les résultats facteur par facteur
 uv run etude-exploratoire/scripts/query.py --tables    # vérifier que tout est là
 ```
 
@@ -39,7 +71,7 @@ Deux façons, selon qu'on veut une réponse chiffrée ou explorer visuellement.
 **Pour une question précise : `etude-exploratoire/scripts/query.py`.** Il ouvre les tables et exécute du SQL, sans
 rien installer ni écrire de code.
 
-**Pour explorer à la souris : `etude-exploratoire/explore.py`**, à la racine de ce dossier. Ouvrir le fichier dans VS Code,
+**Pour explorer à la souris : `etude-exploratoire/explore.py`.** Ouvrir le fichier dans VS Code,
 exécuter les cellules `# %%` avec `Shift+Entrée`, puis cliquer sur l'icône Data Wrangler à côté
 du DataFrame dans le panneau Variables. Les cellules chargent des extraits ciblés — Data
 Wrangler ne suit pas sur les 4,88 millions de lignes du corpus complet.
@@ -64,6 +96,9 @@ uv run etude-exploratoire/scripts/query.py "SELECT ..." --csv data/resultats/ma_
 uv run etude-exploratoire/scripts/query.py
 ```
 
+Le champ `deleted` de ces tables vient du comptage d'avant correction. Pour compter des
+suppressions, importer `suppressions_corrigees.py` plutôt qu'utiliser ce champ.
+
 ### Les trois tables
 
 | Nom | Lignes | Une ligne = |
@@ -74,6 +109,9 @@ uv run etude-exploratoire/scripts/query.py
 
 Les fichiers d'origine restent accessibles sous `reviews_brut`, `businesses_brut`,
 `histograms_brut`, `waves_brut`, si besoin de revenir à la source.
+
+Réserve sur `suivi` : son périmètre « frais » retenait tout avis vu pour la première fois pendant
+le suivi, ce qui y a fait entrer 819 avis de plus de 30 jours, dont 588 de plus d'un an.
 
 ### Pourquoi trois tables et pas une
 
@@ -89,21 +127,50 @@ délai, utiliser `suivi`.
 
 ---
 
-## Les résultats déjà produits
+## Les résultats valides
+
+Tous calculés sur le comptage corrigé. Détail et contrôles dans
+[la synthèse](etude-exploratoire/documentations/2026-09-08-synthese-de-la-journee.md).
 
 | Fichier | Contenu |
 |---|---|
-| [`etude-exploratoire/documentations/2026-09-06-premiers-resultats-facteur-par-facteur.md`](etude-exploratoire/documentations/2026-09-06-premiers-resultats-facteur-par-facteur.md) | Les 15 facteurs, avec le mode d'emploi des chiffres |
-| [`etude-exploratoire/documentations/2026-09-06-analyse-a-quel-etablissement.md`](etude-exploratoire/documentations/2026-09-06-analyse-a-quel-etablissement.md) | Quel établissement subit une intervention |
-| [`etude-exploratoire/documentations/2026-09-06-analyse-b-quel-avis-tombe.md`](etude-exploratoire/documentations/2026-09-06-analyse-b-quel-avis-tombe.md) | Dans une fiche touchée, quel avis tombe |
-| [`etude-exploratoire/documentations/2026-09-06-controle-robustesse.md`](etude-exploratoire/documentations/2026-09-06-controle-robustesse.md) | A et B rejouées sans les 24 fiches purgées |
-| [`etude-exploratoire/documentations/2026-09-06-verif-contenu-textuel.md`](etude-exploratoire/documentations/2026-09-06-verif-contenu-textuel.md) | **93,7 % des avis supprimés ne portent aucune faute visible** |
-| [`etude-exploratoire/documentations/2026-09-06-test2-debordement-organique.md`](etude-exploratoire/documentations/2026-09-06-test2-debordement-organique.md) | **Le chiffre du livrable** : le stock ancien meurt 1,5 à 1,7× plus dans les fiches à fort afflux |
+| [`2026-09-08-age-a-la-suppression.md`](etude-exploratoire/documentations/2026-09-08-age-a-la-suppression.md) | **La référence sur l'âge.** Suppressions par âge en jours et par journée du suivi, contrôles du pic, réconciliation des trois comptages d'avis récents |
+| [`2026-09-08-histogramme-age-des-suppressions.md`](etude-exploratoire/documentations/2026-09-08-histogramme-age-des-suppressions.md) | Les mêmes suppressions en tranches larges, risque par tranche, projections annuelles |
+| [`2026-09-08-cas-attaque-salles-de-sport.md`](etude-exploratoire/documentations/2026-09-08-cas-attaque-salles-de-sport.md) | Les deux fiches espagnoles attaquées, traitées séparément |
+| [`2026-09-08-note-de-methodo.md`](etude-exploratoire/documentations/2026-09-08-note-de-methodo.md) | Ce qui a été fait, ce qui a été jeté, les contrôles à ne pas refaire |
 | `data/resultats/*.csv` | Les mêmes chiffres, pour Excel |
 
-Le CSV contient, pour chaque facteur et chaque modalité : le nombre d'observations, le nombre de
-disparitions, le risque brut et le risque à âge comparable. C'est cette dernière colonne qu'il
-faut lire — voir l'explication dans la note.
+Les deux résultats les plus nets :
+
+- **Le pic de suppression tombe au septième jour de vie de l'avis** : 449 suppressions à 7 jours,
+  contre 279 à 6 jours et 118 à 8 jours. Vérifié comme un effet d'âge et non une purge — étalé
+  sur 12 des 13 journées du suivi et sur 144 établissements, et il survit au retrait des deux
+  journées les plus chargées.
+- **51,6 % des 4 747 suppressions frappent un avis de moins d'un mois, 30,3 % un avis de plus
+  d'un an.** Le vieux stock pèse par son volume (4,1 millions d'avis) et non par son risque :
+  0,0027 % par jour contre 0,2699 % pour un avis de moins d'un mois.
+
+## Les résultats à relancer
+
+Dans `etude-exploratoire/documentations/to-update/`. Chaque document garde sa méthode et ses
+pièges documentés ; ses chiffres tombent.
+
+| Fichier | Contenu | À relancer avec |
+|---|---|---|
+| [`to-update/2026-09-06-test2-debordement-organique.md`](etude-exploratoire/documentations/to-update/2026-09-06-test2-debordement-organique.md) | **Portait l'angle du livrable, à refaire en priorité.** Le stock ancien meurt-il plus dans les fiches à fort afflux récent | `test2_debordement.py` |
+| [`to-update/2026-09-06-analyse-a-quel-etablissement.md`](etude-exploratoire/documentations/to-update/2026-09-06-analyse-a-quel-etablissement.md) | Quel établissement subit une intervention | `analysis_a.py` |
+| [`to-update/2026-09-06-analyse-b-quel-avis-tombe.md`](etude-exploratoire/documentations/to-update/2026-09-06-analyse-b-quel-avis-tombe.md) | Dans une fiche touchée, quel avis tombe | `analysis_b.py` |
+| [`to-update/2026-09-06-controle-robustesse.md`](etude-exploratoire/documentations/to-update/2026-09-06-controle-robustesse.md) | A et B rejouées sans les fiches massivement purgées | `controle_robustesse.py` |
+| [`to-update/2026-09-06-premiers-resultats-facteur-par-facteur.md`](etude-exploratoire/documentations/to-update/2026-09-06-premiers-resultats-facteur-par-facteur.md) | Les 15 facteurs, avec le mode d'emploi des chiffres | `level1_bivariate.py` |
+
+Le CSV de `level1_bivariate.py` contient, pour chaque facteur et chaque modalité : le nombre
+d'observations, le nombre de disparitions, le risque brut et le risque à âge comparable. C'est
+cette dernière colonne qu'il faut lire — voir l'explication dans la note.
+
+Un résultat reste à recalculer sans être déplacé :
+[`2026-09-06-verif-contenu-textuel.md`](etude-exploratoire/documentations/2026-09-06-verif-contenu-textuel.md)
+conclut que la modération ne porte pas majoritairement sur des fautes visibles. La conclusion
+tient, ses pourcentages sont calculés sur l'ancien dénominateur.
 
 ---
 
@@ -111,21 +178,39 @@ faut lire — voir l'explication dans la note.
 
 Tous dans `etude-exploratoire/scripts/`.
 
+### Sur le comptage corrigé
+
 | Script | Ce qu'il fait | Sortie | Durée |
 |---|---|---|---|
-| `build_tables.py` | Lit l'export d'origine, calcule les caractéristiques, écrit les trois tables. Dix contrôles de cohérence en fin d'exécution. | `data/build/*.parquet` | 20 s |
+| `suppressions_corrigees.py` | Module partagé : la définition d'une suppression, et les vues DuckDB `avis`, `panel`, `waves`. Importé par les autres, ne se lance pas seul. | — | — |
+| `age_a_la_suppression.py` | Suppressions par âge en jours et par journée du suivi, contrôles du pic. `--age-max` règle le dernier âge. | Note + CSV | ~1 min |
+| `histogramme_age_suppressions.py` | Les mêmes en tranches larges, risque par tranche, projections. | Note + CSV | ~2 min |
+| `cas_attaque_salles_de_sport.py` | Le cas des deux fiches espagnoles, fiche par fiche. | Note | ~1 min |
+
+### De l'étude d'origine
+
+Ces scripts tournent, mais sur le comptage d'avant correction. Ils sont à reprendre pour
+importer `suppressions_corrigees.py`.
+
+| Script | Ce qu'il fait | Sortie | Durée |
+|---|---|---|---|
+| `build_tables.py` | Lit l'export, calcule les caractéristiques, écrit les trois tables. Dix contrôles de cohérence en fin d'exécution. | `data/build/*.parquet` | 20 s |
 | `level1_bivariate.py` | Risque de suppression facteur par facteur, à âge comparable, avec et sans les fiches purgées. | Note + CSV | 10 s |
+| `analysis_a.py` | Quel établissement subit une intervention, et de quelle ampleur. | Note + CSV | ~3 min |
 | `analysis_b.py` | Compare les avis d'une même fiche le même jour. `--bootstrap N` pour les marges d'erreur. | Note + CSV | 2 min ; **compter ~2 min par tirage de bootstrap** (30 tirages ≈ 1 h, 200 ≈ 7 h) |
-| `controle_robustesse.py` | Rejoue A et B sans les 24 fiches massivement purgées et met les coefficients côte à côte. | Note + CSV | ~7 min |
+| `controle_robustesse.py` | Rejoue A et B sans les fiches massivement purgées et met les coefficients côte à côte. | Note + CSV | ~7 min |
 | `verif_texte.py` | Onze marqueurs textuels (insultes, spam, charabia…) : la suppression a-t-elle une cause visible ? | Note + CSV | ~2 min |
+| `verif_reponse_proprietaire.py` | Ordre entre la réponse du propriétaire et la suppression. | Note | ~1 min |
 | `test2_debordement.py` | Le stock ancien meurt-il plus dans les fiches à fort afflux récent ? | Note + CSV | ~1 min |
 | `machine_learning.py` | Contrôle par forêt aléatoire et gradient boosting : reste-t-il un signal non repéré ? | Note + CSV | ~15 min |
+| `fiches_urls.py` | Produit les URL Google des fiches à inspecter à la main. | CSV | immédiat |
 | `query.py` | Interroge les tables en SQL. Ne modifie rien. | Écran ou CSV | immédiat |
 
 Tous sont **rejouables sans risque** : ils réécrivent leurs sorties à chaque exécution.
 
-Les scripts qui écrivent une note ne réécrivent que la partie comprise entre des marqueurs
-`<!-- genere:... -->`. Le texte d'analyse rédigé autour survit à une régénération.
+Les scripts de l'étude d'origine ne réécrivent que la partie de leur note comprise entre des
+marqueurs `<!-- genere:... -->`. Le texte d'analyse rédigé autour survit à une régénération. Les
+scripts du 2026-09-08 réécrivent leur note entière, donc tout leur texte est dans le script.
 
 ### Les calculs longs
 
@@ -139,8 +224,8 @@ setsid nohup uv run etude-exploratoire/scripts/analysis_b.py --bootstrap 30 \
 
 **Attention à la mémoire** : la machine de travail est passée de 7 à 16 Go le 2026-09-06. Le
 noyau avait tué un lancement du machine learning sous l'ancienne configuration. Le plafond
-DuckDB reste posé à 1-2 Go dans chaque script, et la règle tient : pas plus de deux calculs
-lourds en même temps, `free -m` avant de lancer.
+DuckDB reste posé à 1-6 Go dans chaque script, et la règle tient : pas plus de deux calculs
+lourds en même temps, `free -m` avant de lancer, `nice -n 19` au-delà de deux minutes.
 
 ---
 
@@ -165,10 +250,18 @@ précaution particulière. Ce n'est pas le cas des fichiers `reviews_brut`.
 
 ## Vocabulaire
 
-Trois termes reviennent partout.
+**Avis frais** — publié depuis moins de 30 jours. C'est le périmètre de la modélisation, parce
+que le risque de suppression s'effondre au-delà : 0,2699 % par jour pour un avis de moins d'un
+mois, 0,0027 % pour un avis de plus d'un an, soit 100 fois moins.
 
-**Avis frais** — publié depuis moins de 30 jours. C'est le périmètre de l'analyse, parce que le
-risque de suppression s'effondre au-delà : divisé par 15 à un mois, par 156 à un an.
+**Trois comptages d'avis récents supprimés coexistent**, tous justes, parce que l'âge peut se
+compter à trois moments différents. À citer avec leur code, jamais avec le seul chiffre :
+
+| Code | Définition | Suppressions |
+|---|---|---:|
+| **D1** | âge à la suppression strictement inférieur à 30 jours | 2 450 |
+| **D2** | âge à la suppression de 30 jours ou moins | 2 462 |
+| **D3** | avis de 30 jours ou moins au 11 août, supprimé à n'importe quel moment | 2 540 |
 
 **Risque par passage** — sur 1 000 avis en ligne, combien ont disparu au passage suivant du
 robot. Ce n'est pas la probabilité qu'un avis finisse supprimé, qui s'accumule sur plusieurs
