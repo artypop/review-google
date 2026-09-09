@@ -31,13 +31,13 @@
 -- réellement retiré puis remis en ligne.
 -- ============================================================================
 
-CREATE OR REPLACE TABLE `client-divers.reviewflowz.avis_deleted_panel` AS
+CREATE OR REPLACE TABLE `client-divers`.reviewflowz.avis_deleted_panel AS
 
 -- Une ligne par enregistrement de base (on écarte les lignes d'édition, qui
 -- ne concernent que 2 012 avis et dupliqueraient le compte).
 WITH base AS (
   SELECT review_id, cid, star, text, created_at, first_seen_at, last_seen_at, deleted_detected_at
-  FROM `client-divers.reviewflowz.reviews`
+  FROM `client-divers`.reviewflowz.reviews
   WHERE NOT is_update
 ),
 
@@ -155,7 +155,7 @@ SELECT
   END AS jours_sous_surveillance_avant_suppression
 
 FROM avec_vague_de_mort r
-JOIN `client-divers.reviewflowz.waves` w
+JOIN `client-divers`.reviewflowz.waves w
   ON w.wave >= 2
   AND r.first_seen_at < w.started_at
   AND (r.death_wave IS NULL OR w.wave <= r.death_wave)

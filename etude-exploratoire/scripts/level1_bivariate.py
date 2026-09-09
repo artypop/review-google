@@ -126,7 +126,7 @@ def render(title: str, df: pd.DataFrame, ref: str | None) -> str:
 
     out = [f"### {title}\n",
            "| | Observations | Disparitions | Risque brut | Risque à âge comparable | Écart | "
-           "Écart hors 24 fiches purgées |",
+           "Écart hors fiches attaquées |",
            "|---|---:|---:|---:|---:|---:|---:|"]
     for _, r in df.iterrows():
         flag = " (trop peu pour conclure)" if r["morts"] < THIN else ""
@@ -162,7 +162,8 @@ def main() -> None:
     c = duckdb.connect(config={'memory_limit': '1GB'})
     c.sql(f"CREATE VIEW h0 AS SELECT * FROM '{SRC}'")
     c.sql(f"CREATE VIEW b AS SELECT cid, heavy_purge FROM '{BIZ}'")
-    # heavy_purge = plus de 5 % des avis perdus ET au moins 10 suppressions. 24 fiches.
+    # heavy_purge : fiche attaquée. Au moins 10 suppressions, dont >= 80 % à 1 étoile et
+    # >= 80 % sur des avis écrits dans le mois. Défini dans build_tables.py.
     c.sql("CREATE VIEW h AS SELECT h0.*, coalesce(b.heavy_purge, FALSE) AS heavy_purge "
           "FROM h0 LEFT JOIN b USING (cid)")
 

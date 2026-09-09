@@ -82,19 +82,21 @@ fenêtre observée, le cumul baisse d'autant.
 Ce pic est isolé jour par jour dans `2026-09-08-age-a-la-suppression.md` : il tombe à 7 jours de
 vie exactement, avec 449 suppressions contre 279 à 6 jours et 118 à 8 jours.
 
-## 5. Contrôle — la répartition sans les fiches massivement purgées
+## 5. Contrôle — la répartition sans les fiches attaquées
 
-24 fiches ont perdu plus de 5 % de leurs avis pendant le suivi, soit
-682 suppressions (14,4 % du total).
+4 fiches portent la signature d'une attaque par avis négatifs — au moins
+10 suppressions, presque toutes à 1 étoile, presque toutes sur des avis écrits dans le mois —
+soit
+385 suppressions (8,1 % du total).
 Tableau 1 recalculé sans elles :
 
 | Âge à la suppression | Suppressions | Part |
 |---|---:|---:|
-| moins de 1 mois | 1 937 | 47,7 % |
-| 1 à 3 mois | 400 | 9,8 % |
-| 3 à 6 mois | 167 | 4,1 % |
-| 6 à 12 mois | 202 | 5,0 % |
-| plus de 1 an | 1 359 | 33,4 % |
+| moins de 1 mois | 2 070 | 47,5 % |
+| 1 à 3 mois | 451 | 10,3 % |
+| 3 à 6 mois | 183 | 4,2 % |
+| 6 à 12 mois | 223 | 5,1 % |
+| plus de 1 an | 1 435 | 32,9 % |
 
 ## Limites à dire à Axel
 
@@ -102,8 +104,8 @@ Tableau 1 recalculé sans elles :
   Rien ne le garantit : une vague de purge tombée dans la fenêtre gonflerait tout, une fenêtre
   calme sous-estimerait tout.
 - Les suppressions sont très concentrées : 85,4 % des
-  établissements n'en ont aucune, et les 24 fiches ayant perdu plus de 5 % de leurs
-  avis portent 14,4 % du total. Un taux moyen ne décrit aucun établissement en
+  établissements n'en ont aucune, et les 4 fiches ayant perdu plus de 5 % de leurs
+  avis portent 8,1 % du total. Un taux moyen ne décrit aucun établissement en
   particulier.
 - Le jour d'âge 0 est absent du cumul du § 4 : un avis n'est comparable qu'à partir du passage
   qui suit celui où le robot l'a découvert, donc son premier jour d'exposition est le jour 1.

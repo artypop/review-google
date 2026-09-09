@@ -18,7 +18,7 @@ est recalculé comme si tous les groupes avaient la même composition de strates
 déjà employée partout ailleurs dans l'étude pour l'âge, appliquée ici au marché.
 
 Deux contrôles accompagnent le résultat principal :
-  - le même calcul en retirant les 24 fiches massivement purgées ;
+  - le même calcul en retirant les fiches attaquées (voir build_tables.py, heavy_purge) ;
   - le même calcul sur les avis de plus de trois ans, encore plus éloignés de toute campagne.
 
 Usage :  uv run scripts/test2_debordement.py
@@ -52,10 +52,12 @@ LABELS = {"a_moins_1pct": "moins de 1 %", "b_1_3pct": "1 à 3 %",
 SQL = """
 WITH w AS (SELECT wave, started_at FROM 'WAVES'),
      anc AS (
-       SELECT a.row_id, a.cid, a.deleted, a.deleted_detected_at, a.age_days_w1,
-              -- vague de disparition : la première dont le passage suit la détection
+       SELECT a.row_id, a.cid, a.deleted, a.death_at, a.age_days_w1,
+              -- Vague de disparition : la première dont le passage suit la détection.
+              -- On date sur `death_at`, la date corrigée, et non sur la date brute
+              -- `deleted_detected_at`, qui compte aussi les ratés de collecte.
               CASE WHEN a.deleted THEN
-                (SELECT min(w.wave) FROM w WHERE w.started_at >= a.deleted_detected_at)
+                (SELECT min(w.wave) FROM w WHERE w.started_at >= a.death_at)
               END AS wave_mort
        FROM 'AVIS' a
        WHERE NOT a.born_during_panel      -- présent dès la vague 1 : pas de censure à droite
@@ -155,7 +157,7 @@ def main() -> None:
     g365 = charge(c, 365)
     scenarios = {
         "Stock de plus d'un an — tout le panel": standardise(g365),
-        "Stock de plus d'un an — sans les 24 fiches purgées":
+        "Stock de plus d'un an — sans les fiches attaquées":
             standardise(g365[~g365["heavy_purge"].astype(bool)]),
         "Stock de plus de trois ans — tout le panel": standardise(charge(c, 1095)),
     }

@@ -251,7 +251,7 @@ def write_note(out: pd.DataFrame, cov: pd.DataFrame, n_sans_texte: int, n_supp: 
     b.append("")
     b.append("### Marqueur par marqueur")
     b.append("")
-    b.append("| Marqueur | Part des supprimés | Part des survivants | Risque ×, à âge comparable | Sans les 24 fiches purgées |")
+    b.append("| Marqueur | Part des supprimés | Part des survivants | Risque ×, à âge comparable | Sans les fiches attaquées |")
     b.append("|---|---:|---:|---:|---:|")
     for _, r in out.iterrows():
         fmt = lambda v: ("—" if np.isnan(v) else  # noqa: E731

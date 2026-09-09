@@ -26,7 +26,9 @@ import sys
 import pandas as pd
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
-from suppressions_corrigees import connect, fr, vue_panel  # noqa: E402
+from suppressions_corrigees import (  # noqa: E402
+    connect, creer_vue_fiches_attaquees, fr, vue_panel,
+)
 
 OUT_MD = pathlib.Path("etude-exploratoire/documentations/2026-09-08-age-a-la-suppression.md")
 OUT_CSV = pathlib.Path("data/resultats/age_a_la_suppression.csv")
@@ -79,17 +81,16 @@ def par_jour(c) -> pd.DataFrame:
 
     `fiches` : sur combien d'établissements les suppressions du jour se répartissent.
     `pct_plus_grosse` : la part que porte l'établissement le plus touché ce jour-là.
-    `hors_fiches_purgees` : le même total, en écartant les établissements ayant perdu plus de
-    5 % de leur listing sur tout le suivi.
+    `hors_fiches_purgees` : le même total, en écartant les fiches attaquées (au moins 10
+    suppressions, presque toutes à 1 étoile et presque toutes sur des avis du mois). Règle
+    dans `suppressions_corrigees.py`.
     """
     return c.sql("""
         WITH morts AS (
             SELECT a.cid,
                    (SELECT max(w.wave) FROM waves w WHERE w.started_at <= a.death_at) AS vague
             FROM avis a WHERE a.death_at IS NOT NULL),
-        purgees AS (
-            SELECT cid FROM (SELECT cid, count(*) t, count(death_at) d FROM avis GROUP BY cid)
-            WHERE d::DOUBLE / t > 0.05),
+        purgees AS (SELECT cid FROM fiches_attaquees),
         pf AS (SELECT vague, cid, count(*) AS n FROM morts GROUP BY 1, 2)
         SELECT pf.vague, strftime(w.started_at, '%d/%m') AS date_du_passage,
                sum(pf.n)                                   AS suppressions,
@@ -147,6 +148,7 @@ def main() -> None:
 
     c = connect()
     vue_panel(c)
+    creer_vue_fiches_attaquees(c)
     t = tableau(c, a.age_max)
     jours = par_jour(c)
     tdef = trois_definitions(c)
@@ -205,6 +207,10 @@ affichent 0,554 % contre 0,215 % pour les autres âges, soit un rapport de 2,6. 
 le seul âge 7, le rapport tombe à 1,5 (0,275 % contre 0,184 %) et ne se vérifie plus que dans
 5 vagues sur 13. Ces 5 vagues comprennent les 16 et 23 août, les deux dimanches, qui sont les
 deux journées les plus chargées en suppressions de tout le suivi (706 et 479 sur 4 747).
+
+<!-- CHIFFRES À REPRENDRE : 0,554 / 0,215 / 2,6 / 1,5 / 0,275 / 0,184 / 706 / 479 / 4 747 sont
+écrits en dur dans le script et datent d'un passage antérieur à la correction de comptage et au
+dédoublonnage. Les relire dans les tableaux régénérés ci-dessus avant de diffuser ce document. -->
 
 Conclusion : le pic à 7 jours de vie est solide. Les bosses à 14, 21 et 28 jours sont
 essentiellement produites par ces deux dimanches, un avis publié un dimanche et supprimé un
@@ -267,7 +273,7 @@ Les trois vérifications concordent : le pic à {age_pic} jours est un effet d'�
 Le pendant du tableau ci-dessus, rangé par date au lieu de l'être par âge. Sert à savoir si une
 journée du suivi sort du lot.
 
-| Vague | Date | Suppressions | Fiches touchées | Part de la plus touchée | Hors fiches purgées à plus de 5 % |
+| Vague | Date | Suppressions | Fiches touchées | Part de la plus touchée | Hors fiches attaquées |
 |---:|---|---:|---:|---:|---:|
 """ + "\n".join(
         f"| {int(r.vague)} | {r.date_du_passage} | {fr(r.suppressions)} | {fr(r.fiches)} "
@@ -288,7 +294,7 @@ Chaque journée se répartit sur {fr(jours.fiches.min())} à {fr(jours.fiches.ma
 {fr(jours.pct_plus_grosse.max(), 0)} % des suppressions du jour, et le total de cette journée
 tombe de {fr(jours.loc[jours.pct_plus_grosse.idxmax(), 'suppressions'])} à
 {fr(jours.loc[jours.pct_plus_grosse.idxmax(), 'hors_fiches_purgees'])} en écartant les fiches
-purgées à plus de 5 %.
+attaquées.
 
 ## Fichiers produits
 

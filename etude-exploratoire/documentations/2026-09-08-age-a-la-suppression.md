@@ -71,6 +71,10 @@ le seul âge 7, le rapport tombe à 1,5 (0,275 % contre 0,184 %) et ne se vérif
 5 vagues sur 13. Ces 5 vagues comprennent les 16 et 23 août, les deux dimanches, qui sont les
 deux journées les plus chargées en suppressions de tout le suivi (706 et 479 sur 4 747).
 
+<!-- CHIFFRES À REPRENDRE : 0,554 / 0,215 / 2,6 / 1,5 / 0,275 / 0,184 / 706 / 479 / 4 747 sont
+écrits en dur dans le script et datent d'un passage antérieur à la correction de comptage et au
+dédoublonnage. Les relire dans les tableaux régénérés ci-dessus avant de diffuser ce document. -->
+
 Conclusion : le pic à 7 jours de vie est solide. Les bosses à 14, 21 et 28 jours sont
 essentiellement produites par ces deux dimanches, un avis publié un dimanche et supprimé un
 dimanche ayant par construction un âge multiple de 7. Ne pas en tirer de cycle hebdomadaire.
@@ -143,21 +147,21 @@ Les trois vérifications concordent : le pic à 7 jours est un effet d'âge, pas
 Le pendant du tableau ci-dessus, rangé par date au lieu de l'être par âge. Sert à savoir si une
 journée du suivi sort du lot.
 
-| Vague | Date | Suppressions | Fiches touchées | Part de la plus touchée | Hors fiches purgées à plus de 5 % |
+| Vague | Date | Suppressions | Fiches touchées | Part de la plus touchée | Hors fiches attaquées |
 |---:|---|---:|---:|---:|---:|
-| 2 | 12/08 | 500 | 201 | 15 % | 386 |
-| 3 | 13/08 | 354 | 200 | 6 % | 320 |
-| 4 | 14/08 | 153 | 139 | 3 % | 139 |
-| 5 | 15/08 | 195 | 129 | 15 % | 157 |
-| 6 | 16/08 | 706 | 227 | 26 % | 486 |
-| 7 | 17/08 | 760 | 227 | 5 % | 712 |
-| 8 | 18/08 | 295 | 199 | 6 % | 265 |
-| 9 | 19/08 | 262 | 176 | 3 % | 242 |
-| 10 | 20/08 | 289 | 159 | 7 % | 269 |
-| 11 | 21/08 | 247 | 145 | 10 % | 242 |
-| 12 | 22/08 | 283 | 134 | 10 % | 231 |
-| 13 | 23/08 | 479 | 275 | 6 % | 424 |
-| 14 | 24/08 | 224 | 147 | 8 % | 192 |
+| 2 | 12/08 | 500 | 201 | 15 % | 424 |
+| 3 | 13/08 | 354 | 200 | 6 % | 348 |
+| 4 | 14/08 | 153 | 139 | 3 % | 149 |
+| 5 | 15/08 | 195 | 129 | 15 % | 194 |
+| 6 | 16/08 | 706 | 227 | 26 % | 516 |
+| 7 | 17/08 | 760 | 227 | 5 % | 747 |
+| 8 | 18/08 | 295 | 199 | 6 % | 288 |
+| 9 | 19/08 | 262 | 176 | 3 % | 262 |
+| 10 | 20/08 | 289 | 159 | 7 % | 289 |
+| 11 | 21/08 | 247 | 145 | 10 % | 247 |
+| 12 | 22/08 | 283 | 134 | 10 % | 245 |
+| 13 | 23/08 | 479 | 275 | 6 % | 429 |
+| 14 | 24/08 | 224 | 147 | 8 % | 224 |
 
 Le volume varie d'un facteur 5,0 d'une
 journée à l'autre, de 153 le
@@ -171,8 +175,8 @@ Chaque journée se répartit sur 129 à 275
 16/08, un seul établissement porte
 26 % des suppressions du jour, et le total de cette journée
 tombe de 706 à
-486 en écartant les fiches
-purgées à plus de 5 %.
+516 en écartant les fiches
+attaquées.
 
 ## Fichiers produits
 

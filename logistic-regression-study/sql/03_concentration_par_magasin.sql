@@ -10,7 +10,7 @@ SELECT
   COUNT(*)                                    AS avis_total,
   COUNTIF(deleted)                            AS avis_supprimes,
   ROUND(100 * COUNTIF(deleted) / COUNT(*), 1) AS pct_supprimes
-FROM `client-divers.reviewflowz.avis_deleted_panel`
+FROM `client-divers`.reviewflowz.avis_deleted_panel
 GROUP BY cid
 HAVING COUNTIF(deleted) > 0
 ORDER BY avis_supprimes DESC
@@ -24,7 +24,7 @@ SELECT
   COUNT(*)                                    AS avis_total,
   COUNTIF(deleted)                            AS avis_supprimes,
   ROUND(100 * COUNTIF(deleted) / COUNT(*), 1) AS pct_supprimes
-FROM `client-divers.reviewflowz.avis_deleted_panel`
+FROM `client-divers`.reviewflowz.avis_deleted_panel
 GROUP BY cid
 HAVING COUNTIF(deleted) >= 10
     OR (COUNT(*) > 0 AND COUNTIF(deleted) / COUNT(*) > 0.05)

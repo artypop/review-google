@@ -21,8 +21,8 @@ recalculé à chaque passage, depuis `created_at` — la vraie date de publicati
 Google, pas la date où notre robot a vu l'avis.
 
 Définition d'une suppression : dans `suppressions_corrigees.py`, qui réimplémente en DuckDB la
-logique de logistic-regression-study/sql/01_build_avis_deleted_panel.sql. 5 230 disparitions
-brutes -> 4 747 suppressions retenues.
+logique de logistic-regression-study/sql/01_build_avis_deleted_panel.sql. 5 230 lignes de
+disparition, portées par 5 109 avis distincts, -> 4 737 suppressions retenues.
 
 Extrapolation annuelle : le suivi dure 14 jours, soit 13 intervalles d'un jour. Le risque
 quotidien est projeté sur 365 jours en risque composé, 1-(1-p)^365. C'est une projection à
@@ -39,7 +39,9 @@ import sys
 import pandas as pd
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
-from suppressions_corrigees import bloc_ascii, connect, fr, vue_panel  # noqa: E402
+from suppressions_corrigees import (  # noqa: E402
+    bloc_ascii, connect, creer_vue_fiches_attaquees, fr, vue_panel,
+)
 
 OUT_MD = pathlib.Path("etude-exploratoire/documentations/2026-09-08-histogramme-age-des-suppressions.md")
 OUT_CSV = pathlib.Path("data/resultats/histogramme_age_suppressions.csv")
@@ -144,29 +146,23 @@ def survie_premier_mois(c) -> pd.DataFrame:
 
 
 def tableau_hors_fiches_purgees(c) -> tuple[pd.DataFrame, int, int]:
-    """Tableau 6 — même répartition, en écartant les fiches massivement purgées.
+    """Tableau 6 — même répartition, en écartant les fiches attaquées.
 
     Les suppressions sont très concentrées : quelques fiches perdent une grosse part de leur
     listing d'un coup. Si la tranche « plus de 1 an » vient surtout de ces fiches-là, alors ce
     n'est pas un risque diffus qui pèse sur les vieux avis, c'est une poignée d'interventions
-    groupées. Le contrôle : refaire le tableau 1 sans les fiches ayant perdu plus de 5 % de
-    leurs avis, et regarder si la répartition tient.
+    groupées. Le contrôle : refaire le tableau 1 sans les fiches attaquées, et regarder si la
+    répartition tient. Règle dans `suppressions_corrigees.py`.
     """
-    c.sql("""
-        CREATE OR REPLACE VIEW fiches AS
-        SELECT cid, count(*) AS n_avis, count(death_at) AS n_supp,
-               count(death_at)::DOUBLE / count(*) AS part_purgee
-        FROM avis GROUP BY cid
-    """)
     n_fiches, n_supp = c.sql(
-        "SELECT count(*), sum(n_supp) FROM fiches WHERE part_purgee > 0.05").fetchone()
+        "SELECT count(*), sum(n_supprimes) FROM fiches_attaquees").fetchone()
     df = c.sql(f"""
         SELECT {TRANCHES} AS tranche,
                count(*)                                          AS suppressions,
                round(100.0 * count(*) / sum(count(*)) OVER (), 1) AS pct
         FROM panel p
         WHERE p.deleted
-          AND p.cid NOT IN (SELECT cid FROM fiches WHERE part_purgee > 0.05)
+          AND p.cid NOT IN (SELECT cid FROM fiches_attaquees)
         GROUP BY 1 ORDER BY 1
     """).df()
     return df, n_fiches, n_supp
@@ -175,6 +171,7 @@ def tableau_hors_fiches_purgees(c) -> tuple[pd.DataFrame, int, int]:
 def main() -> None:
     c = connect()
     vue_panel(c)
+    creer_vue_fiches_attaquees(c)
 
     total_avis, total_supp = c.sql("SELECT count(*), count(death_at) FROM avis").fetchone()
     brut = c.sql("SELECT count(*) FROM base WHERE deleted_detected_at IS NOT NULL").fetchone()[0]
@@ -188,8 +185,7 @@ def main() -> None:
     # — 84 % / 39 fiches — datent d'avant la correction et ne sont plus valables).
     pct_fiches_intactes, n_top, pct_top = c.sql("""
         WITH f AS (SELECT cid, count(*) AS n, count(death_at) AS d FROM avis GROUP BY cid),
-        top AS (SELECT sum(d) AS s, count(*) AS k FROM (
-                    SELECT d FROM f WHERE d::DOUBLE / n > 0.05))
+        top AS (SELECT sum(n_supprimes) AS s, count(*) AS k FROM fiches_attaquees)
         SELECT round(100.0 * count(*) FILTER (d = 0) / count(*), 1), any_value(top.k),
                round(100.0 * any_value(top.s) / sum(f.d), 1)
         FROM f, top
@@ -279,9 +275,11 @@ fenêtre observée, le cumul baisse d'autant.
 Ce pic est isolé jour par jour dans `2026-09-08-age-a-la-suppression.md` : il tombe à 7 jours de
 vie exactement, avec 449 suppressions contre 279 à 6 jours et 118 à 8 jours.
 
-## 5. Contrôle — la répartition sans les fiches massivement purgées
+## 5. Contrôle — la répartition sans les fiches attaquées
 
-{fr(n_fiches_purgees)} fiches ont perdu plus de 5 % de leurs avis pendant le suivi, soit
+{fr(n_fiches_purgees)} fiches portent la signature d'une attaque par avis négatifs — au moins
+10 suppressions, presque toutes à 1 étoile, presque toutes sur des avis écrits dans le mois —
+soit
 {fr(n_supp_purgees)} suppressions ({fr(100.0 * n_supp_purgees / total_supp, 1)} % du total).
 Tableau 1 recalculé sans elles :
 

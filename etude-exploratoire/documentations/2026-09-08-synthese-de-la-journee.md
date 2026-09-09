@@ -131,6 +131,9 @@ nice -n 19 .venv/bin/python etude-exploratoire/scripts/histogramme_age_suppressi
 **85,4 % des établissements n'ont aucune suppression.** Les 24 fiches ayant perdu plus de 5 % de
 leurs avis portent **14,4 %** des 4 747 suppressions.
 
+> **Ajout du 2026-09-09.** Le critère « plus de 5 % des avis perdus » est abandonné. Vérification fiche par fiche des 24 qu'il retenait : 2 attaquées, 1 retrait obtenu sur demande, 15 qui ne perdent que des avis 4 et 5 étoiles — le sujet même de l'étude — et 6 fiches de moins de 25 avis. Le nouveau critère retient 4 fiches et 385 suppressions, soit 8,1 % du total. Définition dans `../../CLAUDE.md`, Conventions de Restitution point 5. Les chiffres « 24 fiches / 682 suppressions / 14,4 % » de ce document ne décrivent plus la règle en vigueur.
+
+
 Les chiffres « 84 % / 39 fiches / 19,5 % » de `CLAUDE.md` et « 84 % / 39 fiches / 20 % » de la
 note du 2026-09-06 sont d'avant la correction et ne valent plus.
 

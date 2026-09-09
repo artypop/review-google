@@ -14,8 +14,8 @@ Tu es l'agent IA principal affecté au projet d'analyse quantitative des suppres
 ### Étape A : Planification et Approbation (Bloquant)
 
 Tu ne lances **aucune** analyse et ne produis **aucun** chiffre sans un plan préalablement approuvé par Romain. Tu peux lire le code, consulter le schéma ou lister les fichiers pour construire ce plan.
-Une fois le plan rédigé, **tu t'arrêtes et tu attends l'approbation**. Ne pose pas de question du type « dois-je lancer ? ».
-Le plan doit tenir en **10 lignes maximum** et inclure :
+Une fois le plan rédigé, **tu t'arrêtes et tu attends l'approbation**.
+Le plan doit tenir en **20 lignes maximum** et inclure :
 
 1. La question exacte à laquelle le calcul répond (1 phrase).
 2. L'unité de mesure et le dénominateur de chaque chiffre attendu.
@@ -23,34 +23,17 @@ Le plan doit tenir en **10 lignes maximum** et inclure :
 4. Les biais potentiels (censure, biais de sélection, périmètre, effet de composition).
 5. Le livrable produit (nom du fichier, type de tableau).
 
-### Étape B : Production et Auto-Relecture (Outil `Agent`)
-
-Tout livrable (note dans `documentations/`, tableau, affirmation chiffrée) doit être validé avant d'être présenté à Romain.
-Tu dois appeler un sous-agent via l'outil `Agent`, lui fournir ton script, la sortie brute et ton texte rédigé, et lui demander de vérifier **strictement** les 9 points suivants :
-
-1. Chaque pourcentage a son dénominateur explicite.
-2. Les ratios calculés sur plusieurs unités ne sont pas attribués à une seule.
-3. Les comptages utilisent bien la source corrigée (`suppressions_corrigees.py` / SQL BigQuery) et non les données pré-correction (résurrections/bugs).
-4. Aucune part calculée sur un sous-périmètre n'est présentée comme une part du corpus global.
-5. Les différences d'exposition entre catégories comparées sont explicitées.
-6. Aucune causalité n'est déduite d'une simple corrélation. Le contrôle a été effectué.
-7. Aucun fait sans rapport direct n'est artificiellement lié par "soit", "donc" ou un tiret.
-8. Les chiffres sont reproductibles via un script versionné ou une requête SQL.
-9. La terminologie est constante (un terme = un concept).
-
-**Action post-relecture :** Corrige les erreurs trouvées. Lors de ta réponse à Romain, indique en une ligne ce que le sous-agent a corrigé. S'il n'a rien trouvé, signale-le également en une ligne.
-
 ---
 
 ## 2. POSTURE ET STYLE DE COMMUNICATION
 
-**Ton et Rédaction :** Franc, direct, factuel. Pas d'introduction ni de conclusion de politesse. Privilégie les listes aux paragraphes. Ne contredis pas Romain par principe sur des micro-détails, sauf si cela invalide le raisonnement global.
+**Ton et Rédaction :** Franc, direct, factuel. Pas d'introduction ni de conclusion de politesse. Privilégie les listes aux paragraphes. Ne cherche pas en permanence la micro erreur de raisonnement. Ne contredis pas Romain par principe, sauf si cela a un véritable impact sur le raisonnement global.
 
 **Bannissements stricts (Tolérance Zéro) :**
 
 * **Méta-commentaires :** « pour être franc », « pour être clair », « ça devient intéressant », « ça transforme X en Y ».
 * **Métaphores et fioritures :** « se tirer une balle dans le pied », « jeter le bébé avec l'eau du bain ».
-* **Phrases chocs et effets "Mic-drop".**
+* **Phrases chocs et effets "Mic-drop".** "Le risque n'est pas le désordre, c'est la version", "Revoir l'atelier de données : à faire avant de poser les créneaux, pas après"
 * **Aphorismes, maximes et tournures gnomiques :** L'emploi du présent de vérité générale donnant un ton de loi absolue.
 * **Parallélismes de contraste :** « Le risque n'est pas X... c'est Y. »
 
@@ -68,7 +51,7 @@ Le projet est divisé en deux environnements cloisonnés.
 * **Techno :** DuckDB en lecture directe sur les fichiers Parquet locaux. Ne jamais charger le fichier `reviews.parquet` (834 Mo) entier en pandas ; toujours agréger en SQL d'abord.
 * **Contenu :** Notes de cadrage (`documentations/`), scripts, `BACKLOG.md`, `PASSATION.md`.
 * **Points d'entrée, dans cet ordre :** `documentations/INDEX.md` (inventaire des 24 documents statués : à jour / mixte / périmé), `documentations/2026-09-08-synthese-de-la-journee.md` (résultats validés et commande qui régénère chacun), `BONNES-ET-MAUVAISES-PRATIQUES.md` à la racine (écueils rencontrés, à ne pas répéter).
-* **`documentations/to-update/` contient les résultats calculés sur le comptage d'avant correction. Aucun de leurs chiffres ne doit être cité ni communiqué.** Les analyses A, B, le contrôle de robustesse et le Test 2 sont à relancer.
+* **`documentations/legacy/` contient les résultats d'avant correction. Aucun de leurs chiffres ne doit être cité ni communiqué.** Les analyses A, B, le contrôle de robustesse, le Test 2 et le facteur par facteur ont été relancés le 2026-09-09 ; leurs versions à jour sont dans `documentations/`. Trois documents restent définitivement périmés dans `legacy/`, faute de script pour les régénérer : ils gardent leur méthode et leurs pièges, pas leurs nombres.
 * **Règle de base DuckDB :** `CREATE VIEW r AS SELECT * FROM 'reviews.parquet' WHERE NOT is_update`
 
 ### B. Régression Logistique (`logistic-regression-study/`)
@@ -83,24 +66,24 @@ Le projet est divisé en deux environnements cloisonnés.
 
 ### Pièges du jeu de données (Contrôles obligatoires)
 
-1. **Unicité :** `review_id` n'est pas unique. Toujours filtrer `NOT is_update` pour les analyses de base.
+1. **Unicité :** `review_id` n'est pas unique, et **`NOT is_update` ne suffit pas à le rendre unique** : 617 avis — ceux qui ont disparu puis sont revenus — ont plusieurs enregistrements de base. Toute table à la maille avis doit dédoublonner explicitement, en gardant la première observation. Deux conséquences mesurées le 2026-09-09, avant correction : `avis_panel_final` comptait 766 suppressions deux fois (5 503 lignes pour 4 737 avis), et la caractéristique « rafale d'auteur » comptait l'enregistrement de disparition comme un second avis du même auteur le même jour — elle lisait donc en partie la suppression qu'on lui demandait de prédire. Corriger cette fuite a fait passer son effet de ×7,2 à ×3,9. Corrigé dans `sql/04_avis_features-v3.sql`, `sql/05_panel_final-v3.sql` et `etude-exploratoire/scripts/build_tables.py`.
 2. **Âge de l'avis :** Toujours stratifier sur l'âge (facteur dominant). Le modèle de temps doit utiliser `age_days` (connu à l'avance).
 3. **Vélocité :** Ne **jamais** utiliser `jours_en_ligne_avant_suppression` ou `jours_sous_surveillance_avant_suppression` comme variables d'entrée du modèle (fuite de données du futur).
-4. **Vraies suppressions :** `deleted_detected_at` seul est insuffisant (1 jour d'absence = raté de collecte ; ≥ 2 jours d'absence = vraie suppression ; 24 bugs d'édition confirmés, jamais une suppression). **Comptage de référence : 5 230 disparitions brutes -> 4 747 suppressions retenues.** Définition en local dans `etude-exploratoire/scripts/suppressions_corrigees.py`, seule copie hors BigQuery.
-5. **Concentration :** 85,4 % des 9 048 établissements du panel n'ont aucune suppression. Les 24 fiches ayant perdu plus de 5 % de leurs avis portent 14,4 % des 4 747 suppressions. L'analyse doit séparer l'effet établissement de l'effet avis (voir Architecture de modélisation).
+4. **Vraies suppressions :** `deleted_detected_at` seul est insuffisant (1 jour d'absence = raté de collecte ; ≥ 2 jours d'absence = vraie suppression ; 24 bugs d'édition confirmés, jamais une suppression). **Comptage de référence : 5 230 lignes de disparition, portées par 5 109 avis distincts (121 avis ont disparu plus d'une fois) -> 4 737 suppressions retenues.** Le 5 230 compte des événements, le 4 737 compte des avis : ne jamais les mettre de part et d'autre d'une flèche sans nommer les deux unités. **Les deux moteurs ne donnent pas le même total : 4 747 en DuckDB sur l'export parquet, 4 737 en BigQuery, à partir des mêmes 5 230 lignes et des mêmes 5 109 avis.** L'écart vient de la mesure du délai d'absence : `date_diff('day', ...)` en DuckDB compte les passages de minuit, `TIMESTAMP_DIFF(..., DAY)` en BigQuery compte la durée réelle. Six avis absents 45 à 46 heures valent « 2 jours » pour l'un et « 1 jour » pour l'autre, et basculent donc de côté. Les 4 avis restants ne sont pas expliqués. Citer le total avec son moteur. Définition en local dans `etude-exploratoire/scripts/suppressions_corrigees.py`, seule copie hors BigQuery.
+5. **Concentration :** 85,4 % des 9 048 établissements du panel n'ont aucune suppression. Le critère « plus de 5 % des avis perdus » retient 24 fiches portant 14,4 % des suppressions, mais il mélange trois situations opposées et **ne doit plus servir de règle** (voir Test de robustesse). L'analyse doit séparer l'effet établissement de l'effet avis (voir Architecture de modélisation).
 6. **Bruit :** Le renouvellement d'URL de photos n'est pas un signal. L'histogramme se met à jour avant le listing (source de vérité = listing).
 
 ### Périmètre de modélisation
 
-* **Cible :** Avis frais (≤ 30 jours). 107 821 avis, dont 2 540 supprimés, soit **2,36 % de ces 107 821 avis**. À comparer au taux du corpus entier : **0,097 %, soit 4 747 suppressions sur 4 877 534 avis**.
+* **Cible :** Avis frais (≤ 30 jours). **106 144 avis, dont 2 637 supprimés, soit 2,48 % de ces 106 144 avis** (recalculé le 2026-09-09 après dédoublonnage ; les valeurs 107 821 / 2 540 / 2,36 % datent d'avant et ne doivent plus être citées). À comparer au taux du corpus entier : **0,097 %, soit 4 747 suppressions sur 4 877 534 avis** (moteur DuckDB — voir le point 4 sur l'écart entre moteurs).
 * **Le périmètre restreint sur l'âge de l'avis, pas sur son sort** : tous les avis frais sont gardés, supprimés et non supprimés.
-* **Trois comptages d'« avis récents supprimés » coexistent, tous justes.** À citer avec leur code, jamais avec le seul chiffre : **D1** = 2 450 (âge à la suppression < 30 j, la tranche « moins de 1 mois »), **D2** = 2 462 (âge à la suppression ≤ 30 j, le filtre `age_days <= 30` du panel), **D3** = 2 540 (avis de ≤ 30 j au 11 août, supprimé à n'importe quel moment). Détail des écarts dans `etude-exploratoire/documentations/2026-09-08-age-a-la-suppression.md`.
+* **Trois comptages d'« avis récents supprimés » coexistent, tous justes.** À citer avec leur code, jamais avec le seul chiffre : **D1** = 2 450 (âge à la suppression < 30 j, la tranche « moins de 1 mois »), **D2** = 2 462 (âge à la suppression ≤ 30 j, le filtre `age_days <= 30` du panel), **D3** = 2 637 (avis de ≤ 30 j au 11 août, supprimé à n'importe quel moment ; valait 2 540 avant le dédoublonnage du 2026-09-09). D1 et D2 sont inchangés par cette correction. Détail des écarts dans `etude-exploratoire/documentations/2026-09-08-age-a-la-suppression.md`.
 * **Traitement du stock ancien :** Conservé uniquement pour le Test 2 (débordements sur l'organique), le calcul des features d'établissement, et les comparaisons frais/ancien.
 * **Éléments exclus (ne pas proposer) :** Score de génération IA, redondance de texte exacte intra-établissement, données absentes (adresse, téléphone), expérimentations par injection d'avis.
 
 ### Architecture de modélisation (Deux volets)
 
-* **Analyse A (Établissement) :** Qui subit l'intervention ? (Unité : établissement. Régresseurs : vélocité, secteur, taille, volume, trajectoire de note).
+* **Analyse A (Établissement) :** Qui subit l'intervention ? (Unité : établissement. Régresseurs : vélocité, secteur, taille, volume, trajectoire de note). **Réserve du 2026-09-09 : son second modèle, l'ampleur de la purge, n'est pas exploitable.** Il tourne sur 396 fiches et 6 de ses effets changent de sens quand on en retire 4. Le premier modèle, « être touché », tient.
 * **Analyse B (Avis) :** Lequel saute lors d'une purge ? (Unité : avis sur les établissements touchés. Méthode : Logistique conditionnelle à effets fixes d'établissement). Groupement des erreurs-types par enseigne.
 
 ### Conventions de Restitution
@@ -109,10 +92,10 @@ Le projet est divisé en deux environnements cloisonnés.
 2. Évaluer la performance par **AUC et calibration**, jamais par exactitude (Accuracy).
 3. Découpage train/test par **établissement et par auteur**, jamais aléatoire par ligne.
 4. Sous-échantillonnage des négatifs autorisé (corriger la constante).
-5. **Test de robustesse :** Toujours relancer les modèles sans les 24 fiches ayant perdu plus de 5 % de leurs avis, pour vérifier la tenue des conclusions. Y figurent les deux salles de sport espagnoles attaquées, qui portent à elles seules 364 suppressions.
+5. **Test de robustesse :** Toujours relancer les modèles sans les fiches attaquées, pour vérifier la tenue des conclusions.
 
----
+   **Définition d'une fiche attaquée** (validée le 2026-09-09, remplace le critère des 5 %) : au moins 10 suppressions, dont au moins 80 % à 1 étoile, dont au moins 80 % sur des avis écrits depuis moins de 30 jours. Elle retient 4 fiches et 385 suppressions : les deux salles de sport espagnoles (229 et 135), Fox Rent A Car Denver (10) et MedVet Cleveland (11). Ces deux dernières ont trop d'avis pour que l'ancien seuil en pourcentage les voie (0,10 % et 0,74 % de leur stock).
 
-## 5. SÉCURITÉ ET DONNÉES PERSONNELLES (RGPD)
+   **Pourquoi l'ancien critère des 5 % est abandonné.** Vérification fiche par fiche des 24 qu'il retenait : 2 sont attaquées ; 1 est l'autocariste allemand Bischoff Touristik, qui perd 48 avis négatifs écrits sur 8 ans, médiane 3 ans, aucun de moins de 30 jours — un retrait obtenu sur demande, pas une attaque ; 15 ne perdent que des avis 4 et 5 étoiles, surtout des artisans américains, c'est-à-dire le phénomène même que l'étude documente ; 6 ont moins de 25 avis, dont une à 2 avis qui atteignait le seuil avec une seule suppression. Exclure ces 21 fiches amputait le corpus de son sujet.
 
-* **Règle d'or :** Le dossier `data/` est ignoré par Git. Ne **jamais** committer d'extraits de données ou de PII.
+   **Variable à ne pas citer en l'état :** `langue_etrangere_au_pays` compare un code de langue à un code de pays. 71 % des avis américains y sont comptés « étrangers » parce que `en` n'est pas `us`. Elle mesure surtout « établissement américain ». À reconstruire avec une table pays → langues officielles.

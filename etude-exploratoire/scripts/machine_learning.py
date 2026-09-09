@@ -24,7 +24,7 @@ Trois précautions, sans lesquelles le résultat serait faux
   - **Jamais le taux de bonnes réponses.** Répondre « jamais supprimé » donne 97 % de réussite
     sur ce périmètre. On mesure la capacité à classer (AUC) et la précision moyenne.
   - **Contrôle sans les fiches purgées.** Sans lui, le modèle apprend surtout à reconnaître les
-    24 établissements massivement purgés.
+    établissements attaqués.
 
 Mémoire
 -------
@@ -211,7 +211,7 @@ def main() -> None:
 
     perf_all, imp_all = run(d, "Tout le panel", a.avec_foret)
     sans = d[d["fiche_purgee"] == 0]
-    perf_ctrl, imp_ctrl = run(sans, "Sans les 24 fiches purgées", a.avec_foret)
+    perf_ctrl, imp_ctrl = run(sans, "Sans les fiches attaquées", a.avec_foret)
 
     perf = pd.concat([perf_all, perf_ctrl], ignore_index=True)
     imp = pd.concat([imp_all, imp_ctrl], ignore_index=True)
@@ -295,7 +295,7 @@ au lieu d'apprendre une règle. Les auteurs présents des deux côtés sont reti
 moins d'occasions de disparaître. Sans cette variable, le modèle apprendrait surtout la date de
 publication.
 
-**Un second passage sans les 24 fiches massivement purgées.** Elles portent 23 % des
+**Un second passage sans les fiches attaquées.** Elles portent 23 % des
 suppressions. Si les performances s'effondrent sans elles, c'est qu'on avait surtout appris à
 reconnaître ces établissements.
 

@@ -80,8 +80,11 @@ def main() -> None:
     # 2. Chez les avis supprimés qui ont une réponse : arrivée avant ou après la suppression ?
     ordre = c.sql("""
         SELECT count(*) AS supprimes_avec_reponse,
-               count(*) FILTER (reply_date < deleted_detected_at) AS reponse_avant,
-               count(*) FILTER (reply_date >= deleted_detected_at) AS reponse_apres
+               -- Comparaison à `death_at`, la date de suppression corrigée. Sur la date
+               -- brute, un raté de collecte d'un jour ferait basculer une réponse du
+               -- côté « après la suppression » alors que l'avis n'a jamais été supprimé.
+               count(*) FILTER (reply_date < death_at)  AS reponse_avant,
+               count(*) FILTER (reply_date >= death_at) AS reponse_apres
         FROM a WHERE is_fresh AND deleted AND has_reply AND reply_date IS NOT NULL
     """).df().iloc[0]
 

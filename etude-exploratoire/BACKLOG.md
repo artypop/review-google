@@ -1,24 +1,79 @@
 # Backlog — Analyse suppressions d'avis Google
 
-Dernière mise à jour : 2026-09-08.
+Dernière mise à jour : 2026-09-09.
 
 Légende : `[ ]` à faire · `[~]` en cours · `[x]` fait · `[!]` bloqué
 
 ---
 
-## État du projet au 2026-09-08
+## État du projet au 2026-09-09
 
-Le comptage des suppressions **est corrigé**. La référence est
-`scripts/suppressions_corrigees.py` en local et
+Le comptage des suppressions est corrigé **et** la table maîtresse est dédoublonnée. La
+référence reste `scripts/suppressions_corrigees.py` en local et
 `logistic-regression-study/sql/01_build_avis_deleted_panel.sql` en BigQuery :
-**5 230 disparitions brutes -> 4 747 suppressions retenues.**
+**5 230 lignes de disparition, portées par 5 109 avis distincts, -> 4 747 suppressions
+retenues en DuckDB, 4 737 en BigQuery.** L'écart de 10 tient à la mesure du délai d'absence,
+détail dans `../CLAUDE.md` point 4.
 
-- **Valides** : les quatre notes du 2026-09-08, listées dans `documentations/INDEX.md`.
-- **Périmés** : les résultats des huit documents déplacés dans `documentations/to-update/`.
-  Aucun de leurs chiffres ne doit être cité. Les analyses A, B, le contrôle de robustesse et le
-  Test 2 sont à relancer sur le comptage corrigé.
-- **Toujours valables** : les méthodes, décisions et questions ouvertes des sept documents
-  mixtes restés dans `documentations/`.
+- **Valides** : les quatre notes du 2026-09-08, plus les cinq documents relancés le 2026-09-09
+  (analyses A et B, contrôle de robustesse, Test 2, facteur par facteur). Liste dans
+  `documentations/INDEX.md`.
+- **Périmés** : trois documents restent dans `documentations/legacy/`, ceux qui n'ont pas de
+  script pour les régénérer. Aucun de leurs chiffres ne doit être cité.
+- **Toujours valables** : les méthodes, décisions et questions ouvertes des documents mixtes
+  restés dans `documentations/`.
+
+## Fait le 2026-09-09 : trois défauts corrigés dans la chaîne locale
+
+- [x] **`build_tables.py` n'appliquait pas la correction de comptage.** Son `deleted` valait
+      `deleted_detected_at IS NOT NULL`, la disparition brute. Seuls 3 scripts sur 15
+      importaient `suppressions_corrigees.py`, et c'est exactement pourquoi les documents de
+      `legacy/` portaient le comptage d'avant correction. La cible vient maintenant de
+      `death_at`, et `reviews_features` expose les deux dates, la corrigée et la brute.
+- [x] **`WHERE NOT is_update` ne rend pas une ligne par avis.** 617 avis — ceux qui ont disparu
+      puis sont revenus — ont plusieurs enregistrements de base. `base` dédoublonne maintenant
+      en gardant la première observation, la seule certainement antérieure à la suppression.
+- [x] **La fuite que ce doublon créait.** `author_agg` calculait
+      `count(*) > 1 AND span <= 1` : un auteur n'ayant écrit qu'un seul avis, mais dont l'avis
+      avait disparu puis était revenu, sortait étiqueté « rafale ». La caractéristique lisait
+      donc en partie la suppression qu'on lui demandait de prédire. Vérifié sur un jeu construit
+      et mesuré côté BigQuery : l'effet des rafales passe de ×7,2 à ×3,9.
+- [x] **La règle « fiche massivement purgée » est remplacée.** Voir `../CLAUDE.md`, Conventions
+      de Restitution point 5, pour la nouvelle définition et le détail des trois familles que
+      l'ancienne mélangeait. Les seuils sont dans `suppressions_corrigees.py`, en un seul
+      exemplaire, utilisés par `build_tables.py` et par la vue `fiches_attaquees`.
+- [x] **Deux contrôles de `build_tables.py` validaient l'ancien comportement** : « avis de base
+      = 4 878 151 » figeait le compte avant dédoublonnage, « suppressions = 5 230 » comptait des
+      événements. Remplacés par des contrôles structurels.
+- [x] Relancé `build_tables.py`, puis les analyses A et B, le contrôle de robustesse, le Test 2
+      et le facteur par facteur. Tous les contrôles de cohérence passent.
+
+## Résultats du 2026-09-09
+
+- **L'analyse B tient entièrement.** Ses 26 effets survivent au retrait des fiches attaquées.
+  Les plus forts : rafale d'auteur ×5,30, avis 1 étoile ×3,57, avis modifié depuis publication
+  ×1,94. Le premier effet protecteur est la réponse du propriétaire, ×0,30.
+- **Un avis 5 étoiles est plus supprimé qu'un avis 4 étoiles** (×1,24). Le tri ne vise pas que
+  les avis négatifs.
+- **Ni la longueur du texte ni la langue ne mesurent quoi que ce soit** (×1,00 à ×1,13 sur
+  toutes les tranches). L'étude BigQuery arrive au même constat.
+- **Le pic est entre 7 et 13 jours**, pas au dépôt : 0-6 jours ×0,44 par rapport à cette tranche.
+- **Test 2 tient** : ×1,46 et ×1,76 sur le stock de plus d'un an, selon la part du stock récent
+  perdue. Survit au retrait des fiches attaquées. La tranche « 10 % et plus » est **non
+  exploitable** — couverture des strates à 21 %, à ne pas citer.
+- **Analyse A** : home_services ×3,94, États-Unis ×1,40, wellness_fitness ×1,68 mais fragile.
+  Son second modèle, l'ampleur de la purge, n'est pas exploitable.
+
+## À faire
+
+- [ ] **Relire les paragraphes de récit des scripts.** Les tableaux sont régénérés, les phrases
+      autour portent encore des chiffres écrits en dur d'un passage antérieur. Un seul est
+      marqué, dans `age_a_la_suppression.py`. Les quatorze autres scripts ne sont pas audités.
+- [ ] **Les 4 avis d'écart** entre DuckDB (4 747) et BigQuery (4 737) restent inexpliqués. Six
+      des dix le sont : convention de comptage des jours.
+- [ ] **Balayage systématique des attaques par avis négatifs.** La nouvelle règle en trouve 4
+      là où on en connaissait 2, dont une petite attaque sur une fiche de 9 545 avis qu'aucun
+      seuil en pourcentage ne pouvait voir.
 
 Synthèse des résultats du jour : `documentations/2026-09-08-synthese-de-la-journee.md`.
 Écueils à ne pas répéter : `../BONNES-ET-MAUVAISES-PRATIQUES.md`.

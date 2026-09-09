@@ -12,17 +12,24 @@ Le projet a deux volets, dans deux dossiers séparés :
 
 ## État au 2026-09-09
 
-Le comptage des suppressions a été corrigé le 2026-09-08 : **5 230 disparitions brutes ->
-4 747 suppressions retenues**, après retrait des ratés de collecte et de 24 bugs d'édition.
+Le comptage des suppressions a été corrigé le 2026-09-08, puis la table maîtresse dédoublonnée
+le 2026-09-09 : **5 230 lignes de disparition, portées par 5 109 avis distincts, -> 4 747
+suppressions retenues en DuckDB** (4 737 en BigQuery, voir `CLAUDE.md` point 4), après retrait
+des ratés de collecte et de 24 bugs d'édition. Le 5 230 compte des événements, le 4 747 compte
+des avis.
 Définition dans
 [`etude-exploratoire/scripts/suppressions_corrigees.py`](etude-exploratoire/scripts/suppressions_corrigees.py),
 seule copie hors BigQuery.
 
-Les résultats produits avant cette correction sont invalidés. Ils sont rassemblés dans
-`etude-exploratoire/documentations/to-update/` et **aucun de leurs chiffres de résultat ne doit
-être cité**. Leurs métadonnées d'exécution — durées de scripts, tailles de tables — restent les
-seules sources disponibles et sont reprises ci-dessous.
-Les analyses A et B, le contrôle de robustesse et le Test 2 sont à relancer.
+**Les analyses A et B, le contrôle de robustesse, le Test 2 et le facteur par facteur ont été
+relancés le 2026-09-09** sur le comptage corrigé et la table dédoublonnée. Leurs notes sont
+revenues dans `etude-exploratoire/documentations/`. Trois documents restent périmés dans
+`legacy/`, ceux qui n'ont pas de script pour les régénérer : aucun de leurs chiffres de
+résultat ne doit être cité.
+
+Réserve sur les cinq notes relancées : leurs tableaux sont régénérés, mais les paragraphes de
+récit écrits en dur dans les scripts n'ont pas été relus. Vérifier une phrase chiffrée dans le
+tableau au-dessus d'elle avant de la citer.
 
 **Trois points d'entrée, dans cet ordre :**
 
@@ -155,23 +162,25 @@ Les deux résultats les plus nets :
   observations d'avis de plus d'un an, contre 0,2699 % sur 907 588 observations d'avis de moins
   d'un mois.
 
-## Les résultats à relancer
+## Les résultats relancés le 2026-09-09
 
-Dans `etude-exploratoire/documentations/to-update/`. Chaque document garde sa méthode et ses
-pièges documentés ; ses chiffres tombent.
+Régénérés sur le comptage corrigé et la table dédoublonnée. Revenus dans
+`etude-exploratoire/documentations/`.
 
-| Fichier | Contenu | À relancer avec |
+| Fichier | Contenu | Régénéré par |
 |---|---|---|
-| [`to-update/2026-09-06-test2-debordement-organique.md`](etude-exploratoire/documentations/to-update/2026-09-06-test2-debordement-organique.md) | **Portait l'angle du livrable, à refaire en priorité.** Le stock ancien meurt-il plus dans les fiches à fort afflux récent | `test2_debordement.py` |
-| [`to-update/2026-09-06-analyse-a-quel-etablissement.md`](etude-exploratoire/documentations/to-update/2026-09-06-analyse-a-quel-etablissement.md) | Quel établissement subit une intervention | `analysis_a.py` |
-| [`to-update/2026-09-06-analyse-b-quel-avis-tombe.md`](etude-exploratoire/documentations/to-update/2026-09-06-analyse-b-quel-avis-tombe.md) | Dans une fiche touchée, quel avis tombe | `analysis_b.py` |
-| [`to-update/2026-09-06-controle-robustesse.md`](etude-exploratoire/documentations/to-update/2026-09-06-controle-robustesse.md) | A et B rejouées sans les fiches massivement purgées | `controle_robustesse.py` |
-| [`to-update/2026-09-06-premiers-resultats-facteur-par-facteur.md`](etude-exploratoire/documentations/to-update/2026-09-06-premiers-resultats-facteur-par-facteur.md) | Les 15 facteurs, avec le mode d'emploi des chiffres | `level1_bivariate.py` |
+| [`2026-09-06-analyse-b-quel-avis-tombe.md`](etude-exploratoire/documentations/2026-09-06-analyse-b-quel-avis-tombe.md) | **Le résultat le plus solide.** Quel avis tombe dans une fiche touchée. Ses 26 effets tiennent tous au contrôle de robustesse | `analysis_b.py` |
+| [`2026-09-06-test2-debordement-organique.md`](etude-exploratoire/documentations/2026-09-06-test2-debordement-organique.md) | **L'angle du livrable.** Le stock de plus d'un an meurt davantage dans les fiches à fort afflux récent : ×1,46 et ×1,76 | `test2_debordement.py` |
+| [`2026-09-06-controle-robustesse.md`](etude-exploratoire/documentations/2026-09-06-controle-robustesse.md) | A et B rejouées sans les fiches attaquées. 49 effets tiennent sur 68 ; les 6 qui ne tiennent pas sont tous dans le modèle d'ampleur de A | `controle_robustesse.py` |
+| [`2026-09-06-analyse-a-quel-etablissement.md`](etude-exploratoire/documentations/2026-09-06-analyse-a-quel-etablissement.md) | Quel établissement subit une intervention. **Son second modèle, l'ampleur de la purge, n'est pas exploitable** | `analysis_a.py` |
+| [`2026-09-06-premiers-resultats-facteur-par-facteur.md`](etude-exploratoire/documentations/2026-09-06-premiers-resultats-facteur-par-facteur.md) | Les 15 facteurs, avec le mode d'emploi des chiffres | `level1_bivariate.py` |
 
-`to-update/` contient trois autres documents, sans script associé : l'enquête sur les fiches
-purgées — c'est le raisonnement qui a fondé la correction du comptage —, l'ancienne synthèse
-générale, qui garde la liste « ce qu'il ne faut pas dire à Axel », et les premières observations
-du 2026-09-04. Voir
+## Les résultats encore périmés
+
+`legacy/` garde trois documents sans script associé : l'enquête sur les fiches purgées —
+c'est le raisonnement qui a fondé la correction du comptage —, l'ancienne synthèse générale, qui
+garde la liste « ce qu'il ne faut pas dire à Axel », et les premières observations du
+2026-09-04. Voir
 [`INDEX.md`](etude-exploratoire/documentations/INDEX.md).
 
 Le CSV de `level1_bivariate.py` contient, pour chaque facteur et chaque modalité : le nombre
@@ -219,11 +228,11 @@ importer `suppressions_corrigees.py`.
 
 Les scripts réécrivent leurs sorties à chaque exécution, sans effet de bord.
 
-**Les huit scripts de l'étude d'origine ne peuvent pas régénérer leur note en l'état.** Ils
-écrivent dans `documentations/<nom>.md`, chemin relatif au répertoire courant : ce dossier
-n'existe pas à la racine du dépôt, et les notes visées ont été déplacées dans
-`etude-exploratoire/documentations/to-update/`. Leur constante `OUT` est à reprendre avant toute
-relance. Leurs calculs et leurs CSV, eux, fonctionnent.
+**Les scripts de l'étude d'origine se lancent depuis `etude-exploratoire/`, pas depuis la
+racine.** Ils écrivent dans `documentations/<nom>.md` et lisent dans `data/`, deux chemins
+relatifs au répertoire courant. Comme `data/` est à la racine du dépôt, il faut un lien :
+`ln -sfn ../data etude-exploratoire/data`, puis lancer depuis `etude-exploratoire/`. Sans ce
+lien, les calculs tournent depuis la racine mais l'écriture de la note échoue.
 
 Ces huit scripts ne réécrivent que la partie de leur note comprise entre des marqueurs
 `<!-- genere:... -->`, donc le texte d'analyse rédigé autour survit à une régénération. Les trois

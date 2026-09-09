@@ -1,6 +1,6 @@
 # Backlog — Étude régression logistique
 
-Dernière mise à jour : 2026-09-07.
+Dernière mise à jour : 2026-09-09.
 
 Légende : `[ ]` à faire · `[~]` en cours · `[x]` fait
 
@@ -22,6 +22,62 @@ Légende : `[ ]` à faire · `[~]` en cours · `[x]` fait
   reste ouvert jusqu'à cette validation.
 
 ---
+
+## Fait le 2026-09-09
+
+### Table de panel : deux défauts de construction corrigés
+
+- [x] **`avis_panel_final` comptait 766 suppressions deux fois.** 5 503 lignes à `deleted = 1`
+      pour 4 737 avis réellement supprimés. Cause : `05_panel_final-v2.sql` joignait `reviews`
+      et `avis_features`, deux tables non dédoublonnées, donc chaque avis disparu puis revenu
+      sortait multiplié par 4 à chaque vague. Corrigé par `sql/04_avis_features-v3.sql` et
+      `sql/05_panel_final-v3.sql`, exécutés le 2026-09-09. Contrôle après exécution :
+      63 148 730 lignes pour autant de couples (avis, vague), et 4 737 lignes supprimées.
+- [x] **Fuite de données du futur sur la rafale d'auteur.** La ligne en double vient de la
+      disparition de l'avis, et elle était comptée dans les avis du même auteur le même jour.
+      Sur les 602 avis concernés, 229 sont supprimés — 38 %, contre 0,1 % dans le corpus. Après
+      correction, l'effet passe de ×7,2 à ×3,9 pour un auteur qui poste 3 avis le même jour.
+- [x] Ajouté `author_key` à `avis_features`, nécessaire au découpage entraînement / test par
+      auteur exigé par les Conventions de Restitution.
+
+### Programme statsmodels
+
+- [x] **Écrit `06_statsmodels_analysis_review_claude.py`.** Périmètre : les avis de moins de
+      3 mois à leur première vague, 239 491 avis et 2 894 267 lignes avis-vague, chargés en
+      351 Mo au lieu des 20 Go que demandait le `SELECT *` initial.
+- [x] Retiré le repli qui fabriquait 15 000 lignes aléatoires quand BigQuery ne répondait pas,
+      et imprimait des coefficients d'allure crédible. Le script s'arrête maintenant.
+- [x] GLM binomial, marges d'incertitude groupées par établissement, sous-échantillonnage des
+      négatifs à 5 % avec correction de la constante **et** des probabilités prédites.
+- [x] Variables qui se recouvraient, recombinées : `rc_zero` / `lg_level_missing` /
+      `new_account` en une variable à quatre situations exclusives, `has_text` /
+      `log_text_chars` en tranches de longueur. Avant, `new_account` sortait à ×0,49 — un signe
+      négatif pour une caractéristique qui augmente le risque.
+- [x] AUC 0,884 sur des établissements jamais vus, calibration juste sur les dix tranches.
+
+### Résultats
+
+- 44 % des 2 919 suppressions du périmètre frappent un avis 4 ou 5 étoiles, rédigé, isolé, écrit
+  par un compte établi. **C'est le chiffre pour Axel.**
+- Le pic est entre 4 et 7 jours, pas au dépôt. Six suppressions sur dix tombent entre le 4e et
+  le 14e jour.
+- Un avis 5 étoiles passe de 14,2 à 71,3 suppressions pour 10 000 lignes avis-vague entre
+  0-3 jours et 4-7 jours.
+- Réponse du commerçant ×0,68, et ×0,63 sans les fiches attaquées : le seul effet qui se
+  renforce quand on les retire.
+- Secteur home_services ×5,17. L'étude exploratoire trouve ×3,94 de son côté.
+
+### À ne pas citer
+
+- [ ] **`langue_etrangere_au_pays` est défectueuse.** Elle compare un code de langue à un code
+      de pays : 71 % des avis américains sont comptés « étrangers » parce que `en` n'est pas
+      `us`, 60 % des autrichiens parce que `de` n'est pas `at`. Son ×2,15 mesure
+      « établissement américain ». À reconstruire avec une table pays -> langues officielles.
+- [ ] **Ajouter `country` comme variable à part entière.** Aucune variable de pays n'entre dans
+      le modèle, donc l'effet pays se réfugie dans la variable de langue.
+- [ ] La protection du texte long ne tient pas : ×0,50 dans le modèle complet, ×0,74 sans les
+      fiches attaquées. Les faux avis sont courts et supprimés, ce qui fait paraître le texte
+      court risqué.
 
 ## Fait le 2026-09-07
 

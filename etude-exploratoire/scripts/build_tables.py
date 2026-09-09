@@ -21,6 +21,15 @@ import sys
 
 import duckdb
 
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from suppressions_corrigees import (  # noqa: E402
+    JOURS_AVIS_RECENT,
+    MIN_SUPPRESSIONS_ATTAQUE,
+    PART_MIN_1_ETOILE,
+    PART_MIN_AVIS_RECENTS,
+    creer_vue_avis,
+)
+
 SRC = pathlib.Path("data/exports/exports")
 OUT = pathlib.Path("data/build")
 WAVE1 = "TIMESTAMP '2026-08-11 07:00:00'"  # fin de la vague 1 : sépare stock et flux
@@ -46,7 +55,23 @@ def main() -> None:
                CASE WHEN country = 'US' THEN 'US' ELSE 'EU' END AS region
         FROM 'businesses.parquet'
     """)
-    # Lignes de base uniquement. review_id n'est pas unique : voir README de l'export.
+    # Cible corrigée : `sc_avis` porte `death_at`, la date de suppression une fois retirés
+    # les ratés de collecte et les bugs d'édition. Définition unique dans
+    # `suppressions_corrigees.py`, jamais recopiée ici.
+    c.sql("CREATE VIEW reviews_brut AS SELECT * FROM 'reviews.parquet'")
+    creer_vue_avis(c, source="reviews_brut", prefixe="sc_")
+
+    # Une ligne par avis. `WHERE NOT is_update` ne suffit pas : un avis disparu puis revenu
+    # a plusieurs enregistrements de base (617 avis concernés). Sans ce dédoublonnage,
+    # `author_agg` juste en dessous compte l'enregistrement de disparition comme un second
+    # avis du même auteur le même jour, et étiquette « rafale » un auteur qui n'a écrit
+    # qu'un avis — celui qui a disparu. La caractéristique lirait alors la réponse qu'on
+    # lui demande de prédire.
+    #
+    # On garde la PREMIÈRE observation de chaque avis : la seule certainement antérieure à
+    # la suppression, donc la seule qui ne fasse pas entrer d'information postérieure dans
+    # les caractéristiques. Les deux champs qui doivent couvrir toute la vie de l'avis
+    # (`last_seen_at`, `deleted_detected_at` brut) sont agrégés sur ses enregistrements.
     c.sql(f"""
         CREATE VIEW base AS
         SELECT
@@ -62,11 +87,23 @@ def main() -> None:
             r.local_guide_level,
             r.n_photos,
             r.reply_text, r.reply_date,
-            r.first_seen_at, r.last_seen_at, r.deleted_detected_at,
-            r.deleted_detected_at IS NOT NULL AS deleted,
+            r.first_seen_at,
+            r.last_seen_max          AS last_seen_at,
+            r.deleted_detected_max   AS deleted_detected_at,  -- date BRUTE, pour trace
+            a.death_at,                                        -- date CORRIGÉE
+            a.death_at IS NOT NULL   AS deleted,
             r.first_seen_at >= {WAVE1} AS born_during_panel
-        FROM 'reviews.parquet' r
-        WHERE NOT r.is_update
+        FROM (
+            SELECT *,
+                   max(last_seen_at)        OVER (PARTITION BY review_id) AS last_seen_max,
+                   max(deleted_detected_at) OVER (PARTITION BY review_id) AS deleted_detected_max
+            FROM 'reviews.parquet'
+            WHERE NOT is_update
+            QUALIFY row_number() OVER (
+                PARTITION BY review_id
+                ORDER BY first_seen_at, (deleted_detected_at IS NOT NULL)) = 1
+        ) r
+        JOIN sc_avis a USING (review_id)
     """)
 
     # ------------------------------------------------- agrégats auteur & fiche
@@ -102,7 +139,13 @@ def main() -> None:
                count(*) FILTER (NOT born_during_panel
                     AND date_diff('day', created_at, {WAVE1}) <= 30) AS n_new_30d,
                count(*) FILTER (born_during_panel)                  AS n_born_during_panel,
-               avg(star)                                            AS mean_star_panel
+               avg(star)                                            AS mean_star_panel,
+               -- Signature d'une attaque : suppressions presque toutes à 1 étoile et
+               -- presque toutes sur des avis écrits dans le mois. Voir heavy_purge.
+               count(*) FILTER (deleted AND star = 1)               AS n_deleted_1star,
+               count(*) FILTER (deleted
+                    AND date_diff('day', created_at, death_at) <= {JOURS_AVIS_RECENT})
+                                                                    AS n_deleted_recent
         FROM base GROUP BY cid
     """)
 
@@ -134,7 +177,8 @@ def main() -> None:
 
             -- cible et fenêtre d'observation
             b.deleted,
-            b.deleted_detected_at,
+            b.death_at,             -- date de suppression corrigée : à utiliser
+            b.deleted_detected_at,  -- date brute : conservée pour trace, ne pas s'en servir
             b.first_seen_at, b.last_seen_at, b.created_at,
             b.born_during_panel,
             date_diff('day', b.created_at, {WAVE1})             AS age_days_w1,
@@ -193,11 +237,26 @@ def main() -> None:
             g.n_deleted,
             g.n_deleted > 0                                        AS touched,
             g.n_deleted::DOUBLE / nullif(g.n_reviews_panel, 0)     AS purge_share,
-            -- Purge caractérisée : plus de 5 % des avis ET au moins 10 suppressions.
-            -- Le seuil en volume est indispensable : sans lui, une fiche de 2 avis dont 1 saute
-            -- compte comme « purgée à 50 % ». 7 des 37 fiches étaient dans ce cas.
-            g.n_deleted::DOUBLE / nullif(g.n_reviews_panel, 0) > 0.05
-              AND g.n_deleted >= 10                                AS heavy_purge,
+            g.n_deleted_1star::DOUBLE / nullif(g.n_deleted, 0)     AS part_1star_parmi_supprimes,
+            g.n_deleted_recent::DOUBLE / nullif(g.n_deleted, 0)    AS part_recents_parmi_supprimes,
+
+            -- Fiche attaquée. Remplace le critère « plus de 5 % des avis perdus », abandonné
+            -- le 2026-09-09 après vérification fiche par fiche des 24 qu'il retenait :
+            -- 2 attaquées, 1 autocariste allemand qui perd un stock de vieux avis négatifs
+            -- (retrait obtenu sur demande, pas une attaque), 15 qui ne perdent que leurs avis
+            -- 4 et 5 étoiles — le phénomène même que l'étude documente — et 6 fiches de moins
+            -- de 25 avis. Retirer ces 21 fiches du contrôle de robustesse amputait le corpus
+            -- de son sujet.
+            --
+            -- Le critère retenu décrit la signature d'une attaque : beaucoup de suppressions,
+            -- presque toutes à 1 étoile, presque toutes sur des avis écrits dans le mois.
+            -- Il attrape aussi les petites attaques sur de grosses fiches, que le seuil en
+            -- pourcentage ne pouvait pas voir (10 suppressions sur 9 545 avis = 0,10 %).
+            -- Seuils définis une seule fois, dans suppressions_corrigees.py.
+            g.n_deleted >= {MIN_SUPPRESSIONS_ATTAQUE}
+              AND g.n_deleted_1star::DOUBLE  / nullif(g.n_deleted, 0) >= {PART_MIN_1_ETOILE}
+              AND g.n_deleted_recent::DOUBLE / nullif(g.n_deleted, 0) >= {PART_MIN_AVIS_RECENTS}
+                                                                   AS heavy_purge,
             g.n_new_30d,
             g.n_new_30d::DOUBLE / nullif(g.n_reviews_panel, 0)     AS velocity_30d,
             h.mean_star_w1, h.mean_star_w14, h.mean_star_delta,
@@ -221,7 +280,7 @@ def main() -> None:
         WITH w AS (SELECT wave, started_at, finished_at FROM waves WHERE wave >= 2),
         died AS (
             SELECT f.row_id,
-                   (SELECT max(w2.wave) FROM w w2 WHERE w2.started_at <= f.deleted_detected_at)
+                   (SELECT max(w2.wave) FROM w w2 WHERE w2.started_at <= f.death_at)
                      AS death_wave
             FROM reviews_features f WHERE f.is_fresh AND f.deleted
         )
@@ -238,7 +297,7 @@ def main() -> None:
             f.region, f.country, f.industry, f.bucket, f.born_during_panel
         FROM reviews_features f
         JOIN w ON f.first_seen_at < w.started_at
-              AND (f.deleted_detected_at IS NULL OR f.deleted_detected_at >= w.started_at)
+              AND (f.death_at IS NULL OR f.death_at >= w.started_at)
         LEFT JOIN died d USING (row_id)
         WHERE f.is_fresh
     """)
@@ -252,10 +311,22 @@ def checks(c: duckdb.DuckDBPyConnection) -> None:
     """Contrôles de cohérence. Toute ligne FAIL doit être traitée avant d'analyser."""
     print("\n=== Contrôles de cohérence ===")
     tests = [
-        ("avis de base = 4 878 151",
-         "SELECT count(*) = 4878151 FROM reviews_features"),
-        ("suppressions = 5 230",
-         "SELECT count(*) FILTER (deleted) = 5230 FROM reviews_features"),
+        # Ces deux contrôles remplacent deux égalités écrites en dur (4 878 151 lignes et
+        # 5 230 suppressions). Toutes deux validaient l'ancien comportement : la première
+        # figeait le nombre de lignes AVANT dédoublonnage, la seconde comptait des
+        # événements de disparition et non des avis supprimés. Elles auraient donc échoué
+        # sur la version corrigée tout en ayant l'air d'un garde-fou.
+        ("une seule ligne par avis",
+         "SELECT count(*) = count(DISTINCT review_id) FROM reviews_features"),
+        ("les suppressions comptées sont celles de la définition corrigée",
+         """SELECT (SELECT count(*) FILTER (deleted) FROM reviews_features)
+                 = (SELECT count(*) FROM sc_avis WHERE death_at IS NOT NULL)"""),
+        ("la correction retire bien des disparitions brutes",
+         """SELECT (SELECT count(*) FROM sc_avis WHERE death_at IS NOT NULL)
+                 < (SELECT count(DISTINCT review_id) FROM sc_base
+                    WHERE deleted_detected_at IS NOT NULL)"""),
+        ("deleted et death_at disent la même chose",
+         "SELECT count(*) = 0 FROM reviews_features WHERE deleted <> (death_at IS NOT NULL)"),
         ("établissements = 9 048",
          "SELECT count(*) = 9048 FROM business_features"),
         ("aucun row_id dupliqué",
@@ -283,6 +354,19 @@ def checks(c: duckdb.DuckDBPyConnection) -> None:
         passed = bool(c.sql(sql).fetchone()[0])
         ok &= passed
         print(f"  [{'OK  ' if passed else 'FAIL'}] {label}")
+
+    print("\n=== Effet de la correction de comptage ===")
+    print(c.sql("""
+        SELECT
+          (SELECT count(*) FROM sc_base WHERE deleted_detected_at IS NOT NULL)
+            AS lignes_de_disparition,
+          (SELECT count(DISTINCT review_id) FROM sc_base WHERE deleted_detected_at IS NOT NULL)
+            AS avis_ayant_disparu,
+          (SELECT count(*) FROM sc_avis WHERE death_at IS NOT NULL)
+            AS suppressions_retenues,
+          (SELECT count(*) FROM business_features WHERE heavy_purge)
+            AS fiches_attaquees
+    """).df().to_string(index=False))
 
     print("\n=== Volumétrie ===")
     print(c.sql("""

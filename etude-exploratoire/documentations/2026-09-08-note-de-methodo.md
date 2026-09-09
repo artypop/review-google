@@ -85,6 +85,9 @@ suppression ; 24 fiches ayant perdu plus de 5 % de leurs avis portent 14,4 % du 
 chiffres « 84 % / 39 fiches / 19,5 % » de la note du 2026-09-06 datent d'avant la correction du
 comptage et ne valent plus.
 
+> **Ajout du 2026-09-09.** Le critère « plus de 5 % des avis perdus » est abandonné. Vérification fiche par fiche des 24 qu'il retenait : 2 attaquées, 1 retrait obtenu sur demande, 15 qui ne perdent que des avis 4 et 5 étoiles — le sujet même de l'étude — et 6 fiches de moins de 25 avis. Le nouveau critère retient 4 fiches et 385 suppressions, soit 8,1 % du total. Définition dans `../../CLAUDE.md`, Conventions de Restitution point 5. Les chiffres « 24 fiches / 682 suppressions / 14,4 % » de ce document ne décrivent plus la règle en vigueur.
+
+
 ## Contrôles faits — ne pas les refaire
 
 | Contrôle | Résultat |

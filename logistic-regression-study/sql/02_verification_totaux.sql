@@ -16,6 +16,6 @@ SELECT
   COUNT(DISTINCT review_id) AS avis_dans_le_panel,
   COUNTIF(deleted)          AS lignes_marquees_supprimees,
   (SELECT COUNT(DISTINCT review_id)
-   FROM `client-divers.reviewflowz.avis_deleted_panel`
+   FROM `client-divers`.reviewflowz.avis_deleted_panel
    WHERE deleted)           AS avis_distincts_supprimes
-FROM `client-divers.reviewflowz.avis_deleted_panel`;
+FROM `client-divers`.reviewflowz.avis_deleted_panel;

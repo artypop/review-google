@@ -179,7 +179,8 @@ après la publication puis s'effondre. Toute comparaison qui ne tient pas compte
 surtout une différence d'âge.
 
 **Les suppressions sont concentrées.** 85,4 % des établissements n'ont rien perdu. Les
-24 fiches ayant perdu plus de 5 % de leurs avis portent 14,4 % des 4 747 suppressions. Deux
+**Critère abandonné le 2026-09-09**, voir `../CLAUDE.md`. Pour mémoire : 24 fiches ayant perdu
+plus de 5 % de leurs avis portaient 14,4 % des 4 747 suppressions. Deux
 salles de sport espagnoles en portent 364 à elles deux — 229 sur une fiche de 781 avis, 135 sur
 une fiche de 668. Détail : `documentations/2026-09-08-cas-attaque-salles-de-sport.md`.
 

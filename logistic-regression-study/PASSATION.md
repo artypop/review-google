@@ -3,6 +3,17 @@
 Écrit le 2026-09-09, pour reprendre le travail sur une autre machine.
 Destiné à qui reprend le dossier, humain ou assistant.
 
+> **Mise à jour du 2026-09-09 au soir. Les sections 3 et 4 ci-dessous sont périmées.**
+> Ce qu'elles annoncent comme « pas construit » l'est depuis :
+> `age_days` est dans le panel, `sql/04_avis_features-v3.sql` et `sql/05_panel_final-v3.sql`
+> sont écrits et exécutés, et le programme statsmodels est
+> `06_statsmodels_analysis_review_claude.py`, qui tourne et produit ses sorties dans
+> `sorties/`. Deux défauts de construction ont été trouvés et corrigés dans l'intervalle —
+> 766 suppressions comptées deux fois, et une fuite de données du futur sur la rafale
+> d'auteur. Le détail et les résultats sont dans `BACKLOG.md`, section « Fait le 2026-09-09 ».
+> La règle du test de robustesse a changé : voir `../CLAUDE.md`, Conventions de Restitution
+> point 5.
+
 > Ordre de lecture : cette note, puis `BACKLOG.md` (état d'avancement détaillé et liste des
 > caractéristiques retenues), puis `../CLAUDE.md` (instructions du projet, périmètre, pièges).
 > Les consignes de rédaction à respecter sont dans `../etude-exploratoire/PASSATION.md`,
@@ -37,7 +48,9 @@ par `sql/01_build_avis_deleted_panel.sql`, qui applique les deux corrections de 
 - un avis absent un seul jour est un raté de collecte, jamais une suppression ; absent 2 jours
   ou plus, c'est une vraie suppression, datée de sa première disparition.
 
-Comptage de référence à retrouver : **5 230 disparitions brutes → 4 747 suppressions retenues.**
+Comptage de référence : **5 230 lignes de disparition, portées par 5 109 avis distincts, →
+4 747 suppressions retenues en DuckDB, 4 737 en BigQuery.** Le 5 230 compte des événements, les
+deux autres comptent des avis. Écart entre moteurs expliqué dans `../CLAUDE.md` point 4.
 
 **Colonnes présentes dans la table :** `review_id`, `cid`, `wave`, `deleted`,
 `jours_en_ligne_avant_suppression`, `jours_sous_surveillance_avant_suppression`.
@@ -87,9 +100,10 @@ couvertes sur 41 pays).
 
 ---
 
-## 4. Ordre de travail proposé — en attente de validation de Romain
+## 4. Ordre de travail — validé et exécuté le 2026-09-09
 
-Proposé le 2026-09-09, pas encore validé. Ne rien lancer avant son accord.
+Les six points ci-dessous sont faits, sauf le point 5 (tableau croisé stratifié par âge), qui
+est produit par le script sous la forme de `sorties/06_croisements_par_age.csv`.
 
 1. Ajouter `age_days` au panel (modification de `sql/01`, table à reconstruire).
 2. Écrire `sql/04_avis_features.sql` : une ligne par `review_id`, portage des caractéristiques
@@ -229,7 +243,8 @@ l'âge mesure surtout une différence d'âge. Exemple concret : si les avis avec
 seulement comparé des avis jeunes à des avis vieux.
 
 **Les suppressions sont concentrées.** 85,4 % des 9 048 établissements n'ont aucune suppression.
-Les 24 fiches ayant perdu plus de 5 % de leurs avis portent 14,4 % des 4 747 suppressions, dont
+**Périmé depuis le 2026-09-09 :** le critère des 5 % est abandonné, voir `../CLAUDE.md`.
+Pour mémoire, il retenait 24 fiches portant 14,4 % des 4 747 suppressions, dont
 deux salles de sport espagnoles attaquées qui en portent 364 à elles deux. Tout modèle se
 relance sans ces 24 fiches pour vérifier que les conclusions tiennent.
 
@@ -259,7 +274,7 @@ connecté ; un calcul qui prend tous les cœurs coupe sa connexion. Au-delà de 
 | `../etude-exploratoire/PASSATION.md` | Consignes de rédaction (section 1), pièges du jeu de données |
 | `../etude-exploratoire/scripts/build_tables.py` | Les caractéristiques déjà écrites, à porter en BigQuery |
 | `../etude-exploratoire/documentations/INDEX.md` | Inventaire des 24 documents avec leur statut |
-| `../etude-exploratoire/documentations/to-update/` | **Chiffres d'avant correction. Aucun à citer.** |
+| `../etude-exploratoire/documentations/legacy/` | **Chiffres d'avant correction. Aucun à citer.** |
 | `../BONNES-ET-MAUVAISES-PRATIQUES.md` | Écueils rencontrés, à ne pas répéter |
 
 Données personnelles : `data/` est dans le `.gitignore`. Ne jamais committer d'extrait de

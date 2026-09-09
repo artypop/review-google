@@ -5,7 +5,7 @@ Contrôle de robustesse — les conclusions tiennent-elles sans les fiches massi
 pas été rejoués sans eux, on ne sait pas si les modèles décrivent la modération de Google ou
 le sort de deux salles de sport espagnoles.
 
-Ce script rejoue les analyses A et B à l'identique, en retirant ces 24 fiches, et met les deux
+Ce script rejoue les analyses A et B à l'identique, en retirant ces fiches, et met les deux
 jeux de coefficients côte à côte. Il ne réécrit ni la note A ni la note B : il produit sa propre
 note et son propre CSV.
 
@@ -140,7 +140,7 @@ def write_note(out: pd.DataFrame, n_a: int, n_a_sp: int,
     b = [BEGIN, ""]
     b.append("### Périmètres comparés")
     b.append("")
-    b.append("| | Avec les 24 fiches | Sans |")
+    b.append("| | Avec les fiches attaquées | Sans |")
     b.append("|---|---:|---:|")
     b.append(f"| Analyse A — établissements | {f(n_a)} | {f(n_a_sp)} |")
     b.append(f"| Analyse B — établissements | {f(ib.cid.nunique())} | {f(ib_sp.cid.nunique())} |")
@@ -195,11 +195,11 @@ def write_note(out: pd.DataFrame, n_a: int, n_a_sp: int,
     head = """---
 date: 2026-09-06
 projet: reviewflowz-analyse-google
-titre: "Contrôle de robustesse — sans les 24 fiches massivement purgées"
+titre: "Contrôle de robustesse — sans les fiches attaquées"
 statut: résultats
 ---
 
-# Contrôle de robustesse — sans les 24 fiches massivement purgées
+# Contrôle de robustesse — sans les fiches attaquées
 
 Produit par `scripts/controle_robustesse.py`.
 
@@ -207,9 +207,9 @@ Produit par `scripts/controle_robustesse.py`.
 
 24 établissements portent 958 suppressions, 18 % du total. Deux d'entre eux, des salles de
 sport espagnoles, en portent 399 à eux seuls. Un modèle ajusté sur l'ensemble peut très bien
-décrire ces 24 fiches plutôt que la modération de Google.
+décrire ces fiches plutôt que la modération de Google.
 
-La liste des 24 fiches est dans `data/resultats/fiches_massivement_purgees.csv`. Le seuil est
+La liste des fiches est dans `data/resultats/fiches_massivement_purgees.csv`. Le seuil est
 défini dans `scripts/build_tables.py` : plus de 5 % du stock perdu **et** au moins 10
 suppressions — le plancher en volume évite qu'une fiche de 2 avis dont 1 supprimé compte comme
 « purgée à 50 % ».
