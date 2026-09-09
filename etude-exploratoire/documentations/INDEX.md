@@ -72,7 +72,7 @@ documentés ; seuls ses chiffres tombent.
 | Fichier | Objet |
 |---|---|
 | [../../CLAUDE.md](../../CLAUDE.md) | Instructions de travail : flux plan / relecture, architecture, méthodologie. **Chiffres corrigés le 2026-09-09** : concentration, taux du périmètre frais, codes D1/D2/D3, comptage de référence. Aucune valeur périmée restante. |
-| [../../README.md](../../README.md) | Présentation du dépôt. **Non vérifié** : porte encore 4 878 151 avis et d'autres valeurs d'avant la correction. |
+| [../../README.md](../../README.md) | Présentation du dépôt, commandes, tables, scripts, vocabulaire. **Réécrit le 2026-09-09** : liens réparés, résultats valides séparés des résultats à relancer, durées non mesurées retirées. |
 | [../BACKLOG.md](../BACKLOG.md) | État d'avancement, décisions, table des programmes, réserves à porter au livrable. |
 | [../PASSATION.md](../PASSATION.md) | Document de reprise : consignes de rédaction, décisions verrouillées, pièges du jeu de données. |
 | [../../BONNES-ET-MAUVAISES-PRATIQUES.md](../../BONNES-ET-MAUVAISES-PRATIQUES.md) | Bonnes pratiques et écueils rencontrés, avec le contrôle qui aurait évité chacun. |

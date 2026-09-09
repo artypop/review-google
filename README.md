@@ -19,7 +19,9 @@ Définition dans
 seule copie hors BigQuery.
 
 Les résultats produits avant cette correction sont invalidés. Ils sont rassemblés dans
-`etude-exploratoire/documentations/to-update/` et **aucun de leurs chiffres ne doit être cité**.
+`etude-exploratoire/documentations/to-update/` et **aucun de leurs chiffres de résultat ne doit
+être cité**. Leurs métadonnées d'exécution — durées de scripts, tailles de tables — restent les
+seules sources disponibles et sont reprises ci-dessous.
 Les analyses A et B, le contrôle de robustesse et le Test 2 sont à relancer.
 
 **Trois points d'entrée, dans cet ordre :**
@@ -41,7 +43,7 @@ Les analyses A et B, le contrôle de robustesse et le Test 2 sont à relancer.
 Prérequis : [uv](https://docs.astral.sh/uv/). Rien d'autre à installer, `uv` s'occupe de Python
 et des dépendances à la première commande.
 
-Les données ne sont pas dans le dépôt (838 Mo et données personnelles). Il faut
+Les données ne sont pas dans le dépôt (838 Mo d'export, dont 834 Mo pour `reviews.parquet` seul, et données personnelles). Il faut
 `data/exports/exports/*.parquet` en place — voir « Les données » plus bas.
 
 Les scripts qui tournent sur le comptage corrigé n'ont besoin d'aucune table intermédiaire, ils
@@ -103,7 +105,7 @@ suppressions, importer `suppressions_corrigees.py` plutôt qu'utiliser ce champ.
 
 | Nom | Lignes | Une ligne = |
 |---|---:|---|
-| `avis` | 4 878 151 | un avis. **Corpus entier**, colonne `is_fresh` pour les avis de moins de 30 jours |
+| `avis` | 4 878 151 | une ligne de base de l'export. **Corpus entier**, colonne `is_fresh` pour les avis de moins de 30 jours. `review_id` n'y est pas unique : 4 878 151 lignes pour 4 877 534 avis distincts, l'écart venant des avis disparus puis revenus |
 | `etablissements` | 9 048 | un établissement, avec vélocité, intensité de purge, note et trajectoire |
 | `suivi` | 1 137 276 | un avis **frais** observé à un passage du robot. `died` = il a disparu à ce passage |
 
@@ -142,13 +144,16 @@ Tous calculés sur le comptage corrigé. Détail et contrôles dans
 
 Les deux résultats les plus nets :
 
-- **Le pic de suppression tombe au septième jour de vie de l'avis** : 449 suppressions à 7 jours,
-  contre 279 à 6 jours et 118 à 8 jours. Vérifié comme un effet d'âge et non une purge — étalé
-  sur 12 des 13 journées du suivi et sur 144 établissements, et il survit au retrait des deux
-  journées les plus chargées.
+- **Le pic de suppression tombe au septième jour de vie de l'avis** : 449 suppressions à
+  7 jours, contre 279 à 6 jours et 118 à 8 jours. Ces nombres bruts se comparent directement
+  parce que l'exposition est quasi identique — environ 32 000 avis observés à chaque âge de 2 à
+  30 jours. Vérifié comme un effet d'âge et non une purge : étalé sur 12 des 13 journées du
+  suivi et sur 144 établissements, et il survit au retrait des deux journées les plus chargées.
 - **51,6 % des 4 747 suppressions frappent un avis de moins d'un mois, 30,3 % un avis de plus
-  d'un an.** Le vieux stock pèse par son volume (4,1 millions d'avis) et non par son risque :
-  0,0027 % par jour contre 0,2699 % pour un avis de moins d'un mois.
+  d'un an.** Le vieux stock pèse par son volume : 4,1 millions d'avis, contre 101 000 à moins
+  d'un mois. Son risque par passage est cent fois plus faible — 0,0027 % sur 53 708 075
+  observations d'avis de plus d'un an, contre 0,2699 % sur 907 588 observations d'avis de moins
+  d'un mois.
 
 ## Les résultats à relancer
 
@@ -162,6 +167,12 @@ pièges documentés ; ses chiffres tombent.
 | [`to-update/2026-09-06-analyse-b-quel-avis-tombe.md`](etude-exploratoire/documentations/to-update/2026-09-06-analyse-b-quel-avis-tombe.md) | Dans une fiche touchée, quel avis tombe | `analysis_b.py` |
 | [`to-update/2026-09-06-controle-robustesse.md`](etude-exploratoire/documentations/to-update/2026-09-06-controle-robustesse.md) | A et B rejouées sans les fiches massivement purgées | `controle_robustesse.py` |
 | [`to-update/2026-09-06-premiers-resultats-facteur-par-facteur.md`](etude-exploratoire/documentations/to-update/2026-09-06-premiers-resultats-facteur-par-facteur.md) | Les 15 facteurs, avec le mode d'emploi des chiffres | `level1_bivariate.py` |
+
+`to-update/` contient trois autres documents, sans script associé : l'enquête sur les fiches
+purgées — c'est le raisonnement qui a fondé la correction du comptage —, l'ancienne synthèse
+générale, qui garde la liste « ce qu'il ne faut pas dire à Axel », et les premières observations
+du 2026-09-04. Voir
+[`INDEX.md`](etude-exploratoire/documentations/INDEX.md).
 
 Le CSV de `level1_bivariate.py` contient, pour chaque facteur et chaque modalité : le nombre
 d'observations, le nombre de disparitions, le risque brut et le risque à âge comparable. C'est
@@ -182,10 +193,10 @@ Tous dans `etude-exploratoire/scripts/`.
 
 | Script | Ce qu'il fait | Sortie | Durée |
 |---|---|---|---|
-| `suppressions_corrigees.py` | Module partagé : la définition d'une suppression, et les vues DuckDB `avis`, `panel`, `waves`. Importé par les autres, ne se lance pas seul. | — | — |
-| `age_a_la_suppression.py` | Suppressions par âge en jours et par journée du suivi, contrôles du pic. `--age-max` règle le dernier âge. | Note + CSV | ~1 min |
-| `histogramme_age_suppressions.py` | Les mêmes en tranches larges, risque par tranche, projections. | Note + CSV | ~2 min |
-| `cas_attaque_salles_de_sport.py` | Le cas des deux fiches espagnoles, fiche par fiche. | Note | ~1 min |
+| `suppressions_corrigees.py` | Module partagé : la définition d'une suppression, la vue `avis` (une ligne par avis, `death_at` corrigé) et ses vues intermédiaires. `vue_panel()` ajoute la vue d'exposition `panel` à la demande. Importé par les autres, ne se lance pas seul. | — | — |
+| `age_a_la_suppression.py` | Suppressions par âge en jours et par journée du suivi, contrôles du pic. `--age-max` règle le dernier âge. | Note + CSV | — |
+| `histogramme_age_suppressions.py` | Les mêmes en tranches larges, risque par tranche, projections. | Note + CSV | — |
+| `cas_attaque_salles_de_sport.py` | Le cas des deux fiches espagnoles, fiche par fiche. | Note | — |
 
 ### De l'étude d'origine
 
@@ -196,21 +207,27 @@ importer `suppressions_corrigees.py`.
 |---|---|---|---|
 | `build_tables.py` | Lit l'export, calcule les caractéristiques, écrit les trois tables. Dix contrôles de cohérence en fin d'exécution. | `data/build/*.parquet` | 20 s |
 | `level1_bivariate.py` | Risque de suppression facteur par facteur, à âge comparable, avec et sans les fiches purgées. | Note + CSV | 10 s |
-| `analysis_a.py` | Quel établissement subit une intervention, et de quelle ampleur. | Note + CSV | ~3 min |
+| `analysis_a.py` | Quel établissement subit une intervention, et de quelle ampleur. | Note + CSV | 2 min |
 | `analysis_b.py` | Compare les avis d'une même fiche le même jour. `--bootstrap N` pour les marges d'erreur. | Note + CSV | 2 min ; **compter ~2 min par tirage de bootstrap** (30 tirages ≈ 1 h, 200 ≈ 7 h) |
 | `controle_robustesse.py` | Rejoue A et B sans les fiches massivement purgées et met les coefficients côte à côte. | Note + CSV | ~7 min |
 | `verif_texte.py` | Onze marqueurs textuels (insultes, spam, charabia…) : la suppression a-t-elle une cause visible ? | Note + CSV | ~2 min |
-| `verif_reponse_proprietaire.py` | Ordre entre la réponse du propriétaire et la suppression. | Note | ~1 min |
+| `verif_reponse_proprietaire.py` | Ordre entre la réponse du propriétaire et la suppression. | Note + CSV | — |
 | `test2_debordement.py` | Le stock ancien meurt-il plus dans les fiches à fort afflux récent ? | Note + CSV | ~1 min |
-| `machine_learning.py` | Contrôle par forêt aléatoire et gradient boosting : reste-t-il un signal non repéré ? | Note + CSV | ~15 min |
+| `machine_learning.py` | Contrôle par forêt aléatoire et gradient boosting : reste-t-il un signal non repéré ? | Note + CSV | — (jamais relancé depuis le passage à 16 Go) |
 | `fiches_urls.py` | Produit les URL Google des fiches à inspecter à la main. | CSV | immédiat |
 | `query.py` | Interroge les tables en SQL. Ne modifie rien. | Écran ou CSV | immédiat |
 
-Tous sont **rejouables sans risque** : ils réécrivent leurs sorties à chaque exécution.
+Les scripts réécrivent leurs sorties à chaque exécution, sans effet de bord.
 
-Les scripts de l'étude d'origine ne réécrivent que la partie de leur note comprise entre des
-marqueurs `<!-- genere:... -->`. Le texte d'analyse rédigé autour survit à une régénération. Les
-scripts du 2026-09-08 réécrivent leur note entière, donc tout leur texte est dans le script.
+**Les huit scripts de l'étude d'origine ne peuvent pas régénérer leur note en l'état.** Ils
+écrivent dans `documentations/<nom>.md`, chemin relatif au répertoire courant : ce dossier
+n'existe pas à la racine du dépôt, et les notes visées ont été déplacées dans
+`etude-exploratoire/documentations/to-update/`. Leur constante `OUT` est à reprendre avant toute
+relance. Leurs calculs et leurs CSV, eux, fonctionnent.
+
+Ces huit scripts ne réécrivent que la partie de leur note comprise entre des marqueurs
+`<!-- genere:... -->`, donc le texte d'analyse rédigé autour survit à une régénération. Les trois
+scripts du 2026-09-08 réécrivent leur note entière : tout leur texte est dans le script.
 
 ### Les calculs longs
 
@@ -222,10 +239,16 @@ setsid nohup uv run etude-exploratoire/scripts/analysis_b.py --bootstrap 30 \
   > data/resultats/analyse_b_run.log 2>&1 < /dev/null &
 ```
 
-**Attention à la mémoire** : la machine de travail est passée de 7 à 16 Go le 2026-09-06. Le
-noyau avait tué un lancement du machine learning sous l'ancienne configuration. Le plafond
-DuckDB reste posé à 1-6 Go dans chaque script, et la règle tient : pas plus de deux calculs
-lourds en même temps, `free -m` avant de lancer, `nice -n 19` au-delà de deux minutes.
+**Attention à la mémoire.** La machine de travail est passée de 7 à 16 Go le 2026-09-06 ;
+`machine_learning.py` saturait la machine quand elle en avait 7.
+
+Le plafond DuckDB vaut 1 Go dans `analysis_a`, `analysis_b`, `level1_bivariate` et
+`machine_learning`, 2 Go dans `query`, `test2_debordement`, `verif_texte` et
+`verif_reponse_proprietaire`, et 6 Go dans `suppressions_corrigees` — donc dans les trois
+scripts du 2026-09-08. **`build_tables.py` et `fiches_urls.py` n'en posent aucun, à corriger.**
+
+Règles de lancement : pas plus de deux calculs lourds en même temps, `free -m` avant de lancer,
+`nice -n 19` au-delà de deux minutes.
 
 ---
 
@@ -251,8 +274,9 @@ précaution particulière. Ce n'est pas le cas des fichiers `reviews_brut`.
 ## Vocabulaire
 
 **Avis frais** — publié depuis moins de 30 jours. C'est le périmètre de la modélisation, parce
-que le risque de suppression s'effondre au-delà : 0,2699 % par jour pour un avis de moins d'un
-mois, 0,0027 % pour un avis de plus d'un an, soit 100 fois moins.
+que le risque de suppression s'effondre au-delà : 0,2699 % par passage sur 907 588 observations
+d'avis de moins d'un mois, contre 0,0027 % sur 53 708 075 observations d'avis de plus d'un an,
+soit cent fois moins.
 
 **Trois comptages d'avis récents supprimés coexistent**, tous justes, parce que l'âge peut se
 compter à trois moments différents. À citer avec leur code, jamais avec le seul chiffre :
@@ -264,8 +288,13 @@ compter à trois moments différents. À citer avec leur code, jamais avec le se
 | **D3** | avis de 30 jours ou moins au 11 août, supprimé à n'importe quel moment | 2 540 |
 
 **Risque par passage** — sur 1 000 avis en ligne, combien ont disparu au passage suivant du
-robot. Ce n'est pas la probabilité qu'un avis finisse supprimé, qui s'accumule sur plusieurs
-jours et est bien plus élevée.
+robot. Les passages étant quotidiens, un risque par passage est un risque par jour ; ce README
+n'emploie que « par passage ». Ce n'est pas la probabilité qu'un avis finisse supprimé, qui
+s'accumule sur plusieurs jours et est bien plus élevée.
+
+**Observation** — un avis constaté en ligne à un passage du robot. C'est l'unité de la table
+`suivi` et de la vue `panel` de `suppressions_corrigees.py` : le même objet sous deux noms selon
+le script.
 
 **À âge comparable** — un chiffre recalculé tranche d'âge par tranche d'âge, puis recombiné comme
 si tous les groupes comparés avaient la même répartition d'âge. Indispensable ici : l'âge pèse
