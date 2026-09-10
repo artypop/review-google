@@ -14,6 +14,14 @@ Destiné à qui reprend le dossier, humain ou assistant.
 > La règle du test de robustesse a changé : voir `../CLAUDE.md`, Conventions de Restitution
 > point 5.
 
+> **Mise à jour du 2026-09-10.** Le critère « fiche attaquée » gagne une condition de
+> concentration — au moins 10 avis supprimés déposés le même jour civil — décidée mais pas
+> encore écrite dans le code : les deux fiches américaines n'en sont pas. L'hypothèse de l'afflux
+> d'avis est tranchée par `ratio_pic_journalier_fiche`, sans effet hors fiches attaquées. Les
+> sorties du tirage du 2026-09-09 sont rangées dans `2026-09-10-sorties/`, donc les chemins
+> `sorties/...` cités plus bas visent un dossier vide jusqu'au prochain tirage. Détail dans
+> `BACKLOG.md`, section « Fait le 2026-09-10 ».
+
 > Ordre de lecture : cette note, puis `BACKLOG.md` (état d'avancement détaillé et liste des
 > caractéristiques retenues), puis `../CLAUDE.md` (instructions du projet, périmètre, pièges).
 > Les consignes de rédaction à respecter sont dans `../etude-exploratoire/PASSATION.md`,

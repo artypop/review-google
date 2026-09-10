@@ -1,6 +1,6 @@
 # Backlog — Étude régression logistique
 
-Dernière mise à jour : 2026-09-09.
+Dernière mise à jour : 2026-09-10.
 
 Légende : `[ ]` à faire · `[~]` en cours · `[x]` fait
 
@@ -22,6 +22,92 @@ Légende : `[ ]` à faire · `[~]` en cours · `[x]` fait
   reste ouvert jusqu'à cette validation.
 
 ---
+
+## Fait le 2026-09-10
+
+### Le critère « fiche attaquée » examiné sur la concentration des dépôts
+
+- [x] **Les 4 fiches du critère n'ont jamais été vérifiées une par une.** La vérification
+      documentée porte sur les 24 fiches de l'ancien critère des 5 %. Sur les 4 nouvelles, le
+      seul commentaire écrit expliquait pourquoi elles apparaissent, pas pourquoi elles sont
+      des attaques.
+- [x] **Mesuré le pic de dépôt** (avis supprimés déposés le même jour civil, sur
+      `reviews_features.parquet`, 4 747 suppressions, panel entier) :
+
+      | Fiche | Suppressions | Jours de dépôt distincts | Étalement | Pic même jour |
+      |---|---:|---:|---:|---:|
+      | Boutique The Boxer Club Dr Castelo (ES) | 229 | 9 | 1 651 j | 112 |
+      | The Boxer Club (ES) | 135 | 5 | 4 j | 55 |
+      | MedVet Cleveland (US) | 11 | 8 | 24 j | 3 |
+      | Fox Rent A Car Denver (US) | 10 | 7 | 1 210 j | 3 |
+
+      Fox perd un avis 5 étoiles sans texte déposé le 24 avril 2023, supprimé après 1 207 jours
+      en ligne. Sur les 114 fiches à 10 suppressions ou plus, il n'y a rien entre un pic de 8 et
+      un pic de 55.
+- [x] **Décidé d'ajouter une quatrième condition** : au moins 10 avis supprimés déposés le même
+      jour civil, mesurée sur `created_at`. Seules les deux salles espagnoles restent classées
+      attaquées. **Pas encore écrit dans le code.**
+- [x] Corrigé deux erreurs de documentation : Fox Rent A Car est à 80 % à 1 étoile et non 100 %
+      (`06_fiches_attaquees.csv` donne `part_1_etoile = 0.8`), et le troisième seuil se lit
+      « écrits moins de 30 jours avant leur suppression », pas « depuis moins de 30 jours ».
+
+### L'hypothèse de l'afflux d'avis est tranchée
+
+- [x] `ratio_pic_journalier_fiche` — pour chaque avis, le nombre d'avis reçus par la fiche le
+      jour du dépôt rapporté à sa moyenne quotidienne — sort à **+0,275 (p = 0,002)** dans le
+      modèle complet et à **−0,024 (p = 0,72)** hors les 4 fiches attaquées, sur
+      2 537 suppressions. L'effet apparent vient des fiches attaquées.
+- [x] `velocity_30d`, côté exploratoire, ne montre rien non plus : 14,5 %, 15,2 %, 17,4 %,
+      15,9 % de fiches touchées selon la tranche, sans gradient, et les trois modalités du
+      modèle ont une fourchette qui contient 1.
+- [x] Les deux variables n'ont jamais été mises dans le même modèle, et rien ne trace une
+      décision de ne pas le faire : chacune n'existe que d'un côté — `velocity_30d` en DuckDB
+      (`build_tables.py:261`), `ratio_pic_journalier_fiche` en BigQuery
+      (`sql/04_avis_features-v3.sql:159`) — et le point 3.B de `../CLAUDE.md` interdit de
+      dupliquer une logique d'un moteur à l'autre. Les deux mesures répondent déjà la même
+      chose séparément.
+
+### Analyse A relancée après correction des scripts
+
+- [x] `build_tables.py` puis `analysis_a.py` relancés. Le ×5,872 sur le nombre d'avis récents
+      au-delà de 150 est reconduit à l'identique, fourchette **2,519 à 13,69**, et les
+      396 fiches touchées se retrouvent dans la table reconstruite.
+- [x] L'effet est mécanique : la tranche de référence (25 à 60 avis récents, médiane 37) donne
+      un risque de 0,58 % par avis ; appliqué à une fiche de 202 avis récents, ce même risque
+      prédit un rapport de cotes de 9,3, et on en mesure 5,9. Il n'y a pas d'écart résiduel
+      qu'un ciblage des grosses fiches par Google serait nécessaire pour expliquer.
+- [x] Le chemin de sortie de `analysis_a.py` était relatif à `etude-exploratoire/` alors que la
+      table se lit depuis la racine ; corrigé.
+
+### Divers
+
+- [x] Écrit la requête BigQuery de concordance pays → langues qui doit corriger
+      `langue_etrangere_au_pays` : 41 pays, 44 couples pays × langue, trois langues pour la
+      Suisse, deux pour la Belgique. **Reste à exécuter et à joindre au calcul de la variable.**
+- [x] Les sorties du tirage du 2026-09-09 ont été rangées dans `2026-09-10-sorties/`. Le
+      dossier `sorties/` est vide en attendant le prochain tirage, qui le remplira à nouveau —
+      les chemins cités dans `PASSATION.md` pointent vers ce dossier vide.
+
+### À faire, dans l'ordre
+
+- [ ] Écrire la condition de concentration : constante et condition dans
+      `etude-exploratoire/scripts/suppressions_corrigees.py`, colonne
+      `n_deleted_pic_journalier` dans `build_tables.py`, même condition dans la requête
+      `SQL_FICHES_ATTAQUEES` de `06_statsmodels_analysis_review_claude.py` — qui devra joindre
+      `reviews` pour lire `created_at`, ce qui change son coût de lecture. Les seuils sont
+      déclarés deux fois et se modifient ensemble.
+- [ ] Relancer le modèle de robustesse sur 2 fiches retirées au lieu de 4, et produire la table
+      avant / après des coefficients.
+- [ ] Trancher le périmètre d'âge : 90 jours aujourd'hui, 242 081 avis et 3 006 suppressions ;
+      120 jours en donnent 305 042 et 3 070 ; 180 jours 417 552 et 3 151. Passer à 180 ajoute
+      72 % d'avis pour 4,8 % de suppressions. Changer `AGE_MAX_PREMIERE_VAGUE` ne suffit pas :
+      la dernière tranche d'âge est ouverte et deviendrait dominante, le commentaire de la
+      ligne 142 devient faux, et les noms de fichiers de sortie sont fixes, donc le tirage
+      écraserait les résultats à 90 jours cités ici.
+- [ ] Écrire une règle de verdict chiffrée pour le test de robustesse de la régression. Elle
+      existe côté exploratoire (`documentations/2026-09-06-controle-robustesse.md`) — ne tient
+      pas, fragile, à surveiller, tient — et pas côté régression, où la comparaison des deux
+      colonnes se fait à l'œil.
 
 ## Fait le 2026-09-09
 

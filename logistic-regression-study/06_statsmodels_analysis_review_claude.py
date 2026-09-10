@@ -59,13 +59,22 @@ AGE_MAX_PREMIERE_VAGUE = 90
 #
 # Le critere retenu decrit la signature d'une attaque : beaucoup de
 # suppressions, presque toutes sur des avis 1 etoile, et presque toutes sur des
-# avis ecrits dans le mois. Il retient 4 fiches : les 2 salles de sport
-# espagnoles (229 et 135 suppressions), plus Fox Rent A Car Denver et MedVet
-# Cleveland (10 et 11 suppressions, 100 % a 1 etoile). Ces deux dernieres ont
-# trop d'avis pour que l'ancien seuil en pourcentage les voie : 0,10 % et
-# 0,74 % de leur stock. Il ecarte en revanche Bischoff Touristik, qui perd
-# 48 avis negatifs ecrits sur 8 ans, mediane 3 ans, aucun de moins de 30
-# jours : un retrait obtenu sur demande, pas une attaque.
+# avis ecrits moins de 30 jours avant leur suppression. Il retient 4 fiches :
+# les 2 salles de sport espagnoles (229 et 135 suppressions), plus MedVet
+# Cleveland (11 suppressions, 100 % a 1 etoile) et Fox Rent A Car Denver
+# (10 suppressions, 80 % a 1 etoile : 8 avis a 1 etoile, 1 a 3 etoiles, 1 a
+# 5 etoiles). Ces deux dernieres ont trop d'avis pour que l'ancien seuil en
+# pourcentage les voie : 0,74 % et 0,10 % de leur stock. Il ecarte en revanche
+# Bischoff Touristik, qui perd 48 avis negatifs ecrits sur 8 ans, mediane
+# 3 ans, aucun de moins de 30 jours : un retrait obtenu sur demande, pas une
+# attaque.
+#
+# Decide le 2026-09-10, pas encore ecrit ici : une quatrieme condition de
+# concentration, au moins 10 avis supprimes deposes le meme jour civil
+# (created_at). Les 2 salles espagnoles ont des pics de 112 et 55 ; MedVet et
+# Fox plafonnent a 3, etales sur 24 et 1 210 jours. Avec cette condition, seules
+# les 2 fiches espagnoles restent. Voir ../CLAUDE.md, Conventions de
+# Restitution point 5.
 MIN_SUPPRESSIONS_ATTAQUE = 10
 PART_MIN_1_ETOILE = 0.8
 PART_MIN_AVIS_RECENTS = 0.8

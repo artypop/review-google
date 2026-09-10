@@ -37,7 +37,7 @@ import pandas as pd
 import statsmodels.api as sm
 
 BIZ = pathlib.Path("data/build/business_features.parquet")
-OUT = pathlib.Path("documentations/2026-09-06-analyse-a-quel-etablissement.md")
+OUT = pathlib.Path("etude-exploratoire/documentations/2026-09-06-analyse-a-quel-etablissement.md")
 CSV = pathlib.Path("data/resultats/analyse_a_effets.csv")
 BEGIN = "<!-- genere:analysea — regenere par scripts/analysis_a.py, ne pas editer a la main -->"
 END = "<!-- /genere:analysea -->"
