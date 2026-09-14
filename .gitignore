@@ -7,3 +7,8 @@ etude-exploratoire/data
 .venv/
 __pycache__/
 *.pyc
+
+# Configuration de l'agent : `.claude/settings.json` est partagé et versionné.
+# Les permissions propres à une machine vont dans `settings.local.json`, qui ne
+# l'est pas — sinon chacun écrase les réglages des autres.
+.claude/settings.local.json

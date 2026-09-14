@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c ' *)",
+      "Read(//home/romain/**)",
+      "Bash(nice -n 19 ../.venv/bin/python python/07_regression_panel.py *)",
+      "Bash(nice -n 19 ../.venv/bin/python python/08_effet_reponse_commercant.py *)",
+      "Bash(python3 -)",
+      "Bash(git add *)",
+      "Bash(git check-ignore *)"
+    ]
+  }
+}
