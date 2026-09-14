@@ -1,0 +1,99 @@
+-- ============================================================================
+-- File: sql/01_selection_panel.sql
+-- Table: client-divers.reviewflowz.reviews_panel_selection
+--
+-- Le corpus d'étude : un avis, une ligne, un sort.
+--
+-- Deux restrictions, dans cet ordre.
+--
+-- 1. UN SEUL ENREGISTREMENT PAR AVIS (`HAVING COUNT(*) = 1`).
+--    Ce n'est pas un dédoublonnage, c'est une exclusion. Un avis ayant
+--    plusieurs lignes dans `reviews` est écarté du corpus.
+--
+--    Mesuré le 2026-09-13 sur la fenêtre ci-dessous : 731 avis écartés sur
+--    226 488, soit 0,3 %. Parmi eux, 74 avis absents à la fin du suivi et
+--    135 revenus en ligne : l'exclusion retire donc environ 3 % des
+--    suppressions contre 0,3 % des avis. Elle n'est pas neutre vis-à-vis de
+--    la cible, et elle est assumée.
+--
+--    Raison : le comportement du robot sur ces avis — disparitions sans
+--    `is_update`, textes changeants, allers-retours, disparitions multiples —
+--    demande une typologie qui n'a pas été faite. Décider au cas par cas
+--    demanderait des arbitrages invérifiables.
+--
+--    Conséquences à connaître :
+--      - l'effet « avis modifié » n'est pas mesurable sur ce panel ;
+--      - les avis déposés en rafale sont 0,9 % du corpus et 52 % des écartés.
+--        Une rafale sur cinq disparaît entièrement. La caractéristique
+--        `author_same_day_burst` sous-estime donc la réalité.
+--    Contrôles détaillés : `controle_A_*.sql` et `controle_B_*.sql`.
+--
+-- 2. FENÊTRE DE PUBLICATION : du 2026-05-13 au 2026-08-16.
+--    Borne basse  = vague 1 (2026-08-11) moins 90 jours.
+--    Borne haute  = vague 6 (2026-08-16), pour que le dernier entrant soit
+--                   encore observé 8 jours avant la dernière vague
+--                   (2026-08-24).
+--
+--    Le panel contient donc deux populations, à ne pas confondre :
+--      - 210 509 avis déjà en ligne à la vague 1, âgés de 1 à 90 jours. Leurs
+--        premiers jours de vie n'ont jamais été observés. Taux de
+--        suppression : 0,95 %.
+--      - 15 248 avis nés pendant la surveillance (11 au 16 août), observés
+--        depuis leur publication. Taux de suppression : 3,92 %.
+--    La colonne `ne_pendant_la_surveillance` les distingue.
+--
+-- Colonnes retirées le 2026-09-13, sans information par construction :
+--   `is_update`      — vaut FALSE partout, le filtre écarte tout avis édité ;
+--   `changed_fields` — vide partout, pour la même raison ;
+--   `local_guide`    — simple seuil sur `local_guide_level` (1 à 3 -> FALSE,
+--                      4 à 10 -> TRUE). Le niveau porte déjà l'information.
+-- ============================================================================
+
+CREATE OR REPLACE TABLE `client-divers`.reviewflowz.reviews_panel_selection AS
+
+WITH avis_a_un_seul_enregistrement AS (
+  SELECT review_id
+  FROM `client-divers`.reviewflowz.reviews
+  GROUP BY review_id
+  HAVING COUNT(*) = 1
+)
+
+SELECT
+  r.id,
+  r.place_id,
+  r.cid,
+  r.review_id,
+
+  -- Contenu
+  r.star,
+  r.text,
+  r.`language`,
+  r.n_photos,
+  r.photo_urls,
+
+  -- Auteur
+  r.review_link,
+  r.reviewer_name,
+  r.reviewer_avatar,
+  r.reviewer_review_count,
+  r.reviewer_photo_count,
+  r.local_guide_level,
+
+  -- Réponse du commerçant
+  r.reply_text,
+  r.reply_date,
+
+  -- Dates
+  r.created_at,
+  r.updated_at,
+  CAST(r.created_at AS DATE)           AS created_at_day,
+  CAST(r.first_seen_at AS DATE)        AS first_seen_at_day,
+  CAST(r.last_seen_at AS DATE)         AS last_seen_at_day,
+  CAST(r.deleted_detected_at AS DATE)  AS deleted_detected_at_day,
+
+  -- Les deux populations du panel
+  CAST(r.created_at AS DATE) >= DATE "2026-08-11" AS ne_pendant_la_surveillance
+
+FROM `client-divers`.reviewflowz.reviews AS r
+JOIN avis_a_un_seul_enregistrement USING (review_id)
+WHERE CAST(r.created_at AS DATE) BETWEEN DATE "2026-05-13" AND DATE "2026-08-16";

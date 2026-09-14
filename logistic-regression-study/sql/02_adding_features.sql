@@ -1,0 +1,302 @@
+-- ============================================================================
+-- File: sql/02_adding_features.sql
+-- Table: client-divers.reviewflowz.reviews_panel_features
+--
+-- Les caractéristiques explicatives, une ligne par avis du panel.
+-- À exécuter après `01_selection_panel.sql`.
+--
+-- PRINCIPE QUI GOUVERNE TOUT CE FICHIER : une caractéristique ne doit jamais
+-- être mesurée après le moment qu'elle prétend prédire. Trois blocs s'en
+-- écartaient dans la version précédente, et sont refaits ici.
+--
+--   1. La réponse du commerçant. `reply_text IS NOT NULL` décrit l'état au
+--      dernier passage du robot. Un avis supprimé au 3e jour est alors comparé
+--      à un survivant observé 13 jours, qui a eu plus de temps pour recevoir
+--      une réponse. Avoir une réponse devient en partie une CONSÉQUENCE
+--      d'avoir survécu. La réponse est maintenant datée.
+--
+--   2. Le profil d'auteur. Compter tous les avis d'un auteur revient à juger
+--      son avis de mai avec des avis qu'il a écrits en août. Le compte est
+--      maintenant arrêté à la veille de l'avis examiné.
+--
+--   3. Le rythme habituel de la fiche. Il était calculé sur les seuls 90 jours
+--      de la fenêtre, qui contiennent le pic lui-même : une attaque de 100 avis
+--      en un jour gonflait la moyenne servant à la mesurer, et divisait son
+--      propre ratio par deux. Il est maintenant gelé sur les 12 mois qui
+--      précèdent la vague 1.
+--
+-- Autres corrections du 2026-09-13 :
+--   - `langue_etrangere_au_pays` comparait un code de langue à un code de pays
+--     (`language != LOWER(country)`), ce qui marquait 73,5 % des avis, dont
+--     71 % des avis américains parce que `en` n'est pas `us`. Elle s'appuie
+--     maintenant sur `concordance_pays_langue`, qui couvre 100 % des pays du
+--     panel. La proportion tombe à 12,8 %.
+--   - `langue_inconnue` est ajoutée : 27 % des avis n'ont pas de langue
+--     détectée, et les confondre avec « pas étranger » serait faux.
+--   - Les `COALESCE(reviewer_review_count, 0)` sont retirés. La colonne n'a
+--     aucune valeur vide, et le COALESCE transformerait un jour un « on ne
+--     sait pas » en « aucun avis », qui est un signal fort du modèle.
+--   - Les trois colonnes d'auteur qui se recouvraient sont remplacées par une
+--     seule, `situation_auteur`, à trois valeurs exclusives. La quatrième
+--     situation de la version précédente ne pesait que 272 avis.
+--   - Le `QUALIFY ROW_NUMBER()` en tête est supprimé : après le filtre de
+--     `01`, chaque avis n'a qu'une ligne, la partition ne contenait jamais
+--     qu'un élément.
+-- ============================================================================
+
+CREATE OR REPLACE TABLE `client-divers`.reviewflowz.reviews_panel_features AS
+
+WITH
+-- ---------------------------------------------------------------------------
+-- Socle : tous les avis à enregistrement unique, sur TOUTE la période couverte
+-- par l'export, pas seulement la fenêtre du panel. Les profils d'auteur et de
+-- fiche ont besoin de cet historique.
+-- ---------------------------------------------------------------------------
+corpus_unique AS (
+  SELECT
+    r.review_id,
+    r.cid,
+    r.review_link,
+    r.`language`,
+    CAST(r.created_at AS DATE) AS jour
+  FROM `client-divers`.reviewflowz.reviews r
+  JOIN (
+    SELECT review_id
+    FROM `client-divers`.reviewflowz.reviews
+    GROUP BY review_id HAVING COUNT(*) = 1
+  ) USING (review_id)
+),
+
+-- ---------------------------------------------------------------------------
+-- B. Activité de l'auteur, par jour, sur tout le corpus.
+-- ---------------------------------------------------------------------------
+auteur_jour AS (
+  SELECT review_link, jour, COUNT(*) AS n_avis_ce_jour
+  FROM corpus_unique
+  WHERE review_link IS NOT NULL
+  GROUP BY review_link, jour
+),
+
+-- ---------------------------------------------------------------------------
+-- E. Avis déposés le même jour sur une fiche, sur tout le corpus.
+-- ---------------------------------------------------------------------------
+fiche_jour AS (
+  SELECT cid, jour, COUNT(*) AS n_avis_ce_jour
+  FROM corpus_unique
+  GROUP BY cid, jour
+),
+
+-- ---------------------------------------------------------------------------
+-- E. Rythme habituel de chaque fiche : moyenne journalière sur les 365 jours
+--    qui précèdent la vague 1. Gelée, identique pour tous les avis de la fiche,
+--    et antérieure à toute la fenêtre d'étude.
+--
+--    Limite à écrire : un avis supprimé avant le 2026-08-11 n'est dans aucune
+--    table, le robot ayant découvert le corpus à cette date. Cette moyenne est
+--    donc calculée sur les seuls avis SURVIVANTS de la période, et sous-estime
+--    le rythme réel des fiches ayant subi des purges anciennes.
+-- ---------------------------------------------------------------------------
+rythme_fiche AS (
+  SELECT
+    cid,
+    COUNT(*) / 365.0 AS avis_par_jour_avant_vague1
+  FROM corpus_unique
+  WHERE jour BETWEEN DATE_SUB(DATE "2026-08-11", INTERVAL 365 DAY)
+                 AND DATE_SUB(DATE "2026-08-11", INTERVAL 1 DAY)
+  GROUP BY cid
+),
+
+-- ---------------------------------------------------------------------------
+-- C. Langue habituelle de la fiche, gelée elle aussi sur l'avant-vague 1.
+-- ---------------------------------------------------------------------------
+langue_modale_fiche AS (
+  SELECT cid, `language` AS langue_modale
+  FROM (
+    SELECT
+      cid,
+      `language`,
+      ROW_NUMBER() OVER (
+        PARTITION BY cid ORDER BY COUNT(*) DESC, `language`
+      ) AS rn
+    FROM corpus_unique
+    WHERE `language` IS NOT NULL
+      AND jour < DATE "2026-08-11"
+    GROUP BY cid, `language`
+  )
+  WHERE rn = 1
+),
+
+-- ---------------------------------------------------------------------------
+-- B. Le passé de l'auteur, arrêté à la VEILLE de l'avis examiné.
+--    Fenêtre de 90 jours, cohérente avec la profondeur du panel.
+-- ---------------------------------------------------------------------------
+profil_auteur AS (
+  SELECT
+    p.review_id,
+    COUNT(cu.review_id)    AS avis_auteur_90j_avant,
+    COUNT(DISTINCT cu.cid) AS fiches_auteur_90j_avant
+  FROM `client-divers`.reviewflowz.reviews_panel_selection p
+  LEFT JOIN corpus_unique cu
+    ON  cu.review_link = p.review_link
+    AND cu.jour <  p.created_at_day
+    AND cu.jour >= DATE_SUB(p.created_at_day, INTERVAL 90 DAY)
+  GROUP BY p.review_id
+),
+
+record_auteur AS (
+  SELECT
+    p.review_id,
+    COALESCE(MAX(aj.n_avis_ce_jour), 0) AS max_avis_meme_jour_avant
+  FROM `client-divers`.reviewflowz.reviews_panel_selection p
+  LEFT JOIN auteur_jour aj
+    ON  aj.review_link = p.review_link
+    AND aj.jour <  p.created_at_day
+    AND aj.jour >= DATE_SUB(p.created_at_day, INTERVAL 90 DAY)
+  GROUP BY p.review_id
+)
+
+SELECT
+  -- =========================================================================
+  -- Identifiants
+  -- =========================================================================
+  p.review_id,
+  p.cid,
+  CAST(FARM_FINGERPRINT(p.review_link) AS STRING) AS author_key,
+
+  -- =========================================================================
+  -- Cible et exposition. Ce ne sont PAS des variables d'entrée du modèle.
+  -- =========================================================================
+  p.deleted_detected_at_day IS NOT NULL AS supprime,
+  DATE_DIFF(p.deleted_detected_at_day, p.created_at_day, DAY) AS age_a_la_suppression_j,
+  DATE_DIFF(DATE "2026-08-11", p.created_at_day, DAY)         AS age_a_la_vague1_j,
+  -- Recalculée ici plutôt que lue dans `01`, pour que les deux fichiers
+  -- restent indépendants l'un de l'autre.
+  (p.created_at_day >= DATE "2026-08-11")                     AS ne_pendant_la_surveillance,
+
+  -- =========================================================================
+  -- A. L'avis
+  -- =========================================================================
+  p.star,
+  (p.text IS NOT NULL AND LENGTH(TRIM(p.text)) > 0) AS has_text,
+  COALESCE(LENGTH(p.text), 0)                       AS text_chars,
+  p.n_photos,
+  (p.n_photos > 0)                                  AS has_photo,
+
+  -- =========================================================================
+  -- A. La réponse du commerçant, datée.
+  --
+  --   `reponse_avant_surveillance` est la caractéristique utilisable sur tout
+  --   le panel : elle est figée avant que la période de risque commence, donc
+  --   elle ne peut pas être une conséquence de la survie.
+  --
+  --   `reponse_pendant_surveillance` est à écarter du modèle ou à traiter à
+  --   part : elle arrive pendant la période de risque.
+  --
+  --   `reponse_dans_les_2_jours` n'a de sens que sur les avis nés pendant la
+  --   surveillance, seuls avis dont on a vu les premiers jours. C'est la
+  --   caractéristique qui répond à la question « répondre vite protège-t-il ».
+  -- =========================================================================
+  (p.reply_date IS NOT NULL)                                    AS a_une_reponse,
+  (p.reply_date IS NOT NULL
+   AND CAST(p.reply_date AS DATE) <  p.first_seen_at_day)       AS reponse_avant_surveillance,
+  (p.reply_date IS NOT NULL
+   AND CAST(p.reply_date AS DATE) >= p.first_seen_at_day)       AS reponse_pendant_surveillance,
+  DATE_DIFF(CAST(p.reply_date AS DATE), p.created_at_day, DAY)  AS delai_reponse_j,
+  (p.reply_date IS NOT NULL
+   AND DATE_DIFF(CAST(p.reply_date AS DATE), p.created_at_day, DAY) <= 2)
+                                                                AS reponse_dans_les_2_jours,
+
+  -- =========================================================================
+  -- B. L'auteur
+  -- =========================================================================
+  p.reviewer_review_count,
+  LN(p.reviewer_review_count + 1)          AS log_rc,
+  (p.reviewer_review_count = 0)            AS rc_zero,
+  p.local_guide_level,
+  (p.local_guide_level IS NULL)            AS lg_level_missing,
+
+  -- Trois situations exclusives. La référence est « guide établi ».
+  CASE
+    WHEN p.local_guide_level IS NULL              THEN "aucun_niveau"
+    WHEN p.reviewer_review_count = 0              THEN "niveau_sans_avis_declare"
+    ELSE                                               "guide_etabli"
+  END                                      AS situation_auteur,
+
+  -- Avis publiés par le même auteur le MÊME JOUR, sur tout le corpus.
+  -- Ce n'est pas une information du futur : ces avis existent au même moment,
+  -- la suppression vient plusieurs jours plus tard. Mesuré le 2026-09-13, le
+  -- taux de suppression passe de 1,12 % à un avis seul, à 9,01 % à trois avis
+  -- et 44,00 % à quatre.
+  COALESCE(aja.n_avis_ce_jour, 1)          AS n_avis_meme_jour_auteur,
+
+  -- Passé de l'auteur, arrêté à la veille de cet avis.
+  -- Réserve : 99,3 % de ces compteurs valent zéro. Le corpus ne couvre que
+  -- 9 048 commerces, donc on ne voit d'un auteur que la part de son activité
+  -- qui tombe sur ces fiches. Ces trois colonnes porteront peu de signal.
+  pa.avis_auteur_90j_avant,
+  pa.fiches_auteur_90j_avant,
+  ra.max_avis_meme_jour_avant,
+
+  -- =========================================================================
+  -- C. La langue
+  -- =========================================================================
+  p.`language`,
+  (p.`language` IS NULL) AS langue_inconnue,
+
+  -- Étrangère si la langue ne figure pas parmi celles du pays, quel que soit
+  -- leur rang. Le français en Belgique est une langue du pays, en rang 2.
+  (p.`language` IS NOT NULL
+   AND NOT EXISTS (
+     SELECT 1
+     FROM `client-divers`.reviewflowz.concordance_pays_langue k
+     WHERE k.code_pays   = b.country
+       AND k.code_langue = p.`language`
+   ))                                      AS langue_etrangere_au_pays,
+
+  (p.`language` IS NOT NULL
+   AND lm.langue_modale IS NOT NULL
+   AND p.`language` != lm.langue_modale)   AS langue_minoritaire_sur_la_fiche,
+
+  -- =========================================================================
+  -- D. L'établissement
+  -- =========================================================================
+  b.industry,
+  b.country,
+  b.bucket,
+
+  -- Région. Non explicative en soi : elle sert à faire tourner la régression
+  -- sur les deux corpus séparément, puis ensemble, pour voir si les effets
+  -- diffèrent. Mesuré le 2026-09-14 : 127 813 avis américains, 1 seul pays,
+  -- 1,45 % supprimés ; 97 944 avis européens, 38 pays, 0,76 % supprimés.
+  IF(b.country = "US", "US", "Europe")     AS region,
+
+  -- Les quatre chaînes antiparasitaires américaines, et les deux salles de
+  -- sport espagnoles attaquées. Elles restent dans le corpus ; le drapeau sert
+  -- à relancer les modèles sans elles. Voir `../../CLAUDE.md`, Conventions de
+  -- Restitution point 5.
+  (b.name IN ("EcoShield Pest Solutions", "Insight Pest Solutions",
+              "Pointe Pest Control", "Bulwark Exterminating"))
+                                           AS chaine_antiparasitaire_us,
+  (b.name IN ("Boutique The Boxer Club Dr Castelo", "The Boxer Club"))
+                                           AS salle_de_sport_attaquee,
+
+  -- =========================================================================
+  -- E. L'afflux d'avis sur la fiche le jour du dépôt
+  -- =========================================================================
+  fj.n_avis_ce_jour                        AS n_avis_meme_jour_fiche,
+  rf.avis_par_jour_avant_vague1            AS rythme_fiche_avant_vague1,
+  (rf.avis_par_jour_avant_vague1 IS NULL)  AS rythme_fiche_inconnu,
+  SAFE_DIVIDE(fj.n_avis_ce_jour, rf.avis_par_jour_avant_vague1)
+                                           AS ratio_pic_journalier_fiche,
+  LN(SAFE_DIVIDE(fj.n_avis_ce_jour, rf.avis_par_jour_avant_vague1) + 1)
+                                           AS log_ratio_pic_journalier_fiche
+
+FROM `client-divers`.reviewflowz.reviews_panel_selection p
+LEFT JOIN `client-divers`.reviewflowz.businesses b ON p.cid = b.cid
+LEFT JOIN langue_modale_fiche lm ON p.cid = lm.cid
+LEFT JOIN rythme_fiche        rf ON p.cid = rf.cid
+LEFT JOIN fiche_jour          fj ON p.cid = fj.cid AND p.created_at_day = fj.jour
+LEFT JOIN profil_auteur       pa ON p.review_id = pa.review_id
+LEFT JOIN record_auteur       ra ON p.review_id = ra.review_id
+LEFT JOIN auteur_jour         aja ON aja.review_link = p.review_link
+                                 AND aja.jour        = p.created_at_day;

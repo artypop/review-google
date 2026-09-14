@@ -3,24 +3,40 @@
 Écrit le 2026-09-09, pour reprendre le travail sur une autre machine.
 Destiné à qui reprend le dossier, humain ou assistant.
 
-> **Mise à jour du 2026-09-09 au soir. Les sections 3 et 4 ci-dessous sont périmées.**
-> Ce qu'elles annoncent comme « pas construit » l'est depuis :
-> `age_days` est dans le panel, `sql/04_avis_features-v3.sql` et `sql/05_panel_final-v3.sql`
-> sont écrits et exécutés, et le programme statsmodels est
-> `06_statsmodels_analysis_review_claude.py`, qui tourne et produit ses sorties dans
-> `sorties/`. Deux défauts de construction ont été trouvés et corrigés dans l'intervalle —
-> 766 suppressions comptées deux fois, et une fuite de données du futur sur la rafale
-> d'auteur. Le détail et les résultats sont dans `BACKLOG.md`, section « Fait le 2026-09-09 ».
-> La règle du test de robustesse a changé : voir `../CLAUDE.md`, Conventions de Restitution
-> point 5.
-
-> **Mise à jour du 2026-09-10.** Le critère « fiche attaquée » gagne une condition de
-> concentration — au moins 10 avis supprimés déposés le même jour civil — décidée mais pas
-> encore écrite dans le code : les deux fiches américaines n'en sont pas. L'hypothèse de l'afflux
-> d'avis est tranchée par `ratio_pic_journalier_fiche`, sans effet hors fiches attaquées. Les
-> sorties du tirage du 2026-09-09 sont rangées dans `2026-09-10-sorties/`, donc les chemins
-> `sorties/...` cités plus bas visent un dossier vide jusqu'au prochain tirage. Détail dans
-> `BACKLOG.md`, section « Fait le 2026-09-10 ».
+> ## Lire ceci avant tout le reste — état au 2026-09-14
+>
+> **Le panel a changé de forme le 2026-09-13.** Tout ce que les sections 2 à 5 décrivent porte
+> sur l'ANCIEN panel, une ligne par avis et par vague. Elles sont conservées pour la trace de
+> la méthode et des pièges, pas pour décrire l'état actuel.
+>
+> **La chaîne en service, trois étapes dans cet ordre :**
+>
+> | Étape | Produit | Contenu |
+> |---|---|---|
+> | `sql/01_selection_panel.sql` | `reviews_panel_selection` | 225 757 avis, une ligne par avis |
+> | `sql/02_adding_features.sql` | `reviews_panel_features` | les mêmes avis, 42 colonnes |
+> | `07_regression_panel.py` | `2026-09-14-sorties-07/` | quatre passages |
+>
+> **Périmètre :** avis publiés du 2026-05-13 au 2026-08-16, soit 90 jours avant la vague 1 et
+> jusqu'à la vague 6, pour que le dernier entrant soit encore observé 8 jours. 2 595
+> suppressions, 1,15 %, 8 205 fiches.
+>
+> **Trois règles à ne pas défaire :**
+>
+> 1. **Le corpus ne se découpe jamais selon l'âge.** `log_age_vague1` est une variable de
+>    contrôle du modèle, son coefficient n'est pas un résultat. Sans elle, « avoir une réponse
+>    du commerçant » ressort protecteur alors que c'est l'âge déguisé.
+> 2. **Le filtre `COUNT(*) = 1` écarte 731 avis**, soit 0,3 % des avis mais 3 % des
+>    suppressions. Décision assumée de Romain. L'effet « avis modifié » n'est pas mesurable.
+> 3. **Six enseignes portent 39,3 % des suppressions.** Tout chiffre présenté doit venir avec
+>    sa version sans elles : `07_regression_panel.py --sans-enseignes-signalees`.
+>
+> **L'ancienne chaîne est rangée**, sans être maintenue : `2026-09-11-sql/`,
+> `2026-09-10-legacy/`, `2026-09-10-sorties/`. `06_statsmodels_analysis_review_claude.py` y
+> appartient et est remplacé par `07_regression_panel.py`.
+>
+> Le détail complet est dans `BACKLOG.md`, sections « Fait le 2026-09-13 » et « Fait le
+> 2026-09-14 ».
 
 > Ordre de lecture : cette note, puis `BACKLOG.md` (état d'avancement détaillé et liste des
 > caractéristiques retenues), puis `../CLAUDE.md` (instructions du projet, périmètre, pièges).
@@ -269,21 +285,49 @@ connecté ; un calcul qui prend tous les cœurs coupe sa connexion. Au-delà de 
 
 ---
 
-## 8. Où trouver quoi
+## 8. Où trouver quoi — à jour au 2026-09-14
+
+### La chaîne en service
 
 | Fichier | Contenu |
 |---|---|
-| `BACKLOG.md` | État d'avancement, décisions du 2026-09-07, liste des caractéristiques retenues |
-| `sql/01_build_avis_deleted_panel.sql` | Construction du panel, avec les corrections de comptage commentées |
-| `sql/02_verification_totaux.sql` | Contrôle des totaux après reconstruction |
-| `sql/03_concentration_par_magasin.sql` | Fiches concentrant les suppressions |
-| `sql/dbeaver/` | Brouillons DBeaver, dont un doublon de `01` (voir section 2) |
-| `../CLAUDE.md` | Instructions du projet : périmètre, pièges, conventions de restitution |
+| `sql/01_selection_panel.sql` | Le corpus : 225 757 avis, une ligne par avis. L'en-tête explique ce que le filtre `COUNT(*) = 1` écarte et pourquoi |
+| `sql/02_adding_features.sql` | Les caractéristiques, 42 colonnes. L'en-tête liste les quatre corrections de fond du 2026-09-13 et les trois variables écartées du modèle |
+| `07_regression_panel.py` | La régression. `--region US/Europe/tous`, `--sans-enseignes-signalees`. Aucun filtre d'âge possible, volontairement |
+| `sql/controle_A_*.sql`, `sql/controle_B_*.sql` | Six requêtes pour examiner les 731 avis écartés par le filtre |
+| `sql/00_*.sql` | Brouillons de Romain : recherche de rafales, avis uniques, total d'avis par auteur |
+
+### Les sorties
+
+| Fichier, par passage | Contenu |
+|---|---|
+| `07_coefficients_<passage>.csv` | Le tableau de régression : coefficient, erreur-type, z, risque relatif, bornes, p-value, plus la lecture rapportée à 3 étoiles |
+| `07_summary_<passage>.txt` | Le même tableau tel que statsmodels l'imprime, avec l'en-tête de diagnostic |
+| `07_croisements_<passage>.csv` | Taux de suppression par caractéristique, sans ajustement |
+| `07_calibration_<passage>.csv` et `.png` | Risque annoncé contre risque observé |
+
+Quatre passages : `tous`, `tous_sans_enseignes`, `US`, `Europe`.
+
+### Le reste du projet
+
+| Fichier | Contenu |
+|---|---|
+| `BACKLOG.md` | État d'avancement, décisions datées, ce qui reste à faire |
+| `../CLAUDE.md` | Instructions du projet : périmètre, pièges, conventions de restitution, les six enseignes signalées |
 | `../etude-exploratoire/PASSATION.md` | Consignes de rédaction (section 1), pièges du jeu de données |
-| `../etude-exploratoire/scripts/build_tables.py` | Les caractéristiques déjà écrites, à porter en BigQuery |
-| `../etude-exploratoire/documentations/INDEX.md` | Inventaire des 24 documents avec leur statut |
+| `../etude-exploratoire/documentations/INDEX.md` | Inventaire des documents avec leur statut |
 | `../etude-exploratoire/documentations/legacy/` | **Chiffres d'avant correction. Aucun à citer.** |
 | `../BONNES-ET-MAUVAISES-PRATIQUES.md` | Écueils rencontrés, à ne pas répéter |
+
+### Ce qui est rangé, sans être maintenu
+
+| Dossier | Contenu |
+|---|---|
+| `2026-09-11-sql/` | L'ancienne chaîne : `01_build_avis_deleted_panel.sql` à `05_panel_final-v3.sql` |
+| `2026-09-10-legacy/` | Les versions remplacées de ces requêtes, plus le premier script statsmodels |
+| `2026-09-10-sorties/` | Les résultats de l'ancien panel |
+| `2026-09-13-sql-avant-refonte/` | `01` et `02` avant la refonte du 2026-09-13 |
+| `06_statsmodels_analysis_review_claude.py` | Tourne sur l'ancien panel. Remplacé par `07_regression_panel.py` |
 
 Données personnelles : `data/` est dans le `.gitignore`. Ne jamais committer d'extrait de
 données. Ne jamais faire figurer de nom d'auteur ni de lien d'avis dans un document.

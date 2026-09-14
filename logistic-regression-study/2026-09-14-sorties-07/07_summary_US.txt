@@ -1,0 +1,49 @@
+==============================================================================
+Passage : US
+Panel : 127 813 avis  1 851 suppressions
+Aucun sous-échantillonnage : le modèle tourne sur tous les avis.
+Ce fichier et 07_coefficients_*.csv donnent les mêmes valeurs.
+
+log_age_vague1 est une variable de contrôle, pas un résultat à citer.
+==============================================================================
+
+                 Generalized Linear Model Regression Results                  
+==============================================================================
+Dep. Variable:               supprime   No. Observations:               127813
+Model:                            GLM   Df Residuals:                   127788
+Model Family:                Binomial   Df Model:                           24
+Link Function:                  Logit   Scale:                          1.0000
+Method:                          IRLS   Log-Likelihood:                -7953.5
+Date:                Mon, 14 Sep 2026   Deviance:                       15907.
+Time:                        07:37:15   Pearson chi2:                 1.08e+05
+No. Iterations:                     9   Pseudo R-squ. (CS):            0.02660
+Covariance Type:              cluster                                         
+===================================================================================================
+                                      coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------------------------
+const                              -5.9860      0.491    -12.191      0.000      -6.948      -5.024
+has_photo                          -0.2739      0.169     -1.621      0.105      -0.605       0.057
+reponse_avant_surveillance         -0.0420      0.185     -0.227      0.821      -0.405       0.321
+langue_minoritaire_sur_la_fiche    -0.2752      0.404     -0.681      0.496      -1.067       0.517
+log_age_vague1                     -0.6247      0.034    -18.500      0.000      -0.691      -0.559
+log_rc                             -0.0621      0.039     -1.606      0.108      -0.138       0.014
+log_burst                           3.8979      0.444      8.780      0.000       3.028       4.768
+log_ratio_pic_journalier_fiche     -0.1786      0.101     -1.774      0.076      -0.376       0.019
+etoiles_1                           0.8800      0.197      4.456      0.000       0.493       1.267
+etoiles_2                           0.2541      0.289      0.878      0.380      -0.313       0.821
+etoiles_3                          -0.1397      0.282     -0.495      0.621      -0.693       0.414
+etoiles_4                          -0.5080      0.186     -2.733      0.006      -0.872      -0.144
+profil_aucun_niveau                 0.6047      0.127      4.746      0.000       0.355       0.854
+profil_niveau_sans_avis_declare     0.0533      0.163      0.327      0.744      -0.266       0.373
+texte_texte_1_50                    0.1665      0.117      1.420      0.156      -0.063       0.396
+texte_texte_51_200                  0.0350      0.116      0.302      0.763      -0.192       0.262
+texte_texte_201p                    0.0948      0.130      0.729      0.466      -0.160       0.350
+secteur_food_beverage              -0.6916      0.555     -1.246      0.213      -1.779       0.396
+secteur_healthcare                  0.3978      0.323      1.233      0.218      -0.235       1.030
+secteur_home_services               1.5671      0.284      5.519      0.000       1.011       2.124
+secteur_hospitality                -0.3173      0.419     -0.757      0.449      -1.139       0.504
+secteur_travel                      0.8714      0.576      1.514      0.130      -0.257       2.000
+secteur_wellness_fitness            0.7063      0.393      1.798      0.072      -0.063       1.476
+taille_large                        0.2195      0.303      0.725      0.469      -0.374       0.813
+taille_small                        0.4354      0.322      1.352      0.176      -0.196       1.067
+===================================================================================================

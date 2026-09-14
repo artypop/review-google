@@ -1,8 +1,144 @@
 # Backlog — Étude régression logistique
 
-Dernière mise à jour : 2026-09-10.
+Dernière mise à jour : 2026-09-14.
 
 Légende : `[ ]` à faire · `[~]` en cours · `[x]` fait
+
+---
+
+## État au 2026-09-14 — à lire en premier
+
+**Le panel a changé de forme le 2026-09-13.** Il a maintenant **une ligne par avis**, là où
+l'ancien avait une ligne par avis et par vague. Une observation, un sort, aucune dépendance
+entre lignes.
+
+| Étape | Produit | Contenu |
+|---|---|---|
+| `sql/01_selection_panel.sql` | `reviews_panel_selection` | 225 757 avis, 24 colonnes |
+| `sql/02_adding_features.sql` | `reviews_panel_features` | les mêmes avis, 42 colonnes |
+| `07_regression_panel.py` | `2026-09-14-sorties-07/` | quatre passages, cinq fichiers chacun |
+
+**Périmètre :** avis publiés entre le 2026-05-13 et le 2026-08-16, soit 90 jours avant la
+vague 1 et jusqu'à la vague 6, pour que le dernier entrant soit encore observé 8 jours.
+225 757 avis, 2 595 suppressions, 1,15 %, 8 205 fiches.
+
+**L'ancienne chaîne est rangée**, sans être maintenue : `2026-09-11-sql/` pour les requêtes,
+`2026-09-10-legacy/` pour les versions remplacées, `2026-09-10-sorties/` pour ses résultats.
+`06_statsmodels_analysis_review_claude.py` tourne encore sur l'ancien panel ; il est remplacé
+par `07_regression_panel.py`.
+
+---
+
+## Fait le 2026-09-14
+
+### Modèle
+
+- [x] **Écrit `07_regression_panel.py`**, sur le nouveau panel. Quatre passages : corpus entier,
+      sans les six enseignes signalées, États-Unis, Europe. Chaque passage produit un CSV de
+      coefficients, un fichier `summary` statsmodels, un CSV de croisements, un CSV et un
+      graphique de calibration.
+- [x] **L'âge entre comme variable de contrôle**, `log_age_vague1`. Le découpage du corpus selon
+      l'âge est rendu impossible dans le script, à la demande de Romain. Sans l'âge, « avoir une
+      réponse » ressortait protecteur alors que c'était l'âge déguisé : son effet est passé de
+      ×0,79 à ×0,93, p = 0,649, dès que l'âge est entré.
+- [x] **AUC 0,862** sur des établissements jamais vus, contre 0,717 sans l'âge. L'écart mesure ce
+      que l'âge apportait au classement. Calibration suivie sur les dix tranches.
+- [x] **Sous-échantillonnage retiré** (`TAUX_ECHANTILLON_NEGATIFS = 1.0`). Le modèle tourne sur
+      les 225 757 avis en 8 à 11 secondes. Les deux fichiers de sortie donnent désormais la même
+      constante, −6,7126. La mécanique de correction reste dans le code, documentée.
+- [x] **Référence des notes : 5 étoiles**, la cellule la plus fournie (1 850 suppressions contre
+      26 pour 3 étoiles). Le CSV porte en plus `risque_relatif_vs_3_etoiles`, qui rejoue la
+      comparaison depuis l'avis neutre sans faire reposer l'estimation sur une cellule fine.
+- [x] **Garde-fous contre les coefficients qui divergent** : colonne écartée sous 30 cas ou
+      5 suppressions, avertissement si une catégorie de référence est trop fine. Écrits après un
+      passage où trois variables sortaient à 10^8 et 10^10 sur le sous-corpus américain.
+- [x] Ajouté `region`, `chaine_antiparasitaire_us` et `salle_de_sport_attaquee` à `sql/02`, pour
+      relancer les modèles par région et sans les enseignes signalées, d'une clause `WHERE`.
+
+### Résultats, quatre passages
+
+| | Tout | Sans les 6 enseignes | US | Europe |
+|---|---|---|---|---|
+| Avis | 225 757 | 210 670 | 127 813 | 97 944 |
+| Suppressions | 2 595 | 1 576 | 1 851 | 744 |
+| AUC | 0,862 | 0,819 | 0,843 | 0,819 |
+| Rafale d'auteur | ×9,21 | ×4,99 | **×45,99** | ×1,31 |
+| Avis 1 étoile | ×6,17 | ×3,69 | ×2,58 | ×10,74 |
+| Secteur home_services | ×5,69 | ×3,28 | ×5,13 | ×1,23 |
+| Auteur sans niveau Local Guide | ×2,51 | ×2,64 | ×2,16 | ×4,01 |
+| Établissement américain | ×2,13 | ×2,16 | — | — |
+| Avis 4 étoiles | ×0,60 | ×0,66 | ×0,52 | ×0,81 |
+
+Le profil d'auteur est le seul effet qui **se renforce** quand on retire les six enseignes
+signalées. La rafale d'auteur reste un phénomène américain, porté par Insight Pest Solutions.
+
+**Ne tiennent pas :** la réponse du commerçant (×0,93, p = 0,649), la longueur du texte (les
+trois tranches entre ×0,77 et ×1,09), la langue minoritaire (×1,02, p = 0,918).
+
+### Découverte : quatre chaînes antiparasitaires américaines
+
+- [x] **692 suppressions, dont 673 sur des avis 4 ou 5 étoiles**, soit 26,7 % des suppressions du
+      panel. EcoShield, Insight Pest, Pointe Pest Control, Bulwark. Détail dans `../CLAUDE.md`,
+      Conventions de Restitution point 5.
+- [x] **Aucune caractéristique disponible ne les explique.** Auteurs ordinaires (87,1 % de guides
+      établis parmi les supprimés, même niveau moyen que les survivants), textes tous différents
+      (3,6 % de répétition), pas de pic d'afflux (ratio médian 1,95 contre 3,88 ailleurs).
+- [x] **Le motif est général, pas propre à ce secteur.** Taxonomie bâtie sur tout le panel :
+      **114 fiches perdent leurs avis positifs et portent 63,2 % des suppressions**, réparties
+      sur les 7 secteurs et 2 régions. 15 fiches nettoient des avis négatifs (16,4 %). Portes de
+      garage, restaurant japonais, montgolfières, cardiologie, hôtel espagnol, salle de sport
+      allemande.
+- [x] **Elles restent dans le corpus** (décision de Romain). Les drapeaux permettent de relancer
+      sans elles.
+
+---
+
+## Fait le 2026-09-13
+
+### `sql/01_selection_panel.sql`
+
+- [x] Trois colonnes sans information retirées : `is_update` (FALSE partout), `changed_fields`
+      (vide partout), `local_guide` (simple seuil sur `local_guide_level` : 1 à 3 donne FALSE,
+      4 à 10 donne TRUE).
+- [x] Ajouté `ne_pendant_la_surveillance`, qui sépare les deux populations du panel :
+      **210 509 avis déjà en ligne à la vague 1** (0,95 % supprimés) et **15 248 nés pendant la
+      surveillance** (3,92 %). Les premiers n'ont jamais été observés pendant leurs premiers
+      jours de vie.
+- [x] Documenté ce que le filtre `COUNT(*) = 1` écarte, et pourquoi la décision est assumée.
+
+### `sql/02_adding_features.sql` — quatre corrections de fond
+
+- [x] **La réponse du commerçant est datée.** `reply_text IS NOT NULL` décrivait l'état au
+      dernier passage du robot : un survivant avait eu 13 jours de plus pour recevoir une
+      réponse qu'un avis supprimé au 3e jour. Trois colonnes remplacent l'ancienne, dont
+      `reponse_avant_surveillance` (120 230 avis), figée avant le début du risque.
+- [x] **Le profil d'auteur est arrêté à la veille de l'avis examiné.** Compter tous les avis d'un
+      auteur revenait à juger son avis de mai avec des avis d'août. Réserve : 99,3 % de ces
+      compteurs valent zéro, le corpus ne couvrant que 9 048 commerces.
+- [x] **Le rythme habituel des fiches est gelé sur les 12 mois précédant la vague 1.** Il était
+      calculé sur les 90 jours de la fenêtre, qui contiennent le pic lui-même : une attaque de
+      100 avis gonflait la moyenne servant à la mesurer. Les fiches au ratio mécaniquement égal
+      à 1 passent de **750 à 80**, et seuls 12 avis n'ont plus de rythme calculable.
+- [x] **`langue_etrangere_au_pays` refaite** sur `concordance_pays_langue`, qui couvre 100 % des
+      pays du panel. Elle comparait un code de langue à un code de pays, ce qui marquait 73,5 %
+      des avis dont 71 % des américains parce que `en` n'est pas `us`. La proportion tombe à
+      **12,8 %**. Toutes les langues du pays sont acceptées, quel que soit leur rang : le
+      français en Belgique cesse d'être étranger (394 avis concernés).
+- [x] Ajouté `langue_inconnue` : 61 338 avis, 27 % du panel, n'ont pas de langue détectée.
+- [x] `COALESCE(reviewer_review_count, 0)` retiré : aucune valeur vide, et il transformerait un
+      jour un « on ne sait pas » en « aucun avis », qui est un signal fort.
+- [x] Les trois colonnes d'auteur qui se recouvraient remplacées par `situation_auteur`, à trois
+      situations exclusives. Taux bruts : guide établi 0,95 %, niveau connu sans avis déclaré
+      2,05 %, **aucun niveau 8,17 %**.
+- [x] Ajouté `n_avis_meme_jour_auteur`, calculée sur tout le corpus. Taux brut : 1,12 % à un avis
+      seul, 9,01 % à trois, **44,00 % à quatre**.
+- [x] `QUALIFY ROW_NUMBER()` retiré : code mort depuis le filtre de `01`.
+
+### Contrôles écrits
+
+- [x] `sql/controle_A_suppressions_certaines_ecartees.sql` et
+      `sql/controle_B_disparus_puis_revenus_ecartes.sql`, six requêtes, pour examiner un par un
+      les 731 avis écartés par le filtre.
 
 ---
 
@@ -205,54 +341,68 @@ La variable de temps qui remplace ça dans le modèle est l'âge de l'avis à ch
 (`age_days`, déjà calculé dans l'ancienne étude) : elle est connue à l'avance, quelle que soit
 l'issue.
 
-## À faire — plan pour la prochaine séance
+## À faire — au 2026-09-14
 
-### 1. Finaliser la table de caractéristiques
+### 1. Répondre à la question du client d'Axel : répondre vite protège-t-il ?
 
-Reprendre ce qui existe déjà dans `etude-exploratoire/scripts/build_tables.py` plutôt que
-recalculer de zéro — la plupart des caractéristiques ci-dessous y sont déjà construites.
+Pas encore fait. `reponse_dans_les_2_jours` est construite dans `sql/02` et chargée par
+`07_regression_panel.py`, mais elle n'entre pas dans le modèle : elle n'a de sens que sur les
+**15 248 avis nés pendant la surveillance**, seuls avis dont on a vu les premiers jours.
 
-Caractéristiques retenues :
-- note (`star`)
-- longueur du texte (`has_text`, `text_chars`)
-- photos (`n_photos`, `has_photo`)
-- réponse du propriétaire (`has_reply`) — réserve connue : une réponse retirée après coup est
-  invisible dans l'export
-- nombre d'avis du critique (`reviewer_review_count`)
-- statut et niveau Local Guide (`local_guide`, `local_guide_level`) — à vérifier avant de les
-  lire séparément : le niveau n'est peut-être qu'une autre mesure du nombre d'avis du critique
-- langue de l'avis (`language`)
-- écart entre la langue de l'avis et la langue habituelle du magasin (`lang_off_modal` dans
-  l'ancienne étude) — plus informatif qu'une langue de magasin, qui n'existe pas dans les
-  données brutes (seul le pays y figure)
-- plusieurs avis du même auteur le même jour (`author_same_day_burst`) — le résultat le plus
-  solide de l'ancienne étude
-- âge de l'avis à chaque vague (`age_days`) — facteur dominant, indispensable
-- secteur, pays, taille du groupe — comme variables de contrôle, pas comme résultat
+Montage à écrire, dans un script séparé :
 
-À construire :
-- [ ] avis dont le texte contient un prénom — à documenter comme imparfait, comme le dictionnaire
-      d'insultes de l'ancienne étude (couvre 7 langues sur 41 pays)
+- garder les avis encore en ligne à la fin du 2e jour : **15 193 sur 15 248** ;
+- caractéristique : une réponse est arrivée dans les 2 premiers jours — **6 000 avis, 39 %** ;
+- cible : suppression entre le 3e et le 8e jour — **505 suppressions**.
 
-Écarté sans élément nouveau :
-- avis contenant un lien : zéro suppression observée dans l'ancienne étude, filtré par Google
-  avant la mise en ligne
+La réponse précède alors la suppression dans le temps, sans exception. Le seuil de 2 jours est
+ajustable : 64 % des réponses arrivent dans les 24 h, 80 % dans les 3 jours.
 
-### 2. Écrire le programme `statsmodels`
+**Ce montage demande son propre plan avant d'être lancé.**
 
-Script Python : lecture de `avis_deleted_panel` depuis BigQuery vers pandas, jointure avec les
-caractéristiques du point 1, régression logistique avec `statsmodels`.
+### 2. Les quatre transformations faites en Python, à remonter dans `sql/02`
 
-### 3. Vérifier la pertinence de chaque caractéristique avant le modèle complet
+Décision du 2026-09-14 : elles restent en Python tant que les seuils bougent.
 
-Reprendre la méthode de l'ancienne étude qui a bien fonctionné : un tableau croisé par
-caractéristique, stratifié par âge, avant de faire confiance à un effet dans le modèle à
-plusieurs variables. Objectif : écarter tout de suite une caractéristique qui ne montre rien en
-bivarié, et comprendre celles qui montrent quelque chose avant de les combiner.
+| Colonne | Ce que c'est |
+|---|---|
+| `taille_texte` | `text_chars` découpé en 4 tranches |
+| `log_burst` | logarithme de `n_avis_meme_jour_auteur` |
+| `secteur` | `industry`, secteurs sous 1 % regroupés en « autres » |
+| `log_age_vague1` | logarithme de `age_a_la_vague1_j` |
 
-### 4. Chercher des effets cumulés
+Le défaut connu : quelqu'un qui lit `sql/02` ne saura pas que les secteurs rares sont regroupés
+ni où sont coupées les tranches de texte. C'est le même défaut que celui corrigé ailleurs dans
+le projet pour la règle de suppression et pour la règle de fiche attaquée.
 
-Une fois les effets isolés compris et validés à l'étape 3 — pas avant, pour éviter de chercher
-des combinaisons sur du bruit. Exemple de question : un avis sans texte, posté en rafale, sur un
-magasin à forte vélocité, cumule-t-il un risque plus élevé que la somme de ces trois effets pris
-séparément ?
+### 3. Le motif du prénom, laissé ouvert
+
+Les textes supprimés des chaînes antiparasitaires **nomment très souvent un technicien** : sur
+12 textes tirés au hasard, « Ian Anderson » revient 4 fois, plus Devin, Jake, Tristan, Tristin,
+Elizabeth. Hors de ces chaînes, environ la moitié des textes supprimés nomment quelqu'un.
+
+**Rien n'a été construit, volontairement.** Une caractéristique taillée sur ces chaînes serait
+ajustée sur 88 des 114 fiches concernées, exactement le biais signalé par Romain. La piste à
+suivre serait la **répétition d'un même prénom sur les avis d'une fiche**, construite sans
+regarder les chaînes, puis testée hors d'elles.
+
+### 4. Les six enseignes signalées, à surveiller dans chaque restitution
+
+Elles portent **39,3 % des suppressions du panel**. Tout chiffre présenté à Axel doit être
+accompagné de sa version sans elles. `07_regression_panel.py --sans-enseignes-signalees` le
+fait en une commande.
+
+### 5. Chercher des effets cumulés
+
+Seulement après avoir compris les effets isolés. Exemple : un avis sans texte, posté en rafale,
+sur une fiche à fort afflux, cumule-t-il un risque plus élevé que la somme des trois effets ?
+
+### Écarté, sans élément nouveau
+
+- **Avis contenant un lien** : zéro suppression observée dans l'étude exploratoire, filtré par
+  Google avant la mise en ligne.
+- **Effet « avis modifié »** : non mesurable sur ce panel, le filtre `COUNT(*) = 1` écarte les
+  543 avis édités de la fenêtre. Accepté par Romain le 2026-09-13.
+- **Caractéristiques de campagne d'auteur** (même enseigne, note uniforme, même secteur) :
+  testées le 2026-09-13, elles ne séparent rien. Capfun a déposé 12 avis 5 étoiles le même jour
+  sur 12 campings d'une même chaîne, deux jours avant la vague 1, et aucun n'a été supprimé.

@@ -22,7 +22,7 @@ première disparition.
 
 Cette définition existe en **un seul endroit** hors BigQuery :
 [`../scripts/suppressions_corrigees.py`](../scripts/suppressions_corrigees.py). La référence est
-[`01_build_avis_deleted_panel.sql`](../../logistic-regression-study/sql/01_build_avis_deleted_panel.sql).
+[`01_build_avis_deleted_panel.sql`](../../logistic-regression-study/2026-09-11-sql/01_build_avis_deleted_panel.sql).
 Si la définition change en BigQuery, ce fichier est à reprendre, et lui seul.
 
 ---

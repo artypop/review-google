@@ -58,7 +58,38 @@ Le projet est divisé en deux environnements cloisonnés.
 
 * **Techno :** La table de panel est construite, corrigée et interrogée **uniquement** en BigQuery (`client-divers.reviewflowz.*`). Ne jamais dupliquer cette logique en DuckDB ou pandas.
 * **Modélisation :** Extraction via `google.cloud.bigquery` vers pandas, puis modélisation stricte avec **`statsmodels`** (pas de `scikit-learn`), afin d'obtenir directement les coefficients et marges d'incertitude.
-* **Contenu :** Requêtes SQL commentées (`sql/`), `BACKLOG.md`.
+
+* **Chaîne en service depuis le 2026-09-13.** Trois étapes, dans cet ordre :
+
+  | Étape | Produit | Contenu |
+  |---|---|---|
+  | `sql/01_selection_panel.sql` | `reviews_panel_selection` | **225 757 avis, une ligne par avis** |
+  | `sql/02_adding_features.sql` | `reviews_panel_features` | les mêmes avis, 42 colonnes |
+  | `07_regression_panel.py` | `AAAA-MM-JJ-sorties-07/` | la régression, cinq fichiers par passage |
+
+  **Le panel a changé de forme le 2026-09-13.** L'ancien avait une ligne par avis ET par vague
+  (`avis_deleted_panel`, `avis_panel_final`, construits par `2026-09-11-sql/`). Le nouveau a une
+  ligne par avis : une observation, un sort, aucune dépendance entre lignes. Les tables et
+  scripts de l'ancienne chaîne sont dans `2026-09-11-sql/` et `2026-09-10-legacy/`, conservés
+  sans être maintenus.
+
+* **Le corpus exclut les avis à plusieurs enregistrements** (`HAVING COUNT(*) = 1`). 731 avis
+  écartés sur 226 488, soit 0,3 % des avis mais environ 3 % des suppressions : l'exclusion n'est
+  pas neutre vis-à-vis de la cible, et elle est assumée. Décision de Romain le 2026-09-13, faute
+  d'une typologie du comportement du robot sur ces avis. Deux conséquences : l'effet « avis
+  modifié » n'est pas mesurable, et les avis en rafale sont 52 % des écartés, donc
+  `n_avis_meme_jour_auteur` sous-estime la réalité. Contrôles dans `sql/controle_A_*.sql` et
+  `sql/controle_B_*.sql`.
+
+* **L'âge est une variable de contrôle, jamais un critère de découpage.** `07_regression_panel.py`
+  ne permet pas de filtrer sur l'âge, volontairement. `log_age_vague1` entre dans le modèle pour
+  que les autres coefficients se lisent à âge comparable ; **son propre coefficient n'est pas un
+  résultat à citer**. Sans lui, « avoir une réponse du commerçant » ressort protecteur alors que
+  c'est l'âge déguisé : le risque est divisé par 21 entre 0 et 90 jours pendant que la part
+  d'avis déjà répondus passe de 15,6 % à 58,7 %.
+
+* **Contenu :** Requêtes SQL commentées (`sql/`), `07_regression_panel.py`, `BACKLOG.md`,
+  `PASSATION.md`.
 
 ---
 
@@ -97,6 +128,27 @@ Le projet est divisé en deux environnements cloisonnés.
    **Définition d'une fiche attaquée** (validée le 2026-09-09, remplace le critère des 5 %) : au moins 10 suppressions, dont au moins 80 % à 1 étoile, dont au moins 80 % sur des avis **écrits moins de 30 jours avant leur suppression** — le code calcule `age_days <= 30` sur la vague de disparition, pas l'âge de l'avis aujourd'hui. Elle retient 4 fiches et 385 suppressions : les deux salles de sport espagnoles (229 et 135), MedVet Cleveland (11, 100 % à 1 étoile) et Fox Rent A Car Denver (10, **80 % à 1 étoile** : 8 avis à 1 étoile, 1 à 3 étoiles, 1 à 5 étoiles). Ces deux dernières ont trop d'avis pour que l'ancien seuil en pourcentage les voie (0,74 % et 0,10 % de leur stock).
 
    **Condition de concentration décidée le 2026-09-10, pas encore dans le code.** Le critère ci-dessus ne mesure jamais la concentration des dépôts. Les deux salles espagnoles ont 112 et 55 avis supprimés déposés le même jour ; MedVet et Fox plafonnent à 3, étalés sur 24 et 1 210 jours, et Fox perd un avis 5 étoiles déposé en avril 2023 après 1 207 jours en ligne. Une quatrième condition est décidée : **au moins 10 avis supprimés déposés le même jour civil**, mesurée sur `created_at`. Elle ne retient que les deux salles espagnoles. Tant qu'elle n'est pas écrite, les sorties portent encore 4 fiches. Les seuils sont déclarés deux fois — `etude-exploratoire/scripts/suppressions_corrigees.py` et `logistic-regression-study/06_statsmodels_analysis_review_claude.py` — et se modifient ensemble.
+
+   **Les quatre chaînes antiparasitaires américaines, repérées le 2026-09-14.** Elles portent **26,7 % des suppressions du panel** et relèvent d'un phénomène opposé à celui des salles espagnoles : Google y retire des avis **positifs**.
+
+   | Enseigne | Fiches | Avis | Suppressions | Taux | Dont 4-5 étoiles |
+   |---|---|---|---|---|---|
+   | EcoShield Pest Solutions | 26 | 8 701 | 247 | 2,84 % | 233 |
+   | Insight Pest Solutions | 19 | 2 756 | 225 | 8,16 % | 221 |
+   | Pointe Pest Control | 19 | 807 | 141 | 17,47 % | 141 |
+   | Bulwark Exterminating | 24 | 2 376 | 79 | 3,32 % | 78 |
+
+   **692 suppressions, dont 673 sur des avis 4 ou 5 étoiles**, contre 327 suppressions pour les deux salles espagnoles, toutes sur des avis 1 étoile. Ces six enseignes portent ensemble 39,3 % des suppressions du panel, et les quatre chaînes représentent 58 % des suppressions du secteur home_services.
+
+   **Elles restent dans le corpus de la régression** (décision de Romain, 2026-09-14). Les modèles sont à relancer avec et sans, comme pour les fiches attaquées.
+
+   **Aucune caractéristique disponible ne les explique.** Vérifié le 2026-09-14 :
+   - *Les auteurs sont ordinaires.* 87,1 % des avis supprimés viennent d'un compte Local Guide établi, au même niveau moyen que les survivants (2,7 contre 2,7). Dans le reste du panel, les supprimés viennent à 27,4 % de comptes au compteur à zéro, contre 7,9 % chez les survivants.
+   - *Les textes sont tous différents.* 456 textes distincts pour 473 avis supprimés avec texte, soit 3,6 % de répétition.
+   - *Il n'y a pas de pic d'afflux.* Ces fiches reçoivent 2,60 avis par jour contre 1,17 pour le reste du panel, mais **régulièrement** : leur ratio de pic médian est de 1,95 contre 3,88 ailleurs. La succursale au taux de suppression le plus élevé (35,8 %) recevait **moins** d'avis pendant la fenêtre qu'avant elle.
+   - *Les rafales d'auteur n'expliquent que 6 %* des 692 suppressions.
+
+   **Deux traits non expliqués, à creuser.** Les avis supprimés de ces chaînes ont **plus** souvent une réponse du commerçant (50,0 % contre 35,0 %), alors que le biais de durée d'observation pousse dans l'autre sens. Et leurs textes **nomment très souvent un technicien** : sur 12 textes supprimés tirés au hasard, « Ian Anderson » apparaît 4 fois, plus Devin, Jake, Tristan, Tristin, Elizabeth. Piste ouverte : compter la répétition d'un même prénom sur les avis d'une fiche, plutôt que la simple présence d'un prénom.
 
    **Pourquoi l'ancien critère des 5 % est abandonné.** Vérification fiche par fiche des 24 qu'il retenait : 2 sont attaquées ; 1 est l'autocariste allemand Bischoff Touristik, qui perd 48 avis négatifs écrits sur 8 ans, médiane 3 ans, aucun de moins de 30 jours — un retrait obtenu sur demande, pas une attaque ; 15 ne perdent que des avis 4 et 5 étoiles, surtout des artisans américains, c'est-à-dire le phénomène même que l'étude documente ; 6 ont moins de 25 avis, dont une à 2 avis qui atteignait le seuil avec une seule suppression. Exclure ces 21 fiches amputait le corpus de son sujet.
 

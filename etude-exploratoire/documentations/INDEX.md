@@ -8,7 +8,7 @@ Le 5 230 compte des événements, le 4 747 des avis : deux unités, à ne pas me
 d'autre d'une flèche sans le dire. Définition
 dans [`../scripts/suppressions_corrigees.py`](../scripts/suppressions_corrigees.py), qui
 réimplémente en DuckDB la logique de
-[`../../logistic-regression-study/sql/01_build_avis_deleted_panel.sql`](../../logistic-regression-study/sql/01_build_avis_deleted_panel.sql).
+[`../../logistic-regression-study/2026-09-11-sql/01_build_avis_deleted_panel.sql`](../../logistic-regression-study/2026-09-11-sql/01_build_avis_deleted_panel.sql).
 
 Trois statuts :
 

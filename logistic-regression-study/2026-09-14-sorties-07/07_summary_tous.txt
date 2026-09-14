@@ -1,0 +1,50 @@
+==============================================================================
+Passage : tous
+Panel : 225 757 avis  2 595 suppressions
+Aucun sous-échantillonnage : le modèle tourne sur tous les avis.
+Ce fichier et 07_coefficients_*.csv donnent les mêmes valeurs.
+
+log_age_vague1 est une variable de contrôle, pas un résultat à citer.
+==============================================================================
+
+                 Generalized Linear Model Regression Results                  
+==============================================================================
+Dep. Variable:               supprime   No. Observations:               225757
+Model:                            GLM   Df Residuals:                   225731
+Model Family:                Binomial   Df Model:                           25
+Link Function:                  Logit   Scale:                          1.0000
+Method:                          IRLS   Log-Likelihood:                -11051.
+Date:                Mon, 14 Sep 2026   Deviance:                       22102.
+Time:                        07:36:55   Pearson chi2:                 2.31e+05
+No. Iterations:                     9   Pseudo R-squ. (CS):            0.02724
+Covariance Type:              cluster                                         
+===================================================================================================
+                                      coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------------------------
+const                              -6.7126      0.491    -13.679      0.000      -7.674      -5.751
+has_photo                          -0.1765      0.131     -1.347      0.178      -0.433       0.080
+reponse_avant_surveillance          0.0182      0.154      0.118      0.906      -0.284       0.321
+langue_minoritaire_sur_la_fiche     0.0113      0.188      0.060      0.952      -0.358       0.381
+log_age_vague1                     -0.6168      0.029    -21.227      0.000      -0.674      -0.560
+log_rc                             -0.1447      0.034     -4.220      0.000      -0.212      -0.077
+log_burst                           2.2559      0.469      4.809      0.000       1.336       3.175
+log_ratio_pic_journalier_fiche      0.3371      0.138      2.435      0.015       0.066       0.609
+etoiles_1                           1.8473      0.307      6.019      0.000       1.246       2.449
+etoiles_2                           0.7890      0.309      2.555      0.011       0.184       1.394
+etoiles_3                          -0.1457      0.239     -0.610      0.542      -0.614       0.322
+etoiles_4                          -0.4720      0.158     -2.992      0.003      -0.781      -0.163
+profil_aucun_niveau                 0.8327      0.099      8.372      0.000       0.638       1.028
+profil_niveau_sans_avis_declare     0.2086      0.105      1.978      0.048       0.002       0.415
+texte_texte_1_50                   -0.0027      0.105     -0.025      0.980      -0.209       0.204
+texte_texte_51_200                 -0.1510      0.119     -1.265      0.206      -0.385       0.083
+texte_texte_201p                   -0.4193      0.231     -1.818      0.069      -0.871       0.033
+secteur_food_beverage              -0.4281      0.391     -1.095      0.274      -1.195       0.339
+secteur_healthcare                  0.3023      0.305      0.991      0.322      -0.296       0.900
+secteur_home_services               1.7456      0.283      6.169      0.000       1.191       2.300
+secteur_hospitality                -0.1134      0.319     -0.355      0.723      -0.739       0.513
+secteur_travel                      1.2277      0.504      2.434      0.015       0.239       2.216
+secteur_wellness_fitness            1.4331      0.384      3.731      0.000       0.680       2.186
+taille_large                        0.7473      0.303      2.465      0.014       0.153       1.341
+taille_small                        0.5488      0.266      2.060      0.039       0.027       1.071
+region_US                           0.6867      0.134      5.110      0.000       0.423       0.950
+===================================================================================================
