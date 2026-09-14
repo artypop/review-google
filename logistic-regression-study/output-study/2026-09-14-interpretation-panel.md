@@ -7,7 +7,7 @@ statut: résultats
 
 # Ce que dit la régression sur le panel reconstruit
 
-Lecture des quatre passages de `07_regression_panel.py` du 2026-09-14, tous dans
+Lecture des cinq passages de `python/07_regression_panel.py` du 2026-09-14, tous dans
 `2026-09-14-sorties-07/`. **Aucun calcul n'a été relancé pour écrire cette note** : chaque
 chiffre cité est dans un de ces fichiers, nommé à côté de lui.
 
@@ -67,7 +67,7 @@ Il est à citer avec la part de volume à côté, sans quoi il oriente vers le m
 
 ---
 
-## 2. Ce qui tient dans les quatre passages
+## 2. Ce qui tient dans tous les passages
 
 Trois effets vont dans le même sens partout, et survivent au retrait des six enseignes.
 
@@ -155,8 +155,8 @@ l'âge, pas l'une de l'autre.
 - La mesure porte sur `reponse_avant_surveillance`, c'est-à-dire une réponse arrivée **avant le
   11 août**. Elle ne mesure pas l'effet de répondre vite à un avis qui vient de tomber. C'est
   une autre question, et c'est celle que le client d'Axel pose. Elle est traitée par
-  `08_effet_reponse_commercant.py`, **écrit mais jamais lancé** faute d'accès BigQuery sur la
-  machine de travail.
+  `python/08_effet_reponse_commercant.py`, lancé le 2026-09-14. Résultat dans
+  `2026-09-14-effet-reponse-commercant.md`.
 
 ### Trois chiffres coexistent. Les voici côte à côte
 
@@ -181,7 +181,7 @@ déplacés de 1 à 5 %, sur le même corpus et les mêmes 2 623 disparitions.
 Les deux chiffres ne se contredisent pas : ni la population, ni l'unité comptée, ni la finesse
 du contrôle de l'âge ne sont les mêmes. L'explication la plus probable de l'écart, et le
 contrôle qui la trancherait, sont écrits dans
-`../etude-exploratoire/documentations/2026-09-06-analyse-b-quel-avis-tombe.md`, dernière section.
+`../../etude-exploratoire/documentations/2026-09-06-analyse-b-quel-avis-tombe.md`, dernière section.
 
 ### Trois chiffres à ne plus citer
 
@@ -337,9 +337,9 @@ concentration du phénomène européen, qu'aucune méthode d'évaluation ne fait
 
 ## 6. Réserves de lecture
 
-- **`supprime` vaut `deleted_detected_at IS NOT NULL`** (`sql/02_adding_features.sql:169`),
+- **`supprime` vaut `deleted_detected_at IS NOT NULL`** (`../sql/02_adding_features.sql:169`),
   sans la règle des 2 jours d'absence utilisée ailleurs dans le projet. Ce n'est pas une
-  omission : `HAVING COUNT(*) = 1` (`sql/01_selection_panel.sql:54-59`) a déjà écarté tout avis
+  omission : `HAVING COUNT(*) = 1` (`../sql/01_selection_panel.sql:54-59`) a déjà écarté tout avis
   disparu puis revenu, donc il n'y a plus de résurrection à trier. Les 2 595 suppressions de ce
   panel ne se comparent pas directement aux 4 737 du corpus entier : ni le périmètre ni la
   règle ne sont les mêmes.
@@ -358,13 +358,14 @@ concentration du phénomène européen, qu'aucune méthode d'évaluation ne fait
 
 ## 7. Régénérer ces chiffres
 
-Les quatre passages, depuis `logistic-regression-study/` :
+Les cinq passages, depuis `logistic-regression-study/` :
 
 ```bash
-python 07_regression_panel.py
-python 07_regression_panel.py --sans-enseignes-signalees
-python 07_regression_panel.py --region US
-python 07_regression_panel.py --region Europe
+python python/07_regression_panel.py
+python python/07_regression_panel.py --sans-enseignes-signalees
+python python/07_regression_panel.py --region US
+python python/07_regression_panel.py --region Europe
+python python/07_regression_panel.py --region Europe --sans-enseignes-signalees
 ```
 
 Chaque passage écrit dans `{date du jour}-sorties-07/`. Relancé un autre jour, il crée un

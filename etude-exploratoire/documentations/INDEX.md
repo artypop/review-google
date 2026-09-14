@@ -1,5 +1,15 @@
 # Index de la documentation — étude exploratoire
 
+> ## Dossier gelé le 2026-09-14
+>
+> **Ne rien relancer ici, ne rien y écrire, ne citer aucun chiffre sans passer par
+> `../../docs/`.** Cet index reste pour une seule raison : il dit quelle note porte des chiffres
+> encore valables et laquelle porte des chiffres d'avant la correction du comptage du
+> 2026-09-08. Sans lui, rien ne les distingue.
+>
+> Ce qui reste valable de cette étude est repris dans `../../docs/03-resultats.md`.
+> Voir `../README.md`.
+
 Établi le 2026-09-08, après la correction du comptage des suppressions.
 
 **Comptage de référence : 5 230 lignes de disparition, portées par 5 109 avis distincts,
@@ -7,8 +17,9 @@
 Le 5 230 compte des événements, le 4 747 des avis : deux unités, à ne pas mettre de part et
 d'autre d'une flèche sans le dire. Définition
 dans [`../scripts/suppressions_corrigees.py`](../scripts/suppressions_corrigees.py), qui
-réimplémente en DuckDB la logique de
-[`../../logistic-regression-study/2026-09-11-sql/01_build_avis_deleted_panel.sql`](../../logistic-regression-study/2026-09-11-sql/01_build_avis_deleted_panel.sql).
+réimplémente en DuckDB la logique de l'ancienne chaîne BigQuery
+(`01_build_avis_deleted_panel.sql`), **supprimée du dépôt le 2026-09-14**. La chaîne en
+service est dans `../../logistic-regression-study/sql/`.
 
 Trois statuts :
 
@@ -22,20 +33,19 @@ Trois statuts :
 
 ## Cet index ne couvre que l'étude exploratoire
 
-**Ajouté le 2026-09-14.** Les résultats de la régression logistique sont dans l'autre dossier et
-n'ont jamais été listés ici, ce qui rendait cet index trompeur par omission.
+Ce qui est vivant dans le projet est ailleurs :
 
 | Où | Quoi |
 |---|---|
-| [`../../logistic-regression-study/2026-09-14-interpretation-panel.md`](../../logistic-regression-study/2026-09-14-interpretation-panel.md) | **La lecture des résultats de la régression.** Les quatre passages interprétés, ce qui tient, ce qui ne doit pas être cité |
-| [`../../logistic-regression-study/2026-09-14-effet-reponse-commercant.md`](../../logistic-regression-study/2026-09-14-effet-reponse-commercant.md) | **La réponse à la question du client d'Axel.** Répondre dans les 2 jours divise le risque par 1,8 hors des 4 chaînes antiparasitaires (×0,56) ; rien de mesurable sur le corpus complet (×0,79). Le ×0,56 ne s'annonce jamais sans dire qu'il exclut ces chaînes |
-| [`../../logistic-regression-study/2026-09-14-sorties-07/`](../../logistic-regression-study/2026-09-14-sorties-07/) | Les chiffres eux-mêmes. **Ils font foi** : le tableau de `BACKLOG.md` en avait divergé jusqu'au 2026-09-14 |
-| [`../../logistic-regression-study/PASSATION.md`](../../logistic-regression-study/PASSATION.md) | L'état de cette étude-là. Son bandeau d'en-tête est le point d'entrée |
+| [`../../docs/03-resultats.md`](../../docs/03-resultats.md) | **Tous les résultats du projet**, y compris ceux de cette étude-ci qui tiennent encore |
+| [`../../docs/02-donnees.md`](../../docs/02-donnees.md) | Les définitions, les pièges, et pourquoi le même chiffre a parfois deux valeurs |
+| [`../../docs/BACKLOG.md`](../../docs/BACKLOG.md) | L'historique du projet et ce qui reste à faire |
+| [`../../logistic-regression-study/output-study/`](../../logistic-regression-study/output-study/) | Les sorties de la régression et les notes qui les commentent |
 
 **Le panel de la régression a changé de forme le 2026-09-13** : une ligne par avis, là où
 l'ancien avait une ligne par avis et par vague. Les requêtes de l'ancienne chaîne sont rangées
-dans `2026-09-11-sql/`, conservées sans être maintenues — y compris
-`01_build_avis_deleted_panel.sql`, dont le lien apparaît plus haut dans cet index.
+dans `2026-09-11-sql/`, **supprimé du dépôt le 2026-09-14**. `git log --diff-filter=D
+--name-only` le retrouve.
 
 ---
 
@@ -110,9 +120,9 @@ documents relancés le 2026-09-09 ; voir [legacy/README.md](legacy/README.md).
 |---|---|
 | [../../CLAUDE.md](../../CLAUDE.md) | Instructions de travail : flux plan / relecture, architecture, méthodologie. **Chiffres corrigés le 2026-09-09** : concentration, taux du périmètre frais, codes D1/D2/D3, comptage de référence. Aucune valeur périmée restante. |
 | [../../README.md](../../README.md) | Présentation du dépôt, commandes, tables, scripts, vocabulaire. **Réécrit le 2026-09-09** : liens réparés, résultats valides séparés des résultats à relancer, durées non mesurées retirées. |
-| [../BACKLOG.md](../BACKLOG.md) | État d'avancement, décisions, table des programmes, réserves à porter au livrable. |
-| [../PASSATION.md](../PASSATION.md) | Document de reprise : consignes de rédaction, décisions verrouillées, pièges du jeu de données. |
-| [../../BONNES-ET-MAUVAISES-PRATIQUES.md](../../BONNES-ET-MAUVAISES-PRATIQUES.md) | Bonnes pratiques et écueils rencontrés, avec le contrôle qui aurait évité chacun. |
+| [../../docs/BACKLOG.md](../../docs/BACKLOG.md) | L'historique et le reste à faire. Remplace les anciens `BACKLOG.md` et `PASSATION.md` de ce dossier, supprimés le 2026-09-14. |
+| [../audit-methode.md](../audit-methode.md) | Comment chaque note de ce dossier a été calculée. |
+| [../../docs/04-enseignements.md](../../docs/04-enseignements.md) | Ce que le projet a appris : les erreurs commises, ce qui a été jeté, ce qu'on sait du jeu de données. |
 
 ## Doublons connus
 

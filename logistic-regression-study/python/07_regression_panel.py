@@ -104,7 +104,12 @@ TABLE = "reviews_panel_features"
 # On prend donc le seul `.json` du dossier.
 DOSSIER_CLES = Path("/home/romain/.gcp")
 
-SORTIES = Path(__file__).resolve().parent / f"{date.today():%Y-%m-%d}-sorties-07"
+# Les sorties vont dans `output-study/`, à côté des notes qui les commentent, et
+# non dans `python/` où vivent les scripts. Le `.parent.parent` remonte de
+# `python/` à la racine du dossier d'étude : sans lui, le rangement du
+# 2026-09-14 ferait écrire les résultats au milieu du code.
+SORTIES = (Path(__file__).resolve().parent.parent / "output-study"
+           / f"{date.today():%Y-%m-%d}-sorties-07")
 
 # Part des avis NON supprimés gardée pour l'ajustement.
 #

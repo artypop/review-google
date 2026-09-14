@@ -1,15 +1,23 @@
-# Bonnes et mauvaises pratiques
+# Ce que le projet a appris
 
-Écrit le 2026-09-08 après une session où la plupart des sorties ont dû être corrigées. Chaque
-écueil listé ici s'est produit dans ce projet. Le but est de ne pas y retomber.
+Écrit le 2026-09-08, complété le 2026-09-14. Trois parties :
 
-À lire avant de produire un chiffre. Les règles de fonctionnement (plan approuvé, relecture par
-un sous-agent) sont dans [CLAUDE.md](CLAUDE.md) ; ce document donne les défauts concrets à
-chercher.
+1. **les erreurs commises** et le contrôle qui aurait évité chacune ;
+2. **ce qui a été construit puis jeté**, pour que personne ne le repropose comme neuf ;
+3. **ce qu'on a appris du jeu de données lui-même** — ce que Google laisse voir et ce qu'il
+   cache.
+
+Aucun résultat sur les suppressions d'avis ici : ils sont dans
+[03-resultats.md](03-resultats.md). Les règles de fonctionnement sont dans
+[../CLAUDE.md](../CLAUDE.md).
+
+À lire avant de produire un chiffre.
 
 ---
 
-# Partie 1 — Les écueils rencontrés
+# Partie 1 — Les erreurs commises
+
+Chaque écueil listé ici s'est produit dans ce projet, avec le texte fautif exact.
 
 ## 1. Un pourcentage sans son dénominateur
 
@@ -62,7 +70,7 @@ pas la même grandeur exprimée autrement, couper la phrase en deux.
 des bugs d'édition. Ils circulaient encore dans sept fichiers le lendemain de la correction.
 
 **Le contrôle** : une seule définition, dans un seul fichier
-([`etude-exploratoire/scripts/suppressions_corrigees.py`](etude-exploratoire/scripts/suppressions_corrigees.py)),
+([`etude-exploratoire/scripts/suppressions_corrigees.py`](../etude-exploratoire/scripts/suppressions_corrigees.py)),
 importée par tous les scripts. Et un balayage `grep` des anciennes valeurs après chaque
 correction de définition, pour poser un bandeau là où elles subsistent.
 
@@ -128,7 +136,7 @@ depuis supprimée, ils ne sont pas repris ici.)
 soulevait une question. Trois ont été jetées.
 
 **Le contrôle** : terminer ce qui est approuvé, énoncer la question nouvelle, attendre. La règle
-est dans [CLAUDE.md](CLAUDE.md), étape A.
+est dans [CLAUDE.md](../CLAUDE.md), étape A.
 
 ## 11. Ajouter une correction là où il n'y a rien à corriger
 
@@ -182,7 +190,7 @@ pas par les notes.
 
 ---
 
-# Partie 2 — Les bonnes pratiques à garder
+# Partie 1 bis — Les bonnes pratiques à garder
 
 ## Sur les chiffres
 
@@ -229,3 +237,121 @@ pas par les notes.
   pandas. `reviews.parquet` fait 834 Mo.
 - **Jamais de nom d'auteur, de lien d'avis ou de texte d'avis dans un document versionné.**
   `data/` est gitignoré et le reste.
+
+---
+
+# Partie 2 — Ce qui a été construit puis jeté
+
+Sans cette trace, ces constructions seront reproposées comme neuves. Chacune a coûté du temps.
+
+## Le critère « la fiche perd plus de 5 % de ses avis »
+
+**Ce que c'était** : un seuil pour repérer les fiches attaquées et pouvoir refaire les calculs
+sans elles.
+
+**Pourquoi il est parti** : sur les 24 fiches qu'il retenait, 2 seulement étaient attaquées. 15
+ne perdaient que leurs avis 4 et 5 étoiles — le phénomène même que l'étude documente. 6 avaient
+moins de 25 avis, dont une à 2 avis qui atteignait le seuil avec une seule suppression. Et il
+ratait les petites attaques sur les grosses fiches : 10 suppressions sur 9 545 avis font 0,10 %
+du stock.
+
+**Remplacé par** une signature à quatre conditions, décrite dans [02-donnees.md](02-donnees.md).
+
+## Trois constructions pour corriger une comparaison qui n'en avait pas besoin
+
+**Ce que c'était** : une cohorte des avis nés pendant le suivi, une matrice vague × âge sur un
+groupe fixe, puis un calcul d'exposition par âge. Toutes destinées à rendre comparables des âges
+dont on croyait les dénominateurs différents.
+
+**Pourquoi elles sont parties** : le corpus contient environ 32 000 observations à **chaque** âge
+de 2 à 30 jours. Le dénominateur était plat. Une requête de trois lignes répondait à la question.
+
+## La table `v2/build_panel.py`
+
+**Ce que c'était** : une table de panel construite en local, une ligne par avis et par passage du
+robot, pour porter la régression.
+
+**Pourquoi elle est partie** : écrite et jamais exécutée. La chaîne BigQuery l'a remplacée avant
+qu'elle serve. Ses six avertissements sur le jeu de données ont été récupérés avant sa
+suppression et vivent dans [02-donnees.md](02-donnees.md) § 5.
+
+## Le panel à une ligne par avis et par passage
+
+**Ce que c'était** : la forme du panel jusqu'au 2026-09-13. Un avis y apparaissait autant de fois
+qu'il avait été observé.
+
+**Pourquoi elle est partie** : elle obligeait à traiter la dépendance entre les lignes d'un même
+avis. La forme actuelle — une ligne par avis, un sort — supprime le problème au lieu de le
+corriger.
+
+## Le modèle qui cherchait l'ampleur d'une purge
+
+**Ce que c'était** : le second modèle de l'analyse sur les établissements. Il cherchait, parmi
+les fiches touchées, ce qui fait qu'une perd beaucoup et une autre peu.
+
+**Pourquoi il est parti** : il tourne sur 396 fiches et six de ses effets changent de sens quand
+on en retire quatre. Le premier modèle, celui qui cherche **quelle** fiche est touchée, tient.
+
+## Les marges d'erreur calculées par la méthode rapide
+
+**Ce que c'était** : une façon d'obtenir des marges en trois minutes au lieu d'une heure.
+
+**Pourquoi elle est écartée** : elle surestimait l'effet de la rafale d'auteur — 26 au lieu de
+19. Sur tous les autres facteurs les deux méthodes concordent, mais un écart pareil sur le
+facteur le plus fort de l'étude suffit à ne pas s'y fier.
+
+---
+
+# Partie 3 — Ce qu'on a appris du jeu de données
+
+## Ce que Google laisse voir
+
+Le robot voit le listing public d'une fiche, rien d'autre. Il en découle trois limites qui ne
+sont pas des défauts du travail mais des propriétés de la source.
+
+**On ne voit que ce qui a été publié.** Le filtrage avant publication est invisible. Aucun avis
+contenant un lien n'a été supprimé pendant le suivi, alors qu'il en existe dans le panel : ces
+avis-là sont bloqués avant d'être mis en ligne. La modération observée n'est donc qu'une partie
+de la modération réelle.
+
+**On ne voit pas pourquoi.** Rien dans les données ne dit si une suppression vient d'un
+traitement automatique, d'un signalement par le commerçant, ou d'une contestation par l'auteur.
+Toute phrase sur la cause est une hypothèse, et doit être écrite comme telle.
+
+**On ne voit qu'un instantané par jour.** Un avis publié et supprimé dans la même journée
+n'existe pas pour nous.
+
+## Ce que l'export ne versionne pas
+
+L'export garde l'historique de la note et du texte, sur 2 012 lignes. Il ne garde rien d'autre.
+Deux conséquences qui ont chacune produit un résultat faux :
+
+**Les caractéristiques d'un avis sont son état au dernier passage où on l'a vu.** Le nombre
+d'avis déclarés par un auteur, son niveau Local Guide, la présence d'une réponse : tout cela est
+figé à la dernière valeur observée, puis recopié sur tous les passages précédents.
+
+**Une réponse de commerçant retirée est invisible.** Le champ qui liste ce qui a changé ne
+mentionne jamais les réponses.
+
+C'est ce second point qui a produit le « répondre protège 3,7 fois » : un avis supprimé au
+troisième jour n'avait pas eu le temps de recevoir une réponse, un avis observé treize jours en
+avait reçu une. « Avoir une réponse » mesurait en partie « avoir survécu ». La correction a
+ramené l'effet de ×0,30 à ×0,40.
+
+## Une déduction n'est pas une observation
+
+La colonne qui dit qu'un avis a disparu ne veut pas dire que Google l'a supprimé. Elle dit que
+le robot ne l'a pas retrouvé. Deux situations rendent la déduction fausse — un raté de collecte
+d'une journée, et un bug d'enregistrement quand l'auteur réécrit son avis.
+
+Sur 5 230 disparitions constatées, 483 n'en sont pas. **Neuf pour cent.** Ce qui ressemblait à
+un comptage de base était en réalité une décision de méthode.
+
+## Un même nom pour deux choses fait diverger les chiffres
+
+Le projet a produit une douzaine de désaccords chiffrés entre ses propres fichiers. Presque aucun
+n'était une faute de calcul : c'étaient des questions différentes qui portaient le même nom —
+des lignes comptées comme des avis, un périmètre pris pour un autre.
+
+Le contrôle est écrit en tête de [02-donnees.md](02-donnees.md) : un chiffre ne se cite jamais
+sans dire ce qu'il compte et sur quelle population.

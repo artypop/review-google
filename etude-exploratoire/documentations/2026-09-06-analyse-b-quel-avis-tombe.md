@@ -30,7 +30,7 @@ Produit par `scripts/analysis_b.py`.
 > sont ni la même population, ni la même unité, ni le même contrôle de l'âge — voir la section
 > « Pourquoi ce chiffre diffère de celui de la régression » plus bas.
 >
-> Ferme la divergence D9 de `../../audit-process.md`.
+> Ferme la divergence D9 de `../audit-methode.md`.
 
 ## Ce que compare cette analyse
 

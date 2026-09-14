@@ -109,7 +109,10 @@ TABLE = "reviews_panel_features"
 # rotation. Même résolution que dans `07_regression_panel.py`, voir `trouver_cle`.
 DOSSIER_CLES = Path("/home/romain/.gcp")
 
-SORTIES = Path(__file__).resolve().parent / f"{date.today():%Y-%m-%d}-sorties-08"
+# Les sorties vont dans `output-study/`, pas dans `python/`. Voir le commentaire
+# équivalent dans `07_regression_panel.py`.
+SORTIES = (Path(__file__).resolve().parent.parent / "output-study"
+           / f"{date.today():%Y-%m-%d}-sorties-08")
 
 # Reprises de 07, pour que les deux scripts découpent pareil.
 TRANCHES_TEXTE = [-1, 0, 50, 200, 10**6]

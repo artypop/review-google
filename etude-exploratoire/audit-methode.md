@@ -291,7 +291,7 @@ fait partie de la méthode elle-même.
   > « Les deux fiches sont traitées séparément, et chaque part est rapportée au listing de sa
   > propre fiche. Les versions précédentes de ce cas additionnaient les deux fiches puis
   > rapportaient le total à l'une d'elles, ce qui donnait des parts fausses. »
-- Nature : erreur corrigée. Documentée aussi dans `BONNES-ET-MAUVAISES-PRATIQUES.md`, écueil 1.
+- Nature : erreur corrigée. Documentée aussi dans `../docs/04-enseignements.md`, écueil 1.
 
 ### D7 — Note affichée par Google vs moyenne des avis restants
 
@@ -348,7 +348,7 @@ fait partie de la méthode elle-même.
 - **Après** : `2026-09-08-age-a-la-suppression.md`, « Le pic à 7 jours : effet d'âge ou purge ? »
   — trois contrôles systématiques (étalement sur les journées, étalement sur les établissements,
   tenue après retrait des deux journées les plus chargées), repris comme méthode générale dans
-  `BONNES-ET-MAUVAISES-PRATIQUES.md` : « Trois questions pour distinguer un effet d'un accident :
+  `../docs/04-enseignements.md` : « Trois questions pour distinguer un effet d'un accident :
   sur combien de journées ? sur combien d'unités ? survit-il au retrait des cas extrêmes ? »
 - Nature : étape ajoutée, généralisée en règle de méthode pour la suite du projet.
 
