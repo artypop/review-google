@@ -144,7 +144,7 @@ Le tableau mesuré le 2026-09-14 sur ce panel (`07_regression_panel.py:28-33`) :
 
 Le risque est divisé par 21 du haut en bas, pendant que la part d'avis déjà répondus passe de
 15,6 % à 58,7 %. Les deux colonnes bougent ensemble parce qu'elles dépendent toutes deux de
-l'âge, pas l'une de l'autre.
+l'âge.
 
 ### Ce que ce résultat permet de dire, et ce qu'il ne permet pas
 
@@ -271,14 +271,14 @@ supprimé et un avis resté en ligne tirés au hasard, le modèle donne le score
 bon dans 86 % des cas.
 
 **Réserve importante sur cette AUC** : elle est en grande partie portée par l'âge, qui est une
-variable de contrôle et non un résultat. Le `BACKLOG.md` note 0,717 sans l'âge. C'est ce
+variable de contrôle. Le `BACKLOG.md` note 0,717 sans l'âge. C'est ce
 second chiffre qui mesure ce que les caractéristiques de l'avis apportent.
 
 **Le passage Europe est mal calibré et ne doit pas servir à annoncer un risque.** Sur son
 dernier décile (`07_calibration_Europe.csv`), le modèle annonce 3,72 % de suppression et on en
 observe 1,47 %.
 
-### Ce n'est pas le modèle qui se trompe, c'est l'échantillon de test
+### L'échantillon de test explique l'écart
 
 Vérifié le 2026-09-14. Le taux de suppression du sous-ensemble tiré pour le test se compare
 ainsi à celui du corpus dont il sort :
@@ -311,7 +311,7 @@ simple au double. Aux États-Unis, 1 851 suppressions mieux réparties rendent l
 moins touché que son corpus. La concentration subsiste au-delà d'elles.
 
 **Réserve sur le drapeau, sans effet sur les chiffres ci-dessus.** `salle_de_sport_attaquee`
-repose sur le nom d'enseigne et non sur l'identifiant de fiche. Il marque donc 13 fiches : les
+repose sur le nom d'enseigne. Il marque donc 13 fiches : les
 2 attaquées, plus 11 autres salles « The Boxer Club » qui totalisent 90 avis et **aucune
 suppression**. `--sans-enseignes-signalees` les écarte à tort, sans que cela change un
 coefficient. Le même drapeau pour les 4 chaînes antiparasitaires est correct : le multi-fiches
@@ -338,9 +338,9 @@ concentration du phénomène européen, qu'aucune méthode d'évaluation ne fait
 ## 6. Réserves de lecture
 
 - **`supprime` vaut `deleted_detected_at IS NOT NULL`** (`../sql/02_adding_features.sql:169`),
-  sans la règle des 2 jours d'absence utilisée ailleurs dans le projet. Ce n'est pas une
-  omission : `HAVING COUNT(*) = 1` (`../sql/01_selection_panel.sql:54-59`) a déjà écarté tout avis
-  disparu puis revenu, donc il n'y a plus de résurrection à trier. Les 2 595 suppressions de ce
+  sans la règle des 2 jours d'absence utilisée ailleurs dans le projet. L'omission est voulue :
+  `HAVING COUNT(*) = 1` (`../sql/01_selection_panel.sql:54-59`) a déjà écarté tout avis disparu
+  puis revenu, donc il n'y a plus de résurrection à trier. Les 2 595 suppressions de ce
   panel ne se comparent pas directement aux 4 737 du corpus entier : ni le périmètre ni la
   règle ne sont les mêmes.
 - **731 avis sont écartés du corpus**, soit 0,3 % des avis mais environ 3 % des suppressions.

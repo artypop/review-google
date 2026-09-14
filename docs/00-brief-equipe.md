@@ -1,7 +1,7 @@
 # Le projet en une lecture
 
-Document à transmettre à quelqu'un qui arrive. Il se suffit à lui-même : les renvois vers les
-autres fichiers servent à approfondir, pas à comprendre.
+Document à transmettre à quelqu'un qui arrive. Il se suffit à lui-même. Les renvois vers les
+autres fichiers permettent d'approfondir un point précis.
 
 Écrit le 2026-09-14.
 
@@ -14,8 +14,8 @@ but recherché. D'autres sont de vrais avis écrits par de vrais clients, et leu
 une erreur.
 
 **On cherche quelles caractéristiques banales d'un avis font qu'il a plus de chances d'être
-supprimé.** Pas « comment détecter un faux avis » : l'inverse. On veut repérer les avis honnêtes
-qui sautent.
+supprimé.** L'objectif est de repérer les avis honnêtes qui sautent. La question symétrique,
+« comment détecter un faux avis », sort du sujet.
 
 Commanditaire : Axel, dirigeant de ReviewFlowz, un outil de gestion d'avis clients. Il veut
 pouvoir dire à ses clients ce qui fait disparaître un avis légitime.
@@ -29,12 +29,12 @@ Un robot a suivi **9 048 établissements Google Maps pendant quatorze jours**, d
 d'avis**.
 
 **Un avis qui n'apparaît plus à un passage est considéré comme supprimé.** Retenez cette phrase :
-c'est une déduction de notre part, pas une information que Google nous donne. Toute la section 4
+c'est une déduction de notre part. Google ne nous signale rien. Toute la section 4
 existe parce que cette déduction est parfois fausse.
 
 Le panel n'a pas été tiré au hasard. Il couvre sept secteurs, deux régions (États-Unis et Europe
-hors Royaume-Uni) et trois tailles d'entreprise. **L'unité tirée au sort est le groupe, pas
-l'établissement** : quand un groupe est retenu, tous ses établissements entrent. Deux fiches
+hors Royaume-Uni) et trois tailles d'entreprise. **L'unité tirée au sort est le groupe** : quand un groupe est retenu, tous ses établissements
+entrent. Deux fiches
 d'une même enseigne ne sont donc pas deux informations indépendantes, et les calculs en tiennent
 compte.
 
@@ -118,7 +118,7 @@ robot qui l'a mal enregistré.
 
 **Le raté de collecte.** L'avis est absent un seul jour, puis revient identique. Sur les avis qui
 disparaissent puis reviennent, 71 % sont absents une seule journée. Un vrai retrait contesté puis
-annulé par Google prend plusieurs jours, pas vingt-quatre heures.
+annulé par Google prend plusieurs jours.
 
 **La règle : une absence de deux jours ou plus est une vraie suppression.** Elle est datée du jour
 de la première disparition.
@@ -140,7 +140,7 @@ Un exemple réel. « Combien d'avis ont plusieurs enregistrements ? » a eu deux
 602, et les deux sont justes :
 
 - **617** est le nombre de **lignes** en trop dans le fichier ;
-- **602** est le nombre d'**avis** concernés — certains ont trois lignes, pas deux.
+- **602** est le nombre d'**avis** concernés — certains ont trois lignes.
 
 Écrire « 617 avis » est faux, et c'était écrit dans le fichier d'instructions du projet.
 
@@ -170,8 +170,8 @@ pour ça.
 
 ### Ce que l'export ne dit pas
 
-- Les caractéristiques d'un avis sont son état **au dernier passage où on l'a vu**, pas à chaque
-  passage.
+- Les caractéristiques d'un avis sont son état **au dernier passage où on l'a vu**. L'export ne
+  garde pas leur valeur à chaque passage.
 - **Une réponse de commerçant retirée est invisible.**
 - **Le filtrage avant publication est invisible** : aucun avis contenant un lien n'a été supprimé
   pendant le suivi, alors qu'il en existe. Ces avis-là sont bloqués avant d'être mis en ligne. On
@@ -199,7 +199,7 @@ Sur 10 000 avis de chaque groupe, combien ont disparu :
 Europe, c'est l'inverse. Les additionner revient à faire la moyenne de deux choses sans rapport.
 
 Sur l'ensemble du panel, **71 % des suppressions portent sur un avis 5 étoiles**. C'est le sujet
-du livrable : ces avis-là ne sont pas des faux avis qu'on nettoie.
+du livrable : Google retire ici des avis que rien ne désigne comme faux.
 
 ### Ce qui fait qu'un avis récent saute
 
@@ -228,7 +228,7 @@ en recevoir une ».
 
 **Le pic au septième jour de vie de l'avis.** 449 avis supprimés à cet âge exactement, soit 1,4 %
 des 32 609 avis observés à 7 jours. Trois à dix fois le risque des âges voisins. Vérifié comme un
-effet d'âge et non comme une purge : étalé sur 12 des 13 journées de suivi et sur 144
+effet d'âge : il est étalé sur 12 des 13 journées de suivi et sur 144
 établissements. **Ce qui se joue à 7 jours n'est pas expliqué.**
 
 **Les vieux avis meurent davantage là où il y a eu un afflux récent.** Sur les avis de plus d'un
@@ -256,7 +256,8 @@ fautifs. C'est ce qui fonde l'angle du livrable.
   phrase sur la cause est une hypothèse et doit être écrite comme telle.
 - **Pour la réponse du commerçant, le sens de la cause n'est pas établi.** Celui qui répond en
   deux jours est aussi celui qui surveille sa fiche et signale les avis qu'il juge illégitimes.
-- **Le panel ne couvre pas tout** : 41 pays dont un seul hors d'Europe, pas de Royaume-Uni.
+- **Le panel ne couvre pas tout** : 41 pays dont un seul hors d'Europe. Le Royaume-Uni en est
+  absent.
 
 ---
 

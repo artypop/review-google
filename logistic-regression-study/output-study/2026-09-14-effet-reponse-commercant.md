@@ -115,11 +115,11 @@ montage : il ne produit pas un monde à part.
   celui qui surveille sa fiche, qui signale les avis qu'il juge illégitimes, et qui soigne sa
   présence en ligne. Le modèle contrôle le secteur, la région, la taille de la fiche, la note et
   le profil de l'auteur. Il ne contrôle pas l'attention portée à la fiche. Répondre pourrait
-  être le marqueur de cette attention plutôt que sa cause active.
+  n'être que le marqueur de cette attention, sans en être la cause.
 - **Une réponse retirée est invisible.** `changed_fields` ne contient que `star` et `text`,
   jamais `reply`. Un avis dont la réponse a été effacée avant le dernier passage est compté
   « sans réponse ».
-- **Le résultat porte sur 8 jours de vie de l'avis**, pas sur son sort final. Le pic de
+- **Le résultat porte sur les 8 premiers jours de vie de l'avis.** Le pic de
   suppression tombe au 7e jour, donc la fenêtre couvre l'essentiel du risque, mais pas tout.
 - **Il ne vaut pas pour les quatre chaînes antiparasitaires.** Chez elles, aucune caractéristique
   disponible n'explique les suppressions, la réponse pas davantage.

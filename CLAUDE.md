@@ -73,7 +73,28 @@ bain ».
 **Les phrases couperet en fin de paragraphe.** Écrire « tu souhaites les garder, mais… » et non
 « On les garde, c'est ta décision. »
 
-**Les parallélismes de contraste.** « Le risque n'est pas X, c'est Y. »
+### La structure « X, pas Y » — interdite, sans exception
+
+**Romain l'a signalée trois fois. Elle revient quand même. C'est l'interdit le plus important
+de cette section.**
+
+Toutes ces formes sont proscrites, quelle que soit la place dans la phrase :
+
+| Forme interdite | Exemple réel produit sur ce projet | À écrire |
+|---|---|---|
+| « X, pas Y » | « les renvois servent à approfondir, pas à comprendre » | « les renvois permettent d'approfondir un point précis » |
+| « X et non Y » | « vérifié comme un effet d'âge et non comme une purge » | « vérifié comme un effet d'âge » |
+| « ce n'est pas X, c'est Y » | « ce n'est pas le modèle qui se trompe, c'est l'échantillon » | « l'échantillon de test explique l'écart » |
+| « X au lieu de Y » | « supprime le problème au lieu de le corriger » | « fait disparaître le problème » |
+| « X plutôt que Y » | « le marqueur de cette attention plutôt que sa cause » | « le marqueur de cette attention, sans en être la cause » |
+
+**La règle mécanique : écrire l'affirmation, s'arrêter, et supprimer ce qui suit la virgule.**
+Le contraste n'ajoute jamais d'information ; il ajoute un effet. Si la précision négative est
+réellement nécessaire, elle va dans une phrase séparée.
+
+Une négation simple reste permise quand elle porte un fait : « le renouvellement des adresses de
+photos n'est pas un signal ». Ce qui est interdit, c'est l'opposition de deux termes dans la
+même phrase pour produire un effet.
 
 **Les aphorismes et le présent de vérité générale**, qui donnent à une phrase un ton de loi.
 
@@ -93,8 +114,12 @@ projet :
 **Aucun mot de statistique.** Bannis : rapport de risque, standardisé, effets fixes, logistique
 conditionnelle, bootstrap, quantile, censure à droite, strate, significatif.
 
-Dire la conséquence concrète, pas la méthode. « Sur 10 000 avis en ligne, il en disparaît 50 »
-et non « risque par vague de 0,50 % ».
+Dire la conséquence concrète.
+
+| À écrire | À éviter |
+|---|---|
+| « sur 10 000 avis en ligne, il en disparaît 50 » | « risque par vague de 0,50 % » |
+| « le risque est divisé par 21 » | « le coefficient vaut −0,617 » |
 
 ### Niveau d'explication
 
@@ -106,9 +131,9 @@ d'angle et dérouler un cas réel, chiffre par chiffre.
 
 ### Format
 
-Pas d'introduction, pas de reformulation de la question, pas de conclusion de politesse. Listes
-plutôt que paragraphes. Le résultat d'abord, les réserves ensuite, jamais mélangés. Ne pas
-chercher la micro-erreur de raisonnement et ne pas contredire Romain par principe.
+Pas d'introduction, pas de reformulation de la question, pas de conclusion de politesse. Écrire
+en listes. Le résultat d'abord, les réserves ensuite, jamais mélangés. Ne pas chercher la
+micro-erreur de raisonnement et ne pas contredire Romain par principe.
 
 ### Quatre comportements à ne pas répéter
 
@@ -132,16 +157,16 @@ relancer tous les modèles. Proposer la ligne, le code avant et après, ce qui c
 attendre.
 
 **L'outil de modélisation est `statsmodels`.** On cherche des coefficients et des marges
-d'incertitude pour expliquer, pas un modèle qui prédit. `scikit-learn` n'est pas interdit, il
-n'est simplement pas l'outil de cette question.
+d'incertitude pour expliquer ce qui se passe. `scikit-learn` sert à construire un modèle qui
+devine, ce que personne ne demande ici. Il reste disponible si le besoin apparaît.
 
 **`etude-exploratoire/` est gelée depuis le 2026-09-14.** Ne rien y relancer, ne rien y écrire,
 ne citer aucun de ses chiffres directement. Ce qui en reste valable est dans `docs/`. Si un
-résultat semble manquer, le dire à Romain plutôt que rouvrir le dossier.
+résultat semble manquer, le dire à Romain avant de rouvrir le dossier.
 
 **Précautions machine** : 7,7 Go de mémoire, WSL. `nice -n 19` au-delà de deux minutes, `free -m`
 avant de lancer, deux calculs lourds au maximum en même temps. Avec DuckDB, poser une limite de
-mémoire explicite et agréger en SQL.
+mémoire explicite et agréger en SQL avant tout chargement.
 
 **Jamais de nom d'auteur, de lien d'avis ou de texte d'avis dans un fichier versionné.**
 

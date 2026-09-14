@@ -9,9 +9,9 @@ Dernière mise à jour : 2026-09-14.
 C'est la première chose à comprendre avant de lire un résultat de ce projet, et c'est ce qui
 a rendu le dossier illisible pendant une semaine.
 
-**La plupart des désaccords entre deux chiffres ne sont pas des erreurs. Ce sont des réponses
-à deux questions différentes qui portent le même nom.** Trois exemples réels, pris dans ce
-projet.
+**La plupart des désaccords entre deux chiffres viennent de deux questions différentes qui
+portent le même nom.** Les calculs sont justes des deux côtés. Trois exemples réels, pris dans
+ce projet.
 
 ### « Combien d'avis ont plusieurs enregistrements ? » — 617 ou 602
 
@@ -22,7 +22,7 @@ deux lignes, parfois trois.
 Le fichier contient 4 878 151 lignes pour 4 877 534 avis différents.
 
 - **617**, c'est le nombre de **lignes en trop** : 4 878 151 moins 4 877 534.
-- **602**, c'est le nombre d'**avis concernés**. Certains ont trois lignes, pas deux, d'où
+- **602**, c'est le nombre d'**avis concernés**. Certains ont trois lignes, d'où
   l'écart entre les deux comptes.
 
 Les deux sont justes. L'un compte des lignes, l'autre compte des avis. Écrire « 617 avis » est
@@ -40,8 +40,8 @@ Deux salles de sport en Espagne ont perdu beaucoup d'avis d'un coup, tous à une
 - **327**, c'est ce qu'elles ont perdu **parmi les avis qui entrent dans l'étude de régression**,
   laquelle ne retient que les avis publiés dans les 90 jours avant le 11 août.
 
-Un avis supprimé le 18 août mais publié il y a deux ans est dans le premier compte, pas dans le
-second. Les deux sont justes ; il faut dire lequel on cite.
+Un avis supprimé le 18 août mais publié il y a deux ans entre dans le premier compte. Il est
+absent du second. Les deux sont justes ; il faut dire lequel on cite.
 
 ### « Une rafale d'auteur, ça multiplie le risque par combien ? » — ×3,9, ×5,09, ×9,54, ×49,30
 
@@ -66,9 +66,9 @@ confusion, et elle a coûté assez cher pour qu'on la tienne.
 À chaque passage, le robot recense la totalité des avis de chaque fiche Google. Quatorze
 passages, donc treize intervalles pendant lesquels un avis peut disparaître.
 
-**Un avis qui n'apparaît plus à un passage est considéré comme supprimé.** Ce n'est pas Google
-qui l'annonce : c'est une déduction de notre part, à partir de ce que le robot voit. Toute la
-section suivante existe parce que cette déduction est parfois fausse.
+**Un avis qui n'apparaît plus à un passage est considéré comme supprimé.** C'est une déduction
+de notre part, à partir de ce que le robot voit. Google ne signale jamais rien. Toute la section
+suivante existe parce que cette déduction est parfois fausse.
 
 Les fichiers d'origine sont dans `data/exports/exports/`. Ils ne sont pas dans le dépôt : ils
 pèsent 838 Mo et contiennent des données personnelles — nom de l'auteur, lien vers son profil,
@@ -88,12 +88,12 @@ comptage.
 
 **Le bug d'enregistrement — 24 avis.** Même auteur, même note, même date de publication, mais un
 texte entièrement différent d'une ligne à l'autre. C'est l'auteur qui a réécrit son avis et le
-robot qui l'a mal enregistré. Ce n'est pas une suppression, et ces 24 avis sont écartés quelle
-que soit la durée de leur absence.
+robot qui l'a mal enregistré. Ces 24 avis sont écartés quelle que soit la durée de leur
+absence.
 
 **Le raté de collecte.** L'avis est absent un seul jour, puis revient identique. Sur les avis qui
 disparaissent puis reviennent, 71 % sont absents une seule journée. Un vrai retrait contesté puis
-annulé par Google prend plusieurs jours, pas vingt-quatre heures.
+annulé par Google prend plusieurs jours.
 
 **La règle retenue : une absence de deux jours ou plus est une vraie suppression.** Elle est
 datée du jour de la première disparition. Une absence d'un seul jour est un raté du robot.
@@ -114,9 +114,9 @@ d'une flèche sans dire lequel est lequel.
 | Combien de suppressions | 4 747 | 2 595 |
 | Où c'est écrit | `etude-exploratoire/scripts/suppressions_corrigees.py` | `sql/01_selection_panel.sql` et `sql/02_adding_features.sql` |
 
-Ce ne sont pas deux règles concurrentes. Sur le panel, la question du retour ne se pose plus :
-les 731 avis qui ont plusieurs enregistrements ont été sortis du corpus dès le départ. Il ne
-reste donc aucun avis revenu à trier.
+Les deux règles se complètent. Sur le panel, la question du retour ne se pose plus : les 731
+avis qui ont plusieurs enregistrements ont été sortis du corpus dès le départ, donc il ne reste
+aucun avis revenu à trier.
 
 **Cette exclusion n'est pas neutre et elle est assumée.** Elle retire 0,3 % des avis mais environ
 3 % des suppressions. Conséquences directes : l'effet « avis modifié » n'est pas mesurable sur ce
@@ -148,7 +148,7 @@ elles pour vérifier qu'elles ne portent pas les résultats à elles seules.
 1. au moins 10 suppressions ;
 2. au moins 80 % de ces suppressions sur des avis à une étoile ;
 3. au moins 80 % sur des avis publiés moins de 30 jours avant leur suppression ;
-4. *(décidée le 2026-09-10, pas encore écrite dans le code)* au moins 10 avis supprimés publiés
+4. *(décidée le 2026-09-10, encore absente du code)* au moins 10 avis supprimés publiés
    le même jour.
 
 ### Pourquoi le critère précédent a été abandonné
@@ -158,7 +158,7 @@ Les 24 fiches que ce critère retenait ont été examinées une par une :
 
 - **2** étaient réellement attaquées ;
 - **1** est un autocariste allemand qui perd 48 avis négatifs écrits sur huit ans, le plus récent
-  datant de trois ans. C'est un retrait obtenu sur demande, pas une attaque ;
+  datant de trois ans. C'est un retrait obtenu sur demande ;
 - **15** ne perdent que des avis 4 et 5 étoiles, surtout des artisans américains. **C'est le
   phénomène même que l'étude documente** : les écarter reviendrait à retirer le sujet du corpus ;
 - **6** ont moins de 25 avis, dont une à 2 avis qui atteignait le seuil avec une seule
@@ -169,8 +169,8 @@ suppressions sur 9 545 avis font 0,10 % du stock, et passent inaperçues.
 
 ### Une réserve sur le code actuel
 
-Le repérage des salles de sport attaquées se fait sur le **nom** de l'enseigne, pas sur
-l'identifiant de la fiche. Résultat : 13 fiches sont marquées alors que 2 sont attaquées. Les 11
+Le repérage des salles de sport attaquées se fait sur le **nom** de l'enseigne. L'identifiant de
+la fiche n'entre pas dans le calcul. Résultat : 13 fiches sont marquées alors que 2 sont attaquées. Les 11
 autres portent le même nom d'enseigne, totalisent 90 avis et **aucune suppression**. Les retirer
 d'un calcul ne change donc aucun résultat, mais le compte de fiches est faux si on le cite tel
 quel.
@@ -195,8 +195,8 @@ surtout une différence d'âge. C'est ce qui faisait croire que répondre à un 
 connaît que pour les avis déjà supprimés. S'en servir reviendrait à deviner un événement avec
 une information qu'on n'obtient qu'après qu'il s'est produit.
 
-**Les caractéristiques d'un avis sont son état au dernier passage où on l'a vu**, pas son état à
-chaque passage. L'export ne garde l'historique que de la note et du texte.
+**Les caractéristiques d'un avis sont son état au dernier passage où on l'a vu.** L'export ne
+garde l'historique que de la note et du texte.
 
 **Une réponse de commerçant retirée est invisible.** Le champ qui liste ce qui a changé ne
 mentionne jamais les réponses. Un avis dont la réponse a été effacée est donc compté « sans

@@ -281,8 +281,7 @@ suppression et vivent dans [02-donnees.md](02-donnees.md) § 5.
 qu'il avait été observé.
 
 **Pourquoi elle est partie** : elle obligeait à traiter la dépendance entre les lignes d'un même
-avis. La forme actuelle — une ligne par avis, un sort — supprime le problème au lieu de le
-corriger.
+avis. La forme actuelle — une ligne par avis, un sort — fait disparaître le problème.
 
 ## Le modèle qui cherchait l'ampleur d'une purge
 
@@ -338,7 +337,7 @@ troisième jour n'avait pas eu le temps de recevoir une réponse, un avis observ
 avait reçu une. « Avoir une réponse » mesurait en partie « avoir survécu ». La correction a
 ramené l'effet de ×0,30 à ×0,40.
 
-## Une déduction n'est pas une observation
+## Ce que le robot déduit, et ce qu'il observe
 
 La colonne qui dit qu'un avis a disparu ne veut pas dire que Google l'a supprimé. Elle dit que
 le robot ne l'a pas retrouvé. Deux situations rendent la déduction fausse — un raté de collecte

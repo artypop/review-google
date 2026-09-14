@@ -30,7 +30,7 @@ En volume : sur les 1 851 suppressions américaines, **1 590 frappent un avis 5 
 86 %. Sur les 744 suppressions européennes, 422 frappent un avis 1 étoile, soit 57 %.
 
 **Sur l'ensemble du panel, 1 850 des 2 595 suppressions portent sur un avis 5 étoiles, soit
-71 %.** C'est le sujet du livrable : ces avis-là ne sont pas des faux avis qu'on nettoie.
+71 %.** C'est le sujet du livrable : Google retire ici des avis que rien ne désigne comme faux.
 
 Source : `output-study/2026-09-14-interpretation-panel.md`.
 
@@ -125,7 +125,7 @@ dossier est gelé : ces chiffres ne sont plus régénérables sans le rouvrir.**
 à 8 jours.
 
 Ces nombres bruts se comparent directement parce qu'environ 32 000 avis sont observés à chaque
-âge de 2 à 30 jours. Vérifié comme un effet d'âge et non comme une purge : étalé sur 12 des 13
+âge de 2 à 30 jours. Vérifié comme un effet d'âge : il est étalé sur 12 des 13
 journées de suivi et sur 144 établissements, il survit au retrait des deux journées les plus
 chargées.
 
@@ -137,8 +137,8 @@ réaction à un signalement ? Rien dans les données ne tranche.
 Sur les 4 747 suppressions du corpus entier : **51,6 % frappent un avis de moins d'un mois,
 30,3 % un avis de plus d'un an.**
 
-Le vieux stock pèse par son volume, pas par son risque : 4,1 millions d'avis contre 101 000 de
-moins d'un mois. Son risque par passage est cent fois plus faible.
+Le vieux stock pèse par son volume : 4,1 millions d'avis contre 101 000 de moins d'un mois. Son
+risque par passage reste cent fois plus faible.
 
 ### Les vieux avis meurent davantage là où il y a eu un afflux récent
 
@@ -180,7 +180,7 @@ Onze marqueurs cherchés dans les textes supprimés — insultes, spam, charabia
 fond tient : les avis supprimés ne sont pas majoritairement des textes fautifs.** C'est ce qui
 fonde l'angle du livrable.
 
-Réserve : le dictionnaire couvre 7 langues sur 41 pays. C'est un plancher, pas un compte exact.
+Réserve : le dictionnaire couvre 7 langues sur 41 pays. C'est un plancher.
 
 ---
 
@@ -206,13 +206,13 @@ l'auteur — pas de l'attention portée à la fiche.
 
 **« Aucune réponse n'est arrivée après la suppression » ne prouve rien.** Une réponse arrivée
 après une suppression ne peut pas être observée, l'avis n'étant plus là. C'est un effet de la
-collecte, pas une absence.
+collecte.
 
 **Une réponse retirée est invisible.** Un avis dont la réponse a été effacée est compté « sans
 réponse ».
 
-**Le panel ne couvre pas tout** : 41 pays dont un seul hors d'Europe, pas de Royaume-Uni, pas de
-groupes de 2-3 ni de 11-19 établissements.
+**Le panel ne couvre pas tout** : 41 pays dont un seul hors d'Europe. Le Royaume-Uni en est
+absent, ainsi que les groupes de 2-3 et de 11-19 établissements.
 
 **Les probabilités produites par le modèle européen ne sont pas utilisables.** Il classe
 correctement, mais le niveau de risque qu'il annonce est faux — voir

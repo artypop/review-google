@@ -28,8 +28,8 @@ essai et le niveau de base devient juste par construction. Environ une minute pa
    caractéristique disponible ne les explique** : les auteurs sont ordinaires, les textes tous
    différents, il n'y a pas de pic d'afflux. Deux pistes ouvertes : leurs avis supprimés ont
    plus souvent une réponse du commerçant, et leurs textes nomment très souvent un technicien.
-   Compter la répétition d'un même prénom sur les avis d'une fiche, plutôt que la simple
-   présence d'un prénom.
+   Compter la répétition d'un même prénom sur les avis d'une fiche. La simple présence d'un
+   prénom ne suffira pas.
 2. **Chercher les attaques par avis négatifs dans tout le panel.** Deux ont été trouvées par
    hasard. Le balayage systématique n'a jamais été fait, et c'est ce qui permettrait de dire si
    le phénomène est marginal.
@@ -86,7 +86,7 @@ document d'origine :
 ## Écarté, et à ne pas reproposer sans élément nouveau
 
 - **Le drapeau qui repère les salles de sport attaquées** se fonde sur le nom d'enseigne et
-  marque 13 fiches au lieu de 2. Les 11 autres portent 90 avis et zéro suppression : le corriger
+  marque 13 fiches quand 2 sont attaquées. Les 11 autres portent 90 avis et zéro suppression : le corriger
   ne changerait aucun résultat et obligerait à tout relancer. Décision de Romain, 2026-09-14.
 - **Les avis contenant un lien** : zéro suppression dans le panel, ils sont filtrés avant
   publication.
@@ -109,7 +109,8 @@ l'inverse. 71 % des suppressions du panel portent sur un avis 5 étoiles.
 
 **La divergence sur la réponse du commerçant est refermée.** L'analyse B lisait la réponse dans
 l'état où elle se trouvait au dernier passage du robot, recopié sur tous les précédents. Datée,
-elle donne ×0,40 au lieu de ×0,30 ; seul ce facteur bouge, les autres se déplacent de 1 à 5 %.
+elle donne ×0,40 quand l'ancienne façon de compter donnait ×0,30 ; seul ce facteur bouge, les
+autres se déplacent de 1 à 5 %.
 
 **Le montage à jalon fixe répond à la question du client d'Axel** : répondre dans les deux jours
 divise le risque par 1,8 hors des quatre chaînes antiparasitaires. L'effet tient sur quatre
@@ -171,8 +172,7 @@ situations sont retirées : le raté de collecte d'une journée, et 24 bugs d'en
 
 Le comptage passe de 5 230 disparitions constatées à 4 747 suppressions retenues.
 
-Le pic au septième jour de vie de l'avis est mesuré et vérifié comme un effet d'âge, pas comme
-une purge.
+Le pic au septième jour de vie de l'avis est mesuré et vérifié comme un effet d'âge.
 
 ## 2026-09-06 et avant — les premiers travaux
 

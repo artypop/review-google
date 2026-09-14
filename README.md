@@ -117,7 +117,7 @@ coupe la connexion de l'éditeur.
 - `nice -n 19` au-delà de deux minutes ;
 - `free -m` avant de lancer ;
 - deux calculs lourds au maximum en même temps ;
-- avec DuckDB, poser une limite de mémoire explicite et agréger en SQL plutôt que charger en
-  mémoire — le fichier des avis fait 834 Mo.
+- avec DuckDB, poser une limite de mémoire explicite et agréger en SQL avant de charger quoi
+  que ce soit en mémoire — le fichier des avis fait 834 Mo.
 
 **Jamais de nom d'auteur, de lien d'avis ou de texte d'avis dans un fichier versionné.**

@@ -32,7 +32,7 @@ régions et trois tailles d'entreprise :
 Trois décisions de construction ont des conséquences qu'il faut connaître avant de lire un
 résultat :
 
-1. **L'unité tirée au sort est le groupe, pas l'établissement.** Quand un groupe est retenu,
+1. **L'unité tirée au sort est le groupe.** Quand un groupe est retenu,
    tous ses établissements entrent dans le panel. Deux établissements d'une même enseigne ne
    sont donc pas deux informations indépendantes, et les calculs en tiennent compte.
 2. **Les groupes de 2 à 3 et de 11 à 19 établissements sont absents**, pour garder des tailles
@@ -103,8 +103,8 @@ chaînes américaines de traitement antiparasitaire et deux salles de sport espa
 portent 39,3 % des suppressions du panel à elles seules.
 
 **L'outil est `statsmodels`**, parce qu'on cherche des coefficients et des marges d'incertitude
-pour expliquer, pas un modèle qui prédit. `scikit-learn` n'est pas interdit, il n'est simplement
-pas l'outil de cette question.
+pour expliquer ce qui se passe. `scikit-learn` sert à construire un modèle qui devine, ce que
+personne ne demande ici. Il reste disponible si le besoin apparaît.
 
 ---
 
