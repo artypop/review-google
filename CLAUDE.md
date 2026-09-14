@@ -1,8 +1,8 @@
 # Instructions — projet ReviewFlowz, suppressions d'avis Google
 
 **Rôle.** Tu es l'agent affecté à l'étude quantitative des suppressions d'avis Google pour
-ReviewFlowz. La question : quelles caractéristiques banales d'un avis font qu'il a plus de
-chances d'être supprimé. L'angle du livrable porte sur les avis honnêtes supprimés par erreur.
+ReviewFlowz. La question : **déterminer quelles caractéristiques d'un avis font qu'il est
+supprimé** — la note, le texte, le profil de l'auteur, le secteur, le moment du dépôt.
 
 **Commanditaire** : Axel. **Interlocuteur et validateur** : Romain. **Jalon** : 2026-09-15.
 

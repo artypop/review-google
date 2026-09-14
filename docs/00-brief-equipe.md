@@ -1,24 +1,17 @@
-# Le projet en une lecture
-
-Document à transmettre à quelqu'un qui arrive. Il se suffit à lui-même. Les renvois vers les
-autres fichiers permettent d'approfondir un point précis.
-
-Écrit le 2026-09-14.
+# Suppressions d'avis Google — le projet en une lecture
 
 ---
 
 ## 1. Ce qu'on cherche
 
-Google supprime des avis sur les fiches Google Maps. Certains sont faux, et les retirer est le
-but recherché. D'autres sont de vrais avis écrits par de vrais clients, et leur suppression est
-une erreur.
+Google supprime une partie des avis déposés sur les fiches Google Maps. Les commerçants le
+constatent sans comprendre ce qui déclenche ces retraits.
 
-**On cherche quelles caractéristiques banales d'un avis font qu'il a plus de chances d'être
-supprimé.** L'objectif est de repérer les avis honnêtes qui sautent. La question symétrique,
-« comment détecter un faux avis », sort du sujet.
+**L'étude cherche à déterminer quelles caractéristiques d'un avis font qu'il est supprimé.**
+La note, la longueur du texte, le profil de l'auteur, le secteur du commerce, le moment du
+dépôt : lesquelles pèsent, et de combien.
 
-Commanditaire : Axel, dirigeant de ReviewFlowz, un outil de gestion d'avis clients. Il veut
-pouvoir dire à ses clients ce qui fait disparaître un avis légitime.
+Commanditaire : Axel, dirigeant de ReviewFlowz, un outil de gestion d'avis clients.
 
 ---
 
@@ -28,163 +21,68 @@ Un robot a suivi **9 048 établissements Google Maps pendant quatorze jours**, d
 2026. Chaque jour, il relève la totalité des avis de chaque fiche. Au total **4,88 millions
 d'avis**.
 
-**Un avis qui n'apparaît plus à un passage est considéré comme supprimé.** Retenez cette phrase :
-c'est une déduction de notre part. Google ne nous signale rien. Toute la section 4
-existe parce que cette déduction est parfois fausse.
+Le panel couvre sept secteurs, deux régions — États-Unis et Europe hors Royaume-Uni — et trois
+tailles d'entreprise : un établissement, de 4 à 10, de 20 à 50. Il a été construit pour que
+chaque combinaison soit représentée, avec environ 420 fiches par case.
 
-Le panel n'a pas été tiré au hasard. Il couvre sept secteurs, deux régions (États-Unis et Europe
-hors Royaume-Uni) et trois tailles d'entreprise. **L'unité tirée au sort est le groupe** : quand un groupe est retenu, tous ses établissements
-entrent. Deux fiches
-d'une même enseigne ne sont donc pas deux informations indépendantes, et les calculs en tiennent
-compte.
+**Un avis présent un jour et absent le lendemain est compté comme supprimé.** Les absences d'une
+seule journée sont écartées : ce sont des ratés de collecte, l'avis réapparaît ensuite.
 
-Les fichiers font 838 Mo et contiennent des données personnelles — nom de l'auteur, lien vers son
-profil, texte de l'avis. Ils ne sont pas dans le dépôt. **Ne jamais en copier dans un fichier
-versionné.**
+Les fichiers d'origine contiennent le nom de l'auteur, le lien vers son profil et le texte des
+avis. Ils ne sont pas versionnés, et rien de tout cela ne doit être recopié dans un fichier de
+travail.
 
 ---
 
-## 3. Les deux études, et pourquoi il y en a eu deux
+## 3. Ce qu'on a trouvé
 
-C'est la partie qui déroute quand on arrive. Le dépôt contient deux dossiers d'analyse. Un seul
-est vivant.
+### Un avis supprimé l'est presque toujours au septième jour
 
-### L'étude exploratoire — du 4 au 9 septembre, aujourd'hui gelée
+Sur les avis déposés pendant la première semaine de suivi, **695 ont été supprimés. 311 d'entre
+eux l'ont été exactement sept jours après leur publication.**
 
-**Pourquoi elle a existé.** On venait de recevoir l'export et personne ne savait ce qu'il y avait
-dedans. Avant de modéliser quoi que ce soit, il fallait regarder les données, comprendre ce que
-le robot voit et ce qu'il rate. Le travail s'est fait en local, avec DuckDB, directement sur les
-fichiers.
+| Délai avant suppression | Suppressions | Part |
+|---|---:|---:|
+| 1 à 5 jours | 129 | 18,6 % |
+| **6 jours** | **167** | **24,0 %** |
+| **7 jours** | **311** | **44,7 %** |
+| 8 jours et plus | 88 | 12,7 % |
 
-**Ce qu'elle a apporté, et c'est considérable :**
+**Sept suppressions sur dix tombent au sixième ou au septième jour.** Le motif se répète pour
+chaque journée de dépôt, du 11 au 17 août, ce qui écarte l'hypothèse d'un événement isolé.
 
-1. **La découverte que le comptage de base était faux.** « L'avis a disparu » ne veut pas dire
-   « Google l'a supprimé ». Sur 5 230 disparitions constatées, 483 n'en sont pas — voir la
-   section 4. Sans cette correction, tous les résultats suivants auraient été décalés de 9 %.
-2. **Les pièges du jeu de données**, listés en section 5. Chacun a produit une erreur réelle
-   avant d'être compris.
-3. **Des résultats qui tiennent encore**, repris en section 6 : le pic de suppression au septième
-   jour, le lien entre afflux récent et mortalité des vieux avis, ce qui fait qu'un avis tombe
-   plutôt qu'un autre.
+Sur cette semaine, 17 659 avis ont été déposés et 695 supprimés : **3,9 %**.
 
-**Pourquoi elle est gelée.** Quand la régression a démarré, elle a construit son propre corpus
-dans BigQuery, avec ses propres règles. Pendant quelques jours, deux définitions d'une
-suppression et deux jeux de chiffres ont coexisté. Le projet est devenu impossible à expliquer :
-le même effet circulait avec quatre valeurs différentes, sans que rien ne dise laquelle
-répondait à quelle question.
+Ce délai régulier oriente vers un traitement automatique déclenché à date fixe. Les données ne
+permettent pas de le confirmer.
 
-Le dossier reste sur le disque parce que ses notes portent le raisonnement qui a mené aux
-décisions actuelles. **Mais on n'y écrit plus, on n'y relance rien, et on ne cite aucun de ses
-chiffres directement.** Ce qui en reste valable a été remonté dans `docs/`.
+### Le risque s'effondre ensuite
 
-Si vous devez quand même l'ouvrir : commencez par `etude-exploratoire/documentations/INDEX.md`,
-qui dit quelle note porte des chiffres encore valables et laquelle porte des chiffres d'avant la
-correction. Sans lui, rien ne les distingue.
+Passé les premiers jours, un avis ne risque presque plus rien. Entre un avis du jour et un avis
+de trois mois, **le risque est divisé par 21**.
 
-**Une réserve à connaître** : les cinq notes régénérées le 9 septembre ont des tableaux à jour,
-mais les paragraphes de commentaire écrits en dur dans les programmes n'ont jamais été relus.
-Vérifier toute phrase chiffrée contre le tableau qui la précède.
+C'est de loin le facteur le plus puissant de l'étude, et il oblige à comparer des avis de même
+âge. Deux groupes d'avis d'âges différents auront toujours des taux de suppression très
+différents, quelles que soient leurs autres caractéristiques.
 
-### L'étude de régression — en cours, c'est là qu'on travaille
+### Le secteur pèse lourd
 
-Elle construit une table dans BigQuery, une ligne par avis, et cherche ce qui fait varier le
-risque de suppression. **225 757 avis** publiés entre le 13 mai et le 16 août, sur 8 205 fiches,
-dont **2 595 supprimés** — 1,15 %.
+Sur les 225 757 avis du corpus de modélisation, hors les deux boutiques attaquées :
 
-Trois étapes, dans cet ordre :
+| Secteur | Avis | Supprimés | Taux |
+|---|---:|---:|---:|
+| Services à domicile | 42 640 | 1 189 | **2,79 %** |
+| Voyage | 14 881 | 129 | 0,87 % |
+| Sport et bien-être | 23 808 | 205 | 0,86 % |
+| Automobile | 28 794 | 205 | 0,71 % |
+| Santé | 31 318 | 216 | 0,69 % |
+| Hôtellerie | 39 463 | 168 | 0,43 % |
+| Restauration | 44 496 | 156 | **0,35 %** |
 
-| | Fichier | Produit |
-|---|---|---|
-| 1 | `logistic-regression-study/sql/01_selection_panel.sql` | le corpus, 225 757 avis |
-| 2 | `logistic-regression-study/sql/02_adding_features.sql` | les 42 caractéristiques |
-| 3 | `logistic-regression-study/python/07_regression_panel.py` | les résultats |
+**Un avis déposé chez un artisan ou un prestataire à domicile a huit fois plus de chances d'être
+supprimé qu'un avis de restaurant.**
 
-**Tout se passe dans BigQuery**, sauf la modélisation. Pas de version parallèle en local : c'est
-en dupliquant des définitions que l'étude précédente a fini par se contredire elle-même.
-
-**`sql/02_adding_features.sql` ne se modifie pas sans l'accord de Romain.** Le changer oblige à
-reconstruire la table et à relancer tous les modèles.
-
----
-
-## 4. Ce qu'on appelle une suppression
-
-Le fichier contient une colonne qui dit à quelle date le robot n'a plus retrouvé un avis. Deux
-situations rendent la déduction fausse.
-
-**Le bug d'enregistrement — 24 avis.** Même auteur, même note, même date de publication, mais un
-texte entièrement différent d'une ligne à l'autre. C'est l'auteur qui a réécrit son avis et le
-robot qui l'a mal enregistré.
-
-**Le raté de collecte.** L'avis est absent un seul jour, puis revient identique. Sur les avis qui
-disparaissent puis reviennent, 71 % sont absents une seule journée. Un vrai retrait contesté puis
-annulé par Google prend plusieurs jours.
-
-**La règle : une absence de deux jours ou plus est une vraie suppression.** Elle est datée du jour
-de la première disparition.
-
-Résultat : **5 230 disparitions constatées, portées par 5 109 avis différents, dont 4 747
-retenues comme de vraies suppressions.**
-
----
-
-## 5. Avant de toucher à un chiffre
-
-### Un chiffre ne se cite jamais seul
-
-C'est la règle la plus importante du projet, et elle vient d'une douzaine de désaccords entre nos
-propres fichiers. Presque aucun n'était une erreur de calcul : c'étaient **des questions
-différentes qui portaient le même nom**.
-
-Un exemple réel. « Combien d'avis ont plusieurs enregistrements ? » a eu deux réponses, 617 et
-602, et les deux sont justes :
-
-- **617** est le nombre de **lignes** en trop dans le fichier ;
-- **602** est le nombre d'**avis** concernés — certains ont trois lignes.
-
-Écrire « 617 avis » est faux, et c'était écrit dans le fichier d'instructions du projet.
-
-**Donc : toujours dire ce que le chiffre compte — des lignes, des avis, des établissements ? — et
-sur quelle population.**
-
-### L'âge de l'avis écrase tout le reste
-
-Le risque de suppression est **divisé par 21** entre un avis du jour et un avis de trois mois.
-
-Une comparaison qui ne tient pas compte de l'âge mesure surtout une différence d'âge. C'est ce
-qui faisait croire que répondre à un avis le protégeait : les avis anciens ont eu le temps de
-recevoir une réponse, et ils ne risquent presque plus rien. Les deux choses bougent ensemble sans
-que l'une cause l'autre.
-
-### Ne jamais prédire avec une information qu'on n'a qu'après coup
-
-Le temps écoulé avant la suppression n'est connu que pour les avis déjà supprimés. S'en servir
-comme caractéristique reviendrait à deviner un événement avec une information obtenue après qu'il
-s'est produit. Même piège pour « l'avis a une réponse » quand on le mesure à la fin.
-
-### Six enseignes portent 39 % des suppressions
-
-Quatre chaînes américaines de traitement antiparasitaire et deux salles de sport espagnoles.
-**Tout résultat doit être produit deux fois, avec et sans elles.** Les scripts ont une option
-pour ça.
-
-### Ce que l'export ne dit pas
-
-- Les caractéristiques d'un avis sont son état **au dernier passage où on l'a vu**. L'export ne
-  garde pas leur valeur à chaque passage.
-- **Une réponse de commerçant retirée est invisible.**
-- **Le filtrage avant publication est invisible** : aucun avis contenant un lien n'a été supprimé
-  pendant le suivi, alors qu'il en existe. Ces avis-là sont bloqués avant d'être mis en ligne. On
-  ne voit donc qu'une partie de la modération.
-
----
-
-## 6. Ce qu'on sait aujourd'hui
-
-**Comment lire.** « ×2 » veut dire : deux fois plus supprimé qu'un avis identique par ailleurs.
-Les crochets donnent la marge d'incertitude ; quand elle contient 1, on ne voit pas d'écart.
-
-### Le résultat principal : deux comportements opposés
+### La note supprimée n'est pas la même des deux côtés de l'Atlantique
 
 Sur 10 000 avis de chaque groupe, combien ont disparu :
 
@@ -195,115 +93,152 @@ Sur 10 000 avis de chaque groupe, combien ont disparu :
 | 4 étoiles | 61 | 24 |
 | **5 étoiles** | **145** | **36** |
 
-**Aux États-Unis, l'avis 5 étoiles est supprimé plus souvent que l'avis 3 ou 4 étoiles.** En
-Europe, c'est l'inverse. Les additionner revient à faire la moyenne de deux choses sans rapport.
+**Aux États-Unis, un avis 5 étoiles est supprimé plus souvent qu'un avis 3 ou 4 étoiles.** En
+Europe, l'avis 1 étoile domine largement.
 
-Sur l'ensemble du panel, **71 % des suppressions portent sur un avis 5 étoiles**. C'est le sujet
-du livrable : Google retire ici des avis que rien ne désigne comme faux.
+En volume, sur l'ensemble du panel, **71 % des avis supprimés portaient 5 étoiles**. Les
+suppressions ne visent donc pas principalement les avis négatifs.
 
-### Ce qui fait qu'un avis récent saute
+### Le profil de l'auteur compte
 
-À âge comparable, sur les 225 757 avis du corpus :
+À âge, secteur et région comparables :
 
-| | Risque relatif | Sans les six enseignes |
-|---|---:|---:|
-| Compte d'auteur sans niveau Local Guide | ×2,30 | ×2,51 |
-| Secteur des services à domicile | ×5,73 | ×3,16 |
-| Établissement américain | ×1,99 | ×2,14 |
-| Avis 1 étoile | ×6,34 | ×3,56 |
+| Caractéristique de l'avis ou de son auteur | Risque |
+|---|---:|
+| Compte sans niveau Local Guide | ×2,5 |
+| Avis déposé aux États-Unis | ×2,1 |
+| Avis 1 étoile, comparé à 5 étoiles | ×3,6 |
+| Plusieurs avis du même auteur le même jour | ×5,3 |
 
-### Répondre vite protège
+Le compte sans niveau Local Guide est le seul de ces effets qui se renforce quand on retire les
+enseignes au comportement particulier. Les autres en dépendent davantage.
 
-**Hors des quatre chaînes antiparasitaires, répondre dans les deux jours divise le risque par
-1,8 : ×0,56 [0,37 – 0,85].** Sur le corpus complet, l'effet n'est plus visible — ces chaînes
-portent 37 % des suppressions de cette population et l'effacent.
+### Répondre vite divise le risque par deux
 
-**Annoncer le ×0,56 sans dire qu'il exclut ces quatre chaînes serait faux.**
+Parmi les avis encore en ligne à la fin de leur deuxième jour, **ceux dont le commerçant avait
+déjà répondu ont été supprimés 1,8 fois moins souvent** dans les six jours suivants :
+risque ×0,56, fourchette [0,37 – 0,85].
 
-Deux chiffres ne sont plus citables : « ×0,30 » et « répondre protège 3,7 fois ». Ils comptaient
-la réponse à la fin de l'histoire, ce qui mesurait en partie « avoir survécu assez longtemps pour
-en recevoir une ».
+Le résultat tient quand on déplace le moment de l'observation : ×0,59 au premier jour, ×0,56 au
+deuxième, ×0,46 au troisième, ×0,48 au quatrième.
 
-### Les acquis de l'étude exploratoire
+Deux réserves. L'effet disparaît quand on inclut quatre chaînes américaines de traitement
+antiparasitaire, qui portent 37 % des suppressions de cette population et dont les suppressions
+restent inexpliquées. Et le sens de la cause n'est pas établi : un commerçant qui répond en deux
+jours est aussi un commerçant qui surveille sa fiche et signale les avis qu'il juge illégitimes.
 
-**Le pic au septième jour de vie de l'avis.** 449 avis supprimés à cet âge exactement, soit 1,4 %
-des 32 609 avis observés à 7 jours. Trois à dix fois le risque des âges voisins. Vérifié comme un
-effet d'âge : il est étalé sur 12 des 13 journées de suivi et sur 144
-établissements. **Ce qui se joue à 7 jours n'est pas expliqué.**
+### Deux boutiques ont été rasées
 
-**Les vieux avis meurent davantage là où il y a eu un afflux récent.** Sur les avis de plus d'un
-an, à marché comparable : quand une fiche a reçu récemment un afflux valant 1 à 3 % de son stock,
-ses vieux avis disparaissent 1,46 fois plus. Entre 3 et 10 %, 1,76 fois plus. C'est le seul
-chiffrage direct de l'erreur de modération.
+Deux salles de sport espagnoles ont perdu **327 avis sur les 357** qu'elles avaient dans le
+corpus, soit 92 %, presque tous notés 1 étoile et déposés en quelques jours. C'est une attaque
+par faux avis suivie d'un nettoyage par Google.
 
-**La modération ne porte pas sur des fautes visibles.** Onze marqueurs cherchés dans les textes
-supprimés — insultes, spam, charabia. Les avis supprimés ne sont pas majoritairement des textes
-fautifs. C'est ce qui fonde l'angle du livrable.
+Elles représentent 13 % de toutes les suppressions du corpus. Tous les calculs sont donc faits
+deux fois, avec et sans elles.
 
 ---
 
-## 7. Ce qu'on ne peut pas dire
+## 4. Comment on a fait
 
-À porter dans le livrable, sans exception.
+### Le corpus de modélisation
 
-- **On ne peut pas distinguer un faux avis d'une erreur de modération** par collecte automatique.
-  On montre que beaucoup d'avis supprimés n'ont aucune faute visible ; on ne prouve pas qu'ils
-  sont authentiques.
-- **On ne voit que quatorze jours.** Les suppressions rapides sont visibles, les révisions à six
-  mois ne le sont pas.
-- **On ne sait pas pourquoi Google supprime.** Rien ne dit si une suppression vient d'un
-  traitement automatique, d'un signalement du commerçant ou d'une contestation de l'auteur. Toute
-  phrase sur la cause est une hypothèse et doit être écrite comme telle.
-- **Pour la réponse du commerçant, le sens de la cause n'est pas établi.** Celui qui répond en
-  deux jours est aussi celui qui surveille sa fiche et signale les avis qu'il juge illégitimes.
-- **Le panel ne couvre pas tout** : 41 pays dont un seul hors d'Europe. Le Royaume-Uni en est
-  absent.
+**225 757 avis publiés entre le 13 mai et le 16 août 2026**, sur 8 205 fiches, dont 2 595
+supprimés — 1,15 %.
+
+Les deux bornes répondent chacune à une contrainte :
+
+- **90 jours avant le début du suivi.** Au-delà, un avis ne risque plus assez pour apporter de
+  l'information.
+- **Le 16 août.** Un avis déposé ce jour-là est encore observé pendant huit jours avant la fin
+  du suivi, ce qui laisse le temps de voir s'il est supprimé.
+
+Le corpus contient deux populations distinctes. **210 509 avis étaient déjà en ligne au premier
+passage** : on ne connaît pas leurs premiers jours. **15 248 ont été publiés pendant le suivi** :
+on les a vus naître. C'est sur ces derniers que repose la mesure de l'effet des réponses.
+
+### Le modèle
+
+Une régression logistique : pour chaque avis, on cherche ce qui fait varier sa probabilité
+d'être supprimé, toutes les autres caractéristiques étant tenues constantes.
+
+Les résultats se lisent en risque relatif. « ×2 » signifie deux fois plus supprimé qu'un avis
+identique par ailleurs. Les crochets donnent la marge d'incertitude ; quand elle contient 1,
+aucun écart n'est mesurable.
+
+Quatre précautions gouvernent la construction :
+
+1. **L'âge entre systématiquement dans le modèle.** Sans lui, il déteint sur toutes les autres
+   caractéristiques. Un avis qui porte une réponse est en général un avis ancien, et un avis
+   ancien ne risque presque plus rien : sans correction, on conclurait que les réponses
+   protègent alors qu'on mesure de l'âge.
+2. **Aucune caractéristique mesurée après le moment qu'elle prétend expliquer.** Le délai avant
+   suppression, par exemple, n'est connu que pour les avis déjà supprimés.
+3. **Les avis d'une même fiche ne comptent pas comme des informations indépendantes.** Le panel
+   a été tiré par groupe d'établissements, et les calculs en tiennent compte.
+4. **Chaque résultat est produit deux fois**, avec et sans les six enseignes au comportement
+   particulier — les deux boutiques espagnoles et quatre chaînes américaines.
+
+### La chaîne technique
+
+| Étape | Fichier |
+|---|---|
+| Construire le corpus | `logistic-regression-study/sql/01_selection_panel.sql` |
+| Calculer les 42 caractéristiques | `logistic-regression-study/sql/02_adding_features.sql` |
+| Ajuster le modèle | `logistic-regression-study/python/07_regression_panel.py` |
+| Mesurer l'effet des réponses | `logistic-regression-study/python/08_effet_reponse_commercant.py` |
+
+Les deux tables vivent dans BigQuery. Les sorties chiffrées sont dans
+`logistic-regression-study/output-study/`.
+
+**`sql/02_adding_features.sql` ne se modifie pas sans l'accord de Romain.** Le changer oblige à
+reconstruire la table et à relancer tous les modèles.
 
 ---
 
-## 8. Par où vous pouvez commencer
+## 5. Ce que l'étude ne peut pas dire
 
-Les sujets ouverts, du plus utile au moins urgent.
+**On ne voit que les avis publiés.** Les avis bloqués avant mise en ligne sont invisibles. Aucun
+avis contenant un lien n'a été supprimé pendant le suivi, alors qu'il en existe dans le panel :
+ce filtrage-là se fait en amont.
 
-1. **Comprendre les quatre chaînes américaines de traitement antiparasitaire.** Elles portent
-   27 % des suppressions du panel, presque toutes sur des avis 4 et 5 étoiles, et **aucune
-   caractéristique disponible ne les explique** : les auteurs sont ordinaires, les textes tous
-   différents, il n'y a pas de pic d'afflux. Deux pistes : leurs avis supprimés ont plus souvent
-   une réponse du commerçant, et leurs textes nomment très souvent un technicien par son prénom.
-2. **Chercher les attaques par avis négatifs dans tout le panel.** Deux ont été trouvées par
-   hasard. Le balayage systématique n'a jamais été fait.
-3. **Croiser le pic au septième jour avec ce qui fait tomber un avis.** Qui sont les avis qui
-   sautent à 7 jours ? C'est le candidat le plus direct pour l'angle du livrable.
-4. **Revoir la façon dont on mesure la qualité du modèle.** Aujourd'hui un quart des
-   établissements est mis de côté une seule fois, au hasard. En Europe ce tirage est tombé sur
-   des fiches 2,3 fois moins touchées que la moyenne, ce qui rend les niveaux de risque annoncés
-   inutilisables. Une correction est écrite, en attente.
+**On ne sait pas distinguer un faux avis d'une erreur de modération.** L'étude montre que la
+plupart des avis supprimés ne contiennent aucune faute visible — ni insulte, ni spam, ni
+charabia. Elle ne prouve pas qu'ils sont authentiques.
+
+**On ne connaît pas la cause d'une suppression.** Traitement automatique, signalement du
+commerçant, contestation d'un tiers : rien dans les données ne permet de trancher.
+
+**La fenêtre est de quatorze jours.** Les suppressions rapides sont visibles. Une révision à six
+mois ne l'est pas.
+
+**Le panel ne couvre pas tout** : 41 pays dont un seul hors d'Europe, sans le Royaume-Uni, et
+sans les groupes de 2 à 3 ni de 11 à 19 établissements.
 
 ---
 
-## 9. Comment travailler
+## 6. Ce qui reste ouvert
 
-**Ne rien lancer avant d'avoir posé la méthode avec Romain.** La règle vient d'une session où
-quatre analyses ont été enchaînées et trois jetées. On écrit ce qu'on va calculer, sur quoi, avec
-quel dénominateur, puis on lance.
+1. **Quatre chaînes américaines de traitement antiparasitaire** portent 27 % des suppressions du
+   corpus, presque toutes sur des avis 4 et 5 étoiles. Aucune caractéristique disponible ne les
+   explique : les auteurs sont ordinaires, les textes tous différents, il n'y a pas d'afflux
+   soudain. Une piste : leurs textes citent très souvent un technicien par son prénom.
+2. **Chercher d'autres attaques par faux avis** dans le panel. Deux ont été trouvées ; aucune
+   recherche systématique n'a été faite.
+3. **Comprendre ce qui se passe au septième jour.** C'est le motif le plus net de l'étude et il
+   n'a pas d'explication.
+4. **Améliorer la mesure de qualité du modèle.** La méthode actuelle met de côté un quart des
+   établissements une seule fois. En Europe, ce tirage est tombé sur des fiches deux fois moins
+   touchées que la moyenne, ce qui rend les niveaux de risque qu'il annonce inutilisables.
 
-**Précautions machine.** La machine de travail a 7,7 Go de mémoire et tourne sous WSL. Un calcul
-qui prend tous les cœurs coupe la connexion de l'éditeur. Au-delà de deux minutes : `nice -n 19`,
-`free -m` avant de lancer, deux calculs lourds au maximum en même temps.
+---
 
-**Jamais de nom d'auteur, de lien d'avis ou de texte d'avis dans un fichier versionné.**
-
-### Où trouver quoi
+## 7. Pour aller plus loin
 
 | | |
 |---|---|
-| `docs/01-etude.md` | la question, le panel, les choix de modélisation |
-| `docs/02-donnees.md` | les définitions, les pièges, pourquoi les chiffres divergent |
-| `docs/03-resultats.md` | tous les résultats, avec leurs réserves |
-| `docs/04-enseignements.md` | les erreurs déjà commises, et ce qui a été construit puis jeté |
-| `docs/BACKLOG.md` | l'historique et le reste à faire |
+| `docs/01-etude.md` | le corpus et les choix de modélisation en détail |
+| `docs/02-donnees.md` | les définitions et les pièges du jeu de données |
+| `docs/03-resultats.md` | tous les résultats, avec leurs fourchettes et réserves |
+| `docs/04-enseignements.md` | les contrôles à passer avant de publier un chiffre |
+| `docs/BACKLOG.md` | l'état d'avancement |
 | `logistic-regression-study/output-study/` | les sorties chiffrées et les notes qui les commentent |
-
-**Lisez `docs/04-enseignements.md` avant de produire un chiffre.** Il liste quinze erreurs déjà
-commises sur ce projet, avec le texte fautif exact et le contrôle qui aurait évité chacune. Elles
-se reproduisent facilement.

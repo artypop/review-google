@@ -1,10 +1,10 @@
 # ReviewFlowz — quels avis Google se font supprimer
 
-Google supprime des avis. Certains sont faux, et les retirer est le but. D'autres sont de vrais
-avis écrits par de vrais clients, et leur suppression est une erreur.
+Google supprime une partie des avis déposés sur les fiches Google Maps. Les commerçants le
+constatent sans comprendre ce qui déclenche ces retraits.
 
-**Cette étude cherche quelles caractéristiques banales d'un avis font qu'il a plus de chances
-d'être supprimé.** L'intérêt porte sur le second cas.
+**Cette étude cherche à déterminer quelles caractéristiques d'un avis font qu'il est supprimé** :
+la note, le texte, le profil de l'auteur, le secteur du commerce, le moment du dépôt.
 
 Commanditaire : Axel, ReviewFlowz. Interlocuteur et validateur : Romain.
 

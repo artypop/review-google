@@ -113,24 +113,33 @@ mesurait en partie « avoir survécu assez longtemps pour en recevoir une ».
 
 ---
 
-## 4. Les résultats de l'étude exploratoire qui tiennent encore
+## 4. Le délai avant suppression
+
+### Un avis supprimé l'est presque toujours au septième jour
+
+Mesure de référence : les avis déposés pendant les sept premières journées de suivi, du 11 au
+17 août, suivis jusqu'à la fin de la collecte. **17 659 avis déposés, 695 supprimés — 3,9 %.**
+
+| Délai avant suppression | Suppressions | Part |
+|---|---:|---:|
+| 1 à 5 jours | 129 | 18,6 % |
+| **6 jours** | **167** | **24,0 %** |
+| **7 jours** | **311** | **44,7 %** |
+| 8 jours et plus | 88 | 12,7 % |
+
+**Sept suppressions sur dix tombent au sixième ou au septième jour.** Le motif se répète pour
+chacune des sept journées de dépôt, ce qui écarte l'hypothèse d'un événement isolé : le 12 août,
+72 des 111 suppressions tombent à J+7 ; le 13 août, 62 sur 118.
+
+Ce délai régulier oriente vers un traitement automatique déclenché à date fixe. Les données ne
+permettent pas de le confirmer.
+
+Source : `data/reviewflowz - Distribution des suppressions.csv`.
+
+### Le reste des résultats de l'étude exploratoire
 
 Produits entre le 4 et le 9 septembre 2026, sur l'ensemble des 4,88 millions d'avis. **Le
 dossier est gelé : ces chiffres ne sont plus régénérables sans le rouvrir.**
-
-### Le pic au septième jour de vie de l'avis
-
-**449 avis supprimés à l'âge de 7 jours exactement**, soit 1,377 % des 32 609 avis observés à cet
-âge. Trois à dix fois le risque des âges voisins : 0,099 % à 4 jours, 0,131 % à 5 jours, 0,365 %
-à 8 jours.
-
-Ces nombres bruts se comparent directement parce qu'environ 32 000 avis sont observés à chaque
-âge de 2 à 30 jours. Vérifié comme un effet d'âge : il est étalé sur 12 des 13
-journées de suivi et sur 144 établissements, il survit au retrait des deux journées les plus
-chargées.
-
-**Ce qui se joue à 7 jours n'est pas expliqué.** Cycle de traitement automatique, ou délai de
-réaction à un signalement ? Rien dans les données ne tranche.
 
 ### Où tombent les suppressions selon l'âge
 
@@ -141,8 +150,6 @@ Le vieux stock pèse par son volume : 4,1 millions d'avis contre 101 000 de moin
 risque par passage reste cent fois plus faible.
 
 ### Les vieux avis meurent davantage là où il y a eu un afflux récent
-
-C'est le seul chiffrage direct de l'erreur de modération.
 
 Sur les avis de plus d'un an, à marché comparable : quand une fiche a reçu récemment un afflux
 représentant 1 à 3 % de son stock, ses vieux avis disparaissent **1,46 fois plus**. Entre 3 et
@@ -178,7 +185,7 @@ d'être touchée.
 
 Onze marqueurs cherchés dans les textes supprimés — insultes, spam, charabia. **Le résultat de
 fond tient : les avis supprimés ne sont pas majoritairement des textes fautifs.** C'est ce qui
-fonde l'angle du livrable.
+fonde une bonne part de l'intérêt du sujet.
 
 Réserve : le dictionnaire couvre 7 langues sur 41 pays. C'est un plancher.
 

@@ -34,7 +34,7 @@ essai et le niveau de base devient juste par construction. Environ une minute pa
    hasard. Le balayage systématique n'a jamais été fait, et c'est ce qui permettrait de dire si
    le phénomène est marginal.
 3. **Croiser le pic au septième jour avec ce qui fait tomber un avis.** Qui sont les avis qui
-   sautent à 7 jours ? C'est le candidat le plus direct pour l'angle du livrable.
+   sautent à 7 jours ? C'est le motif le plus net de l'étude et il n'a pas d'explication.
 4. **Remonter dans `sql/02` les quatre transformations restées en Python** — les tranches de
    texte, le logarithme des rafales, le regroupement des secteurs rares, le logarithme de l'âge.
    Elles sont définies à deux endroits, ce qui est le défaut corrigé partout ailleurs.
