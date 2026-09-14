@@ -14,6 +14,7 @@ Commanditaire : Axel, ReviewFlowz. Interlocuteur et validateur : Romain.
 
 | Vous voulez savoir | Lisez |
 |---|---|
+| **tout le projet en une lecture, si vous arrivez** | [docs/00-brief-equipe.md](docs/00-brief-equipe.md) |
 | ce qu'on cherche, sur quelles données, avec quelles règles | [docs/01-etude.md](docs/01-etude.md) |
 | d'où viennent les données et ce qu'elles cachent | [docs/02-donnees.md](docs/02-donnees.md) |
 | **ce qu'on a trouvé** | [docs/03-resultats.md](docs/03-resultats.md) |

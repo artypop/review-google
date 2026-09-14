@@ -3,6 +3,9 @@
 **Ne rien relancer ici. Ne rien y écrire. Ne citer aucun chiffre de ce dossier sans passer par
 `../docs/`.**
 
+Si vous arrivez sur le projet, lisez d'abord [`../docs/00-brief-equipe.md`](../docs/00-brief-equipe.md),
+dont la section 3 explique ce que ce dossier a été et pourquoi il est gelé.
+
 ---
 
 ## Ce que ce dossier a été

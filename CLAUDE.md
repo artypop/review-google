@@ -11,6 +11,7 @@ les chiffres ici qu'ils ont divergé de leurs sources. Tout est dans `docs/` :
 
 | Pour | Lire |
 |---|---|
+| **tout le projet en une lecture** | `docs/00-brief-equipe.md` |
 | la question, le corpus, les choix de modélisation | `docs/01-etude.md` |
 | les définitions, les pièges, pourquoi les chiffres divergent | `docs/02-donnees.md` |
 | les résultats et ce qu'on ne peut pas dire | `docs/03-resultats.md` |
