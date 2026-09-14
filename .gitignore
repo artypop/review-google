@@ -1,6 +1,9 @@
 # Données : volumineuses et contenant des données personnelles (reviewer_name,
 # review_link, text). Le README de l'export interdit la rediffusion.
 data/
+# Lien vers ../data, que les scripts de etude-exploratoire/ attendent dans leur
+# propre répertoire. Créé par : ln -sfn ../data etude-exploratoire/data
+etude-exploratoire/data
 .venv/
 __pycache__/
 *.pyc

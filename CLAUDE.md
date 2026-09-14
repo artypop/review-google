@@ -88,7 +88,39 @@ Le projet est divisé en deux environnements cloisonnés.
   c'est l'âge déguisé : le risque est divisé par 21 entre 0 et 90 jours pendant que la part
   d'avis déjà répondus passe de 15,6 % à 58,7 %.
 
-* **Contenu :** Requêtes SQL commentées (`sql/`), `07_regression_panel.py`, `BACKLOG.md`,
+* **La réponse du commerçant ne protège pas, autant qu'on puisse le mesurer. Trois chiffres
+  coexistent, à citer avec leur méthode, jamais seuls.** État au 2026-09-14 :
+
+  | Chiffre | D'où il vient | Ce qu'il mesure |
+  |---|---|---|
+  | **×1,02** [0,75 – 1,38] | `07_regression_panel.py`, panel entier | une réponse arrivée avant le 11 août, sur 225 757 avis de 0 à 90 jours, à âge finement contrôlé |
+  | **×0,40** | `analysis_b.py`, réponse datée depuis le 2026-09-14 | une réponse présente au passage précédent, sur 61 202 observations d'avis de moins de 30 jours, âge contrôlé en 5 tranches |
+  | **×0,56** [0,37 – 0,85] | `08_effet_reponse_commercant.py`, jalon J+2, **hors les 4 chaînes antiparasitaires** | une réponse arrivée dans les 2 premiers jours, sur 14 170 avis nés du 11 au 16 août |
+
+  **Les deux premières lignes ne se contredisent pas avec la troisième.** Le ×1,02 mesure l'effet
+  d'une réponse ancienne sur un avis déjà installé : il n'y en a pas. Le ×0,56 mesure l'effet de
+  répondre vite à un avis qui vient de tomber : il y en a un, et il tient sur quatre jalons
+  (×0,59 / ×0,56 / ×0,46 / ×0,48 aux jours 1 à 4). C'est la seconde question que pose le client
+  d'Axel. **Le ×0,56 ne se cite jamais sans son pendant sur le corpus complet, ×0,79
+  [0,53 – 1,16], non significatif** : les 4 chaînes portent 37,4 % des suppressions de cette
+  population et tirent l'effet vers 1.
+
+  **« ×0,30 » et « répondre protège 3,7 fois » ne sont plus citables** : ils venaient de
+  `has_reply` figé à l'état final, qui compte en partie « avoir survécu ». L'écart entre ×1,02 et
+  ×0,40 tient à la population et à la finesse du contrôle de l'âge ; il est documenté dans
+  `etude-exploratoire/documentations/2026-09-06-analyse-b-quel-avis-tombe.md`, dernière section,
+  avec le contrôle qui le trancherait.
+
+  **Réserve valable pour les trois :** le commerçant qui répond est aussi celui qui surveille sa
+  fiche et signale. Aucun de ces modèles n'établit le sens de la causalité.
+
+* **Où lire les résultats de la régression :**
+  `logistic-regression-study/2026-09-14-interpretation-panel.md`. Il interprète les quatre
+  passages et nomme ce qui ne doit pas être cité. Les CSV de `2026-09-14-sorties-07/` font foi
+  sur les valeurs — le tableau de `BACKLOG.md` en avait divergé jusqu'au 2026-09-14.
+
+* **Contenu :** Requêtes SQL commentées (`sql/`), `07_regression_panel.py`,
+  `08_effet_reponse_commercant.py`, `2026-09-14-interpretation-panel.md`, `BACKLOG.md`,
   `PASSATION.md`.
 
 ---
@@ -148,7 +180,9 @@ Le projet est divisé en deux environnements cloisonnés.
    - *Il n'y a pas de pic d'afflux.* Ces fiches reçoivent 2,60 avis par jour contre 1,17 pour le reste du panel, mais **régulièrement** : leur ratio de pic médian est de 1,95 contre 3,88 ailleurs. La succursale au taux de suppression le plus élevé (35,8 %) recevait **moins** d'avis pendant la fenêtre qu'avant elle.
    - *Les rafales d'auteur n'expliquent que 6 %* des 692 suppressions.
 
-   **Deux traits non expliqués, à creuser.** Les avis supprimés de ces chaînes ont **plus** souvent une réponse du commerçant (50,0 % contre 35,0 %), alors que le biais de durée d'observation pousse dans l'autre sens. Et leurs textes **nomment très souvent un technicien** : sur 12 textes supprimés tirés au hasard, « Ian Anderson » apparaît 4 fois, plus Devin, Jake, Tristan, Tristin, Elizabeth. Piste ouverte : compter la répétition d'un même prénom sur les avis d'une fiche, plutôt que la simple présence d'un prénom.
+   **Deux traits non expliqués, à creuser.** Les avis supprimés de ces chaînes ont **plus** souvent une réponse du commerçant, alors que le biais de durée d'observation pousse dans l'autre sens. Et leurs textes **nomment très souvent un technicien** : sur 12 textes supprimés tirés au hasard, « Ian Anderson » apparaît 4 fois, plus Devin, Jake, Tristan, Tristin, Elizabeth. Piste ouverte : compter la répétition d'un même prénom sur les avis d'une fiche, plutôt que la simple présence d'un prénom.
+
+   > **Les chiffres « 50,0 % contre 35,0 % » ont été retirés de cette ligne le 2026-09-14 : ils ne sont pas régénérables.** Ils n'apparaissaient nulle part ailleurs dans le dépôt — ni dans un script, ni dans un CSV de `2026-09-14-sorties-07/`, ni dans `BACKLOG.md`, qui reprend pourtant les trois autres traits de ce paragraphe. Le sens de l'observation est conservé ; l'ampleur ne doit pas être citée tant qu'une requête ne l'a pas reproduite. Requête à écrire : sur `reviews_panel_features`, part de `a_une_reponse` chez les supprimés, selon `chaine_antiparasitaire_us`.
 
    **Pourquoi l'ancien critère des 5 % est abandonné.** Vérification fiche par fiche des 24 qu'il retenait : 2 sont attaquées ; 1 est l'autocariste allemand Bischoff Touristik, qui perd 48 avis négatifs écrits sur 8 ans, médiane 3 ans, aucun de moins de 30 jours — un retrait obtenu sur demande, pas une attaque ; 15 ne perdent que des avis 4 et 5 étoiles, surtout des artisans américains, c'est-à-dire le phénomène même que l'étude documente ; 6 ont moins de 25 avis, dont une à 2 avis qui atteignait le seuil avec une seule suppression. Exclure ces 21 fiches amputait le corpus de son sujet.
 

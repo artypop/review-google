@@ -45,6 +45,11 @@ from statsmodels.discrete.conditional_models import ConditionalLogit
 
 SRC = pathlib.Path("data/build/fresh_hazard.parquet")
 BIZ = pathlib.Path("data/build/business_features.parquet")
+# Ajoutés le 2026-09-14 pour dater la réponse du propriétaire : `fresh_hazard`
+# ne porte que `has_reply`, l'état final. `reply_date` est dans `reviews_features`,
+# et la date de début de chaque passage du robot dans `waves`.
+AVIS = pathlib.Path("data/build/reviews_features.parquet")
+WAVES = pathlib.Path("data/exports/exports/waves.parquet")
 OUT = pathlib.Path("documentations/2026-09-06-analyse-b-quel-avis-tombe.md")
 CSV = pathlib.Path("data/resultats/analyse_b_effets.csv")
 TIRAGES = pathlib.Path("data/resultats/analyse_b_tirages.csv")
@@ -97,7 +102,19 @@ SELECT s.cid, s.wave, s.died::INT AS y,
             ELSE 'e_400c_plus' END AS texte,
        CASE WHEN s.n_photos = 0 THEN 'a_aucune' WHEN s.n_photos = 1 THEN 'b_une'
             ELSE 'c_deux_plus' END AS photos,
-       CASE WHEN s.has_reply THEN 'b_avec' ELSE 'a_sans' END AS reponse,
+       -- Réponse DATÉE, corrigée le 2026-09-14 (divergence D9).
+       --
+       -- Avant : `s.has_reply`, c'est-à-dire l'état de la réponse au dernier
+       -- passage du robot, recopié sur tous les passages précédents. Un avis
+       -- supprimé au 3e jour n'avait pas eu le temps d'en recevoir une ; un avis
+       -- observé 13 jours en avait reçu une. « Avoir une réponse » mesurait donc
+       -- en partie « avoir survécu », et l'effet sortait à ×0,30.
+       --
+       -- Maintenant : la réponse ne compte qu'à partir du passage qui suit sa
+       -- date réelle de publication. Même logique que
+       -- scripts/verif_reponse_proprietaire.py, qui avait établi l'écart.
+       CASE WHEN COALESCE(a.reply_date <= w.started_at, FALSE)
+            THEN 'b_avec' ELSE 'a_sans' END AS reponse,
        CASE WHEN s.lang_off_modal THEN 'b_langue_etrangere' ELSE 'a_langue_locale' END AS langue,
        CASE WHEN s.was_edited THEN 'b_modifie' ELSE 'a_non_modifie' END AS edition,
        CASE WHEN s.lg_level_missing THEN 'a_niveau_absent'
@@ -113,16 +130,25 @@ SELECT s.cid, s.wave, s.died::INT AS y,
        CASE WHEN s.author_same_day_burst THEN 'b_rafale' ELSE 'a_non' END AS rafale,
        s.region, b.heavy_purge
 FROM s JOIN b USING (cid)
+         JOIN a USING (row_id)
+         JOIN w USING (wave)
 WHERE b.n_fresh_deleted > 0
 """
 
 
 def load() -> pd.DataFrame:
-    if not SRC.exists():
-        sys.exit(f"Table absente : {SRC}. Lancer d'abord : uv run scripts/build_tables.py")
+    for p in (SRC, BIZ, AVIS):
+        if not p.exists():
+            sys.exit(f"Table absente : {p}. Lancer d'abord : uv run scripts/build_tables.py")
+    if not WAVES.exists():
+        sys.exit(f"Fichier absent : {WAVES}. Voir « Les données » dans le README.")
     c = duckdb.connect(config={'memory_limit': '1GB'})
     c.sql(f"CREATE VIEW s AS SELECT * FROM '{SRC.as_posix()}'")
     c.sql(f"CREATE VIEW b AS SELECT * FROM '{BIZ.as_posix()}'")
+    # Deux colonnes seulement : `reviews_features` fait 280 Mo, et la jointure
+    # n'a besoin que de la date de réponse.
+    c.sql(f"CREATE VIEW a AS SELECT row_id, reply_date FROM '{AVIS.as_posix()}'")
+    c.sql(f"CREATE VIEW w AS SELECT wave, started_at FROM '{WAVES.as_posix()}'")
     return c.sql(SQL).df()
 
 

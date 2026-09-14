@@ -90,7 +90,16 @@ fait qu'elle a simplement plus d'avis récents à perdre, l'effet disparaît et 
 | Avis noté 2 étoiles | 2,1 fois plus | 1,2 à 3,5 |
 | Avis modifié après publication | 2,0 fois plus | 1,6 à 2,5 |
 | Auteur sans niveau Local Guide | 1,7 fois plus | 1,3 à 2,1 |
-| Réponse du patron sous l'avis | 3,7 fois moins | 2,6 à 5,1 |
+| Réponse du patron sous l'avis | ~~3,7 fois moins~~ **2,5 fois moins** | 2,6 à 5,1 |
+
+> **Ligne corrigée le 2026-09-14.** Le « 3,7 fois moins » comptait la réponse dans l'état où
+> elle se trouvait au dernier passage du robot, recopié sur tous les passages précédents : un
+> avis supprimé au 3e jour n'avait pas eu le temps d'en recevoir une, un avis observé 13 jours
+> en avait reçu une. La réponse est maintenant datée, et l'effet tombe à ×0,40, soit 2,5 fois
+> moins. La fourchette de la 3e colonne n'a pas été recalculée et ne doit pas être citée.
+> **« 3,7 fois » n'est plus citable.** Voir
+> `2026-09-06-analyse-b-quel-avis-tombe.md`, et la réserve sur l'écart avec la régression sur
+> le panel, qui ne trouve aucune protection mesurable (×1,02).
 
 Sans effet démontré : la longueur du texte, les photos, la langue, le fait d'écrire sur
 plusieurs entreprises, être Local Guide niveau 6 ou plus.

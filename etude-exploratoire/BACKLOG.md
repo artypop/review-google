@@ -53,6 +53,13 @@ détail dans `../CLAUDE.md` point 4.
 - **L'analyse B tient entièrement.** Ses 26 effets survivent au retrait des fiches attaquées.
   Les plus forts : rafale d'auteur ×5,30, avis 1 étoile ×3,57, avis modifié depuis publication
   ×1,94. Le premier effet protecteur est la réponse du propriétaire, ×0,30.
+
+  > **Mis à jour le 2026-09-14 : la réponse du propriétaire est maintenant datée, et son effet
+  > passe de ×0,30 à ×0,40.** Le ×0,30 comptait la réponse dans l'état où elle se trouvait au
+  > dernier passage du robot, ce qui mesurait en partie « avoir survécu assez longtemps pour en
+  > recevoir une ». Les autres effets de cette ligne se déplacent de 1 à 5 % et gardent leur
+  > sens : rafale ×5,09, 1 étoile ×3,61, avis modifié ×1,95. Détail et réserves dans
+  > `documentations/2026-09-06-analyse-b-quel-avis-tombe.md`.
 - **Un avis 5 étoiles est plus supprimé qu'un avis 4 étoiles** (×1,24). Le tri ne vise pas que
   les avis négatifs.
 - **Ni la longueur du texte ni la langue ne mesurent quoi que ce soit** (×1,00 à ×1,13 sur

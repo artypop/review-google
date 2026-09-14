@@ -8,7 +8,12 @@ Le projet a deux volets, dans deux dossiers séparés :
 - **`etude-exploratoire/`** — l'étude d'origine, en DuckDB sur les fichiers parquet en local. Ce
   README la décrit en détail ci-dessous.
 - **`logistic-regression-study/`** — la table de panel pour la régression logistique, construite
-  en BigQuery. Voir `logistic-regression-study/sql/` et `logistic-regression-study/BACKLOG.md`.
+  en BigQuery. Point d'entrée : le bandeau d'en-tête de
+  [`logistic-regression-study/PASSATION.md`](logistic-regression-study/PASSATION.md), puis
+  [`logistic-regression-study/2026-09-14-interpretation-panel.md`](logistic-regression-study/2026-09-14-interpretation-panel.md),
+  qui lit les résultats des quatre passages et nomme ce qui ne doit pas être cité. La question du
+  client d'Axel — répondre vite protège-t-il ? — a sa propre note :
+  [`logistic-regression-study/2026-09-14-effet-reponse-commercant.md`](logistic-regression-study/2026-09-14-effet-reponse-commercant.md).
 
 ## État au 2026-09-09
 
@@ -63,8 +68,18 @@ nice -n 19 .venv/bin/python etude-exploratoire/scripts/cas_attaque_salles_de_spo
 ```
 
 Les scripts de l'étude d'origine passent par trois tables intermédiaires, construites par
-`build_tables.py`. **Ces tables reposent sur le comptage d'avant correction** : elles restent
-utilisables pour explorer, pas pour produire un résultat.
+`build_tables.py`. **Corrigé le 2026-09-14 : ce paragraphe affirmait que ces tables reposent sur
+le comptage d'avant correction. C'est faux.** `build_tables.py:25` importe
+`suppressions_corrigees.py`, comme le note déjà `CLAUDE.md` au point 1 de la méthodologie. Les
+trois tables portent donc le comptage corrigé.
+
+Le champ `deleted` est lui aussi corrigé : `build_tables.py:94` le définit comme
+`death_at IS NOT NULL`, où `death_at` est la date de suppression une fois retirés les ratés de
+collecte et les bugs d'édition.
+
+Ce qui reste à faire sur ces scripts : `analysis_a.py`, `level1_bivariate.py`, `verif_texte.py`
+et `machine_learning.py` n'ont pas encore reçu la relecture appliquée à `analysis_b.py` le
+2026-09-14, qui a remplacé la réponse du propriétaire figée par une réponse datée.
 
 ```bash
 uv run etude-exploratoire/scripts/build_tables.py      # ~20 s, construit les tables d'analyse
@@ -105,8 +120,11 @@ uv run etude-exploratoire/scripts/query.py "SELECT ..." --csv data/resultats/ma_
 uv run etude-exploratoire/scripts/query.py
 ```
 
-Le champ `deleted` de ces tables vient du comptage d'avant correction. Pour compter des
-suppressions, importer `suppressions_corrigees.py` plutôt qu'utiliser ce champ.
+**Corrigé le 2026-09-14 : ce paragraphe disait que le champ `deleted` vient du comptage d'avant
+correction. C'est faux.** `build_tables.py:94` le définit comme `death_at IS NOT NULL`, la date
+corrigée produite par `suppressions_corrigees.py`. Le champ est utilisable tel quel. Celui à ne
+pas utiliser est `deleted_detected_at`, la date brute, conservée pour trace uniquement
+(`build_tables.py:181`).
 
 ### Les trois tables
 
@@ -294,7 +312,10 @@ compter à trois moments différents. À citer avec leur code, jamais avec le se
 |---|---|---:|
 | **D1** | âge à la suppression strictement inférieur à 30 jours | 2 450 |
 | **D2** | âge à la suppression de 30 jours ou moins | 2 462 |
-| **D3** | avis de 30 jours ou moins au 11 août, supprimé à n'importe quel moment | 2 540 |
+| **D3** | avis de 30 jours ou moins au 11 août, supprimé à n'importe quel moment | **2 637** |
+
+D3 valait 2 540 avant le dédoublonnage du 2026-09-09 ; cette valeur ne doit plus être citée
+(voir `CLAUDE.md`, « Périmètre de modélisation »). D1 et D2 sont inchangés par cette correction.
 
 **Risque par passage** — sur 1 000 avis en ligne, combien ont disparu au passage suivant du
 robot. Les passages étant quotidiens, un risque par passage est un risque par jour ; ce README

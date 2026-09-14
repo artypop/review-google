@@ -20,6 +20,25 @@ Trois statuts :
 
 ---
 
+## Cet index ne couvre que l'étude exploratoire
+
+**Ajouté le 2026-09-14.** Les résultats de la régression logistique sont dans l'autre dossier et
+n'ont jamais été listés ici, ce qui rendait cet index trompeur par omission.
+
+| Où | Quoi |
+|---|---|
+| [`../../logistic-regression-study/2026-09-14-interpretation-panel.md`](../../logistic-regression-study/2026-09-14-interpretation-panel.md) | **La lecture des résultats de la régression.** Les quatre passages interprétés, ce qui tient, ce qui ne doit pas être cité |
+| [`../../logistic-regression-study/2026-09-14-effet-reponse-commercant.md`](../../logistic-regression-study/2026-09-14-effet-reponse-commercant.md) | **La réponse à la question du client d'Axel.** Répondre dans les 2 jours divise le risque par 1,8 hors des 4 chaînes antiparasitaires (×0,56) ; rien de mesurable sur le corpus complet (×0,79). Le ×0,56 ne s'annonce jamais sans dire qu'il exclut ces chaînes |
+| [`../../logistic-regression-study/2026-09-14-sorties-07/`](../../logistic-regression-study/2026-09-14-sorties-07/) | Les chiffres eux-mêmes. **Ils font foi** : le tableau de `BACKLOG.md` en avait divergé jusqu'au 2026-09-14 |
+| [`../../logistic-regression-study/PASSATION.md`](../../logistic-regression-study/PASSATION.md) | L'état de cette étude-là. Son bandeau d'en-tête est le point d'entrée |
+
+**Le panel de la régression a changé de forme le 2026-09-13** : une ligne par avis, là où
+l'ancien avait une ligne par avis et par vague. Les requêtes de l'ancienne chaîne sont rangées
+dans `2026-09-11-sql/`, conservées sans être maintenues — y compris
+`01_build_avis_deleted_panel.sql`, dont le lien apparaît plus haut dans cet index.
+
+---
+
 ## À jour — résultats du 2026-09-08
 
 | Document | Objet | Régénéré par |
@@ -37,7 +56,7 @@ remplacent les versions de `legacy/`, dont les copies périmées ont été retir
 
 | Document | Objet | Régénéré par |
 |---|---|---|
-| [2026-09-06-analyse-b-quel-avis-tombe.md](2026-09-06-analyse-b-quel-avis-tombe.md) | **Le résultat le plus solide de l'étude.** Quel avis tombe dans une fiche touchée. Ses 26 effets tiennent tous au contrôle de robustesse. | [`analysis_b.py`](../scripts/analysis_b.py) |
+| [2026-09-06-analyse-b-quel-avis-tombe.md](2026-09-06-analyse-b-quel-avis-tombe.md) | **Le résultat le plus solide de l'étude.** Quel avis tombe dans une fiche touchée. Ses 26 effets tiennent tous au contrôle de robustesse. **Régénérée le 2026-09-14 avec la réponse du propriétaire datée : son effet passe de ×0,30 à ×0,40, les autres bougent de 1 à 5 %. « ×0,30 » et « 3,7 fois » ne sont plus citables.** | [`analysis_b.py`](../scripts/analysis_b.py) |
 | [2026-09-06-test2-debordement-organique.md](2026-09-06-test2-debordement-organique.md) | Test 2, l'angle du livrable. Le stock de plus d'un an meurt davantage dans les fiches à fort afflux récent : ×1,46 et ×1,76. Tient sans les fiches attaquées. La tranche « 10 % et plus » sort non exploitable. | [`test2_debordement.py`](../scripts/test2_debordement.py) |
 | [2026-09-06-controle-robustesse.md](2026-09-06-controle-robustesse.md) | Rejeu de A et B sans les fiches attaquées, verdict sur 68 effets : 49 tiennent, 8 non-effets stables, 5 fragiles, 6 ne tiennent pas — les 6 sont tous dans le modèle d'ampleur de A. | [`controle_robustesse.py`](../scripts/controle_robustesse.py) |
 | [2026-09-06-analyse-a-quel-etablissement.md](2026-09-06-analyse-a-quel-etablissement.md) | Modèle établissement. **Le premier modèle, « être touché », tient. Le second, l'ampleur de la purge, n'est pas exploitable** : 396 fiches, 6 effets qui changent de sens quand on en retire 4. | [`analysis_a.py`](../scripts/analysis_a.py) |
@@ -68,7 +87,7 @@ pas.
 | [2026-09-06-facteurs-et-programme-danalyse.md](2026-09-06-facteurs-et-programme-danalyse.md) | Les décisions de méthode qui tiennent : périmètre à 30 jours, recalcul à âge comparable, niveau Local Guide en trois paliers, liste de ce qui est écarté. | 84 % / 39 fiches, 106 761, 2 853, 2,67 %, 264 sur 816 |
 | [2026-09-06-reprise-qualification-des-suppressions.md](2026-09-06-reprise-qualification-des-suppressions.md) | Les sept questions Q1 à Q7 de qualification d'une suppression. Q4, Q5 et Q7 ne sont toujours pas traitées. | 509 sur 5 230, 617 résurrections, cascade 5 314 / 2 705 / 2 853 |
 | [2026-09-06-verif-contenu-textuel.md](2026-09-06-verif-contenu-textuel.md) | Le résultat de fond tient : la modération ne porte pas majoritairement sur des fautes visibles. Réserve : le lexique ne couvre que 7 langues sur 41 pays. | dénominateur 2 853, et les 845 sans texte qui en découlent |
-| [2026-09-06-verif-reponse-proprietaire.md](2026-09-06-verif-reponse-proprietaire.md) | Le raisonnement qui écarte l'inversion causale : aucune réponse n'est postérieure à la suppression de l'avis. Les délais qui l'étayent (médiane 1 jour, 93 % sous 7 jours) sont calculés sur le périmètre périmé et sont à recalculer. | 1 406 avis avec réponse, dénominateurs du périmètre 2 853 |
+| [2026-09-06-verif-reponse-proprietaire.md](2026-09-06-verif-reponse-proprietaire.md) | La méthode de la réponse datée, appliquée à l'analyse B le 2026-09-14. Les délais (médiane 1 jour, 93 % sous 7 jours) sont calculés sur le périmètre périmé et sont à recalculer. **« Aucune réponse n'est postérieure à la suppression » n'écarte pas l'inversion causale : une réponse arrivée après une suppression n'est jamais observable, l'avis n'étant plus là. C'est de la censure, pas une absence.** | 1 406 avis avec réponse, dénominateurs du périmètre 2 853 |
 | [reviewflowz-analyse-google.md](reviewflowz-analyse-google.md) | Les 13 points de vigilance, dont ceux qui ne bougent pas avec le comptage : filtrage pré-publication invisible, détecteurs IA non fiables, paliers de taille non continus. | 5 230 suppressions, taux 0,11 %, 617 résurrections |
 | [reviewflowz-analyse-google-decisions.md](reviewflowz-analyse-google-decisions.md) | Le journal des décisions, et celle qui structure tout : en cas de divergence entre le protocole de cadrage et l'export, les données prévalent. | taux 0,11 % |
 

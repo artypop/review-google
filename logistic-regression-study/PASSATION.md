@@ -17,6 +17,19 @@ Destiné à qui reprend le dossier, humain ou assistant.
 > | `sql/02_adding_features.sql` | `reviews_panel_features` | les mêmes avis, 42 colonnes |
 > | `07_regression_panel.py` | `2026-09-14-sorties-07/` | quatre passages |
 >
+> **Les résultats sont interprétés dans `2026-09-14-interpretation-panel.md`.** Le lire avant de
+> citer un chiffre. Les CSV de `2026-09-14-sorties-07/` font foi sur les valeurs ; le tableau de
+> `BACKLOG.md` en avait divergé jusqu'au 2026-09-14.
+>
+> **La question d'Axel a une réponse**, depuis le 2026-09-14 :
+> `08_effet_reponse_commercant.py`, précédé de `sql/controle_C_reponses_au_jalon.sql`.
+> **Répondre dans les deux jours divise le risque par 1,8 hors des quatre chaînes
+> antiparasitaires : ×0,56 [0,37 – 0,85], p = 0,007.** Sur le corpus complet, rien de mesurable
+> (×0,79 [0,53 – 1,16]) : les chaînes portent 37,4 % des suppressions de cette population et
+> tirent l'effet vers 1. **Annoncer le ×0,56 sans dire qu'il exclut ces quatre chaînes serait
+> faux.** Note :
+> `2026-09-14-effet-reponse-commercant.md`, sorties dans `2026-09-14-sorties-08/`.
+>
 > **Périmètre :** avis publiés du 2026-05-13 au 2026-08-16, soit 90 jours avant la vague 1 et
 > jusqu'à la vague 6, pour que le dernier entrant soit encore observé 8 jours. 2 595
 > suppressions, 1,15 %, 8 205 fiches.
@@ -213,11 +226,13 @@ au format court (`en`, `fr`, `de`, `ca`).
 **Pour Axel** (Romain s'en charge) :
 
 1. **Le périmètre.** L'étude exploratoire avait tranché sur les avis frais (30 jours ou moins) :
-   107 821 avis, dont 2 540 supprimés, soit 2,36 % de ces 107 821. À comparer au corpus entier,
-   0,097 % (4 747 sur 4 877 534). Ce cadrage reste à confirmer pour la régression. Les outils se
-   construisent quel que soit le choix ; seul le périmètre des lignes analysées en dépend.
-   Attention en citant un chiffre d'« avis récents supprimés » : trois comptages coexistent, tous
-   justes, à citer avec leur code (**D1** = 2 450, **D2** = 2 462, **D3** = 2 540). Détail dans
+   **106 144 avis, dont 2 637 supprimés, soit 2,48 % de ces 106 144**. À comparer au corpus
+   entier, 0,097 % (4 747 sur 4 877 534). Ce cadrage reste à confirmer pour la régression. Les
+   outils se construisent quel que soit le choix ; seul le périmètre des lignes analysées en
+   dépend. Attention en citant un chiffre d'« avis récents supprimés » : trois comptages
+   coexistent, tous justes, à citer avec leur code (**D1** = 2 450, **D2** = 2 462,
+   **D3** = 2 637). *Corrigé le 2026-09-14 : ce point portait 107 821 / 2 540 / 2,36 % et
+   D3 = 2 540, valeurs d'avant le dédoublonnage du 2026-09-09.* Détail dans
    `../etude-exploratoire/documentations/2026-09-08-age-a-la-suppression.md`.
 2. **Laquelle des deux vélocités mettre en avant dans le rapport.** Les deux colonnes existent
    déjà. `jours_en_ligne_avant_suppression` part de la vraie date de publication donnée par

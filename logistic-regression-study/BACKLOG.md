@@ -29,6 +29,82 @@ par `07_regression_panel.py`.
 
 ---
 
+## Fait le 2026-09-14, deuxième session
+
+### La régression est interprétée
+
+- [x] **`2026-09-14-interpretation-panel.md`** — lecture des quatre passages, sans rien
+      relancer. Résultat central : aux États-Unis l'avis 5 étoiles est supprimé **plus** souvent
+      que l'avis 3 ou 4 étoiles (145,1 contre 65,3 et 60,5 pour 10 000 avis) ; en Europe il l'est
+      presque trois fois moins que l'avis 1 étoile. Deux régimes opposés dans le même corpus.
+      1 850 des 2 595 suppressions du panel frappent un avis 5 étoiles, soit **71,3 %**.
+- [x] **Trois effets tiennent dans les quatre passages** : compte sans niveau Local Guide,
+      secteur home_services, établissement américain. Trois changent de sens selon le
+      découpage et ne doivent jamais être cités seuls : rafale d'auteur, pic d'afflux, texte
+      long.
+- [x] **Le passage Europe est mal calibré, et la cause n'est pas celle qu'on croyait.** Ce n'est
+      pas le modèle qui se trompe, c'est l'échantillon de test : `decoupage()` tire 25 % des
+      établissements au hasard, et en Europe ce tirage est tombé sur des fiches **2,3 fois moins
+      touchées que le corpus** (0,327 % contre 0,760 %). Le modèle annonce le bon niveau, le test
+      est plus calme, tout paraît surestimé — sur les dix déciles, pas seulement le dernier. Aux
+      États-Unis et sur le corpus entier, l'écart est nul (1,429 % contre 1,448 % ; 1,138 %
+      contre 1,149 %).
+- [x] **Pourquoi l'Europe** : **2 fiches sur 4 106 portent 327 des 744 suppressions, soit 44 %.**
+      Ce sont les deux salles de sport espagnoles attaquées, vérifiées fiche par fiche le
+      2026-09-14 : Boutique The Boxer Club Dr Castelo (206 avis, 192 suppressions) et The Boxer
+      Club (151 avis, 135 suppressions).
+      **Les retirer ne suffit pas** : `Europe_sans_enseignes` garde un test 1,8 fois moins touché
+      que son corpus (0,239 % contre 0,428 %), AUC 0,882.
+- [x] **Réserve sur le drapeau `salle_de_sport_attaquee`, sans effet sur les chiffres.** Il repose
+      sur `b.name` et non sur `cid`, donc il marque 13 fiches : les 2 attaquées, plus 11 autres
+      salles « The Boxer Club » totalisant 90 avis et **aucune suppression**.
+      `--sans-enseignes-signalees` les écarte à tort, sans changer un coefficient (90 avis sur
+      210 670, 0 suppression sur 1 576). **Décision de Romain le 2026-09-14 : on n'y touche pas.**
+      Le même drapeau pour les 4 chaînes antiparasitaires est correct, le multi-fiches y étant
+      voulu (26, 19, 19, 24 fiches, conformes à `../CLAUDE.md`).
+- [ ] **À faire : validation croisée par établissement, 5 plis**, en remplacement du tirage unique
+      de `decoupage()`. Chaque fiche passe une fois en test, les prédictions hors échantillon sont
+      rassemblées, AUC et calibration se lisent sur le corpus entier. Coût : ~1 minute, le modèle
+      s'ajustant en 8 à 11 secondes. Voir `2026-09-14-interpretation-panel.md`, section 5.
+
+### La réponse du commerçant
+
+- [x] **Divergence D9 fermée.** `analysis_b.py` lisait `has_reply`, l'état au dernier passage du
+      robot recopié sur tous les précédents. La réponse y est maintenant datée, comme dans
+      `verif_reponse_proprietaire.py`. **L'effet passe de ×0,30 à ×0,40** ; seul ce facteur
+      bouge, les autres se déplacent de 1 à 5 %. Même corpus, mêmes 61 202 observations.
+      **« ×0,30 » et « répondre protège 3,7 fois » ne sont plus citables.**
+- [x] **Le CSV `data/resultats/analyse_b_effets.csv` était périmé** par rapport à la note qu'il
+      accompagne : il portait rafale ×18,8 quand la note affichait ×5,30, et une colonne
+      `significatif` à « True » partout alors que rien n'était calculé. Régénéré.
+- [x] **L'écart entre ×0,40 et le ×1,02 de la régression est documenté**, avec le contrôle qui
+      le trancherait — découper la tranche « 0 à 6 jours » de l'analyse B en jours pleins. Non
+      lancé, demande son propre plan.
+- [x] **La question d'Axel a une réponse.** `08_effet_reponse_commercant.py` lancé le
+      2026-09-14 sur huit passages (quatre jalons × avec et sans enseignes). **Répondre dans les
+      deux jours divise le risque par 1,8 hors des quatre chaînes antiparasitaires :
+      ×0,56 [0,37 – 0,85], p = 0,007.** Sur le corpus complet, rien de mesurable : ×0,79
+      [0,53 – 1,16]. Note : `2026-09-14-effet-reponse-commercant.md`. Détail en « À faire » n° 1,
+      devenu fait.
+- [x] **La clé BigQuery n'est plus codée en dur.** `07` et `08` prenaient
+      `client-divers-8b012e5b7c73.json`, renommé en `client-divers-df744e79fa71.json` le
+      2026-09-14 : le script échouait sur une `DefaultCredentialsError` qui ne disait pas qu'il
+      s'agissait d'une rotation. `trouver_cle()` prend maintenant le seul `.json` de
+      `~/.gcp/`, respecte `GOOGLE_APPLICATION_CREDENTIALS` s'il est posé, et s'arrête s'il y a
+      plusieurs clés plutôt que d'en choisir une au hasard.
+
+### Correctifs
+
+- [x] **L'AUC est écrite dans `07_summary_*.txt`.** Elle ne figurait que dans le titre du
+      graphique de calibration, donc illisible sans ouvrir une image. `ecrire_summary` est
+      appelée deux fois, avant et après le calcul, et reconstruit le fichier entièrement.
+- [x] **Tableau des quatre passages refait depuis les CSV** (voir plus bas), et « ×0,93,
+      p = 0,649 » remplacé par la valeur versionnée.
+- [x] **Réserve ajoutée sur la longueur du texte** : son signe s'inverse entre `tous` et
+      `sans enseignes`, de ×0,66 à ×1,38 (p = 0,010). Elle était classée « ne tient pas ».
+
+---
+
 ## Fait le 2026-09-14
 
 ### Modèle
@@ -39,8 +115,10 @@ par `07_regression_panel.py`.
       graphique de calibration.
 - [x] **L'âge entre comme variable de contrôle**, `log_age_vague1`. Le découpage du corpus selon
       l'âge est rendu impossible dans le script, à la demande de Romain. Sans l'âge, « avoir une
-      réponse » ressortait protecteur alors que c'était l'âge déguisé : son effet est passé de
-      ×0,79 à ×0,93, p = 0,649, dès que l'âge est entré.
+      réponse » ressortait protecteur alors que c'était l'âge déguisé. Valeur versionnée avec
+      l'âge : **×1,018, p = 0,906** (`2026-09-14-sorties-07/07_coefficients_tous.csv`).
+      *Corrigé le 2026-09-14 : ce point portait « ×0,79 à ×0,93, p = 0,649 ». Aucune de ces
+      valeurs n'existe dans un fichier de sortie.*
 - [x] **AUC 0,862** sur des établissements jamais vus, contre 0,717 sans l'âge. L'écart mesure ce
       que l'âge apportait au classement. Calibration suivie sur les dix tranches.
 - [x] **Sous-échantillonnage retiré** (`TAUX_ECHANTILLON_NEGATIFS = 1.0`). Le modèle tourne sur
@@ -57,23 +135,43 @@ par `07_regression_panel.py`.
 
 ### Résultats, quatre passages
 
+**Tableau refait le 2026-09-14 depuis les CSV de `2026-09-14-sorties-07/`.** La version
+précédente portait six valeurs qui ne correspondaient à aucun fichier versionné — rafale ×9,21,
+1 étoile ×6,17, home_services ×5,69, auteur sans niveau ×2,51, américain ×2,13, 4 étoiles ×0,60.
+Elles venaient d'un passage non conservé ; le dossier `sorties/` est vide. Les AUC, elles,
+coïncidaient. Seuls les CSV font foi, puisqu'ils sont les seuls régénérables.
+
 | | Tout | Sans les 6 enseignes | US | Europe |
 |---|---|---|---|---|
 | Avis | 225 757 | 210 670 | 127 813 | 97 944 |
 | Suppressions | 2 595 | 1 576 | 1 851 | 744 |
 | AUC | 0,862 | 0,819 | 0,843 | 0,819 |
-| Rafale d'auteur | ×9,21 | ×4,99 | **×45,99** | ×1,31 |
-| Avis 1 étoile | ×6,17 | ×3,69 | ×2,58 | ×10,74 |
-| Secteur home_services | ×5,69 | ×3,28 | ×5,13 | ×1,23 |
-| Auteur sans niveau Local Guide | ×2,51 | ×2,64 | ×2,16 | ×4,01 |
-| Établissement américain | ×2,13 | ×2,16 | — | — |
-| Avis 4 étoiles | ×0,60 | ×0,66 | ×0,52 | ×0,81 |
+| Rafale d'auteur | ×9,54 | ×5,28 | **×49,30** | ×0,90 |
+| Avis 1 étoile | ×6,34 | ×3,56 | ×2,41 | ×12,54 |
+| Secteur home_services | ×5,73 | ×3,16 | ×4,79 | ×1,24 |
+| Auteur sans niveau Local Guide | ×2,30 | ×2,51 | ×1,83 | ×3,73 |
+| Établissement américain | ×1,99 | ×2,14 | — | — |
+| Avis 4 étoiles | ×0,62 | ×0,68 | ×0,60 | ×0,82 |
 
 Le profil d'auteur est le seul effet qui **se renforce** quand on retire les six enseignes
 signalées. La rafale d'auteur reste un phénomène américain, porté par Insight Pest Solutions.
 
-**Ne tiennent pas :** la réponse du commerçant (×0,93, p = 0,649), la longueur du texte (les
-trois tranches entre ×0,77 et ×1,09), la langue minoritaire (×1,02, p = 0,918).
+**Le coefficient de rafale s'exprime par point de logarithme et n'est pas lisible tel quel.**
+Traduit en nombre d'avis déposés le même jour par le même auteur : passer de 1 à 2 avis vaut
+×2,50 sur `tous` et ×4,86 aux États-Unis ; passer de 1 à 4 avis vaut ×7,90 et ×35,57. Les
+effectifs sont minces : 1 681 avis à 2 dépôts ou plus sur 225 757, et la cellule « 4 avis le
+même jour » porte 44 des 2 595 suppressions. Ces 44 sont **entièrement** dans les enseignes
+signalées : une fois celles-ci retirées, la cellule compte 56 avis et 0 suppression.
+
+**Ne tiennent pas :** la réponse du commerçant (**×1,018, p = 0,906**), la longueur du texte
+(voir la réserve ci-dessous), la langue minoritaire (×1,011, p = 0,952).
+
+**Réserve sur la longueur du texte, relevée le 2026-09-14.** « Ne tient pas » vaut pour le
+passage `tous` (×0,66, p = 0,069 sur la tranche 201+). Sans les six enseignes, le même effet
+sort à **×1,38, p = 0,010** : le signe s'inverse et devient net. Les taux bruts disent la même
+chose — la colonne est plate sur le corpus entier et croissante sans les enseignes (52,3 → 94,2
+suppressions pour 10 000 avis). C'est le seul effet du panel dont le signe s'inverse de façon
+significative. À examiner avant toute publication.
 
 ### Découverte : quatre chaînes antiparasitaires américaines
 
@@ -343,22 +441,64 @@ l'issue.
 
 ## À faire — au 2026-09-14
 
-### 1. Répondre à la question du client d'Axel : répondre vite protège-t-il ?
+### 1. Répondre à la question du client d'Axel : répondre vite protège-t-il ? — FAIT
 
-Pas encore fait. `reponse_dans_les_2_jours` est construite dans `sql/02` et chargée par
-`07_regression_panel.py`, mais elle n'entre pas dans le modèle : elle n'a de sens que sur les
-**15 248 avis nés pendant la surveillance**, seuls avis dont on a vu les premiers jours.
+**Lancé le 2026-09-14. Résultat dans `2026-09-14-effet-reponse-commercant.md`.**
 
-Montage à écrire, dans un script séparé :
+**Oui, hors des quatre chaînes antiparasitaires : ×0,56 [0,37 – 0,85], p = 0,007.** Sur le
+corpus complet l'effet n'est pas mesurable, ×0,79 [0,53 – 1,16], p = 0,232. Annoncer le ×0,56
+sans dire qu'il exclut ces quatre chaînes serait faux.
+
+Les chaînes pèsent 1 021 avis sur 15 193 (6,7 %) et 189 des 505 suppressions (37,4 %). Chez
+elles la part d'avis répondus est la même qu'ailleurs (38,0 % contre 39,5 %), donc la réponse
+n'y marque rien et tire l'effet moyen vers 1.
+
+**L'effet tient sur quatre jalons** — fin du jour 1, 2, 3 et 4, fenêtre se terminant chaque fois
+au 8e jour : ×0,59 / ×0,56 / ×0,46 / ×0,48 sans les chaînes, tous avec une fourchette qui exclut
+1 (p de 0,001 à 0,009) ; ×0,86 / ×0,79 / ×0,70 / ×0,71 sur le corpus complet, tous contenant 1.
+Le résultat ne dépend pas du seuil choisi, il dépend du retrait des chaînes.
+
+**Les trois chiffres du BACKLOG sont confirmés par BigQuery**, à un arrondi près : 15 193 avis
+au jalon (exact), 505 suppressions (exact), et 5 992 avis avec réponse au jalon au lieu des
+6 000 annoncés. Les 6 000 comptaient sur les 15 248 avis avant le filtrage au jalon ; 8 d'entre
+eux ont disparu avant.
+
+Deux fichiers :
+
+| Fichier | Rôle |
+|---|---|
+| `sql/controle_C_reponses_au_jalon.sql` | **à lancer en premier**, lecture seule. Sort les effectifs du croisement et la répartition des délais de réponse |
+| `08_effet_reponse_commercant.py` | le modèle. `--jalon-jours` (défaut 2), `--fenetre-jours` (défaut 6), `--sans-enseignes-signalees` |
+
+Montage retenu — cohorte à jalon fixe, sur les **15 248 avis nés pendant la surveillance**,
+seuls avis dont on a vu les premiers jours :
 
 - garder les avis encore en ligne à la fin du 2e jour : **15 193 sur 15 248** ;
-- caractéristique : une réponse est arrivée dans les 2 premiers jours — **6 000 avis, 39 %** ;
+- caractéristique : une réponse était là au jalon — **6 000 avis, 39 %** ;
 - cible : suppression entre le 3e et le 8e jour — **505 suppressions**.
 
-La réponse précède alors la suppression dans le temps, sans exception. Le seuil de 2 jours est
-ajustable : 64 % des réponses arrivent dans les 24 h, 80 % dans les 3 jours.
+Tout le monde est vivant au jalon, la réponse est connue au jalon, la suppression est comptée
+après. L'âge n'entre donc pas dans ce modèle : tous les avis ont le même âge au jalon et la
+même durée d'exposition ensuite. C'est la différence avec `07`, où `log_age_vague1` est
+indispensable.
 
-**Ce montage demande son propre plan avant d'être lancé.**
+Le seuil de 2 jours est un choix : 64 % des réponses arrivent dans les 24 h, 80 % dans les
+3 jours. La requête 3 du contrôle C sort la répartition complète pour en juger.
+
+**Réserve de puissance, mesurée.** Sur 14 170 avis et 316 suppressions, le montage ne repérait
+qu'une protection d'au moins 45 % ou une aggravation d'au moins 83 %. L'effet trouvé (44 % de
+protection) est donc tout juste au-dessus de ce que ce corpus permet de voir. Le script imprime
+cet effet minimal détectable à chaque passage.
+
+**Ce que le résultat ne dit pas.** Le sens de la causalité n'est pas établi : le commerçant qui
+répond en deux jours est aussi celui qui surveille sa fiche et signale les avis qu'il juge
+illégitimes. Le modèle contrôle secteur, région, taille de fiche, note et profil d'auteur, pas
+l'attention portée à la fiche. Et une réponse retirée reste invisible dans l'export.
+
+Contrôles de mécanique passés le 2026-09-14 sur données fabriquées, avant l'accès BigQuery :
+aucun avis supprimé avant le jalon ne reste dans le corpus, la cible ne déborde pas de la
+fenêtre, une suppression tardive n'y entre pas, une réponse absente ou tardive n'est jamais
+comptée au jalon, et le garde-fou qui refuse une fenêtre dépassant le 8e jour se déclenche.
 
 ### 2. Les quatre transformations faites en Python, à remonter dans `sql/02`
 
