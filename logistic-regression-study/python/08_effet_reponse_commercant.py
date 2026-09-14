@@ -1,0 +1,507 @@
+#!/usr/bin/env python3
+"""
+==============================================================================
+Script : 08_effet_reponse_commercant.py
+Table source : client-divers.reviewflowz.reviews_panel_features
+
+Répondre vite à un avis le protège-t-il ?
+
+Ce script ne remplace pas `07_regression_panel.py`, il répond à une autre
+question. `07` mesure l'effet d'une réponse arrivée AVANT le 11 août, sur des
+avis de 0 à 90 jours. Ici on mesure l'effet de répondre dans les deux jours qui
+suivent la publication, sur les seuls avis dont on a vu la naissance.
+
+------------------------------------------------------------------------------
+LE MONTAGE, ET LE PROBLÈME QU'IL RÈGLE
+------------------------------------------------------------------------------
+Le problème. « Cet avis a une réponse » se lit facilement comme « le commerçant
+l'a protégé ». Mais un avis qui a survécu trois semaines a eu trois semaines
+pour recevoir une réponse, et un avis supprimé au troisième jour n'en a eu que
+trois. Compter les réponses à la fin de l'histoire revient donc en partie à
+compter qui a survécu. C'est ce défaut qui donnait « répondre protège 3,7 fois »
+dans l'analyse B.
+
+La solution, en une image. Au lieu de demander à la fin de la course qui portait
+un casque, on photographie tous les coureurs au deuxième kilomètre, on note qui
+porte un casque à cet instant précis, puis on regarde qui tombe ensuite. Personne
+ne peut plus enfiler un casque après sa chute.
+
+Traduit en données :
+
+    jour 0        jour 2                      jour 8
+    |-------------|---------------------------|
+    publication   JALON                       fin de la fenêtre
+                  - tout le monde est encore   on compte qui a
+                    en ligne                   disparu entre le
+                  - on note qui a déjà une     3e et le 8e jour
+                    réponse
+
+Trois conséquences, toutes voulues :
+
+  1. Un avis supprimé avant le jalon sort de l'étude. Il n'apprend rien sur ce
+     qui se passe après le jalon.
+  2. La réponse est connue AVANT la période de risque. Elle ne peut pas être une
+     conséquence de la survie pendant cette période.
+  3. L'âge n'a pas à entrer dans le modèle. Tous les avis sont au même âge au
+     jalon, et la fenêtre de risque a la même durée pour tous. C'est ce qui
+     distingue ce script de `07`, où `log_age_vague1` est indispensable.
+
+------------------------------------------------------------------------------
+LA POPULATION
+------------------------------------------------------------------------------
+Les avis publiés du 2026-08-11 au 2026-08-16, soit `ne_pendant_la_surveillance`.
+Eux seuls ont leurs premiers jours observés : pour un avis déjà en ligne au
+11 août, on ne sait ni s'il a reçu une réponse pendant ses 48 premières heures,
+ni s'il a failli disparaître.
+
+Le dernier entrant, publié le 16, atteint son 8e jour le 24 août, jour du dernier
+passage du robot. Tous ont donc 8 jours d'observation, aucun n'en a moins.
+
+ÉCART DE COMPTAGE À CONNAÎTRE. `ne_pendant_la_surveillance` vaut TRUE pour
+15 248 avis. Le tableau de `07_regression_panel.py:28-33` affiche 12 664 pour sa
+ligne « né pendant » : il y range les avis d'âge strictement négatif à la
+vague 1, donc publiés du 12 au 16. Les 2 584 avis du 11 août y sont comptés dans
+« 0 à 7 j ». Les deux sont justes. C'est 15 248 qui sert ici.
+
+------------------------------------------------------------------------------
+POURQUOI `delai_reponse_j` EST UTILISÉE ICI ALORS QUE `07` L'INTERDIT
+------------------------------------------------------------------------------
+`07` l'interdit parce qu'elle n'est connue que pour un avis ayant vécu assez
+longtemps pour recevoir sa réponse : s'en servir sur tout le panel ferait entrer
+l'issue dans les entrées.
+
+Ici elle ne sert qu'à répondre à une question posée sur des avis TOUS VIVANTS au
+jalon : « la réponse était-elle là au jour 2 ? ». Pour ces avis, `delai <= 2`
+signifie qu'elle y était, et `delai > 2` ou vide qu'elle n'y était pas. Une
+réponse qui serait arrivée après une suppression n'est jamais observée, mais elle
+tombe du bon côté de toute façon : elle n'était pas là au jalon.
+
+------------------------------------------------------------------------------
+CE QUE CE SCRIPT NE PEUT PAS DIRE
+------------------------------------------------------------------------------
+  - Une réponse RETIRÉE est invisible. `changed_fields` ne contient que `star` et
+    `text`, jamais `reply`. Un avis dont la réponse a été effacée avant le dernier
+    passage est compté « sans réponse ».
+  - Le sens de la causalité. Le commerçant qui répond est souvent celui qui
+    signale. Une réponse peut marquer une contestation en cours plutôt qu'une
+    protection. Aucun modèle ne tranche cela avec ces données.
+  - Un résultat non significatif ne dit pas « répondre ne sert à rien ». Le
+    script imprime pour cela l'effet minimal qu'il était capable de détecter.
+==============================================================================
+"""
+
+from __future__ import annotations
+
+import argparse
+import os
+import sys
+from datetime import date
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+import statsmodels.api as sm
+
+PROJET = "client-divers"
+DATASET = "reviewflowz"
+TABLE = "reviews_panel_features"
+# Dossier des clés de service, pas un fichier précis : le nom change à chaque
+# rotation. Même résolution que dans `07_regression_panel.py`, voir `trouver_cle`.
+DOSSIER_CLES = Path("/home/romain/.gcp")
+
+SORTIES = Path(__file__).resolve().parent / f"{date.today():%Y-%m-%d}-sorties-08"
+
+# Reprises de 07, pour que les deux scripts découpent pareil.
+TRANCHES_TEXTE = [-1, 0, 50, 200, 10**6]
+NOMS_TRANCHES_TEXTE = ["sans_texte", "texte_1_50", "texte_51_200", "texte_201p"]
+SEUIL_SECTEUR_RARE = 0.01
+MIN_CAS_PAR_COLONNE = 30
+MIN_SUPPRESSIONS_PAR_COLONNE = 5
+
+REFERENCES = {
+    "etoiles": "etoiles_5",
+    "profil": "profil_guide_etabli",
+    "texte": "texte_sans_texte",
+    "taille": "taille_mono",
+}
+
+# Somme des quantiles normaux pour un test bilatéral à 5 % et une puissance de
+# 80 %. Sert au calcul de l'effet minimal détectable.
+Z_TEST_PLUS_Z_PUISSANCE = 1.959964 + 0.841621
+
+COLONNES = [
+    "review_id", "cid", "author_key",
+    "supprime", "age_a_la_suppression_j", "ne_pendant_la_surveillance",
+    "delai_reponse_j",
+    "star", "has_text", "text_chars", "has_photo",
+    "reviewer_review_count", "log_rc", "situation_auteur",
+    "n_avis_meme_jour_auteur",
+    "langue_minoritaire_sur_la_fiche",
+    "industry", "bucket", "region",
+    "chaine_antiparasitaire_us", "salle_de_sport_attaquee",
+]
+
+VARIABLES_BINAIRES = [
+    # La variable de l'étude. Elle est en tête pour être lue en premier dans
+    # toutes les sorties.
+    "reponse_au_jalon",
+    "has_photo",
+    "langue_minoritaire_sur_la_fiche",
+]
+
+VARIABLES_CONTINUES = [
+    "log_rc",
+    "log_burst",
+]
+
+
+# ---------------------------------------------------------------------------
+# Lecture
+# ---------------------------------------------------------------------------
+
+def trouver_cle() -> str | None:
+    """La clé de service, quel que soit son nom de fichier.
+
+    `GOOGLE_APPLICATION_CREDENTIALS` l'emporte s'il est posé. Sinon on prend le
+    seul `.json` de DOSSIER_CLES, et on s'arrête s'il y en a plusieurs : une
+    rotation en cours ferait choisir la mauvaise, avec une erreur de droits
+    illisible à l'arrivée.
+    """
+    if os.environ.get("GOOGLE_APPLICATION_CREDENTIALS"):
+        return None
+    if not DOSSIER_CLES.is_dir():
+        return None
+    cles = sorted(DOSSIER_CLES.glob("*.json"))
+    if len(cles) > 1:
+        raise SystemExit(
+            f"{len(cles)} clés dans {DOSSIER_CLES} : "
+            f"{', '.join(c.name for c in cles)}.\n"
+            f"Garder celle qui est active, ou poser "
+            f"GOOGLE_APPLICATION_CREDENTIALS sur le bon fichier.")
+    return str(cles[0]) if cles else None
+
+
+def client_bigquery():
+    cle = trouver_cle()
+    if cle:
+        os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = cle
+        print(f"[auth] clé : {Path(cle).name}")
+    from google.cloud import bigquery
+
+    return bigquery.Client(project=PROJET)
+
+
+def lire(client) -> pd.DataFrame:
+    """Charge les seuls avis nés pendant la surveillance."""
+    sql = (f"SELECT {', '.join(COLONNES)} "
+           f"FROM `{PROJET}.{DATASET}.{TABLE}` "
+           f"WHERE ne_pendant_la_surveillance")
+    df = client.query(sql).to_arrow(create_bqstorage_client=True).to_pandas()
+    print(f"[lecture] {len(df):,} avis nés pendant la surveillance"
+          .replace(",", " "))
+    return df
+
+
+# ---------------------------------------------------------------------------
+# Le jalon
+# ---------------------------------------------------------------------------
+
+def appliquer_jalon(df: pd.DataFrame, jalon: int, fenetre: int) -> pd.DataFrame:
+    """Garde les avis encore en ligne au jalon, et pose la cible.
+
+    `jalon`   : âge en jours à partir duquel on observe. Défaut 2.
+    `fenetre` : durée d'observation après le jalon, en jours. Défaut 6, ce qui
+                mène au 8e jour de vie.
+
+    Trois colonnes en sortent :
+      reponse_au_jalon  la réponse était là au jalon
+      supprime_fenetre  la cible : disparu entre jalon+1 et jalon+fenetre
+      vivant_au_jalon   sert au filtrage, retiré ensuite
+    """
+    df = df.copy()
+    age_mort = df["age_a_la_suppression_j"]
+
+    # Encore en ligne au jalon : jamais supprimé, ou supprimé plus tard.
+    vivant = (~df["supprime"].astype(bool)) | (age_mort > jalon)
+    perdus = int((~vivant).sum())
+
+    df = df[vivant].copy()
+
+    # La réponse était-elle publiée au jalon ? `delai_reponse_j` vide = pas de
+    # réponse connue, donc pas de réponse au jalon.
+    df["reponse_au_jalon"] = (
+        df["delai_reponse_j"].notna() & (df["delai_reponse_j"] <= jalon)
+    ).astype("int8")
+
+    # La cible. Un avis supprimé APRÈS la fenêtre compte comme resté en ligne :
+    # la question porte sur ces jours-là, pas sur la suite.
+    df["supprime_fenetre"] = (
+        df["supprime"].astype(bool)
+        & df["age_a_la_suppression_j"].between(jalon + 1, jalon + fenetre)
+    ).astype("int8")
+
+    print(f"[jalon] jour {jalon}, fenêtre de {fenetre} jours "
+          f"(soit jusqu'au {jalon + fenetre}e jour de vie)")
+    print(f"  {perdus:,} avis perdus avant le jalon, écartés".replace(",", " "))
+    print(f"  {len(df):,} avis au jalon — c'est le dénominateur".replace(",", " "))
+    print(f"  {int(df['reponse_au_jalon'].sum()):,} avec une réponse "
+          f"({df['reponse_au_jalon'].mean():.1%})".replace(",", " "))
+    print(f"  {int(df['supprime_fenetre'].sum()):,} supprimés dans la fenêtre"
+          .replace(",", " "))
+    return df
+
+
+def ajouter_variables(df: pd.DataFrame) -> pd.DataFrame:
+    """Mêmes découpages que 07, pour que les deux scripts se comparent."""
+    df = df.copy()
+    df["taille_texte"] = pd.cut(
+        df["text_chars"].fillna(0).clip(lower=0),
+        bins=TRANCHES_TEXTE, labels=NOMS_TRANCHES_TEXTE)
+    df["log_burst"] = np.log1p(df["n_avis_meme_jour_auteur"].fillna(1).clip(lower=0))
+    df["star"] = df["star"].fillna(0).astype("int8")
+    for col in ["has_photo", "langue_minoritaire_sur_la_fiche"]:
+        df[col] = df[col].fillna(0).astype("int8")
+
+    parts = df["industry"].value_counts(normalize=True, dropna=False)
+    rares = parts[parts < SEUIL_SECTEUR_RARE].index
+    secteur = df["industry"].astype("object").where(~df["industry"].isin(rares), "autres")
+    df["secteur"] = secteur.fillna("inconnu").astype("category")
+    return df
+
+
+# ---------------------------------------------------------------------------
+# Ajustement
+# ---------------------------------------------------------------------------
+
+def matrice_modele(df: pd.DataFrame, avec_region: bool) -> pd.DataFrame:
+    morceaux = [df[VARIABLES_BINAIRES].astype("float32"),
+                df[VARIABLES_CONTINUES].astype("float32")]
+
+    def dummies(serie, prefixe, reference=None):
+        d = pd.get_dummies(serie, prefix=prefixe, dtype="float32")
+        if reference:
+            d = d.drop(columns=[reference], errors="ignore")
+        return d
+
+    morceaux.append(dummies(df["star"], "etoiles", REFERENCES["etoiles"]))
+    morceaux.append(dummies(df["situation_auteur"], "profil", REFERENCES["profil"]))
+    morceaux.append(dummies(df["taille_texte"], "texte", REFERENCES["texte"]))
+    morceaux.append(dummies(df["secteur"], "secteur").iloc[:, 1:])
+    morceaux.append(dummies(df["bucket"], "taille", REFERENCES["taille"]))
+    if avec_region:
+        morceaux.append(dummies(df["region"], "region").iloc[:, 1:])
+
+    X = pd.concat(morceaux, axis=1)
+    X = X.loc[:, X.sum(axis=0) >= MIN_CAS_PAR_COLONNE]
+    return sm.add_constant(X, has_constant="add")
+
+
+def ecarter_colonnes_degenerees(X: pd.DataFrame, y: pd.Series) -> pd.DataFrame:
+    """Même garde-fou que 07 : une colonne trop rare fait diverger l'ajustement.
+
+    `reponse_au_jalon` n'est jamais écartée : si elle tombait sous le seuil, le
+    script n'aurait plus de sujet, et le contrôle de main() l'a déjà arrêté.
+    """
+    a_jeter = []
+    for col in X.columns:
+        if col in ("const", "reponse_au_jalon"):
+            continue
+        masque = X[col] > 0
+        if not masque.any():
+            a_jeter.append(col)
+            continue
+        n_suppr = int(y[masque].sum())
+        if n_suppr < MIN_SUPPRESSIONS_PAR_COLONNE or n_suppr == int(masque.sum()):
+            a_jeter.append(col)
+    if a_jeter:
+        print(f"  colonnes écartées, trop rares ou sans variation : "
+              f"{', '.join(a_jeter)}")
+    return X.drop(columns=a_jeter)
+
+
+def ajuster(df: pd.DataFrame, libelle: str, avec_region: bool):
+    y = df["supprime_fenetre"].astype("float64")
+    X = ecarter_colonnes_degenerees(matrice_modele(df, avec_region), y)
+
+    res = sm.GLM(y, X, family=sm.families.Binomial()).fit(
+        cov_type="cluster", cov_kwds={"groups": df["cid"].to_numpy()})
+
+    ic = res.conf_int()
+    tableau = pd.DataFrame({
+        "modele": libelle,
+        "coefficient": res.params,
+        "std_err": res.bse,
+        "z": res.tvalues,
+        "risque_relatif": np.exp(res.params),
+        "borne_basse": np.exp(ic[0]),
+        "borne_haute": np.exp(ic[1]),
+        "p_value": res.pvalues,
+    })
+    return res, tableau
+
+
+def effet_minimal_detectable(res) -> tuple[float, float]:
+    """L'effet le plus petit que ce montage pouvait repérer.
+
+    Sans ce chiffre, un résultat non significatif se lit à tort comme « répondre
+    ne change rien ». Il dit en réalité : « s'il y avait un effet, il était plus
+    petit que celui-ci ».
+
+    Calculé depuis l'erreur-type réellement obtenue, groupée par établissement.
+    C'est donc la précision du modèle tel qu'il a tourné, sans hypothèse ajoutée.
+    Renvoie les deux bornes : protection et aggravation.
+    """
+    se = float(res.bse["reponse_au_jalon"])
+    ecart = Z_TEST_PLUS_Z_PUISSANCE * se
+    return float(np.exp(-ecart)), float(np.exp(ecart))
+
+
+def tableau_croise(df: pd.DataFrame) -> pd.DataFrame:
+    """Taux de suppression par caractéristique, avant tout modèle.
+    Dénominateur : le nombre d'avis du groupe, au jalon."""
+    lignes = []
+    for var in ["reponse_au_jalon", "has_photo", "langue_minoritaire_sur_la_fiche",
+                "star", "bucket", "secteur", "situation_auteur", "taille_texte",
+                "region", "n_avis_meme_jour_auteur"]:
+        g = df.groupby(var, observed=True)["supprime_fenetre"].agg(["sum", "size"])
+        for valeur, row in g.iterrows():
+            lignes.append({
+                "caracteristique": var, "valeur": valeur,
+                "avis_au_jalon": int(row["size"]),
+                "supprimes_dans_la_fenetre": int(row["sum"]),
+                "taux_pour_10000_avis": round(row["sum"] / row["size"] * 10000, 1),
+            })
+    return pd.DataFrame(lignes)
+
+
+def ecrire_summary(res, suffixe: str, df: pd.DataFrame, jalon: int,
+                   fenetre: int, mde: tuple[float, float]) -> None:
+    lignes = [
+        "=" * 78,
+        f"Passage : {suffixe}",
+        f"Jalon : fin du jour {jalon}. Fenêtre de risque : "
+        f"jours {jalon + 1} à {jalon + fenetre}.",
+        f"Dénominateur : {len(df):,} avis encore en ligne au jalon"
+        .replace(",", " "),
+        f"Cible : {int(df['supprime_fenetre'].sum()):,} suppressions dans la fenêtre"
+        .replace(",", " "),
+        f"Traités : {int(df['reponse_au_jalon'].sum()):,} avis avec une réponse "
+        f"au jalon ({df['reponse_au_jalon'].mean():.1%})".replace(",", " "),
+        "",
+        "L'ÂGE N'EST PAS DANS CE MODÈLE, ET C'EST VOULU. Tous les avis ont le",
+        "même âge au jalon et la même durée d'exposition ensuite. Contrairement",
+        "à 07_regression_panel.py, il n'y a pas d'âge à contrôler.",
+        "",
+        f"Effet minimal détectable par ce montage : ×{mde[0]:.2f} en protection,",
+        f"×{mde[1]:.2f} en aggravation (test bilatéral 5 %, puissance 80 %).",
+        "Un résultat non significatif signifie « l'effet, s'il existe, est plus",
+        "faible que cela », pas « il n'y a pas d'effet ».",
+        "=" * 78,
+        "",
+        str(res.summary()),
+    ]
+    (SORTIES / f"08_summary_{suffixe}.txt").write_text(
+        "\n".join(lignes), encoding="utf-8")
+
+
+# ---------------------------------------------------------------------------
+# Programme
+# ---------------------------------------------------------------------------
+
+def main() -> int:
+    ap = argparse.ArgumentParser(
+        description="Répondre vite à un avis le protège-t-il ? "
+                    "Cohorte à jalon fixe sur les avis nés pendant la surveillance.")
+    ap.add_argument("--jalon-jours", type=int, default=2,
+                    help="âge, en jours, auquel on photographie la situation (défaut 2)")
+    ap.add_argument("--fenetre-jours", type=int, default=6,
+                    help="durée d'observation après le jalon, en jours (défaut 6)")
+    ap.add_argument("--sans-enseignes-signalees", action="store_true",
+                    help="retire les 4 chaînes antiparasitaires et les 2 salles espagnoles")
+    args = ap.parse_args()
+
+    if args.jalon_jours < 0 or args.fenetre_jours < 1:
+        print("ARRÊT : jalon négatif ou fenêtre vide.", file=sys.stderr)
+        return 1
+    if args.jalon_jours + args.fenetre_jours > 8:
+        print(f"ARRÊT : le jalon et la fenêtre mènent au jour "
+              f"{args.jalon_jours + args.fenetre_jours}. Au-delà du 8e jour, les "
+              f"avis publiés le 16 août ne sont plus observés et la fenêtre "
+              f"n'a plus la même durée pour tout le monde.", file=sys.stderr)
+        return 1
+
+    SORTIES.mkdir(exist_ok=True)
+    df = lire(client_bigquery())
+
+    if args.sans_enseignes_signalees:
+        garde = (~df["chaine_antiparasitaire_us"].astype(bool)) & \
+                (~df["salle_de_sport_attaquee"].astype(bool))
+        print(f"[filtre] enseignes signalées retirées : "
+              f"{int((~garde).sum()):,} avis".replace(",", " "))
+        df = df[garde]
+
+    df = appliquer_jalon(df, args.jalon_jours, args.fenetre_jours)
+    df = ajouter_variables(df)
+
+    suffixe = (f"jalon{args.jalon_jours}_fenetre{args.fenetre_jours}"
+               + ("_sans_enseignes" if args.sans_enseignes_signalees else ""))
+
+    # Le croisement qui décide si le modèle a de quoi tourner.
+    croise_reponse = pd.crosstab(df["reponse_au_jalon"], df["supprime_fenetre"])
+    print("\n--- le croisement qui décide ---")
+    print(croise_reponse.to_string())
+    if croise_reponse.shape != (2, 2) or croise_reponse.to_numpy().min() < MIN_CAS_PAR_COLONNE:
+        print(f"\nARRÊT : une des cases est sous {MIN_CAS_PAR_COLONNE} avis. "
+              f"Il n'y a rien à estimer ; ne pas forcer le modèle.",
+              file=sys.stderr)
+        return 1
+
+    print("\n--- tableau croisé, avant tout modèle ---")
+    croise = tableau_croise(df)
+    croise.to_csv(SORTIES / f"08_croisements_{suffixe}.csv", index=False)
+    print(f"  écrit : 08_croisements_{suffixe}.csv")
+
+    avec_region = df["region"].nunique() > 1
+    res, tableau = ajuster(df, suffixe, avec_region)
+    print(res.summary())
+
+    tableau.index.name = "variable"
+    tableau.to_csv(SORTIES / f"08_coefficients_{suffixe}.csv")
+    print(f"\n  écrit : 08_coefficients_{suffixe}.csv")
+
+    mde = effet_minimal_detectable(res)
+    ecrire_summary(res, suffixe, df, args.jalon_jours, args.fenetre_jours, mde)
+    print(f"  écrit : 08_summary_{suffixe}.txt")
+
+    ligne = tableau.loc["reponse_au_jalon"]
+    print("\n" + "=" * 78)
+    print("  RÉPONDRE DANS LES DEUX JOURS : CE QUE DIT LE MODÈLE")
+    print("=" * 78)
+    print(f"  Risque relatif      ×{ligne['risque_relatif']:.2f} "
+          f"[{ligne['borne_basse']:.2f} – {ligne['borne_haute']:.2f}], "
+          f"p = {ligne['p_value']:.3f}")
+    print(f"  Dénominateur        {len(df):,} avis au jalon".replace(",", " "))
+    print(f"  Effet détectable    ×{mde[0]:.2f} en protection, "
+          f"×{mde[1]:.2f} en aggravation")
+    if ligne["borne_basse"] <= 1 <= ligne["borne_haute"]:
+        print("  Lecture             la fourchette contient 1 : aucune protection")
+        print("                      mesurable. Cela ne prouve pas qu'il n'y en a")
+        print("                      pas, seulement qu'elle serait plus faible que")
+        print(f"                      ×{mde[0]:.2f}.")
+    else:
+        print("  Lecture             la fourchette exclut 1 : l'écart est net.")
+    print()
+    print("  À savoir en citant ce chiffre :")
+    print("  - Il porte sur les avis nés du 11 au 16 août, pas sur tout le panel.")
+    print("  - Une réponse retirée est invisible dans l'export.")
+    print("  - Le commerçant qui répond est souvent celui qui signale : le sens")
+    print("    de la causalité n'est pas établi par ce modèle.")
+    return 0
+
+
+if __name__ == "__main__":
+    try:
+        sys.exit(main())
+    except Exception as erreur:
+        print(f"\nARRÊT : {erreur}", file=sys.stderr)
+        sys.exit(1)

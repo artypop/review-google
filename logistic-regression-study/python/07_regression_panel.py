@@ -95,7 +95,14 @@ import matplotlib.pyplot as plt
 PROJET = "client-divers"
 DATASET = "reviewflowz"
 TABLE = "reviews_panel_features"
-CLE_JSON = "/home/romain/.gcp/client-divers-8b012e5b7c73.json"
+# Dossier des clés de service, pas un fichier précis.
+#
+# Le nom du fichier change à chaque rotation de clé — il valait
+# `client-divers-8b012e5b7c73.json` jusqu'au 2026-09-14, puis
+# `client-divers-df744e79fa71.json`. Coder le nom en dur fait échouer le script
+# sur une DefaultCredentialsError qui ne dit pas qu'il s'agit d'une rotation.
+# On prend donc le seul `.json` du dossier.
+DOSSIER_CLES = Path("/home/romain/.gcp")
 
 SORTIES = Path(__file__).resolve().parent / f"{date.today():%Y-%m-%d}-sorties-07"
 
@@ -193,9 +200,37 @@ REFERENCES = {
 # Lecture
 # ---------------------------------------------------------------------------
 
+def trouver_cle() -> str | None:
+    """La clé de service, quel que soit son nom de fichier.
+
+    `GOOGLE_APPLICATION_CREDENTIALS` l'emporte s'il est posé. Sinon on prend le
+    seul `.json` de DOSSIER_CLES. S'il y en a plusieurs, on s'arrête plutôt que
+    d'en choisir un au hasard : deux clés dans le dossier veut dire qu'une
+    rotation est en cours, et prendre la mauvaise donne une erreur de droits
+    incompréhensible.
+
+    Les fichiers `:Zone.Identifier` que WSL dépose à côté des téléchargements ne
+    finissent pas par `.json` et ne sont donc jamais ramassés.
+    """
+    if os.environ.get("GOOGLE_APPLICATION_CREDENTIALS"):
+        return None                       # déjà posé, on n'y touche pas
+    if not DOSSIER_CLES.is_dir():
+        return None                       # laisse google-auth chercher ailleurs
+    cles = sorted(DOSSIER_CLES.glob("*.json"))
+    if len(cles) > 1:
+        raise SystemExit(
+            f"{len(cles)} clés dans {DOSSIER_CLES} : "
+            f"{', '.join(c.name for c in cles)}.\n"
+            f"Garder celle qui est active, ou poser "
+            f"GOOGLE_APPLICATION_CREDENTIALS sur le bon fichier.")
+    return str(cles[0]) if cles else None
+
+
 def client_bigquery():
-    if CLE_JSON and os.path.exists(CLE_JSON):
-        os.environ.setdefault("GOOGLE_APPLICATION_CREDENTIALS", CLE_JSON)
+    cle = trouver_cle()
+    if cle:
+        os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = cle
+        print(f"[auth] clé : {Path(cle).name}")
     from google.cloud import bigquery
 
     return bigquery.Client(project=PROJET)
@@ -445,7 +480,8 @@ def ajouter_ligne_note_de_reference(tableau: pd.DataFrame, libelle: str) -> pd.D
     return pd.concat([tableau, ligne])
 
 
-def ecrire_summary(res, suffixe: str, n_avis: int, n_suppr: int, taux: float) -> None:
+def ecrire_summary(res, suffixe: str, n_avis: int, n_suppr: int, taux: float,
+                   auc: float | None = None) -> None:
     """Enregistre le tableau de régression tel que statsmodels l'imprime.
 
     Le CSV de coefficients porte l'essentiel, mais pas l'en-tête de diagnostic :
@@ -456,12 +492,26 @@ def ecrire_summary(res, suffixe: str, n_avis: int, n_suppr: int, taux: float) ->
     ceux de l'échantillon SOUS-ÉCHANTILLONNÉ, donc trop élevés. Les valeurs
     corrigées sont dans le CSV. Les autres coefficients sont identiques dans les
     deux fichiers.
+
+    `auc` est écrite ici parce qu'elle ne figurait nulle part ailleurs que dans
+    le titre du graphique de calibration, donc illisible sans ouvrir une image.
+    main() appelle cette fonction deux fois : une première sans l'AUC, qui n'est
+    pas encore calculée, et une seconde avec. Le fichier est reconstruit
+    entièrement à chaque appel, il n'y a donc rien à défaire entre les deux.
     """
     lignes = [
         "=" * 78,
         f"Passage : {suffixe}",
         f"Panel : {n_avis:,} avis, {n_suppr:,} suppressions".replace(",", " "),
     ]
+    if auc is None:
+        lignes.append("AUC : non calculée (test trop petit, ou passage interrompu).")
+    else:
+        lignes += [
+            f"AUC sur des établissements jamais vus : {auc:.3f}",
+            "  0,5 = tirage au hasard, 1,0 = classement parfait.",
+            "  Elle est portée en grande partie par l'âge, variable de contrôle.",
+        ]
     if taux >= 1.0:
         lignes += [
             "Aucun sous-échantillonnage : le modèle tourne sur tous les avis.",
@@ -653,6 +703,9 @@ def main() -> int:
     auc = aire_sous_courbe(test["supprime"].to_numpy(), scores)
     print(f"  AUC sur le test : {auc:.3f}  "
           "(0,5 = tirage au hasard, 1,0 = classement parfait)")
+
+    # Réécriture du summary, maintenant que l'AUC est connue. Voir ecrire_summary.
+    ecrire_summary(res, suffixe, len(df), int(df["supprime"].sum()), taux, auc)
 
     calib = calibration(test["supprime"].to_numpy(), scores)
     calib.to_csv(SORTIES / f"07_calibration_{suffixe}.csv", index=False)

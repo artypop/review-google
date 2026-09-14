@@ -1,0 +1,55 @@
+==============================================================================
+Passage : jalon4_fenetre4
+Jalon : fin du jour 4. Fenêtre de risque : jours 5 à 8.
+Dénominateur : 15 158 avis encore en ligne au jalon
+Cible : 470 suppressions dans la fenêtre
+Traités : 6 866 avis avec une réponse au jalon (45.3%)
+
+L'ÂGE N'EST PAS DANS CE MODÈLE, ET C'EST VOULU. Tous les avis ont le
+même âge au jalon et la même durée d'exposition ensuite. Contrairement
+à 07_regression_panel.py, il n'y a pas d'âge à contrôler.
+
+Effet minimal détectable par ce montage : ×0.55 en protection,
+×1.81 en aggravation (test bilatéral 5 %, puissance 80 %).
+Un résultat non significatif signifie « l'effet, s'il existe, est plus
+faible que cela », pas « il n'y a pas d'effet ».
+==============================================================================
+
+                 Generalized Linear Model Regression Results                  
+==============================================================================
+Dep. Variable:       supprime_fenetre   No. Observations:                15158
+Model:                            GLM   Df Residuals:                    15135
+Model Family:                Binomial   Df Model:                           22
+Link Function:                  Logit   Scale:                          1.0000
+Method:                          IRLS   Log-Likelihood:                -1785.2
+Date:                Mon, 14 Sep 2026   Deviance:                       3570.4
+Time:                        10:48:17   Pearson chi2:                 1.55e+04
+No. Iterations:                     8   Pseudo R-squ. (CS):            0.04008
+Covariance Type:              cluster                                         
+===================================================================================================
+                                      coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------------------------
+const                              -7.4644      0.563    -13.248      0.000      -8.569      -6.360
+reponse_au_jalon                   -0.3361      0.211     -1.591      0.112      -0.750       0.078
+has_photo                          -0.3872      0.250     -1.547      0.122      -0.878       0.104
+langue_minoritaire_sur_la_fiche    -0.0317      0.466     -0.068      0.946      -0.945       0.882
+log_rc                             -0.1096      0.055     -1.991      0.046      -0.218      -0.002
+log_burst                           3.3958      0.530      6.404      0.000       2.357       4.435
+etoiles_1                           0.6348      0.277      2.291      0.022       0.092       1.178
+etoiles_2                           0.3969      0.424      0.937      0.349      -0.434       1.227
+etoiles_4                          -0.2514      0.261     -0.962      0.336      -0.764       0.261
+profil_aucun_niveau                 0.6069      0.194      3.121      0.002       0.226       0.988
+profil_niveau_sans_avis_declare    -0.1440      0.194     -0.741      0.459      -0.525       0.237
+texte_texte_1_50                   -0.0306      0.172     -0.177      0.859      -0.368       0.307
+texte_texte_51_200                  0.0550      0.178      0.308      0.758      -0.295       0.405
+texte_texte_201p                    0.0587      0.173      0.340      0.734      -0.280       0.397
+secteur_food_beverage              -1.0957      0.733     -1.495      0.135      -2.532       0.341
+secteur_healthcare                  0.3270      0.408      0.802      0.423      -0.472       1.126
+secteur_home_services               1.4683      0.362      4.059      0.000       0.759       2.177
+secteur_hospitality                -0.5370      0.461     -1.166      0.244      -1.440       0.366
+secteur_travel                      1.0809      0.552      1.959      0.050      -0.001       2.162
+secteur_wellness_fitness            0.0258      0.489      0.053      0.958      -0.932       0.984
+taille_large                        0.7098      0.286      2.485      0.013       0.150       1.270
+taille_small                        1.0941      0.320      3.422      0.001       0.468       1.721
+region_US                           0.9722      0.323      3.010      0.003       0.339       1.605
+===================================================================================================
