@@ -7,7 +7,11 @@
       "Bash(nice -n 19 ../.venv/bin/python python/08_effet_reponse_commercant.py *)",
       "Bash(python3 -)",
       "Bash(git add *)",
-      "Bash(git check-ignore *)"
+      "Bash(git check-ignore *)",
+      "Bash(free -m && ls /home/romain/.gcp/*.json 2>/dev/null | wc -l)",
+      "Read(//home/romain/.gcp/**)",
+      "Bash(../../.venv/bin/python lancer.py --passage 1)",
+      "Bash(../../.venv/bin/python -c ' *)"
     ]
   }
 }

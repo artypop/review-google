@@ -1,6 +1,6 @@
 # Ce qu'on sait, et ce qu'on ne peut pas dire
 
-Dernière mise à jour : 2026-09-14.
+Dernière mise à jour : 2026-09-15.
 
 Ce document donne les résultats. Le détail de chaque calcul et sa méthode sont dans les notes
 de `logistic-regression-study/output-study/`, citées à chaque fois.
@@ -15,12 +15,12 @@ contient 1, le modèle ne voit pas d'écart.
 
 Sur 10 000 avis de chaque groupe, voici combien ont disparu :
 
-| Note de l'avis | États-Unis | Europe |
-|---|---:|---:|
-| 1 étoile | 262 | 585 |
-| 3 étoiles | 65 | 24 |
-| 4 étoiles | 61 | 24 |
-| **5 étoiles** | **145** | **36** |
+| Note de l'avis | États-Unis | États-Unis sans les enseignes | Europe |
+|---|---:|---:|---:|
+| 1 étoile | 262 | 259 | 585 |
+| 3 étoiles | 65 | 63 | 24 |
+| 4 étoiles | 61 | 40 | 24 |
+| **5 étoiles** | **145** | **97** | **36** |
 
 **Aux États-Unis, l'avis 5 étoiles est supprimé plus souvent que l'avis 3 ou 4 étoiles.** En
 Europe, il l'est seize fois moins que l'avis 1 étoile. Ce sont deux comportements opposés, et
@@ -32,7 +32,12 @@ En volume : sur les 1 851 suppressions américaines, **1 590 frappent un avis 5 
 **Sur l'ensemble du panel, 1 850 des 2 595 suppressions portent sur un avis 5 étoiles, soit
 71 %.** C'est le sujet du livrable : Google retire ici des avis que rien ne désigne comme faux.
 
-Source : `output-study/2026-09-14-interpretation-panel.md`.
+**Le constat américain tient sans les six enseignes signalées**, colonne ajoutée le 2026-09-15.
+Sur les 1 159 suppressions américaines restantes, 933 frappent un avis 5 étoiles, soit 80 %, et
+l'avis 5 étoiles reste supprimé plus souvent que l'avis 3 ou 4 étoiles.
+
+Sources : `output-study/2026-09-14-interpretation-panel.md` et
+`output-study/2026-09-15-interpretation-us-sans-enseignes.md`.
 
 ---
 
@@ -58,11 +63,11 @@ suppressions. C'est un effet fort sur un petit volume.
 
 Aucun ne doit être cité sans préciser sur quel groupe il est lu.
 
-| | Tout | Sans les enseignes | États-Unis | Europe |
-|---|---:|---:|---:|---:|
-| Rafale d'auteur | ×9,54 | ×5,28 | ×49,30 | ×0,90 |
-| Afflux d'avis sur la fiche ce jour-là | ×1,40 | ×0,87 | ×0,84 | ×2,17 |
-| Texte de plus de 200 caractères | ×0,66 | ×1,38 | ×1,10 | ×0,51 |
+| | Tout | Sans les enseignes | États-Unis | États-Unis sans les enseignes | Europe |
+|---|---:|---:|---:|---:|---:|
+| Rafale d'auteur | ×9,54 | ×5,28 | ×49,30 | ×5,19 | ×0,90 |
+| Afflux d'avis sur la fiche ce jour-là | ×1,40 | ×0,87 | ×0,84 | ×0,72 | ×2,17 |
+| Texte de plus de 200 caractères | ×0,66 | ×1,38 | ×1,10 | ×1,37 | ×0,51 |
 
 La **rafale d'auteur** repose sur très peu de cas : 1 681 avis sur 225 757 ont deux dépôts ou
 plus le même jour. Le gros du signal tient à une seule cellule, 100 avis à quatre dépôts le
@@ -70,7 +75,12 @@ même jour dont 44 supprimés — et ces 44 sont **entièrement** dans les ensei
 fois celles-ci retirées, la cellule compte 56 avis et zéro suppression.
 
 Le **texte long** est le seul effet dont le sens s'inverse nettement : protecteur sur le corpus
-entier, aggravant sans les enseignes. À examiner avant toute publication.
+entier, aggravant sans les enseignes. À examiner avant toute publication. Le passage américain
+sans les enseignes, du 2026-09-15, donne ×1,37 [1,02 – 1,85] et situe l'inversion du côté
+américain.
+
+L'**afflux** devient protecteur aux États-Unis une fois les enseignes retirées : ×0,72
+[0,58 – 0,89], alors que sa fourchette contenait 1 sur le passage américain entier.
 
 ---
 

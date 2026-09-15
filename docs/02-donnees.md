@@ -175,6 +175,20 @@ autres portent le même nom d'enseigne, totalisent 90 avis et **aucune suppressi
 d'un calcul ne change donc aucun résultat, mais le compte de fiches est faux si on le cite tel
 quel.
 
+**Décision de Romain du 2026-09-14 : le repérage se fait sur le `cid`.** Les deux fiches
+attaquées sont `3163466139043001754`, qui porte 206 avis du panel et 192 suppressions dont
+99,5 % à une étoile, et `10346942689164695031`, qui porte 151 avis et 135 suppressions dont
+93,3 % à une étoile. Leurs 327 suppressions redonnent le chiffre du § 1. Les 11 fiches en trop
+que retenait le nom portent 296 avis du panel et aucune suppression.
+
+Le flag `salle_de_sport_attaquee` de `sql/02_adding_features.sql` marque toujours sur le nom :
+le corriger oblige à reconstruire la table et à relancer tous les modèles, ce qui est une
+décision à part. Toute nouvelle requête exclut sur ces deux `cid`. Première application :
+`etudes-ponctuelles/2026-09-15-part-supprimee-par-note/`.
+
+Le repérage par nom des quatre chaînes américaines reste en place, pour la raison donnée
+ci-dessous.
+
 Le même repérage pour les quatre chaînes américaines de traitement antiparasitaire est correct :
 là, on veut bien toutes les succursales (26, 19, 19 et 24 fiches).
 

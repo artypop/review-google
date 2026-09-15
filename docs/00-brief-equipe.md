@@ -19,24 +19,33 @@ Commanditaire : Axel, dirigeant de ReviewFlowz, un outil de gestion d'avis clien
 
 Un robot a suivi **9 048 établissements Google Maps pendant quatorze jours**, du 11 au 24 août
 2026. Chaque jour, il relève la totalité des avis de chaque fiche. Au total **4,88 millions
-d'avis**.
+d'avis** qui s'étendent de 2004 au 24 août 2026.
 
 Le panel couvre sept secteurs, deux régions — États-Unis et Europe hors Royaume-Uni — et trois
-tailles d'entreprise : un établissement, de 4 à 10, de 20 à 50. Il a été construit pour que
-chaque combinaison soit représentée, avec environ 420 fiches par case.
+tailles d'entreprise : une entreprise unique, un groupe de 4 à 10 entreprises, de 20 à 50 entreprises. Il a été construit pour que chaque combinaison soit représentée, avec environ 420 fiches par case.
 
-**Un avis présent un jour et absent le lendemain est compté comme supprimé.** Les absences d'une
-seule journée sont écartées : ce sont des ratés de collecte, l'avis réapparaît ensuite.
+**Un avis présent un jour et absent le lendemain est compté comme supprimé.**
 
 Les fichiers d'origine contiennent le nom de l'auteur, le lien vers son profil et le texte des
-avis. Ils ne sont pas versionnés, et rien de tout cela ne doit être recopié dans un fichier de
-travail.
+avis. Ils ne sont pas versionnés.
+
+Exemples d'un avis unique :
+
+| ID      | place_id                    | cid                  | review_id                                                            | is_update | change_field | star | text                                          | language | created_at                     | updated_at                     | review_link                                                                                                                            | reviewer_name       | reviewer_avatar                                                                                                                                                                                                                          | reviewer_review_count | reviewer_photo_count | local_guide | local_guide_level | n_photos | photo_urls | reply_text                                                                                                                                                                                                                                                                                                                   | reply_date              | first_seen_at           | last_seen_at            | deleted_detected_at     |
+| ------- | --------------------------- | -------------------- | -------------------------------------------------------------------- | --------- | ------------ | ---- | --------------------------------------------- | -------- | ------------------------------ | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | -------------------- | ----------- | ----------------- | -------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | ----------------------- | ----------------------- | ----------------------- |
+| 3851964 | ChI... | 164... | Ci9... | FALSE     | null         | 5    | Nice work always consistent and professional! | en       | 2026-08-04 16:57:08.179033 UTC | 2026-08-04 16:57:08.179033 UTC | ... | Stephanie Shoemaker | ... | 12                    | 7                    | FALSE       | 3                 | 0        | null       | Hello Stephanie! Thank you for your five-star rating of our services... | 2026-08-04 18:45:37 UTC | 2026-08-11 06:05:12 UTC | 2026-08-15 06:10:05 UTC | 2026-08-16 06:09:58 UTC |
+
+Exemples d'un avis modifié (texte) :
+| ID      | place_id | cid     | review_id                                                            | is_update | change_field | star | text                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | language | created_at                     | updated_at                     | review_link                                                                                                                            | reviewer_name | reviewer_avatar                                                                                                                                                                                                                                | reviewer_review_count | reviewer_photo_count | local_guide | local_guide_level | n_photos | photo_urls | reply_text                                                                                                                                                                                                                                                                                                                           | reply_date              | first_seen_at           | last_seen_at            | deleted_detected_at     |     |
+| ------- | -------- | ------- | -------------------------------------------------------------------- | --------- | ------------ | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------------------------------ | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | -------------------- | ----------- | ----------------- | -------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------- | ----------------------- | ----------------------- | ----------------------- | --- |
+| 4861065 | C...     | 1345... | Ci9... | TRUE      | text         | 5    | A big shout out to my new facial... | en       | 2026-06-28 17:12:21.085429 UTC | 2026-08-16 17:43:35.272280 UTC | ...                                                                                                                                    | Adriana Peri  | ...                                                                                                                                                                                                                                            | 24                    | 3                    | TRUE        | 5                 | 0        | null       | Hi Adriana... | 2026-07-01 18:22:12 UTC | 2026-08-17 06:27:07 UTC | 2026-08-22 06:24:47 UTC | 2026-08-23 06:28:05 UTC |
+| 4701785 | C...     | 1345... | Ci9... | FALSE     | null         | 5    | A big shout out to my new facial guru..      | en       | 2026-06-28 17:12:21.085429 UTC | 2026-06-28 17:12:21.085429 UTC | ... | Adriana Peri  |...  | 24                    | 3                    | TRUE        | 5                 | 0        | null       | Hi Adriana,.... | 2026-07-01 18:22:12 UTC | 2026-08-11 06:19:03 UTC | 2026-08-16 06:25:29 UTC | null                    |
 
 ---
 
 ## 3. Ce qu'on a trouvé
 
-### Un avis supprimé l'est presque toujours au septième jour
+### Un avis supprimé l'est presque toujours avant le huitième jour
 
 Sur les avis déposés pendant la première semaine de suivi, **695 ont été supprimés. 311 d'entre
 eux l'ont été exactement sept jours après leur publication.**
@@ -67,7 +76,7 @@ différents, quelles que soient leurs autres caractéristiques.
 
 ### Le secteur pèse lourd
 
-Sur les 225 757 avis du corpus de modélisation, hors les deux boutiques attaquées :
+Sur les 225 757 avis du corpus de modélisation :
 
 | Secteur | Avis | Supprimés | Taux |
 |---|---:|---:|---:|
@@ -127,14 +136,22 @@ antiparasitaire, qui portent 37 % des suppressions de cette population et dont l
 restent inexpliquées. Et le sens de la cause n'est pas établi : un commerçant qui répond en deux
 jours est aussi un commerçant qui surveille sa fiche et signale les avis qu'il juge illégitimes.
 
-### Deux boutiques ont été rasées
+### The Boxer Club en Espagne attaqué
 
 Deux salles de sport espagnoles ont perdu **327 avis sur les 357** qu'elles avaient dans le
-corpus, soit 92 %, presque tous notés 1 étoile et déposés en quelques jours. C'est une attaque
-par faux avis suivie d'un nettoyage par Google.
+corpus, soit 92 %, presque tous notés 1 étoile et déposés en quelques jours. On pense à une attaque
+par faux avis suivie d'un nettoyage par Google (probablement à la demande du propriétaire, car les suppressions arrivent ).
 
 Elles représentent 13 % de toutes les suppressions du corpus. Tous les calculs sont donc faits
 deux fois, avec et sans elles.
+
+### Le poids des fiches espagnoles et parasitaires dans le panel
+
+|Groupe|Fiches|Avis|Suppressions|Part du total|Taux|
+|---|---|---|---|---|---|
+|4 chaînes antiparasitaires US|88|14 640|692|**26,7 %**|4,73 %|
+|2 salles de sport espagnoles|13|447|327|**12,6 %**|73,15 %|
+|Tout le reste|8 104|210 670|1 576|60,7 %|0,75 %|
 
 ---
 
