@@ -2,7 +2,12 @@
 """
 ==============================================================================
 Script : 07_regression_panel.py
-Table source : client-divers.reviewflowz.reviews_panel_features
+Table source : client-divers.reviewflowz.reviews_panel_features_03
+
+Passé sur la table 03 le 2026-09-17 (sql/03_adding_features.bqsql), décision de
+Romain : le profil d'auteur à trois situations est remplacé par le palier Local
+Guide (sans niveau, 1 à 3, 4 et plus), et le nombre de photos publiées par
+l'auteur entre dans le modèle, en logarithme (`log_photos_auteur`).
 
 Régression logistique sur le panel construit par sql/01 et sql/02.
 
@@ -18,7 +23,16 @@ Le script charge les 225 757 avis du panel, sans exception. `--region` découpe
 entre États-Unis et Europe, parce que ce découpage-là sert à comparer deux
 marchés. Aucun découpage selon l'âge n'est possible, et c'est volontaire.
 
-L'ÂGE ENTRE DANS LE MODÈLE COMME VARIABLE DE CONTRÔLE, `log_age_vague1`.
+L'ÂGE ENTRE DANS LE MODÈLE COMME VARIABLE DE CONTRÔLE, `j8_pendant_suivi`.
+
+Depuis le 2026-09-17 (décision de Romain), l'âge est un oui / non : le 8e jour
+de l'avis tombe-t-il pendant le suivi, du 11 au 24 août ? Oui pour les avis
+publiés du 3 au 16 août (`age_a_la_vague1_j` <= 8), non pour les plus anciens.
+Il remplace `log_age_vague1`, logarithme de l'âge au 11 août, qui valait 0 pour
+les 15 248 avis publiés du 11 au 16 août quelle que soit leur durée de suivi,
+et ne disait pas si les premiers jours de l'avis, où tombent la plupart des
+suppressions, étaient observés. Les paragraphes ci-dessous datent de
+`log_age_vague1` ; leur raisonnement vaut pour le nouvel indicateur.
 
 Son coefficient n'est PAS un résultat à citer. L'effet de l'âge est déjà établi
 ailleurs. Il est là pour que les autres coefficients se lisent à âge comparable.
@@ -94,7 +108,7 @@ import matplotlib.pyplot as plt
 
 PROJET = "client-divers"
 DATASET = "reviewflowz"
-TABLE = "reviews_panel_features"
+TABLE = "reviews_panel_features_03"
 # Dossier des clés de service, pas un fichier précis.
 #
 # Le nom du fichier change à chaque rotation de clé — il valait
@@ -130,7 +144,9 @@ SORTIES = (Path(__file__).resolve().parent.parent / "output-study"
 # base, pas les écarts entre groupes.
 TAUX_ECHANTILLON_NEGATIFS = 1.0
 
-PART_TEST = 0.25
+# Mesure de qualité : les établissements sont répartis en N_TOURS groupes, et
+# chaque groupe sert de test une fois. Voir `cinq_tours`.
+N_TOURS = 5
 GRAINE = 20260914
 
 # Longueur du texte, en caractères. Tranches reprises du script 06.
@@ -148,7 +164,7 @@ COLONNES = [
     "star", "has_text", "text_chars", "has_photo",
     "reponse_avant_surveillance", "reponse_dans_les_2_jours",
     # B. l'auteur
-    "reviewer_review_count", "log_rc", "situation_auteur",
+    "reviewer_review_count", "log_rc", "palier_local_guide", "reviewer_photo_count",
     "n_avis_meme_jour_auteur", "avis_auteur_90j_avant",
     # C. la langue
     "langue_inconnue", "langue_etrangere_au_pays", "langue_minoritaire_sur_la_fiche",
@@ -170,8 +186,12 @@ COLONNES = [
 # Les deux restent lues depuis BigQuery, pour le tableau croisé.
 VARIABLES_BINAIRES = [
     "has_photo",
-    "reponse_avant_surveillance",
+    # `reponse_avant_surveillance` retirée du modèle le 2026-09-17 (décision de
+    # Romain) : la réponse du propriétaire est étudiée par le 08. Elle reste
+    # lue pour le tableau croisé.
     "langue_minoritaire_sur_la_fiche",
+    # Variable de contrôle, pas un résultat. Voir l'en-tête.
+    "j8_pendant_suivi",
 ]
 
 # Garde-fou : une colonne oui/non trop rare, ou dont toutes les lignes ont le
@@ -180,9 +200,8 @@ MIN_CAS_PAR_COLONNE = 30
 MIN_SUPPRESSIONS_PAR_COLONNE = 5
 
 VARIABLES_CONTINUES = [
-    # Variable de contrôle, pas un résultat. Voir l'en-tête.
-    "log_age_vague1",
     "log_rc",
+    "log_photos_auteur",
     "log_burst",
     "log_ratio_pic_journalier_fiche",
 ]
@@ -195,7 +214,8 @@ NOTE_DE_LECTURE = "etoiles_3"
 
 REFERENCES = {
     "etoiles": "etoiles_5",
-    "profil": "profil_guide_etabli",
+    # Palier 1 à 3 : le plus fourni, 146 560 avis et 1 804 suppressions.
+    "profil": "guide_1_3",
     "texte": "texte_sans_texte",
     "taille": "taille_mono",
 }
@@ -265,7 +285,7 @@ def lire(client) -> pd.DataFrame:
 
 def compacter(df: pd.DataFrame) -> pd.DataFrame:
     for col in ["cid", "author_key", "industry", "bucket", "region",
-                "situation_auteur"]:
+                "palier_local_guide"]:
         if col in df.columns:
             df[col] = df[col].astype("category")
     for col in df.select_dtypes(include=["bool"]).columns:
@@ -282,7 +302,7 @@ def compacter(df: pd.DataFrame) -> pd.DataFrame:
 def ajouter_variables(df: pd.DataFrame) -> pd.DataFrame:
     """Fabrique les quatre colonnes dérivées du modèle.
 
-    CES QUATRE COLONNES POURRAIENT ÊTRE CALCULÉES DANS sql/02_adding_features.sql.
+    CES QUATRE COLONNES POURRAIENT ÊTRE CALCULÉES DANS sql/02_adding_features.bqsql.
     Décision de Romain le 2026-09-14 : elles restent ici pour l'instant.
 
       taille_texte     `text_chars` découpé en 4 tranches (TRANCHES_TEXTE)
@@ -311,9 +331,21 @@ def ajouter_variables(df: pd.DataFrame) -> pd.DataFrame:
     df["log_age_vague1"] = np.log1p(
         df["age_a_la_vague1_j"].fillna(0).clip(lower=0))
 
+    # Le 8e jour de l'avis tombe pendant le suivi (11 au 24 août) : publié
+    # du 3 au 16 août. Le panel s'arrête au 16 août, la borne basse est
+    # donc toujours respectée. Remplace log_age_vague1 dans le modèle.
+    df["j8_pendant_suivi"] = (df["age_a_la_vague1_j"] <= 8).astype("int8")
+
     # Rafale d'auteur en logarithme : l'écart entre 1 et 2 avis le même jour
     # compte plus que celui entre 11 et 12.
     df["log_burst"] = np.log1p(df["n_avis_meme_jour_auteur"].fillna(1).clip(lower=0))
+
+    # Photos publiées par l'auteur, en logarithme : passer de 0 à 10 photos
+    # compte plus que passer de 1 000 à 1 010. Vide mis à 0 dans sql/03.
+    df["log_photos_auteur"] = np.log1p(df["reviewer_photo_count"].fillna(0).clip(lower=0))
+    df["tranche_photos_auteur"] = pd.cut(
+        df["reviewer_photo_count"].fillna(0), [-1, 0, 10, 100, np.inf],
+        labels=["0", "1_10", "11_100", "plus_de_100"])
 
     df["log_ratio_pic_journalier_fiche"] = (
         df["log_ratio_pic_journalier_fiche"].fillna(0).astype("float32"))
@@ -342,7 +374,7 @@ def matrice_modele(df: pd.DataFrame, avec_region: bool) -> pd.DataFrame:
         return d
 
     morceaux.append(dummies(df["star"], "etoiles", REFERENCES["etoiles"]))
-    morceaux.append(dummies(df["situation_auteur"], "profil", REFERENCES["profil"]))
+    morceaux.append(dummies(df["palier_local_guide"], "guide", REFERENCES["profil"]))
     morceaux.append(dummies(df["taille_texte"], "texte", REFERENCES["texte"]))
     morceaux.append(dummies(df["secteur"], "secteur").iloc[:, 1:])
     morceaux.append(dummies(df["bucket"], "taille", REFERENCES["taille"]))
@@ -388,7 +420,7 @@ def controler_references(df: pd.DataFrame, y: pd.Series) -> None:
     """
     familles = {
         "etoiles": ("star", lambda v: f"etoiles_{v}"),
-        "profil": ("situation_auteur", lambda v: f"profil_{v}"),
+        "profil": ("palier_local_guide", lambda v: f"guide_{v}"),
         "texte": ("taille_texte", lambda v: f"texte_{v}"),
         "taille": ("bucket", lambda v: f"taille_{v}"),
     }
@@ -531,7 +563,7 @@ def ecrire_summary(res, suffixe: str, n_avis: int, n_suppr: int, taux: float,
         ]
     lignes += [
         "",
-        "log_age_vague1 est une variable de contrôle, pas un résultat à citer.",
+        "j8_pendant_suivi est une variable de contrôle, pas un résultat à citer.",
         "=" * 78,
         "",
         str(res.summary()),
@@ -590,22 +622,70 @@ def aire_sous_courbe(y, p) -> float:
     return (rangs[y == 1].sum() - n_pos * (n_pos + 1) / 2) / (n_pos * n_neg)
 
 
-def decoupage(df: pd.DataFrame, graine: int):
-    """Met de côté une part des établissements. Les auteurs présents des deux
-    côtés sont retirés du test, sinon le modèle reconnaîtrait un auteur déjà vu."""
-    tirage = np.random.default_rng(graine)
-    fiches = df["cid"].cat.remove_unused_categories().cat.categories.to_numpy()
-    test_fiches = set(tirage.choice(fiches, size=int(len(fiches) * PART_TEST),
-                                    replace=False))
-    est_test = df["cid"].isin(test_fiches)
-    avant = int(est_test.sum())
-    auteurs_train = set(df.loc[~est_test, "author_key"]
-                        .cat.remove_unused_categories().cat.categories.to_numpy())
-    est_test = est_test & ~df["author_key"].isin(auteurs_train)
-    print(f"  {len(test_fiches)} établissements mis de côté ; "
-          f"{avant - int(est_test.sum()):,} avis retirés du test car leur auteur "
-          f"écrit aussi côté entraînement".replace(",", " "))
-    return df[~est_test].copy(), df[est_test].copy()
+def cinq_tours(df: pd.DataFrame, avec_region: bool, suffixe: str):
+    """Mesure de qualité en cinq tours par établissement.
+
+    Remplace le 2026-09-17 le tirage unique d'un quart des établissements
+    (décision de Romain). Ce tirage unique était tombé, en Europe, sur des
+    fiches 2,3 fois moins touchées que le corpus : les deux salles de sport
+    espagnoles portent 327 des 744 suppressions européennes, et elles étaient
+    restées côté ajustement. Voir output-study/2026-09-14-interpretation-panel.md § 5.
+
+    Le principe :
+      1. Les établissements sont mélangés avec GRAINE, puis répartis en cinq
+         groupes de même nombre de fiches.
+      2. Tour 1 : le modèle s'ajuste sur les groupes 2 à 5 et donne un score
+         aux avis du groupe 1. Tour 2 : il s'ajuste sur 1, 3, 4, 5 et note le
+         groupe 2. Et ainsi de suite.
+      3. Chaque fiche passe une fois et une seule en test, toujours notée par
+         un modèle qui ne l'a jamais vue. Les scores des cinq tours sont
+         rassemblés : l'AUC, la calibration et la courbe de ciblage se lisent
+         sur tous les avis du passage. Le niveau de base du test est celui du
+         corpus, puisque le test EST le corpus.
+
+    Les auteurs. À chaque tour, un avis du groupe testé dont l'auteur a aussi
+    écrit sur une fiche d'ajustement est écarté du test de ce tour, sinon le
+    modèle jugerait un auteur déjà vu. Cet avis ne reçoit alors aucun score ;
+    leur nombre est affiché. Il reste bien dans l'ajustement des quatre autres
+    tours, puisque sa fiche y figure.
+
+    Le taux de suppression de chaque groupe testé est affiché à côté de celui du
+    corpus, pour voir d'un coup d'œil si un groupe concentre les suppressions.
+
+    Renvoie la cible et le score des avis notés, dans le même ordre.
+    """
+    tirage = np.random.default_rng(GRAINE)
+    # Tri avant mélange : BigQuery ne garantit pas l'ordre des lignes, et sans
+    # tri la même graine répartirait les fiches autrement à chaque lecture.
+    fiches = np.sort(df["cid"].astype(str).unique())
+    tirage.shuffle(fiches)
+    groupe_de_fiche = pd.Series(np.arange(len(fiches)) % N_TOURS, index=fiches)
+    groupe = df["cid"].astype(str).map(groupe_de_fiche).to_numpy()
+
+    taux_corpus = df["supprime"].mean() * 10000
+    ys, scores, recents = [], [], []
+    for tour in range(N_TOURS):
+        est_teste = groupe == tour
+        ajustement = df[~est_teste]
+        auteurs_vus = set(ajustement["author_key"].astype(str))
+        auteur_deja_vu = df["author_key"].astype(str).isin(auteurs_vus).to_numpy()
+        test = df[est_teste & ~auteur_deja_vu]
+        ecartes = int((est_teste & auteur_deja_vu).sum())
+
+        res_t, _, colonnes_t, taux_t = ajuster(ajustement, f"{suffixe} tour {tour + 1}",
+                                               avec_region)
+        X_t = matrice_modele(test, avec_region).reindex(columns=colonnes_t, fill_value=0.0)
+        scores.append(corriger_probabilites(res_t.predict(X_t), taux_t))
+        ys.append(test["supprime"].to_numpy())
+        recents.append(test["j8_pendant_suivi"].to_numpy())
+
+        print(f"  tour {tour + 1} : {test['cid'].nunique():,} fiches testées, "
+              f"{len(test):,} avis, {int(test['supprime'].sum()):,} suppressions, "
+              f"{test['supprime'].mean() * 10000:.0f} pour 10 000 avis "
+              f"(corpus : {taux_corpus:.0f}) ; {ecartes:,} avis écartés, auteur déjà vu"
+              .replace(",", " "))
+
+    return np.concatenate(ys), np.concatenate(scores), np.concatenate(recents)
 
 
 def calibration(y, p, n_tranches: int = 10) -> pd.DataFrame:
@@ -614,6 +694,46 @@ def calibration(y, p, n_tranches: int = 10) -> pd.DataFrame:
     return tab.groupby("tranche", observed=True).agg(
         risque_prevu=("p", "mean"), risque_observe=("y", "mean"),
         avis=("y", "size")).reset_index(drop=True)
+
+
+def dessiner_ciblage(y, scores, suffixe: str, auc: float) -> None:
+    """Courbe de ciblage, même dessin que le 09.
+
+    Les avis du test sont rangés du plus risqué au moins risqué selon le
+    modèle. En abscisse, la part des avis déjà examinés ; en ordonnée, la part
+    des suppressions déjà trouvées. La diagonale grise est un tirage au hasard.
+    Lecture d'un repère : « 10 % des avis → 49 % des suppressions » veut dire
+    qu'en examinant les 10 % d'avis jugés les plus risqués, on trouve 49 % des
+    suppressions du test.
+    """
+    ordre = np.argsort(-np.asarray(scores), kind="stable")
+    y_range = np.asarray(y)[ordre]
+    part_avis = np.arange(1, len(y_range) + 1) / len(y_range)
+    part_suppressions = np.cumsum(y_range) / y_range.sum()
+    reperes = {p: float(part_suppressions[int(len(y_range) * p) - 1])
+               for p in (0.10, 0.20, 0.50)}
+
+    fig, ax = plt.subplots(figsize=(6, 6))
+    ax.plot([0, 1], [0, 1], "--", color="grey", lw=1, label="tirage au hasard")
+    ax.plot(part_avis, part_suppressions, lw=2, label="modèle")
+    for p, trouve in reperes.items():
+        ax.plot(p, trouve, "o", color="black")
+        ax.annotate(f"{p:.0%} des avis → {trouve:.0%} des suppressions",
+                    (p, trouve), xytext=(8, -12), textcoords="offset points", fontsize=8)
+    ax.set_xlabel("part des avis examinés, des plus risqués aux moins risqués")
+    ax.set_ylabel("part des suppressions trouvées")
+    ax.set_xlim(0, 1)
+    ax.set_ylim(0, 1.02)
+    effectifs = (f"{len(y_range):,} avis / {int(y_range.sum()):,} suppressions"
+                 .replace(",", " "))
+    ax.set_title(f"07 {suffixe} — AUC {auc:.3f}\n{effectifs}")
+    ax.legend(loc="lower right")
+    fig.tight_layout()
+    fig.savefig(SORTIES / f"07_ciblage_{suffixe}.png", dpi=150)
+    plt.close(fig)
+
+    print("  ciblage : " + " ; ".join(
+        f"{p:.0%} des avis → {t:.0%} des suppressions" for p, t in reperes.items()))
 
 
 def tableau_croise(df: pd.DataFrame) -> pd.DataFrame:
@@ -627,7 +747,7 @@ def tableau_croise(df: pd.DataFrame) -> pd.DataFrame:
     for var in VARIABLES_BINAIRES + ["langue_etrangere_au_pays", "langue_inconnue",
                                      "rythme_fiche_inconnu",
                                      "star", "bucket", "secteur",
-                                     "situation_auteur", "taille_texte",
+                                     "palier_local_guide", "tranche_photos_auteur", "taille_texte",
                                      "n_avis_meme_jour_auteur"]:
         g = df.groupby(var, observed=True)["supprime"].agg(["sum", "size"])
         for valeur, row in g.iterrows():
@@ -695,44 +815,46 @@ def main() -> int:
     print(f"  écrit : 07_summary_{suffixe}.txt")
 
     print("\n--- le modèle sait-il classer, ses risques sont-ils justes ---")
-    train, test = decoupage(df, GRAINE)
-    print(f"  entraînement {len(train):,} / test {len(test):,}".replace(",", " "))
-    if len(test) < 500 or test["supprime"].sum() < 20:
+    y_test, scores, recents = cinq_tours(df, avec_region, suffixe)
+    if len(y_test) < 500 or y_test.sum() < 20:
         print("  test trop petit : AUC et calibration non calculés.")
         return 0
 
-    res_train, _, colonnes_train, taux_train = ajuster(train, "entraînement", avec_region)
-    X_test = matrice_modele(test, avec_region).reindex(columns=colonnes_train,
-                                                       fill_value=0.0)
-    scores = corriger_probabilites(res_train.predict(X_test), taux_train)
-    auc = aire_sous_courbe(test["supprime"].to_numpy(), scores)
-    print(f"  AUC sur le test : {auc:.3f}  "
+    auc = aire_sous_courbe(y_test, scores)
+    print(f"  AUC sur les cinq tours réunis : {auc:.3f}  "
           "(0,5 = tirage au hasard, 1,0 = classement parfait)")
 
     # Réécriture du summary, maintenant que l'AUC est connue. Voir ecrire_summary.
     ecrire_summary(res, suffixe, len(df), int(df["supprime"].sum()), taux, auc)
 
-    calib = calibration(test["supprime"].to_numpy(), scores)
+    calib = calibration(y_test, scores)
     calib.to_csv(SORTIES / f"07_calibration_{suffixe}.csv", index=False)
 
-    fig, ax = plt.subplots(figsize=(6, 6))
-    hi = float(calib["risque_prevu"].max())
-    ax.plot([0, hi], [0, hi], "--", color="grey", lw=1, label="prévision juste")
-    ax.plot(calib["risque_prevu"], calib["risque_observe"], "o-",
-            color="#1f77b4", label="modèle")
-    ax.set_xlabel("risque annoncé par le modèle")
-    ax.set_ylabel("part réellement supprimée")
-    ax.set_title(f"{suffixe} — AUC {auc:.3f}")
-    ax.legend()
-    fig.tight_layout()
-    fig.savefig(SORTIES / f"07_calibration_{suffixe}.png", dpi=150)
-    plt.close(fig)
+    # Le graphique de calibration a été remplacé le 2026-09-17 par la courbe de
+    # ciblage : 8 de ses 10 points s'entassaient sous 1,5 % et le dernier seul
+    # tirait la ligne. La calibration reste lisible dans le CSV ci-dessus.
+    dessiner_ciblage(y_test, scores, suffixe, auc)
+
+    # Même courbe à l'intérieur de chaque période de publication (ajout du
+    # 2026-09-17). Dans chaque courbe, tous les avis ont la même valeur de
+    # `j8_pendant_suivi` : ce que le modèle y repère vient de la note, de
+    # l'auteur et des autres caractéristiques, jamais de la date.
+    for valeur, nom in [(1, "recents_3_16_aout"), (0, "anciens_avant_3_aout")]:
+        garde = recents == valeur
+        y_g, s_g = y_test[garde], scores[garde]
+        if y_g.sum() < 20:
+            print(f"  {nom} : moins de 20 suppressions, courbe non tracée")
+            continue
+        auc_g = aire_sous_courbe(y_g, s_g)
+        print(f"  {nom} : {len(y_g):,} avis, {int(y_g.sum()):,} suppressions, "
+              f"AUC {auc_g:.3f}".replace(",", " "))
+        dessiner_ciblage(y_g, s_g, f"{suffixe}_{nom}", auc_g)
 
     print("\n" + "=" * 78)
     print("  À SAVOIR EN LISANT CES CHIFFRES")
     print("=" * 78)
     print("  - Dénominateur : le nombre d'avis, une ligne par avis.")
-    print("  - log_age_vague1 est une variable de contrôle, PAS un résultat.")
+    print("  - j8_pendant_suivi est une variable de contrôle, PAS un résultat.")
     print("    Elle est là pour que les autres coefficients se lisent à âge")
     print("    comparable. Son propre coefficient n'est pas à citer.")
     print("  - Les effets de note se lisent par rapport à 5 étoiles. La colonne")

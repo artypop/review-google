@@ -112,7 +112,7 @@ d'une flèche sans dire lequel est lequel.
 | Combien d'avis | 4,88 millions | 225 757 |
 | La règle | absence de 2 jours ou plus, bugs d'édition retirés | les avis à plusieurs enregistrements sont **exclus du corpus**, puis toute disparition compte |
 | Combien de suppressions | 4 747 | 2 595 |
-| Où c'est écrit | `etude-exploratoire/scripts/suppressions_corrigees.py` | `sql/01_selection_panel.sql` et `sql/02_adding_features.sql` |
+| Où c'est écrit | `etude-exploratoire/scripts/suppressions_corrigees.py` | `sql/01_selection_panel.bqsql` et `sql/02_adding_features.bqsql` |
 
 Les deux règles se complètent. Sur le panel, la question du retour ne se pose plus : les 731
 avis qui ont plusieurs enregistrements ont été sortis du corpus dès le départ, donc il ne reste
@@ -181,7 +181,7 @@ attaquées sont `3163466139043001754`, qui porte 206 avis du panel et 192 suppre
 93,3 % à une étoile. Leurs 327 suppressions redonnent le chiffre du § 1. Les 11 fiches en trop
 que retenait le nom portent 296 avis du panel et aucune suppression.
 
-Le flag `salle_de_sport_attaquee` de `sql/02_adding_features.sql` marque toujours sur le nom :
+Le flag `salle_de_sport_attaquee` de `sql/02_adding_features.bqsql` marque toujours sur le nom :
 le corriger oblige à reconstruire la table et à relancer tous les modèles, ce qui est une
 décision à part. Toute nouvelle requête exclut sur ces deux `cid`. Première application :
 `etudes-ponctuelles/2026-09-15-part-supprimee-par-note/`.
@@ -259,10 +259,10 @@ la question posée.
 
 | Règle | Fichier |
 |---|---|
-| Le corpus de la régression | `sql/01_selection_panel.sql` |
-| Les 42 caractéristiques, dont la cible | `sql/02_adding_features.sql` |
+| Le corpus de la régression | `sql/01_selection_panel.bqsql` |
+| Les 42 caractéristiques, dont la cible | `sql/02_adding_features.bqsql` |
 | La définition d'une suppression sur tout le corpus | `etude-exploratoire/scripts/suppressions_corrigees.py` — **dossier gelé, voir son README** |
 
-`sql/02_adding_features.sql` ne se modifie pas sans l'accord de Romain, même quand les
+`sql/02_adding_features.bqsql` ne se modifie pas sans l'accord de Romain, même quand les
 modifications sont acceptées automatiquement : le changer oblige à reconstruire la table et à
 relancer tous les modèles.

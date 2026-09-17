@@ -1,5 +1,5 @@
 -- ============================================================================
--- File: sql/controle_C_reponses_au_jalon.sql
+-- File: sql/controle_C_reponses_au_jalon.bqsql
 -- Lecture seule. Ne crée aucune table.
 --
 -- À EXÉCUTER AVANT `08_effet_reponse_commercant.py`.
@@ -36,7 +36,7 @@
 -- failli disparaître. `ne_pendant_la_surveillance` les écarte.
 --
 -- Fenêtre de publication : du 2026-08-11 au 2026-08-16 (la borne haute de
--- `01_selection_panel.sql`). Le dernier entrant, publié le 16, atteint son
+-- `01_selection_panel.bqsql`). Le dernier entrant, publié le 16, atteint son
 -- 8e jour le 24 août, jour du dernier passage du robot. Tous les avis de la
 -- population ont donc bien 8 jours d'observation, et pas un de moins.
 --

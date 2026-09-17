@@ -151,7 +151,7 @@ micro-erreur de raisonnement et ne pas contredire Romain par principe.
 (`client-divers.reviewflowz.*`). Aucune version parallèle en local. C'est en dupliquant des
 définitions que l'étude précédente a fini par se contredire elle-même.
 
-**`sql/02_adding_features.sql` ne se modifie pas sans l'accord explicite de Romain**, même quand
+**`sql/02_adding_features.bqsql` ne se modifie pas sans l'accord explicite de Romain**, même quand
 les modifications sont acceptées automatiquement. Le changer oblige à reconstruire la table et à
 relancer tous les modèles. Proposer la ligne, le code avant et après, ce qui casse en aval, puis
 attendre.

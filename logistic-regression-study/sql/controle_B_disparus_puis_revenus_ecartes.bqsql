@@ -11,7 +11,7 @@
 -- projet : absent 1 jour = raté de collecte, absent 2 jours ou plus = vraie
 -- suppression suivie d'un retour. Voir `../../CLAUDE.md`, point 4.
 --
--- `01_selection_panel.sql` les écarte tous, sans distinguer les deux cas. La
+-- `01_selection_panel.bqsql` les écarte tous, sans distinguer les deux cas. La
 -- règle des 2 jours n'est donc plus appliquée nulle part dans ce panel.
 --
 -- Ce fichier sert à juger, avis par avis, si le robot a bugué ou si Google a

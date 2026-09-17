@@ -1,9 +1,9 @@
 -- ============================================================================
--- File: sql/02_adding_features.sql
+-- File: sql/02_adding_features.bqsql
 -- Table: client-divers.reviewflowz.reviews_panel_features
 --
 -- Les caractéristiques explicatives, une ligne par avis du panel.
--- À exécuter après `01_selection_panel.sql`.
+-- À exécuter après `01_selection_panel.bqsql`.
 --
 -- PRINCIPE QUI GOUVERNE TOUT CE FICHIER : une caractéristique ne doit jamais
 -- être mesurée après le moment qu'elle prétend prédire. Trois blocs s'en

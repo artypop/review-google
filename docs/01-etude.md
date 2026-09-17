@@ -124,15 +124,15 @@ Trois étapes, dans cet ordre. Tout se passe dans BigQuery, sauf la modélisatio
 
 | Étape | Fichier | Produit |
 |---|---|---|
-| 1. Le corpus | `sql/01_selection_panel.sql` | la table `reviews_panel_selection`, 225 757 avis, une ligne par avis |
-| 2. Les caractéristiques | `sql/02_adding_features.sql` | la table `reviews_panel_features`, les mêmes avis, 42 colonnes |
+| 1. Le corpus | `sql/01_selection_panel.bqsql` | la table `reviews_panel_selection`, 225 757 avis, une ligne par avis |
+| 2. Les caractéristiques | `sql/02_adding_features.bqsql` | la table `reviews_panel_features`, les mêmes avis, 42 colonnes |
 | 3. Les modèles | `python/07_regression_panel.py` et `python/08_effet_reponse_commercant.py` | les dossiers datés de `output-study/` |
 
 **La table est construite et interrogée uniquement dans BigQuery.** Aucune version en parallèle
 ailleurs : c'est en dupliquant des définitions que l'étude précédente a fini par se contredire
 elle-même.
 
-Avant de lancer `08`, lancer `sql/controle_C_reponses_au_jalon.sql`, qui vérifie qu'il y a de
+Avant de lancer `08`, lancer `sql/controle_C_reponses_au_jalon.bqsql`, qui vérifie qu'il y a de
 quoi calculer.
 
 ---

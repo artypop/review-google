@@ -64,8 +64,8 @@ Prérequis : [uv](https://docs.astral.sh/uv/), et une clé de service Google Clo
 Les deux tables BigQuery se construisent dans cet ordre, depuis un client SQL :
 
 ```sql
--- sql/01_selection_panel.sql    -> reviews_panel_selection, 225 757 avis
--- sql/02_adding_features.sql    -> reviews_panel_features, 42 colonnes
+-- sql/01_selection_panel.bqsql    -> reviews_panel_selection, 225 757 avis
+-- sql/02_adding_features.bqsql    -> reviews_panel_features, 42 colonnes
 ```
 
 Puis, depuis `logistic-regression-study/` :
@@ -79,14 +79,14 @@ python python/07_regression_panel.py --region Europe
 python python/07_regression_panel.py --region Europe --sans-enseignes-signalees
 
 # Répondre vite protège-t-il ? Lancer le contrôle d'abord.
-# sql/controle_C_reponses_au_jalon.sql
+# sql/controle_C_reponses_au_jalon.bqsql
 python python/08_effet_reponse_commercant.py --sans-enseignes-signalees
 ```
 
 Chaque passage écrit dans `output-study/{date du jour}-sorties-07/`. Relancé un autre jour, il
 crée un nouveau dossier au lieu d'écraser l'ancien.
 
-**`sql/02_adding_features.sql` ne se modifie pas sans l'accord de Romain.** Le changer oblige à
+**`sql/02_adding_features.bqsql` ne se modifie pas sans l'accord de Romain.** Le changer oblige à
 reconstruire la table et à relancer tous les modèles.
 
 ---
