@@ -258,8 +258,8 @@ Les tables vivent dans BigQuery : `reviews_panel_features` (02) et
 `reviews_panel_features_03` (03), lue par les scripts 07, 08 et 10. Les sorties chiffrées sont dans
 `logistic-regression-study/output-study/`.
 
-**`sql/02_adding_features.bqsql` ne se modifie pas sans l'accord de Romain.** Le changer oblige à
-reconstruire la table et à relancer tous les modèles.
+**`sql/02_adding_features.bqsql` ne se modifie pas sans accord préalable de l'équipe.** Le
+changer oblige à reconstruire la table et à relancer tous les modèles.
 
 ---
 

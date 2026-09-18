@@ -6,7 +6,8 @@ constatent sans comprendre ce qui déclenche ces retraits.
 **Cette étude cherche à déterminer quelles caractéristiques d'un avis font qu'il est supprimé** :
 la note, le texte, le profil de l'auteur, le secteur du commerce, le moment du dépôt.
 
-Commanditaire : Axel, ReviewFlowz. Interlocuteur et validateur : Romain.
+Commanditaire : Axel, ReviewFlowz. Suivi et validation : Romain et les personnes qui
+travaillent sur l'étude.
 
 ---
 
@@ -86,8 +87,8 @@ python python/08_effet_reponse_commercant.py --sans-enseignes-signalees
 Chaque passage écrit dans `output-study/{date du jour}-sorties-07/`. Relancé un autre jour, il
 crée un nouveau dossier au lieu d'écraser l'ancien.
 
-**`sql/02_adding_features.bqsql` ne se modifie pas sans l'accord de Romain.** Le changer oblige à
-reconstruire la table et à relancer tous les modèles.
+**`sql/02_adding_features.bqsql` ne se modifie pas sans accord préalable de l'équipe.** Le
+changer oblige à reconstruire la table et à relancer tous les modèles.
 
 ---
 

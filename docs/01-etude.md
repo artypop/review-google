@@ -13,7 +13,8 @@ constatent sans comprendre ce qui déclenche ces retraits.
 note, la longueur du texte, le profil de l'auteur, le secteur du commerce, le moment du dépôt :
 lesquelles pèsent, et de combien.
 
-Commanditaire : Axel, dirigeant de ReviewFlowz. Interlocuteur et validateur : Romain.
+Commanditaire : Axel, dirigeant de ReviewFlowz. Suivi et validation : Romain et les personnes
+qui travaillent sur l'étude.
 
 ---
 

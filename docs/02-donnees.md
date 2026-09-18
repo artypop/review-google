@@ -263,6 +263,6 @@ la question posée.
 | Les 42 caractéristiques, dont la cible | `sql/02_adding_features.bqsql` |
 | La définition d'une suppression sur tout le corpus | `etude-exploratoire/scripts/suppressions_corrigees.py` — **dossier gelé, voir son README** |
 
-`sql/02_adding_features.bqsql` ne se modifie pas sans l'accord de Romain, même quand les
-modifications sont acceptées automatiquement : le changer oblige à reconstruire la table et à
+`sql/02_adding_features.bqsql` ne se modifie pas sans accord préalable de l'équipe, même quand
+les modifications sont acceptées automatiquement : le changer oblige à reconstruire la table et à
 relancer tous les modèles.
