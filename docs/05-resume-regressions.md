@@ -110,7 +110,7 @@ corpus complet et sans les quatre chaînes antiparasitaires, soit huit passages.
 Les caractéristiques sont celles du modèle sur le panel, sans l'âge et sans l'afflux, plus
 « une réponse est présente au jalon ».
 
-Avant de lancer : `sql/controle_C_reponses_au_jalon.sql`, en lecture seule, qui vérifie qu'il y
+Avant de lancer : `sql/controle_C_reponses_au_jalon.bqsql`, en lecture seule, qui vérifie qu'il y
 a de quoi calculer.
 
 ```bash

@@ -33,13 +33,13 @@ Exemples d'un avis unique :
 
 | ID      | place_id                    | cid                  | review_id                                                            | is_update | change_field | star | text                                          | language | created_at                     | updated_at                     | review_link                                                                                                                            | reviewer_name       | reviewer_avatar                                                                                                                                                                                                                          | reviewer_review_count | reviewer_photo_count | local_guide | local_guide_level | n_photos | photo_urls | reply_text                                                                                                                                                                                                                                                                                                                   | reply_date              | first_seen_at           | last_seen_at            | deleted_detected_at     |
 | ------- | --------------------------- | -------------------- | -------------------------------------------------------------------- | --------- | ------------ | ---- | --------------------------------------------- | -------- | ------------------------------ | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | -------------------- | ----------- | ----------------- | -------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | ----------------------- | ----------------------- | ----------------------- |
-| 3851964 | ChI... | 164... | Ci9... | FALSE     | null         | 5    | Nice work always consistent and professional! | en       | 2026-08-04 16:57:08.179033 UTC | 2026-08-04 16:57:08.179033 UTC | ... | Stephanie Shoemaker | ... | 12                    | 7                    | FALSE       | 3                 | 0        | null       | Hello Stephanie! Thank you for your five-star rating of our services... | 2026-08-04 18:45:37 UTC | 2026-08-11 06:05:12 UTC | 2026-08-15 06:10:05 UTC | 2026-08-16 06:09:58 UTC |
+| 3851964 | ChI... | 164... | Ci9... | FALSE     | null         | 5    | [texte de l'avis] | en       | 2026-08-04 16:57:08.179033 UTC | 2026-08-04 16:57:08.179033 UTC | ... | [nom] | ... | 12                    | 7                    | FALSE       | 3                 | 0        | null       | [réponse] | 2026-08-04 18:45:37 UTC | 2026-08-11 06:05:12 UTC | 2026-08-15 06:10:05 UTC | 2026-08-16 06:09:58 UTC |
 
 Exemples d'un avis modifié (texte) :
 | ID      | place_id | cid     | review_id                                                            | is_update | change_field | star | text                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | language | created_at                     | updated_at                     | review_link                                                                                                                            | reviewer_name | reviewer_avatar                                                                                                                                                                                                                                | reviewer_review_count | reviewer_photo_count | local_guide | local_guide_level | n_photos | photo_urls | reply_text                                                                                                                                                                                                                                                                                                                           | reply_date              | first_seen_at           | last_seen_at            | deleted_detected_at     |     |
 | ------- | -------- | ------- | -------------------------------------------------------------------- | --------- | ------------ | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------------------------------ | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | -------------------- | ----------- | ----------------- | -------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------- | ----------------------- | ----------------------- | ----------------------- | --- |
-| 4861065 | C...     | 1345... | Ci9... | TRUE      | text         | 5    | A big shout out to my new facial... | en       | 2026-06-28 17:12:21.085429 UTC | 2026-08-16 17:43:35.272280 UTC | ...                                                                                                                                    | Adriana Peri  | ...                                                                                                                                                                                                                                            | 24                    | 3                    | TRUE        | 5                 | 0        | null       | Hi Adriana... | 2026-07-01 18:22:12 UTC | 2026-08-17 06:27:07 UTC | 2026-08-22 06:24:47 UTC | 2026-08-23 06:28:05 UTC |
-| 4701785 | C...     | 1345... | Ci9... | FALSE     | null         | 5    | A big shout out to my new facial guru..      | en       | 2026-06-28 17:12:21.085429 UTC | 2026-06-28 17:12:21.085429 UTC | ... | Adriana Peri  |...  | 24                    | 3                    | TRUE        | 5                 | 0        | null       | Hi Adriana,.... | 2026-07-01 18:22:12 UTC | 2026-08-11 06:19:03 UTC | 2026-08-16 06:25:29 UTC | null                    |
+| 4861065 | C...     | 1345... | Ci9... | TRUE      | text         | 5    | [texte modifié] | en       | 2026-06-28 17:12:21.085429 UTC | 2026-08-16 17:43:35.272280 UTC | ...                                                                                                                                    | [nom]       | ...                                                                                                                                                                                                                                            | 24                    | 3                    | TRUE        | 5                 | 0        | null       | [réponse] | 2026-07-01 18:22:12 UTC | 2026-08-17 06:27:07 UTC | 2026-08-22 06:24:47 UTC | 2026-08-23 06:28:05 UTC |
+| 4701785 | C...     | 1345... | Ci9... | FALSE     | null         | 5    | [texte d'origine] | en       | 2026-06-28 17:12:21.085429 UTC | 2026-06-28 17:12:21.085429 UTC | ... | [nom]       |...  | 24                    | 3                    | TRUE        | 5                 | 0        | null       | [réponse] | 2026-07-01 18:22:12 UTC | 2026-08-11 06:19:03 UTC | 2026-08-16 06:25:29 UTC | null                    |
 
 ---
 
@@ -76,71 +76,113 @@ différents, quelles que soient leurs autres caractéristiques.
 
 ### Le secteur pèse lourd
 
-Sur les 225 757 avis du corpus de modélisation :
+Sur les 225 757 avis du corpus de modélisation, suppressions pour 10 000 avis. Les enseignes
+retirées sont les quatre chaînes antiparasitaires (services à domicile) et les deux salles de
+sport espagnoles (sport et bien-être).
 
-| Secteur | Avis | Supprimés | Taux |
-|---|---:|---:|---:|
-| Services à domicile | 42 640 | 1 189 | **2,79 %** |
-| Voyage | 14 881 | 129 | 0,87 % |
-| Sport et bien-être | 23 808 | 205 | 0,86 % |
-| Automobile | 28 794 | 205 | 0,71 % |
-| Santé | 31 318 | 216 | 0,69 % |
-| Hôtellerie | 39 463 | 168 | 0,43 % |
-| Restauration | 44 496 | 156 | **0,35 %** |
+| Secteur | Avis | Suppressions | Pour 10 000 | Sans enseignes : avis | Suppressions | Pour 10 000 |
+|---|---:|---:|---:|---:|---:|---:|
+| Services à domicile | 42 640 | 1 189 | **279** | 28 000 | 497 | **178** |
+| Sport et bien-être | 24 165 | 532 | 220 | 23 808 | 205 | 86 |
+| Voyage | 14 881 | 129 | 87 | 14 881 | 129 | 87 |
+| Automobile | 28 794 | 205 | 71 | 28 794 | 205 | 71 |
+| Santé | 31 318 | 216 | 69 | 31 318 | 216 | 69 |
+| Hôtellerie | 39 463 | 168 | 43 | 39 463 | 168 | 43 |
+| Restauration | 44 496 | 156 | **35** | 44 496 | 156 | **35** |
 
-**Un avis déposé chez un artisan ou un prestataire à domicile a huit fois plus de chances d'être
-supprimé qu'un avis de restaurant.**
+**Un avis déposé chez un prestataire de services à domicile est supprimé 8 fois plus souvent
+qu'un avis de restaurant, et 5 fois plus sans les quatre chaînes.** À note, auteur et date de
+publication égaux, l'écart reste net aux États-Unis : ×3,2 par rapport à l'automobile.
+
+Source : `logistic-regression-study/output-study/2026-09-17-sorties-07/07_croisements_tous*.csv`.
+Les salles sont retirées par leur `cid`. Le script 07 les retire encore par leur nom, ce qui
+écarte 90 avis de plus, sans aucune suppression : son fichier donne 23 718 avis pour le sport.
 
 ### La note supprimée n'est pas la même des deux côtés de l'Atlantique
 
 Sur 10 000 avis de chaque groupe, combien ont disparu :
 
-| Note | États-Unis | Europe |
-|---|---:|---:|
-| 1 étoile | 262 | 585 |
-| 3 étoiles | 65 | 24 |
-| 4 étoiles | 61 | 24 |
-| **5 étoiles** | **145** | **36** |
+| Note | États-Unis | sans les chaînes | Europe | sans les salles |
+|---|---:|---:|---:|---:|
+| 1 étoile | 262 | 259 | 585 | 152 |
+| 3 étoiles | 65 | 63 | 24 | 24 |
+| 4 étoiles | 61 | 40 | 24 | 24 |
+| **5 étoiles** | **145** | **97** | **36** | **36** |
 
-**Aux États-Unis, un avis 5 étoiles est supprimé plus souvent qu'un avis 3 ou 4 étoiles.** En
-Europe, l'avis 1 étoile domine largement.
+**Aux États-Unis, un avis 5 étoiles est supprimé plus souvent qu'un avis 3 ou 4 étoiles**, avec
+ou sans les chaînes. En Europe, l'avis 1 étoile domine, surtout à cause des deux salles de sport.
 
-En volume, sur l'ensemble du panel, **71 % des avis supprimés portaient 5 étoiles**. Les
-suppressions ne visent donc pas principalement les avis négatifs.
+En volume, sur l'ensemble du panel, **71 % des avis supprimés portaient 5 étoiles** (1 850 sur
+2 595) et 23 % portaient 1 étoile (607). Les suppressions ne visent donc pas principalement les
+avis négatifs.
+
+**Deux lectures à ne pas confondre.** « L'avis 1 étoile est supprimé 3,5 fois plus » compare deux
+avis : 259 suppressions pour 10 000 avis 1 étoile aux États-Unis, contre 97 pour 10 000 avis
+5 étoiles. La composition des suppressions est autre chose : hors chaînes, 80 % des avis
+supprimés aux États-Unis portent 5 étoiles, parce que ces avis sont 85 % du corpus.
+
+Source : `07_croisements_US*.csv`, `07_croisements_Europe*.csv`.
 
 ### Le profil de l'auteur compte
 
-À âge, secteur et région comparables :
+À date de publication, secteur et région comparables, sans les six enseignes (tout le panel) :
 
-| Caractéristique de l'avis ou de son auteur | Risque |
-|---|---:|
-| Compte sans niveau Local Guide | ×2,5 |
-| Avis déposé aux États-Unis | ×2,1 |
-| Avis 1 étoile, comparé à 5 étoiles | ×3,6 |
-| Plusieurs avis du même auteur le même jour | ×5,3 |
+| Caractéristique de l'avis ou de son auteur | Risque | Avec les enseignes |
+|---|---:|---:|
+| Avis 1 étoile, comparé à 5 étoiles | ×3,6 | ×6,6 |
+| Compte sans niveau Local Guide, comparé aux niveaux 1 à 3 | ×2,5 | ×2,4 |
+| Avis déposé aux États-Unis | ×2,1 | ×2,0 |
+| 4 avis du même auteur le même jour, comparé à 1 | ×4,3 | ×7,4 |
+| Auteur à 100 photos, comparé à 0 | ×0,47 | ×0,47 |
+| Auteur à 20 avis, comparé à 2 | ×0,76 | ×0,78 |
 
-Le compte sans niveau Local Guide est le seul de ces effets qui se renforce quand on retire les
-enseignes au comportement particulier. Les autres en dépendent davantage.
+Le niveau Local Guide 4 et plus ne protège pas : à photos et nombre d'avis égaux, ces auteurs
+sont supprimés autant que les niveaux 1 à 3, et plus en Europe.
 
-### Répondre vite divise le risque par deux
+Le compte sans niveau, les photos et le nombre d'avis de l'auteur ne bougent pas quand on retire
+les enseignes. La note et la rafale en dépendent fortement.
 
-Parmi les avis encore en ligne à la fin de leur deuxième jour, **ceux dont le commerçant avait
-déjà répondu ont été supprimés 1,8 fois moins souvent** dans les six jours suivants :
-risque ×0,56, fourchette [0,37 – 0,85].
+Source : `07_coefficients_tous_sans_enseignes.csv` et `07_coefficients_tous.csv` ; synthèse
+`logistic-regression-study/output-study/2026-09-17-synthese-07.md`.
 
-Le résultat tient quand on déplace le moment de l'observation : ×0,59 au premier jour, ×0,56 au
-deuxième, ×0,46 au troisième, ×0,48 au quatrième.
+### Dans les huit premiers jours de l'avis
 
-Deux réserves. L'effet disparaît quand on inclut quatre chaînes américaines de traitement
-antiparasitaire, qui portent 37 % des suppressions de cette population et dont les suppressions
-restent inexpliquées. Et le sens de la cause n'est pas établi : un commerçant qui répond en deux
-jours est aussi un commerçant qui surveille sa fiche et signale les avis qu'il juge illégitimes.
+Sur les avis publiés du 10 au 16 août, suivis jusqu'à leur 8e jour, sans les quatre chaînes :
+l'avis 1 étoile est supprimé 3 fois plus souvent (États-Unis ×3,2, Europe ×3,0), l'auteur sans
+niveau Local Guide 2 à 3 fois plus (×2,2 et ×2,9). En Europe, un avis avec du texte l'est 2 fois
+plus qu'un avis sans texte.
+
+Ces caractéristiques ne suffisent pas à repérer les avis supprimés : les 10 % d'avis jugés les
+plus risqués contiennent 23 à 26 % des suppressions.
+
+Source : `logistic-regression-study/output-study/2026-09-17-synthese-modele-A.md`.
+
+### Répondre vite protège, sur les fiches qui répondent à tout
+
+Avis publiés du 10 au 16 août, encore en ligne à la fin de leur 2e jour, sans les quatre chaînes.
+On regarde s'ils ont déjà une réponse, puis s'ils disparaissent du 3e au 8e jour.
+
+**Sur les fiches qui répondent à plus de 75 % de leurs avis, l'avis déjà répondu est supprimé
+2,5 fois moins souvent : ×0,40 (entre ×0,25 et ×0,65).** Le résultat tient quel que soit le jour
+où l'on regarde la réponse, du 1er au 6e jour (×0,32 à ×0,47).
+
+Sur les fiches qui répondent à 25 à 75 % de leurs avis, l'avis répondu est plutôt **plus**
+supprimé (×2,0 au 2e jour, sur 30 suppressions). Toutes fiches confondues, l'effet moyen vaut
+×0,59.
+
+Réserves. Avec les quatre chaînes, aucun effet n'est net. Le sens de la cause n'est pas établi :
+le propriétaire peut laisser sans réponse un avis qu'il signale, ou répondre à un avis qu'il
+conteste. Les données ne montrent ni les signalements ni le contenu des réponses.
+
+Source : `logistic-regression-study/output-study/2026-09-17-synthese-08.md`.
 
 ### The Boxer Club en Espagne attaqué
 
 Deux salles de sport espagnoles ont perdu **327 avis sur les 357** qu'elles avaient dans le
-corpus, soit 92 %, presque tous notés 1 étoile et déposés en quelques jours. On pense à une attaque
-par faux avis suivie d'un nettoyage par Google (probablement à la demande du propriétaire, car les suppressions arrivent ).
+corpus, soit 92 %, presque tous notés 1 étoile. Les suppressions tombent entre 9 et 22 jours après
+la publication, bien après le pic habituel du 7e jour (`sql/controle_D_delai_suppression_enseignes.bqsql`).
+On pense à une attaque par faux avis suivie d'un nettoyage par Google, probablement à la demande
+du propriétaire. C'est une hypothèse : les données ne montrent pas les signalements.
 
 Elles représentent 13 % de toutes les suppressions du corpus. Tous les calculs sont donc faits
 deux fois, avec et sans elles.
@@ -150,8 +192,11 @@ deux fois, avec et sans elles.
 |Groupe|Fiches|Avis|Suppressions|Part du total|Taux|
 |---|---|---|---|---|---|
 |4 chaînes antiparasitaires US|88|14 640|692|**26,7 %**|4,73 %|
-|2 salles de sport espagnoles|13|447|327|**12,6 %**|73,15 %|
-|Tout le reste|8 104|210 670|1 576|60,7 %|0,75 %|
+|2 salles de sport espagnoles|2|357|327|**12,6 %**|91,6 %|
+|Tout le reste|8 115|210 760|1 576|60,7 %|0,75 %|
+
+Enseignes repérées par la table `biz_surveillance` et, pour les salles, par leur `cid`. L'ancien
+repérage par nom comptait 13 fiches « The Boxer Club », dont 11 sans aucune suppression.
 
 ---
 
@@ -184,31 +229,37 @@ aucun écart n'est mesurable.
 
 Quatre précautions gouvernent la construction :
 
-1. **L'âge entre systématiquement dans le modèle.** Sans lui, il déteint sur toutes les autres
-   caractéristiques. Un avis qui porte une réponse est en général un avis ancien, et un avis
-   ancien ne risque presque plus rien : sans correction, on conclurait que les réponses
-   protègent alors qu'on mesure de l'âge.
+1. **La date de publication entre systématiquement dans le modèle.** Depuis le 2026-09-17, sous
+   la forme d'un oui / non : le 8e jour de l'avis tombe-t-il pendant le suivi (avis publiés du
+   3 au 16 août) ? Sans elle, elle déteint sur toutes les autres caractéristiques : les avis
+   récents sont 5 fois plus supprimés que les anciens.
 2. **Aucune caractéristique mesurée après le moment qu'elle prétend expliquer.** Le délai avant
    suppression, par exemple, n'est connu que pour les avis déjà supprimés.
 3. **Les avis d'une même fiche ne comptent pas comme des informations indépendantes.** Le panel
    a été tiré par groupe d'établissements, et les calculs en tiennent compte.
 4. **Chaque résultat est produit deux fois**, avec et sans les six enseignes au comportement
    particulier — les deux boutiques espagnoles et quatre chaînes américaines.
+5. **La qualité du modèle se mesure en cinq tours par établissement.** Chaque fiche est notée une
+   fois par un modèle qui ne l'a jamais vue, et on regarde quelle part des suppressions tombe
+   dans les 10 % d'avis jugés les plus risqués.
 
 ### La chaîne technique
 
 | Étape | Fichier |
 |---|---|
-| Construire le corpus | `logistic-regression-study/sql/01_selection_panel.sql` |
-| Calculer les 42 caractéristiques | `logistic-regression-study/sql/02_adding_features.sql` |
-| Ajuster le modèle | `logistic-regression-study/python/07_regression_panel.py` |
+| Construire le corpus | `logistic-regression-study/sql/01_selection_panel.bqsql` |
+| Calculer les caractéristiques (version d'origine) | `logistic-regression-study/sql/02_adding_features.bqsql` |
+| Calculer les caractéristiques (palier Local Guide, photos, habitude de réponse) | `logistic-regression-study/sql/03_adding_features.bqsql` |
+| Ajuster le modèle sur tout le panel | `logistic-regression-study/python/07_regression_panel.py` |
 | Mesurer l'effet des réponses | `logistic-regression-study/python/08_effet_reponse_commercant.py` |
+| Modèle des 8 premiers jours | `logistic-regression-study/python/10_modele_A_8_premiers_jours.py` |
 
-Les deux tables vivent dans BigQuery. Les sorties chiffrées sont dans
+Les tables vivent dans BigQuery : `reviews_panel_features` (02) et
+`reviews_panel_features_03` (03), lue par les scripts 07, 08 et 10. Les sorties chiffrées sont dans
 `logistic-regression-study/output-study/`.
 
-**`sql/02_adding_features.sql` ne se modifie pas sans l'accord de Romain.** Le changer oblige à
-reconstruire la table et à relancer tous les modèles.
+**`sql/02_adding_features.bqsql` ne se modifie pas sans accord préalable de l'équipe.** Le
+changer oblige à reconstruire la table et à relancer tous les modèles.
 
 ---
 
@@ -236,16 +287,18 @@ sans les groupes de 2 à 3 ni de 11 à 19 établissements.
 ## 6. Ce qui reste ouvert
 
 1. **Quatre chaînes américaines de traitement antiparasitaire** portent 27 % des suppressions du
-   corpus, presque toutes sur des avis 4 et 5 étoiles. Aucune caractéristique disponible ne les
-   explique : les auteurs sont ordinaires, les textes tous différents, il n'y a pas d'afflux
-   soudain. Une piste : leurs textes citent très souvent un technicien par son prénom.
+   corpus, presque toutes sur des avis 4 et 5 étoiles. Les textes sont tous différents et il n'y a
+   pas d'afflux soudain. Une piste : leurs textes citent très souvent un technicien par son
+   prénom. Un fait nouveau : 44 avis de ces chaînes viennent d'auteurs qui ont publié 4 avis ou
+   plus le même jour sur leurs succursales, et les 44 ont été supprimés. Ils ne font que 44 des
+   692 suppressions des chaînes.
 2. **Chercher d'autres attaques par faux avis** dans le panel. Deux ont été trouvées ; aucune
    recherche systématique n'a été faite.
 3. **Comprendre ce qui se passe au septième jour.** C'est le motif le plus net de l'étude et il
    n'a pas d'explication.
-4. **Améliorer la mesure de qualité du modèle.** La méthode actuelle met de côté un quart des
-   établissements une seule fois. En Europe, ce tirage est tombé sur des fiches deux fois moins
-   touchées que la moyenne, ce qui rend les niveaux de risque qu'il annonce inutilisables.
+4. **Comprendre pourquoi la réponse joue en sens opposés** selon l'habitude de réponse de la
+   fiche. Il faudrait connaître le contenu des réponses ou les signalements.
+5. **Construire le modèle des suppressions tardives**, après le 8e jour. Il n'a pas été fait.
 
 ---
 

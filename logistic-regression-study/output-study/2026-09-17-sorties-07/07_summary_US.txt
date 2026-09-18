@@ -1,0 +1,52 @@
+==============================================================================
+Passage : US
+Panel : 127 813 avis  1 851 suppressions
+AUC sur des établissements jamais vus : 0.796
+  0,5 = tirage au hasard, 1,0 = classement parfait.
+  Elle est portée en grande partie par l'âge, variable de contrôle.
+Aucun sous-échantillonnage : le modèle tourne sur tous les avis.
+Ce fichier et 07_coefficients_*.csv donnent les mêmes valeurs.
+
+j8_pendant_suivi est une variable de contrôle, pas un résultat à citer.
+==============================================================================
+
+                 Generalized Linear Model Regression Results                  
+==============================================================================
+Dep. Variable:               supprime   No. Observations:               127813
+Model:                            GLM   Df Residuals:                   127788
+Model Family:                Binomial   Df Model:                           24
+Link Function:                  Logit   Scale:                          1.0000
+Method:                          IRLS   Log-Likelihood:                -8089.7
+Date:                Thu, 17 Sep 2026   Deviance:                       16179.
+Time:                        13:57:44   Pearson chi2:                 1.18e+05
+No. Iterations:                     9   Pseudo R-squ. (CS):            0.02452
+Covariance Type:              cluster                                         
+===================================================================================================
+                                      coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------------------------
+const                              -8.2608      0.528    -15.633      0.000      -9.296      -7.225
+has_photo                          -0.0568      0.177     -0.321      0.748      -0.403       0.290
+langue_minoritaire_sur_la_fiche    -0.2203      0.393     -0.560      0.575      -0.991       0.550
+j8_pendant_suivi                    1.8819      0.105     17.857      0.000       1.675       2.088
+log_rc                              0.0331      0.067      0.493      0.622      -0.098       0.165
+log_photos_auteur                  -0.2204      0.031     -7.108      0.000      -0.281      -0.160
+log_burst                           3.8145      0.463      8.234      0.000       2.907       4.723
+log_ratio_pic_journalier_fiche     -0.1778      0.101     -1.764      0.078      -0.375       0.020
+etoiles_1                           0.8794      0.194      4.529      0.000       0.499       1.260
+etoiles_2                           0.2584      0.288      0.896      0.370      -0.307       0.823
+etoiles_3                          -0.1526      0.280     -0.546      0.585      -0.701       0.396
+etoiles_4                          -0.4852      0.180     -2.694      0.007      -0.838      -0.132
+guide_4_et_plus                     0.0512      0.130      0.395      0.693      -0.203       0.305
+guide_sans_niveau                   0.6856      0.126      5.451      0.000       0.439       0.932
+texte_texte_1_50                    0.1309      0.113      1.159      0.247      -0.090       0.352
+texte_texte_51_200                 -0.0073      0.109     -0.067      0.947      -0.221       0.206
+texte_texte_201p                    0.0620      0.127      0.486      0.627      -0.188       0.312
+secteur_food_beverage              -0.6695      0.557     -1.202      0.229      -1.761       0.422
+secteur_healthcare                  0.3521      0.320      1.101      0.271      -0.274       0.979
+secteur_home_services               1.5038      0.281      5.344      0.000       0.952       2.055
+secteur_hospitality                -0.2629      0.417     -0.630      0.529      -1.081       0.555
+secteur_travel                      0.8803      0.579      1.521      0.128      -0.254       2.015
+secteur_wellness_fitness            0.7130      0.385      1.851      0.064      -0.042       1.468
+taille_large                        0.2124      0.302      0.704      0.481      -0.379       0.803
+taille_small                        0.4201      0.318      1.319      0.187      -0.204       1.044
+===================================================================================================

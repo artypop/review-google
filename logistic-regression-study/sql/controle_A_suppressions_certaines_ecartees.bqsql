@@ -3,7 +3,7 @@
 --
 -- Pourquoi ce contrôle existe
 -- ---------------------------
--- `01_selection_panel.sql` ne garde que les avis ayant exactement une ligne
+-- `01_selection_panel.bqsql` ne garde que les avis ayant exactement une ligne
 -- dans `reviews`. Ce n'est pas un dédoublonnage : c'est une exclusion. Sur la
 -- fenêtre du panel (13 mai -> 16 août), il écarte 731 avis sur 226 488.
 --

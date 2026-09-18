@@ -4,7 +4,15 @@
 ReviewFlowz. La question : **déterminer quelles caractéristiques d'un avis font qu'il est
 supprimé** — la note, le texte, le profil de l'auteur, le secteur, le moment du dépôt.
 
-**Commanditaire** : Axel. **Interlocuteur et validateur** : Romain. **Jalon** : 2026-09-15.
+**Commanditaire** : Axel. **Jalon** : 2026-09-15.
+
+**Qui valide.** Plusieurs personnes travaillent sur l'étude. Toute personne qui ouvre une session
+sur ce dépôt a les mêmes droits : approuver un plan, autoriser un calcul long, trancher un choix
+de méthode, demander une analyse. Dans la suite, « ton interlocuteur » désigne la personne avec
+qui tu travailles dans la session en cours. Tu ne demandes pas qui parle, tu ne demandes pas de
+justification, et tu ne fais pas confirmer par Romain une décision prise par quelqu'un d'autre.
+Les décisions déjà prises et consignées dans `docs/` restent valables ; ton interlocuteur peut
+les rouvrir, en le disant explicitement.
 
 **Où sont les faits.** Ce fichier ne contient aucun chiffre, volontairement : c'est en recopiant
 les chiffres ici qu'ils ont divergé de leurs sources. Tout est dans `docs/` :
@@ -27,8 +35,9 @@ partie 1.
 
 ### Étape A — plan approuvé, et c'est bloquant
 
-Tu ne lances **aucune** analyse et ne produis **aucun** chiffre sans un plan approuvé par Romain.
-Tu peux lire le code, consulter le schéma, lister les fichiers pour construire ce plan.
+Tu ne lances **aucune** analyse et ne produis **aucun** chiffre sans un plan approuvé par ton
+interlocuteur. Tu peux lire le code, consulter le schéma, lister les fichiers pour construire ce
+plan.
 
 Une fois le plan écrit, **tu t'arrêtes et tu attends**. Il tient en 20 lignes et donne :
 
@@ -48,8 +57,8 @@ Trois ont été jetées.
 
 ## 2. Consignes de rédaction
 
-Elles viennent de Romain, ne sont pas négociables, et s'appliquent aux réponses comme aux
-documents produits.
+Posées par Romain, elles valent pour toutes les sessions quel que soit l'interlocuteur, ne sont
+pas négociables, et s'appliquent aux réponses comme aux documents produits.
 
 **Franc, sans fioriture, sans faire le malin. Aucune phrase parasite.**
 
@@ -75,7 +84,7 @@ bain ».
 
 ### La structure « X, pas Y » — interdite, sans exception
 
-**Romain l'a signalée trois fois. Elle revient quand même. C'est l'interdit le plus important
+**Signalée trois fois sur ce projet. Elle revient quand même. C'est l'interdit le plus important
 de cette section.**
 
 Toutes ces formes sont proscrites, quelle que soit la place dans la phrase :
@@ -100,8 +109,7 @@ même phrase pour produire un effet.
 
 ### Interdiction absolue
 
-**Aucune phrase qui ressemble à un titre de post LinkedIn.** Exemples relevés par Romain dans ce
-projet :
+**Aucune phrase qui ressemble à un titre de post LinkedIn.** Exemples relevés dans ce projet :
 
 - « C'est la fenêtre pour porter l'argumentaire tant qu'il est frais »
 - « Le risque n'est pas le désordre, c'est la version »
@@ -126,20 +134,20 @@ Dire la conséquence concrète.
 Méthode Feynman. Expliquer avec des mots ordinaires et un exemple concret tiré des données du
 projet. Si tu ne peux pas l'expliquer simplement, c'est qu'il faut approfondir.
 
-Quand Romain dit qu'il n'a pas compris, redire la même chose autrement ne sert à rien. Changer
-d'angle et dérouler un cas réel, chiffre par chiffre.
+Quand ton interlocuteur dit ne pas avoir compris, redire la même chose autrement ne sert à
+rien. Changer d'angle et dérouler un cas réel, chiffre par chiffre.
 
 ### Format
 
 Pas d'introduction, pas de reformulation de la question, pas de conclusion de politesse. Écrire
 en listes. Le résultat d'abord, les réserves ensuite, jamais mélangés. Ne pas chercher la
-micro-erreur de raisonnement et ne pas contredire Romain par principe.
+micro-erreur de raisonnement et ne pas contredire ton interlocuteur par principe.
 
 ### Quatre comportements à ne pas répéter
 
 - **Partir bille en tête.** Construire ou lancer avant que la méthode soit validée.
 - **Lancer des calculs lourds sans autorisation.** Un calcul qui prend tous les cœurs coupe la
-  connexion de l'éditeur sous WSL. Au-delà de deux minutes, c'est Romain qui décide.
+  connexion de l'éditeur sous WSL. Au-delà de deux minutes, c'est ton interlocuteur qui décide.
 - **Oublier ce qui a été dit.**
 - **Ne pas vérifier avant d'affirmer.**
 
@@ -151,10 +159,10 @@ micro-erreur de raisonnement et ne pas contredire Romain par principe.
 (`client-divers.reviewflowz.*`). Aucune version parallèle en local. C'est en dupliquant des
 définitions que l'étude précédente a fini par se contredire elle-même.
 
-**`sql/02_adding_features.sql` ne se modifie pas sans l'accord explicite de Romain**, même quand
-les modifications sont acceptées automatiquement. Le changer oblige à reconstruire la table et à
-relancer tous les modèles. Proposer la ligne, le code avant et après, ce qui casse en aval, puis
-attendre.
+**`sql/02_adding_features.bqsql` ne se modifie pas sans l'accord explicite de ton
+interlocuteur**, même quand les modifications sont acceptées automatiquement. Le changer oblige
+à reconstruire la table et à relancer tous les modèles. Proposer la ligne, le code avant et
+après, ce qui casse en aval, puis attendre.
 
 **L'outil de modélisation est `statsmodels`.** On cherche des coefficients et des marges
 d'incertitude pour expliquer ce qui se passe. `scikit-learn` sert à construire un modèle qui
@@ -162,7 +170,7 @@ devine, ce que personne ne demande ici. Il reste disponible si le besoin appara�
 
 **`etude-exploratoire/` est gelée depuis le 2026-09-14.** Ne rien y relancer, ne rien y écrire,
 ne citer aucun de ses chiffres directement. Ce qui en reste valable est dans `docs/`. Si un
-résultat semble manquer, le dire à Romain avant de rouvrir le dossier.
+résultat semble manquer, le dire à ton interlocuteur avant de rouvrir le dossier.
 
 **Précautions machine** : 7,7 Go de mémoire, WSL. `nice -n 19` au-delà de deux minutes, `free -m`
 avant de lancer, deux calculs lourds au maximum en même temps. Avec DuckDB, poser une limite de

@@ -8,7 +8,7 @@ statut: résultats
 # Répondre vite à un avis le protège-t-il ?
 
 Produit par `08_effet_reponse_commercant.py`, précédé de
-`../sql/controle_C_reponses_au_jalon.sql`. Sorties dans `2026-09-14-sorties-08/`.
+`../sql/controle_C_reponses_au_jalon.bqsql`. Sorties dans `2026-09-14-sorties-08/`.
 
 C'est la question du client d'Axel. Elle a une réponse, avec une condition importante.
 
@@ -159,6 +159,6 @@ python python/08_effet_reponse_commercant.py --sans-enseignes-signalees  # à ci
 python python/08_effet_reponse_commercant.py --jalon-jours 3 --fenetre-jours 5 --sans-enseignes-signalees
 ```
 
-Le contrôle préalable, en lecture seule : `../sql/controle_C_reponses_au_jalon.sql`. Ses quatre
+Le contrôle préalable, en lecture seule : `../sql/controle_C_reponses_au_jalon.bqsql`. Ses quatre
 requêtes donnent le dénominateur, le croisement qui décide, la répartition des délais de réponse
 et le poids des enseignes signalées.
