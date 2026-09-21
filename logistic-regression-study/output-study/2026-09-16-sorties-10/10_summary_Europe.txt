@@ -1,0 +1,26 @@
+==============================================================================
+Modèle XGBoost : Europe
+Avis entraînement : 73 492  Avis test : 24 452
+Suppressions test : 80
+AUC XGBoost : 0.844
+Comparaison repère : Régression logistique AUC = 0.86
+==============================================================================
+
+Dix variables avec le plus fort gain :
+  - log_age_vague1                 :  6.69 % du gain
+  - star                           :  5.23 % du gain
+  - age_a_la_vague1_j              :  5.04 % du gain
+  - profil_guide_etabli            :  2.86 % du gain
+  - secteur_wellness_fitness       :  2.31 % du gain
+  - etoiles_5                      :  1.84 % du gain
+  - secteur_food_beverage          :  1.76 % du gain
+  - secteur_healthcare             :  1.68 % du gain
+  - mot_zu                         :  1.62 % du gain
+  - log_ratio_pic_journalier_fiche :  1.57 % du gain
+
+Cinq interactions les plus fortes entre variables :
+  - age_a_la_vague1_j x star (gain cumulé : 84806.0)
+  - age_a_la_vague1_j x log_ratio_pic_journalier_fiche (gain cumulé : 25098.9)
+  - log_age_vague1 x star (gain cumulé : 21331.7)
+  - age_a_la_vague1_j x reviewer_review_count (gain cumulé : 21164.6)
+  - reviewer_review_count x star (gain cumulé : 15526.5)

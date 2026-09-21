@@ -1,0 +1,7 @@
+bucket,activite,fiches,avis,suppressions,part_fiches_pct,part_avis_pct,part_suppr_pct,taux_pct
+large,antiparasitaire,143,317848.0,1362.0,60.1,83.2,93.8,0.43
+large,autres services,95,64157.0,90.0,39.9,16.8,6.2,0.14
+mono,antiparasitaire,24,5179.0,13.0,10.1,10.3,16.0,0.25
+mono,autres services,214,45101.0,68.0,89.9,89.7,84.0,0.15
+small,antiparasitaire,39,27734.0,173.0,16.4,24.2,43.7,0.62
+small,autres services,199,86976.0,223.0,83.6,75.8,56.3,0.26

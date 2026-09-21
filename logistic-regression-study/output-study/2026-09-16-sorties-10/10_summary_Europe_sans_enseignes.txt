@@ -1,0 +1,26 @@
+==============================================================================
+Modèle XGBoost : Europe_sans_enseignes
+Avis entraînement : 70 304  Avis test : 27 193
+Suppressions test : 65
+AUC XGBoost : 0.807
+Comparaison repère : Régression logistique AUC = 0.86
+==============================================================================
+
+Dix variables avec le plus fort gain :
+  - log_age_vague1                 :  3.67 % du gain
+  - age_a_la_vague1_j              :  3.04 % du gain
+  - star                           :  2.61 % du gain
+  - mot_zu                         :  2.24 % du gain
+  - secteur_food_beverage          :  2.10 % du gain
+  - mot_avec                       :  2.06 % du gain
+  - mot_il                         :  1.84 % du gain
+  - texte_court_generique          :  1.78 % du gain
+  - reponse_avant_surveillance     :  1.68 % du gain
+  - secteur_hospitality            :  1.67 % du gain
+
+Cinq interactions les plus fortes entre variables :
+  - age_a_la_vague1_j x star (gain cumulé : 54419.6)
+  - age_a_la_vague1_j x reviewer_review_count (gain cumulé : 41745.2)
+  - age_a_la_vague1_j x log_ratio_pic_journalier_fiche (gain cumulé : 18168.4)
+  - reviewer_review_count x star (gain cumulé : 16477.1)
+  - reviewer_review_count x texte_longueur_moy_mot (gain cumulé : 15396.0)

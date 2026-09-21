@@ -81,7 +81,7 @@ document d'origine :
 | L12 | Le compteur public de Google comme source de vérité | à faire |
 | L13 | Comment est calculée la langue dominante d'une fiche | à faire |
 | L14 | La vérification de la visite | à faire |
-| L15 | Le contrôle par apprentissage automatique | à faire — jamais relancé |
+| L15 | Le contrôle par apprentissage automatique | **fait** le 2026-09-16 : XGBoost + texte (AUC 0,864 vs 0,860) |
 
 ## Écarté, et à ne pas reproposer sans élément nouveau
 

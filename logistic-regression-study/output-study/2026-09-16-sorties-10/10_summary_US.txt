@@ -1,0 +1,26 @@
+==============================================================================
+Modèle XGBoost : US
+Avis entraînement : 96 672  Avis test : 31 141
+Suppressions test : 445
+AUC XGBoost : 0.858
+Comparaison repère : Régression logistique AUC = 0.86
+==============================================================================
+
+Dix variables avec le plus fort gain :
+  - log_age_vague1                 :  5.70 % du gain
+  - secteur_home_services          :  5.28 % du gain
+  - age_a_la_vague1_j              :  4.99 % du gain
+  - secteur_food_beverage          :  3.54 % du gain
+  - taille_small                   :  2.42 % du gain
+  - star                           :  2.41 % du gain
+  - secteur_hospitality            :  2.03 % du gain
+  - taille_mono                    :  1.81 % du gain
+  - reponse_avant_surveillance     :  1.66 % du gain
+  - mot_excellent                  :  1.58 % du gain
+
+Cinq interactions les plus fortes entre variables :
+  - age_a_la_vague1_j x secteur_home_services (gain cumulé : 101441.8)
+  - log_age_vague1 x secteur_home_services (gain cumulé : 40207.7)
+  - secteur_home_services x star (gain cumulé : 25257.5)
+  - age_a_la_vague1_j x secteur_food_beverage (gain cumulé : 23537.7)
+  - age_a_la_vague1_j x log_ratio_pic_journalier_fiche (gain cumulé : 16096.6)

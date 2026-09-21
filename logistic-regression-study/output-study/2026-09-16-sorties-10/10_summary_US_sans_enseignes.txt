@@ -1,0 +1,26 @@
+==============================================================================
+Modèle XGBoost : US_sans_enseignes
+Avis entraînement : 87 049  Avis test : 26 124
+Suppressions test : 251
+AUC XGBoost : 0.820
+Comparaison repère : Régression logistique AUC = 0.86
+==============================================================================
+
+Dix variables avec le plus fort gain :
+  - secteur_home_services          :  3.93 % du gain
+  - log_age_vague1                 :  3.74 % du gain
+  - age_a_la_vague1_j              :  3.39 % du gain
+  - star                           :  3.27 % du gain
+  - secteur_food_beverage          :  2.96 % du gain
+  - taille_mono                    :  2.63 % du gain
+  - taille_small                   :  2.54 % du gain
+  - secteur_wellness_fitness       :  2.11 % du gain
+  - reponse_avant_surveillance     :  2.06 % du gain
+  - mot_excellent                  :  1.63 % du gain
+
+Cinq interactions les plus fortes entre variables :
+  - age_a_la_vague1_j x secteur_home_services (gain cumulé : 63231.7)
+  - secteur_home_services x star (gain cumulé : 34684.4)
+  - log_age_vague1 x secteur_home_services (gain cumulé : 23996.4)
+  - age_a_la_vague1_j x log_ratio_pic_journalier_fiche (gain cumulé : 21209.1)
+  - secteur_home_services x taille_small (gain cumulé : 20794.9)

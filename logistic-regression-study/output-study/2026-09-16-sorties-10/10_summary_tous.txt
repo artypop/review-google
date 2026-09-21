@@ -1,0 +1,26 @@
+==============================================================================
+Modèle XGBoost : tous
+Avis entraînement : 173 455  Avis test : 52 302
+Suppressions test : 595
+AUC XGBoost : 0.866
+Comparaison repère : Régression logistique AUC = 0.86
+==============================================================================
+
+Dix variables avec le plus fort gain :
+  - star                           : 10.16 % du gain
+  - secteur_home_services          :  7.35 % du gain
+  - age_a_la_vague1_j              :  7.10 % du gain
+  - n_avis_meme_jour_auteur        :  5.33 % du gain
+  - region_US                      :  3.81 % du gain
+  - secteur_wellness_fitness       :  3.74 % du gain
+  - profil_guide_etabli            :  3.35 % du gain
+  - taille_mono                    :  2.41 % du gain
+  - log_ratio_pic_journalier_fiche :  2.39 % du gain
+  - secteur_food_beverage          :  2.33 % du gain
+
+Cinq interactions les plus fortes entre variables :
+  - log_ratio_pic_journalier_fiche x star (gain cumulé : 8010.1)
+  - age_a_la_vague1_j x secteur_home_services (gain cumulé : 2867.3)
+  - secteur_home_services x star (gain cumulé : 2427.4)
+  - log_ratio_pic_journalier_fiche x secteur_home_services (gain cumulé : 2338.0)
+  - log_ratio_pic_journalier_fiche x region_US (gain cumulé : 1891.6)

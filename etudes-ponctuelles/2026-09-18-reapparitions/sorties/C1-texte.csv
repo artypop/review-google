@@ -1,0 +1,5 @@
+nature,duree,episodes,avis
+le même avis revient,1 jour,414,405
+le même avis revient,2 jours et plus,169,167
+texte différent — bug d'enregistrement,1 jour,10,10
+texte différent — bug d'enregistrement,2 jours et plus,24,24
