@@ -337,9 +337,9 @@ concentration du phénomène européen, qu'aucune méthode d'évaluation ne fait
 
 ## 6. Réserves de lecture
 
-- **`supprime` vaut `deleted_detected_at IS NOT NULL`** (`../sql/02_adding_features.sql:169`),
+- **`supprime` vaut `deleted_detected_at IS NOT NULL`** (`../sql/02_adding_features.bqsql:169`),
   sans la règle des 2 jours d'absence utilisée ailleurs dans le projet. L'omission est voulue :
-  `HAVING COUNT(*) = 1` (`../sql/01_selection_panel.sql:54-59`) a déjà écarté tout avis disparu
+  `HAVING COUNT(*) = 1` (`../sql/01_selection_panel.bqsql:54-59`) a déjà écarté tout avis disparu
   puis revenu, donc il n'y a plus de résurrection à trier. Les 2 595 suppressions de ce
   panel ne se comparent pas directement aux 4 737 du corpus entier : ni le périmètre ni la
   règle ne sont les mêmes.

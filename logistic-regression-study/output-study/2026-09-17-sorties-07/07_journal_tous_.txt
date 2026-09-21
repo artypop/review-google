@@ -1,0 +1,98 @@
+[auth] clé : client-divers-8b012e5b7c73.json
+[lecture] panel entier, 0.05 Go
+[lecture] 225 757 avis
+[mémoire] 43 Mo
+
+  avis            225 757
+  suppressions    2 595
+  taux            1.15 % des avis
+  établissements  8 205
+
+--- tableau croisé, avant tout modèle ---
+  écrit : 07_croisements_tous.csv
+
+[tous] 225 757 avis ajustés  2 595 suppressions
+                 Generalized Linear Model Regression Results                  
+==============================================================================
+Dep. Variable:               supprime   No. Observations:               225757
+Model:                            GLM   Df Residuals:                   225731
+Model Family:                Binomial   Df Model:                           25
+Link Function:                  Logit   Scale:                          1.0000
+Method:                          IRLS   Log-Likelihood:                -11368.
+Date:                Thu, 17 Sep 2026   Deviance:                       22736.
+Time:                        13:56:59   Pearson chi2:                 2.50e+05
+No. Iterations:                     9   Pseudo R-squ. (CS):            0.02451
+Covariance Type:              cluster                                         
+===================================================================================================
+                                      coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------------------------
+const                              -8.8509      0.491    -18.010      0.000      -9.814      -7.888
+has_photo                           0.0048      0.131      0.036      0.971      -0.251       0.261
+langue_minoritaire_sur_la_fiche     0.0611      0.187      0.327      0.744      -0.305       0.428
+j8_pendant_suivi                    1.6765      0.120     13.983      0.000       1.442       1.912
+log_rc                             -0.1308      0.068     -1.917      0.055      -0.265       0.003
+log_photos_auteur                  -0.1634      0.032     -5.041      0.000      -0.227      -0.100
+log_burst                           2.1921      0.463      4.737      0.000       1.285       3.099
+log_ratio_pic_journalier_fiche      0.3813      0.161      2.372      0.018       0.066       0.696
+etoiles_1                           1.8915      0.339      5.576      0.000       1.227       2.556
+etoiles_2                           0.7955      0.297      2.677      0.007       0.213       1.378
+etoiles_3                          -0.0969      0.237     -0.409      0.683      -0.562       0.368
+etoiles_4                          -0.4443      0.154     -2.886      0.004      -0.746      -0.143
+guide_4_et_plus                     0.1367      0.111      1.227      0.220      -0.082       0.355
+guide_sans_niveau                   0.8837      0.096      9.238      0.000       0.696       1.071
+texte_texte_1_50                   -0.0502      0.106     -0.473      0.636      -0.258       0.158
+texte_texte_51_200                 -0.2119      0.122     -1.734      0.083      -0.451       0.028
+texte_texte_201p                   -0.5020      0.256     -1.961      0.050      -1.004      -0.000
+secteur_food_beverage              -0.4157      0.388     -1.072      0.284      -1.176       0.344
+secteur_healthcare                  0.2546      0.298      0.853      0.393      -0.330       0.839
+secteur_home_services               1.7022      0.283      6.021      0.000       1.148       2.256
+secteur_hospitality                -0.0725      0.314     -0.231      0.817      -0.688       0.543
+secteur_travel                      1.2770      0.517      2.468      0.014       0.263       2.291
+secteur_wellness_fitness            1.4477      0.396      3.653      0.000       0.671       2.224
+taille_large                        0.7934      0.331      2.395      0.017       0.144       1.443
+taille_small                        0.5711      0.271      2.107      0.035       0.040       1.102
+region_US                           0.6709      0.131      5.128      0.000       0.414       0.927
+===================================================================================================
+
+  écrit : 07_coefficients_tous.csv
+  écrit : 07_summary_tous.txt
+
+--- le modèle sait-il classer, ses risques sont-ils justes ---
+
+[tous tour 1] 182 787 avis ajustés  1 844 suppressions
+  tour 1 : 1 640 fiches testées  42 400 avis  733 suppressions  173 pour 10 000 avis (corpus : 115) ; 570 avis écartés  auteur déjà vu
+
+[tous tour 2] 179 091 avis ajustés  2 149 suppressions
+  tour 2 : 1 638 fiches testées  46 109 avis  421 suppressions  91 pour 10 000 avis (corpus : 115) ; 557 avis écartés  auteur déjà vu
+
+[tous tour 3] 177 676 avis ajustés  2 029 suppressions
+  tour 3 : 1 637 fiches testées  47 448 avis  533 suppressions  112 pour 10 000 avis (corpus : 115) ; 633 avis écartés  auteur déjà vu
+
+[tous tour 4] 179 497 avis ajustés  2 290 suppressions
+  tour 4 : 1 640 fiches testées  45 730 avis  304 suppressions  66 pour 10 000 avis (corpus : 115) ; 530 avis écartés  auteur déjà vu
+
+[tous tour 5] 183 977 avis ajustés  2 068 suppressions
+  tour 5 : 1 640 fiches testées  41 180 avis  489 suppressions  119 pour 10 000 avis (corpus : 115) ; 600 avis écartés  auteur déjà vu
+  AUC sur les cinq tours réunis : 0.785  (0,5 = tirage au hasard, 1,0 = classement parfait)
+  ciblage : 10% des avis → 42% des suppressions ; 20% des avis → 57% des suppressions ; 50% des avis → 90% des suppressions
+  recents_3_16_aout : 34 946 avis  1 238 suppressions  AUC 0.717
+  ciblage : 10% des avis → 22% des suppressions ; 20% des avis → 49% des suppressions ; 50% des avis → 80% des suppressions
+  anciens_avant_3_aout : 187 921 avis  1 242 suppressions  AUC 0.726
+  ciblage : 10% des avis → 21% des suppressions ; 20% des avis → 47% des suppressions ; 50% des avis → 86% des suppressions
+
+==============================================================================
+  À SAVOIR EN LISANT CES CHIFFRES
+==============================================================================
+  - Dénominateur : le nombre d'avis, une ligne par avis.
+  - j8_pendant_suivi est une variable de contrôle, PAS un résultat.
+    Elle est là pour que les autres coefficients se lisent à âge
+    comparable. Son propre coefficient n'est pas à citer.
+  - Les effets de note se lisent par rapport à 5 étoiles. La colonne
+    risque_relatif_vs_3_etoiles du CSV rejoue la comparaison depuis
+    l'avis neutre, qui ne porte que 26 suppressions sur tout le panel.
+  - langue_etrangere_au_pays n'est pas dans le modèle : en Europe elle
+    mesure le tourisme. Remplacée par langue_minoritaire_sur_la_fiche.
+  - Les avis encore en ligne au dernier passage n'ont pas fini leur
+    histoire : leur sort est inconnu.
+  - 63 % des suppressions du panel viennent de 114 fiches qui perdent
+    leurs avis positifs. Comparer avec et sans les enseignes signalées.

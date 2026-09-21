@@ -26,13 +26,13 @@ effectifs et la regarder avant de construire.
 ------------------------------------------------------------------------------
 LE REPÉRAGE DES FICHES ATTAQUÉES SE FAIT SUR LE `cid`
 ------------------------------------------------------------------------------
-Le flag `salle_de_sport_attaquee` de `sql/02_adding_features.sql` marque sur le
+Le flag `salle_de_sport_attaquee` de `sql/02_adding_features.bqsql` marque sur le
 nom de l'enseigne : 13 fiches marquées pour 2 attaquées. Il n'est pas utilisé
 ici. `CID_GYM_ATTAQUEE` porte la liste validée ; tant qu'elle est vide, le
 script la déduit de `controle_cid_fiches_attaquees.sql` en gardant les fiches
 marquées qui portent au moins une suppression, et le signale à l'écran.
 
-Aucune modification de `sql/02_adding_features.sql`, aucune table créée.
+Aucune modification de `sql/02_adding_features.bqsql`, aucune table créée.
 ==============================================================================
 """
 

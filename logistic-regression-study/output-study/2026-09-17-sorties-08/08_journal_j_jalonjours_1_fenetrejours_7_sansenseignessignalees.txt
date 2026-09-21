@@ -1,0 +1,90 @@
+[auth] clé : client-divers-8b012e5b7c73.json
+[lecture] 17 735 avis publiés du 10 au 16 août
+[filtre] enseignes signalées retirées : 1 153 avis
+[jalon] jour 1, fenêtre de 7 jours (soit jusqu'au 8e jour de vie)
+  9 avis perdus avant le jalon  écartés
+  51 avis supprimés après le 8e jour  retirés
+  16 522 avis au jalon — c'est le dénominateur
+  5 617 avec une réponse (34.0%)
+  436 supprimés dans la fenêtre
+
+--- le croisement qui décide ---
+supprime_fenetre      0    1
+reponse_au_jalon            
+0                 10594  311
+1                  5492  125
+
+--- tableau croisé, avant tout modèle ---
+  écrit : 08_croisements_jalon1_fenetre7_sans_enseignes.csv
+  colonnes écartées, trop rares ou sans variation : habitude_historique_insuffisant
+
+--- réponse au jalon × habitude de réponse de la fiche ---
+         habitude_reponse_fiche  reponse_au_jalon  avis_au_jalon  supprimes_dans_la_fenetre  taux_pour_10000_avis
+                 habitude_25_75                 0           2540                         56                 220.5
+                 habitude_25_75                 1            574                         26                 453.0
+habitude_historique_insuffisant                 0            243                          2                  82.3
+habitude_historique_insuffisant                 1             49                          1                 204.1
+           habitude_moins_de_25                 0           4603                        122                 265.0
+           habitude_moins_de_25                 1            126                          4                 317.5
+            habitude_plus_de_75                 0           3519                        131                 372.3
+            habitude_plus_de_75                 1           4868                         94                 193.1
+                 Generalized Linear Model Regression Results                  
+==============================================================================
+Dep. Variable:       supprime_fenetre   No. Observations:                16522
+Model:                            GLM   Df Residuals:                    16494
+Model Family:                Binomial   Df Model:                           27
+Link Function:                  Logit   Scale:                          1.0000
+Method:                          IRLS   Log-Likelihood:                -1835.0
+Date:                Thu, 17 Sep 2026   Deviance:                       3669.9
+Time:                        14:30:37   Pearson chi2:                 1.65e+04
+No. Iterations:                     8   Pseudo R-squ. (CS):            0.02155
+Covariance Type:              cluster                                         
+===================================================================================================
+                                      coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------------------------
+const                              -5.7868      0.727     -7.964      0.000      -7.211      -4.363
+reponse_au_jalon                   -0.4561      0.225     -2.024      0.043      -0.898      -0.014
+has_photo                          -0.1844      0.234     -0.789      0.430      -0.643       0.274
+langue_minoritaire_sur_la_fiche     0.0568      0.263      0.216      0.829      -0.460       0.573
+log_rc                             -0.1148      0.084     -1.374      0.169      -0.278       0.049
+log_photos_auteur                  -0.1271      0.058     -2.189      0.029      -0.241      -0.013
+log_burst                           2.2730      0.676      3.361      0.001       0.947       3.599
+log_ratio_pic_journalier_fiche     -0.0313      0.126     -0.249      0.804      -0.278       0.216
+etoiles_1                           1.1145      0.224      4.982      0.000       0.676       1.553
+etoiles_2                           0.5708      0.353      1.618      0.106      -0.121       1.262
+etoiles_3                          -0.4669      0.442     -1.056      0.291      -1.333       0.399
+etoiles_4                          -0.0694      0.229     -0.303      0.762      -0.519       0.380
+guide_4_et_plus                     0.1982      0.200      0.989      0.323      -0.195       0.591
+guide_sans_niveau                   0.8948      0.170      5.274      0.000       0.562       1.227
+habitude_25_75                      0.1230      0.288      0.427      0.669      -0.442       0.688
+habitude_plus_de_75                 0.0356      0.278      0.128      0.898      -0.509       0.581
+texte_texte_1_50                    0.1349      0.204      0.661      0.508      -0.265       0.535
+texte_texte_51_200                  0.1603      0.227      0.707      0.479      -0.284       0.605
+texte_texte_201p                    0.4148      0.204      2.033      0.042       0.015       0.815
+secteur_food_beverage              -0.5592      0.449     -1.245      0.213      -1.439       0.321
+secteur_healthcare                  0.3458      0.336      1.031      0.303      -0.312       1.003
+secteur_home_services               0.7467      0.357      2.090      0.037       0.047       1.447
+secteur_hospitality                -0.4392      0.355     -1.238      0.216      -1.134       0.256
+secteur_travel                      0.3104      0.504      0.616      0.538      -0.677       1.298
+secteur_wellness_fitness            0.1427      0.388      0.368      0.713      -0.618       0.903
+taille_large                       -0.1536      0.250     -0.615      0.539      -0.643       0.336
+taille_small                        0.6875      0.266      2.581      0.010       0.165       1.210
+region_US                           0.4140      0.224      1.850      0.064      -0.025       0.853
+===================================================================================================
+
+  écrit : 08_coefficients_jalon1_fenetre7_sans_enseignes.csv
+  écrit : 08_summary_jalon1_fenetre7_sans_enseignes.txt
+
+==============================================================================
+  RÉPONDRE DANS LES DEUX JOURS : CE QUE DIT LE MODÈLE
+==============================================================================
+  Risque relatif      ×0.63 [0.41 – 0.99], p = 0.043
+  Dénominateur        16 522 avis au jalon
+  Effet détectable    ×0.53 en protection, ×1.88 en aggravation
+  Lecture             la fourchette exclut 1 : l'écart est net.
+
+  À savoir en citant ce chiffre :
+  - Il porte sur les avis publiés du 10 au 16 août, pas sur tout le panel.
+  - Une réponse retirée est invisible dans l'export.
+  - Le commerçant qui répond est souvent celui qui signale : le sens
+    de la causalité n'est pas établi par ce modèle.

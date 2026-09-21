@@ -1,0 +1,58 @@
+-- ============================================================================
+-- File: sql/controle_D_delai_suppression_enseignes.bqsql
+-- Lancé le 2026-09-17, à la demande de Romain.
+--
+-- Question : les suppressions à 8 jours ou plus viennent-elles surtout des
+-- enseignes signalées ? La réponse décide si le modèle B (suppressions après
+-- le 8e jour) se construit avec elles ou seulement sans elles.
+--
+-- Unité : l'avis du panel `reviews_panel_features`, une ligne par avis.
+--
+-- Groupes :
+--   salles_ES      les deux salles de sport espagnoles, repérées par `cid`
+--                  (docs/02-donnees.md § 4)
+--   chaines_US     les autres fiches de `biz_surveillance`, toutes américaines
+--   reste_US / reste_Europe
+--
+-- Périodes de publication, celles du plan A / B :
+--   A_11_16_aout   vus depuis leur publication
+--   ecartes_4_10   premiers jours en partie avant le premier passage du robot
+--   B_avant_4_aout déjà âgés de 8 jours ou plus le 11 août : toute suppression
+--                  y a lieu à 8 jours ou plus, par construction
+--
+-- Délai : `age_a_la_suppression_j`, jours entre publication et détection de la
+-- disparition.
+-- ============================================================================
+
+WITH avis AS (
+  SELECT
+    CASE
+      WHEN p.cid IN ("3163466139043001754", "10346942689164695031") THEN "salles_ES"
+      WHEN s.cid IS NOT NULL                                         THEN "chaines_US"
+      WHEN p.region = "US"                                           THEN "reste_US"
+      ELSE                                                                "reste_Europe"
+    END AS groupe,
+    CASE
+      WHEN p.age_a_la_vague1_j <= 0 THEN "A_11_16_aout"
+      WHEN p.age_a_la_vague1_j <= 7 THEN "ecartes_4_10"
+      ELSE                               "B_avant_4_aout"
+    END AS periode_publication,
+    p.supprime,
+    p.age_a_la_suppression_j AS delai
+  FROM `client-divers.reviewflowz.reviews_panel_features` p
+  LEFT JOIN `client-divers.reviewflowz.biz_surveillance` s ON s.cid = p.cid
+)
+
+SELECT
+  groupe,
+  periode_publication,
+  COUNT(*)                                        AS avis,
+  COUNTIF(supprime)                               AS suppressions,
+  COUNTIF(supprime AND delai <= 7)                AS supprimes_7j_ou_moins,
+  COUNTIF(supprime AND delai >= 8)                AS supprimes_8j_ou_plus,
+  MIN(IF(supprime, delai, NULL))                  AS delai_min,
+  APPROX_QUANTILES(IF(supprime, delai, NULL), 2)[OFFSET(1)] AS delai_median,
+  MAX(IF(supprime, delai, NULL))                  AS delai_max
+FROM avis
+GROUP BY groupe, periode_publication
+ORDER BY groupe, periode_publication;

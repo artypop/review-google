@@ -1,0 +1,17 @@
+
+ARRÊT : une des cases est sous 30 avis. Il n'y a rien à estimer ; ne pas forcer le modèle.
+[auth] clé : client-divers-8b012e5b7c73.json
+[lecture] 17 735 avis publiés du 10 au 16 août
+[filtre] enseignes signalées retirées : 1 153 avis
+[jalon] jour 7, fenêtre de 1 jours (soit jusqu'au 8e jour de vie)
+  400 avis perdus avant le jalon  écartés
+  51 avis supprimés après le 8e jour  retirés
+  16 131 avis au jalon — c'est le dénominateur
+  7 992 avec une réponse (49.5%)
+  45 supprimés dans la fenêtre
+
+--- le croisement qui décide ---
+supprime_fenetre     0   1
+reponse_au_jalon          
+0                 8114  25
+1                 7972  20

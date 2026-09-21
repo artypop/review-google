@@ -12,47 +12,48 @@ Il remplace, depuis le 2026-09-14 : `etude-exploratoire/BACKLOG.md`,
 
 # Ce qui reste à faire
 
-## En pause, en attente de Romain
-
-**Passer la mesure de qualité en validation croisée, 5 plis.** Aujourd'hui, un quart des
-établissements est mis de côté une seule fois, au hasard. En Europe ce tirage est tombé sur des
-fiches 2,3 fois moins touchées que la moyenne : le modèle annonce le bon niveau, le jeu d'essai
-se trouve plus calme, et tout paraît surestimé. Avec 5 plis, chaque fiche passe une fois en
-essai et le niveau de base devient juste par construction. Environ une minute par passage.
-**Mis en pause par Romain le 2026-09-14, il veut d'abord comprendre.**
-
 ## À faire, par ordre d'intérêt
 
 1. **Comprendre les quatre chaînes américaines de traitement antiparasitaire.** Elles portent
-   27 % des suppressions du panel, presque toutes sur des avis 4 et 5 étoiles, et **aucune
-   caractéristique disponible ne les explique** : les auteurs sont ordinaires, les textes tous
-   différents, il n'y a pas de pic d'afflux. Deux pistes ouvertes : leurs avis supprimés ont
-   plus souvent une réponse du commerçant, et leurs textes nomment très souvent un technicien.
-   Compter la répétition d'un même prénom sur les avis d'une fiche. La simple présence d'un
-   prénom ne suffira pas.
+   692 des 2 595 suppressions du panel, presque toutes sur des avis 4 et 5 étoiles. Vérifié le
+   2026-09-17 : aucun afflux soudain d'avis, la hausse d'EcoShield est durable et commence en
+   avril (`sql/controle_E_afflux_chaines_antiparasitaires.bqsql`). Deux pistes ouvertes : leurs
+   textes nomment très souvent un technicien — compter la répétition d'un même prénom sur les
+   avis d'une fiche — et 44 de leurs avis viennent d'auteurs ayant publié 4 avis ou plus le même
+   jour sur leurs succursales, tous supprimés, contre 34 avis américains hors chaînes dans le
+   même cas dont aucun supprimé.
 2. **Chercher les attaques par avis négatifs dans tout le panel.** Deux ont été trouvées par
    hasard. Le balayage systématique n'a jamais été fait, et c'est ce qui permettrait de dire si
    le phénomène est marginal.
 3. **Croiser le pic au septième jour avec ce qui fait tomber un avis.** Qui sont les avis qui
    sautent à 7 jours ? C'est le motif le plus net de l'étude et il n'a pas d'explication.
-4. **Remonter dans `sql/02` les quatre transformations restées en Python** — les tranches de
-   texte, le logarithme des rafales, le regroupement des secteurs rares, le logarithme de l'âge.
-   Elles sont définies à deux endroits, ce qui est le défaut corrigé partout ailleurs.
-5. **Trancher l'asymétrie des passages du modèle.** Il existe un passage « Europe sans
-   enseignes » mais pas d'« États-Unis sans enseignes ». Soit on le produit, soit on écrit
-   pourquoi on ne le fait pas.
+4. **Comprendre pourquoi la réponse du propriétaire joue en sens opposés** selon l'habitude de
+   réponse de la fiche : ×0,40 sur les fiches qui répondent à plus de 75 % de leurs avis, ×2,0
+   sur celles qui répondent à 25 à 75 %. Il faudrait le contenu des réponses ou les
+   signalements, que les données ne portent pas.
+5. **Construire le modèle des suppressions tardives**, après le 8e jour de l'avis. Le modèle A
+   couvre les 8 premiers jours ; rien ne couvre la suite.
+6. **Remonter dans `sql/03` les transformations restées en Python** — les tranches de texte, le
+   logarithme des rafales, le regroupement des secteurs rares, les tranches d'habitude de
+   réponse. Elles sont définies à deux endroits, ce qui est le défaut corrigé partout ailleurs.
+7. **Passer le 07 au repérage des enseignes par `biz_surveillance`.** Il utilise encore le nom
+   d'enseigne pour les salles de sport, ce qui écarte 90 avis de plus, sans aucune suppression
+   parmi eux.
+8. **Mettre `docs/03-resultats.md` et `docs/05-resume-regressions.md` à jour** des passages du
+   2026-09-17.
 
 ## Questions de méthode jamais refermées
 
 Quatre décisions ont été soulevées puis laissées en suspens. Aucune n'est bloquante, toutes
 reviendront.
 
-- **Le niveau Local Guide** : faut-il le traiter en trois paliers (1-3, 4-5, 6 et plus) ou
-  l'écarter ? Le travail de septembre a utilisé une variable à trois situations sans trancher la
-  question de fond.
-- **Le recalcul à âge comparable** : faut-il l'appliquer partout, ou seulement là où les
-  effectifs par âge sont réellement déséquilibrés ? Le corpus est plat sur 2 à 30 jours, ce qui
-  rend le recalcul inutile sur cette plage.
+- **Le niveau Local Guide** : tranché le 2026-09-17. Trois paliers — sans niveau, 1 à 3, 4 et
+  plus — dans `sql/03_adding_features.bqsql`. Reste ouvert : le palier 4 et plus ne protège pas
+  une fois les photos et le nombre d'avis de l'auteur pris en compte, et personne n'explique
+  pourquoi.
+- **Le recalcul à âge comparable** : remplacé le 2026-09-17 par un indicateur oui / non, le 8e
+  jour de l'avis tombe-t-il pendant le suivi. Reste ouvert : tous les avis publiés avant le
+  3 août sont rangés ensemble, qu'ils aient 9 ou 90 jours.
 - **Les marges d'erreur de l'analyse B** : sont-elles toutes calculées par la méthode lente, ou
   certaines sont-elles restées sur la méthode rapide sans que ce soit écrit ? La méthode rapide
   surestime la rafale d'auteur.
@@ -74,7 +75,7 @@ document d'origine :
 | L5 | Pourquoi 30 % des avis supprimés n'ont aucun texte | à faire |
 | L6 | Bischoff Touristik : un retrait obtenu sur demande ? | à faire |
 | L7 | Combien d'attaques par avis négatifs dans le panel | à faire — voir le point 2 ci-dessus |
-| L8 | L'effet réel de la réponse du commerçant | **fait** le 2026-09-14 : ×0,30 → ×0,40 |
+| L8 | L'effet réel de la réponse du commerçant | **fait** le 2026-09-14, complété le 2026-09-17 : l'effet se sépare selon l'habitude de réponse de la fiche |
 | L9 | La note de la fiche au moment de chaque passage | à faire |
 | L10 | Les 15 passages incomplets | à faire |
 | L11 | Les 84 lignes d'historique marquées supprimées | à faire |
@@ -85,9 +86,20 @@ document d'origine :
 
 ## Écarté, et à ne pas reproposer sans élément nouveau
 
-- **Le drapeau qui repère les salles de sport attaquées** se fonde sur le nom d'enseigne et
-  marque 13 fiches quand 2 sont attaquées. Les 11 autres portent 90 avis et zéro suppression : le corriger
-  ne changerait aucun résultat et obligerait à tout relancer. Décision de Romain, 2026-09-14.
+- **Le drapeau qui repère les salles de sport attaquées dans `sql/02`** se fonde sur le nom
+  d'enseigne et marque 13 fiches quand 2 sont attaquées. Les 11 autres portent 90 avis et zéro
+  suppression. Décision de Romain, 2026-09-14. Depuis le 2026-09-17, les scripts 08 et 10
+  passent par la table `biz_surveillance` ; le 07 utilise encore le nom.
+- **Le script `09_simplified_reg.py`** : modèle à cinq caractéristiques écrit le 2026-09-17, qui
+  utilise `a_une_reponse`, l'état de la réponse au dernier passage du robot. Cette colonne
+  mesure en partie la survie de l'avis. Ses sorties, dans `output-study/2026-09-17-sorties-09/`,
+  ne sont pas à citer.
+- **Enrichir un corpus court avec des avis plus anciens jamais supprimés** : ces avis ont déjà
+  franchi le filtre des premiers jours, et les effets en sortiraient gonflés. Écarté le
+  2026-09-17.
+- **Compter comme restés en ligne les avis supprimés après la fenêtre d'observation** : la durée
+  d'observation varie selon la date de publication. Ils sont retirés du corpus depuis le
+  2026-09-17, dans le modèle A et dans le 08.
 - **Les avis contenant un lien** : zéro suppression dans le panel, ils sont filtrés avant
   publication.
 - **L'effet « avis modifié »** : non mesurable sur le panel actuel, qui exclut les avis à
@@ -100,6 +112,43 @@ document d'origine :
 ---
 
 # L'historique
+
+## 2026-09-17 — paliers d'auteur, mesure de qualité, réponse par type de fiche
+
+**Nouvelle table de caractéristiques, `reviews_panel_features_03`** (`sql/03_adding_features.bqsql`),
+même corpus que la 02 : 225 757 avis, 2 595 suppressions. Trois changements de colonnes — palier
+Local Guide en trois valeurs, photos de l'auteur, habitude de réponse de la fiche.
+
+**La mesure de qualité passe en cinq tours par établissement**, ce qui referme le point mis en
+pause le 2026-09-14. Le niveau annoncé par le modèle redevient juste en Europe : 409 suppressions
+annoncées pour 409 constatées, contre 3,72 % annoncés pour 1,47 % observés sur le dernier décile
+de l'ancien tirage.
+
+**L'âge au 11 août est remplacé par un indicateur oui / non** : le 8e jour de l'avis tombe-t-il
+pendant le suivi ? L'ancienne variable valait 0 pour les 15 248 avis publiés pendant le suivi,
+quelle que soit leur durée d'observation.
+
+**Le graphique de calibration est remplacé par une courbe de ciblage**, qui dit quelle part des
+suppressions tombe dans les 10 % d'avis jugés les plus risqués. Lue par période de publication,
+elle vaut 22 à 31 %, contre 41 à 51 % quand la date de publication aide le modèle.
+
+**Nouveau modèle A** (`python/10_modele_A_8_premiers_jours.py`) : les avis publiés du 10 au
+16 août, suivis jusqu'à leur 8e jour, avec les suppressions comptées dès le lendemain de la
+publication. La note et le profil de l'auteur y donnent les mêmes effets que sur tout le panel.
+
+**Le 08 est refait avec l'habitude de réponse de la fiche.** L'effet d'une réponse se sépare en
+deux : ×0,40 sur les fiches qui répondent à plus de 75 % de leurs avis, ×2,0 sur celles qui
+répondent à 25 à 75 %. L'effet moyen, ×0,59, mélange les deux.
+
+**Deux contrôles écrits** : `controle_D_delai_suppression_enseignes.bqsql`, qui montre que les
+suppressions des deux salles de sport tombent 9 à 22 jours après la publication, et
+`controle_E_afflux_chaines_antiparasitaires.bqsql`, qui écarte l'hypothèse d'un afflux soudain
+sur les chaînes.
+
+**Les synthèses du jour** sont dans `logistic-regression-study/output-study/` :
+`2026-09-17-synthese-generale.md`, `-synthese-07.md`, `-synthese-modele-A.md`, `-synthese-08.md`
+et `-argumentaire-effectifs.md`. Le brief d'équipe est mis à jour, et ses exemples de lignes sont
+anonymisés.
 
 ## 2026-09-14 — interprétation, effet de la réponse, remise en ordre
 

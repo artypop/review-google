@@ -2,7 +2,35 @@
 """
 ==============================================================================
 Script : 08_effet_reponse_commercant.py
-Table source : client-divers.reviewflowz.reviews_panel_features
+Table source : client-divers.reviewflowz.reviews_panel_features_03
+
+------------------------------------------------------------------------------
+MISE À JOUR DU 2026-09-17 (plan validé par Romain)
+------------------------------------------------------------------------------
+  - Table 03 : palier Local Guide (sans niveau, 1 à 3, 4 et plus) à la place du
+    profil d'auteur ; photos de l'auteur et pic du jour sur la fiche ajoutés.
+  - Population élargie au 10 août : avis publiés du 10 au 16 août. Pour un
+    avis du 10 août, le jalon du 2e jour tombe le 12, après l'arrivée du robot.
+    Les avis supprimés avant le jalon sortent de toute façon de l'étude.
+  - Les avis supprimés après la fenêtre (9 jours ou plus avec les réglages par
+    défaut) sont retirés du corpus. Avant, ils comptaient comme restés en
+    ligne. Un avis du 10 août est suivi 14 jours, un avis du 16 août 8 jours :
+    les compter donnerait plus de chances aux premiers.
+  - Enseignes repérées par `biz_surveillance`.
+  - HABITUDE DE RÉPONSE DE LA FICHE. `taux_reponse_fiche_avant_vague1`, part des
+    avis de la fiche publiés du 2025-08-11 au 2026-08-03 qui portaient une
+    réponse avant le 11 août, en quatre tranches : moins de 25 % (référence),
+    25 à 75 %, plus de 75 %, historique insuffisant (moins de 10 avis).
+    Pourquoi : un propriétaire qui lit ses avis chaque jour répond vite ET
+    signale les avis qu'il juge faux. Sans cette variable, « avoir une réponse »
+    peut mesurer « être sur une fiche surveillée ». Avec elle, on compare un
+    avis répondu et un avis non répondu sur des fiches qui ont la même
+    habitude. `--reponse-par-habitude` (ajout du même jour) mesure l'effet de
+    la réponse séparément dans chaque tranche d'habitude : la variable
+    `reponse_au_jalon` y est remplacée par une colonne par tranche, dont le
+    coefficient est l'effet de la réponse sur les fiches de cette tranche.
+    `--sans-habitude` refait le passage sans elle, pour voir de
+    combien l'effet de la réponse bouge.
 
 Répondre vite à un avis le protège-t-il ?
 
@@ -49,7 +77,8 @@ Trois conséquences, toutes voulues :
 ------------------------------------------------------------------------------
 LA POPULATION
 ------------------------------------------------------------------------------
-Les avis publiés du 2026-08-11 au 2026-08-16, soit `ne_pendant_la_surveillance`.
+Depuis le 2026-09-17 : les avis publiés du 2026-08-10 au 2026-08-16
+(`age_a_la_vague1_j <= 1`). Jusque-là : du 11 au 16, `ne_pendant_la_surveillance`.
 Eux seuls ont leurs premiers jours observés : pour un avis déjà en ligne au
 11 août, on ne sait ni s'il a reçu une réponse pendant ses 48 premières heures,
 ni s'il a failli disparaître.
@@ -104,7 +133,8 @@ import statsmodels.api as sm
 
 PROJET = "client-divers"
 DATASET = "reviewflowz"
-TABLE = "reviews_panel_features"
+TABLE = "reviews_panel_features_03"
+TABLE_ENSEIGNES = "biz_surveillance"
 # Dossier des clés de service, pas un fichier précis : le nom change à chaque
 # rotation. Même résolution que dans `07_regression_panel.py`, voir `trouver_cle`.
 DOSSIER_CLES = Path("/home/romain/.gcp")
@@ -123,7 +153,8 @@ MIN_SUPPRESSIONS_PAR_COLONNE = 5
 
 REFERENCES = {
     "etoiles": "etoiles_5",
-    "profil": "profil_guide_etabli",
+    "profil": "guide_1_3",
+    "habitude": "habitude_moins_de_25",
     "texte": "texte_sans_texte",
     "taille": "taille_mono",
 }
@@ -134,14 +165,15 @@ Z_TEST_PLUS_Z_PUISSANCE = 1.959964 + 0.841621
 
 COLONNES = [
     "review_id", "cid", "author_key",
-    "supprime", "age_a_la_suppression_j", "ne_pendant_la_surveillance",
+    "supprime", "age_a_la_suppression_j", "age_a_la_vague1_j",
     "delai_reponse_j",
     "star", "has_text", "text_chars", "has_photo",
-    "reviewer_review_count", "log_rc", "situation_auteur",
+    "reviewer_review_count", "log_rc", "palier_local_guide", "reviewer_photo_count",
     "n_avis_meme_jour_auteur",
     "langue_minoritaire_sur_la_fiche",
     "industry", "bucket", "region",
-    "chaine_antiparasitaire_us", "salle_de_sport_attaquee",
+    "log_ratio_pic_journalier_fiche",
+    "taux_reponse_fiche_avant_vague1",
 ]
 
 VARIABLES_BINAIRES = [
@@ -154,8 +186,16 @@ VARIABLES_BINAIRES = [
 
 VARIABLES_CONTINUES = [
     "log_rc",
+    "log_photos_auteur",
     "log_burst",
+    "log_ratio_pic_journalier_fiche",
 ]
+
+# Habitude de réponse de la fiche, en tranches. Seuils fixés le 2026-09-17 après
+# comptage des avis publiés du 10 au 16 août : 8 853 avis sur des fiches à plus
+# de 75 %, 5 418 à moins de 25 %, 3 170 entre les deux, 294 sans historique.
+TRANCHES_HABITUDE = [-0.001, 0.25, 0.75, 1.0]
+NOMS_TRANCHES_HABITUDE = ["habitude_moins_de_25", "habitude_25_75", "habitude_plus_de_75"]
 
 
 # ---------------------------------------------------------------------------
@@ -195,12 +235,14 @@ def client_bigquery():
 
 
 def lire(client) -> pd.DataFrame:
-    """Charge les seuls avis nés pendant la surveillance."""
-    sql = (f"SELECT {', '.join(COLONNES)} "
-           f"FROM `{PROJET}.{DATASET}.{TABLE}` "
-           f"WHERE ne_pendant_la_surveillance")
+    """Charge les avis publiés du 10 au 16 août, avec le repère des enseignes."""
+    sql = (f"SELECT {', '.join('p.' + c for c in COLONNES)}, "
+           f"s.cid IS NOT NULL AS enseigne_surveillee "
+           f"FROM `{PROJET}.{DATASET}.{TABLE}` p "
+           f"LEFT JOIN `{PROJET}.{DATASET}.{TABLE_ENSEIGNES}` s ON s.cid = p.cid "
+           f"WHERE p.age_a_la_vague1_j <= 1")
     df = client.query(sql).to_arrow(create_bqstorage_client=True).to_pandas()
-    print(f"[lecture] {len(df):,} avis nés pendant la surveillance"
+    print(f"[lecture] {len(df):,} avis publiés du 10 au 16 août"
           .replace(",", " "))
     return df
 
@@ -230,6 +272,10 @@ def appliquer_jalon(df: pd.DataFrame, jalon: int, fenetre: int) -> pd.DataFrame:
 
     df = df[vivant].copy()
 
+    # Supprimés après la fenêtre : retirés du corpus (décision du 2026-09-17).
+    tardif = df["supprime"].astype(bool) & (df["age_a_la_suppression_j"] > jalon + fenetre)
+    df = df[~tardif].copy()
+
     # La réponse était-elle publiée au jalon ? `delai_reponse_j` vide = pas de
     # réponse connue, donc pas de réponse au jalon.
     df["reponse_au_jalon"] = (
@@ -246,6 +292,8 @@ def appliquer_jalon(df: pd.DataFrame, jalon: int, fenetre: int) -> pd.DataFrame:
     print(f"[jalon] jour {jalon}, fenêtre de {fenetre} jours "
           f"(soit jusqu'au {jalon + fenetre}e jour de vie)")
     print(f"  {perdus:,} avis perdus avant le jalon, écartés".replace(",", " "))
+    print(f"  {int(tardif.sum()):,} avis supprimés après le {jalon + fenetre}e jour, "
+          f"retirés".replace(",", " "))
     print(f"  {len(df):,} avis au jalon — c'est le dénominateur".replace(",", " "))
     print(f"  {int(df['reponse_au_jalon'].sum()):,} avec une réponse "
           f"({df['reponse_au_jalon'].mean():.1%})".replace(",", " "))
@@ -261,6 +309,13 @@ def ajouter_variables(df: pd.DataFrame) -> pd.DataFrame:
         df["text_chars"].fillna(0).clip(lower=0),
         bins=TRANCHES_TEXTE, labels=NOMS_TRANCHES_TEXTE)
     df["log_burst"] = np.log1p(df["n_avis_meme_jour_auteur"].fillna(1).clip(lower=0))
+    df["log_photos_auteur"] = np.log1p(df["reviewer_photo_count"].fillna(0).clip(lower=0))
+    df["log_ratio_pic_journalier_fiche"] = (
+        df["log_ratio_pic_journalier_fiche"].fillna(0).astype("float32"))
+    habitude = pd.cut(df["taux_reponse_fiche_avant_vague1"],
+                      bins=TRANCHES_HABITUDE, labels=NOMS_TRANCHES_HABITUDE)
+    df["habitude_reponse_fiche"] = (habitude.astype("object")
+                                    .fillna("habitude_historique_insuffisant"))
     df["star"] = df["star"].fillna(0).astype("int8")
     for col in ["has_photo", "langue_minoritaire_sur_la_fiche"]:
         df[col] = df[col].fillna(0).astype("int8")
@@ -276,7 +331,8 @@ def ajouter_variables(df: pd.DataFrame) -> pd.DataFrame:
 # Ajustement
 # ---------------------------------------------------------------------------
 
-def matrice_modele(df: pd.DataFrame, avec_region: bool) -> pd.DataFrame:
+def matrice_modele(df: pd.DataFrame, avec_region: bool, avec_habitude: bool = True,
+                   reponse_par_habitude: bool = False) -> pd.DataFrame:
     morceaux = [df[VARIABLES_BINAIRES].astype("float32"),
                 df[VARIABLES_CONTINUES].astype("float32")]
 
@@ -287,7 +343,10 @@ def matrice_modele(df: pd.DataFrame, avec_region: bool) -> pd.DataFrame:
         return d
 
     morceaux.append(dummies(df["star"], "etoiles", REFERENCES["etoiles"]))
-    morceaux.append(dummies(df["situation_auteur"], "profil", REFERENCES["profil"]))
+    morceaux.append(dummies(df["palier_local_guide"], "guide", REFERENCES["profil"]))
+    if avec_habitude:
+        d = pd.get_dummies(df["habitude_reponse_fiche"], dtype="float32")
+        morceaux.append(d.drop(columns=[REFERENCES["habitude"]], errors="ignore"))
     morceaux.append(dummies(df["taille_texte"], "texte", REFERENCES["texte"]))
     morceaux.append(dummies(df["secteur"], "secteur").iloc[:, 1:])
     morceaux.append(dummies(df["bucket"], "taille", REFERENCES["taille"]))
@@ -295,6 +354,22 @@ def matrice_modele(df: pd.DataFrame, avec_region: bool) -> pd.DataFrame:
         morceaux.append(dummies(df["region"], "region").iloc[:, 1:])
 
     X = pd.concat(morceaux, axis=1)
+
+    # Réponse découpée par habitude de la fiche. Les fiches sans historique sont
+    # rangées avec celles qui répondent à moins de 25 % : leur tranche ne porte
+    # que 2 suppressions et le garde-fou la fond déjà dans la référence.
+    if reponse_par_habitude:
+        repondu = df["reponse_au_jalon"] == 1
+        habitude = df["habitude_reponse_fiche"].astype(str)
+        X = X.drop(columns=["reponse_au_jalon"])
+        X["reponse_si_habitude_plus_de_75"] = (
+            repondu & (habitude == "habitude_plus_de_75")).astype("float32")
+        X["reponse_si_habitude_25_75"] = (
+            repondu & (habitude == "habitude_25_75")).astype("float32")
+        X["reponse_si_habitude_moins_de_25"] = (
+            repondu & habitude.isin(["habitude_moins_de_25",
+                                     "habitude_historique_insuffisant"])).astype("float32")
+
     X = X.loc[:, X.sum(axis=0) >= MIN_CAS_PAR_COLONNE]
     return sm.add_constant(X, has_constant="add")
 
@@ -322,9 +397,11 @@ def ecarter_colonnes_degenerees(X: pd.DataFrame, y: pd.Series) -> pd.DataFrame:
     return X.drop(columns=a_jeter)
 
 
-def ajuster(df: pd.DataFrame, libelle: str, avec_region: bool):
+def ajuster(df: pd.DataFrame, libelle: str, avec_region: bool, avec_habitude: bool = True,
+            reponse_par_habitude: bool = False):
     y = df["supprime_fenetre"].astype("float64")
-    X = ecarter_colonnes_degenerees(matrice_modele(df, avec_region), y)
+    X = ecarter_colonnes_degenerees(
+        matrice_modele(df, avec_region, avec_habitude, reponse_par_habitude), y)
 
     res = sm.GLM(y, X, family=sm.families.Binomial()).fit(
         cov_type="cluster", cov_kwds={"groups": df["cid"].to_numpy()})
@@ -354,6 +431,8 @@ def effet_minimal_detectable(res) -> tuple[float, float]:
     C'est donc la précision du modèle tel qu'il a tourné, sans hypothèse ajoutée.
     Renvoie les deux bornes : protection et aggravation.
     """
+    if "reponse_au_jalon" not in res.bse.index:
+        return float("nan"), float("nan")
     se = float(res.bse["reponse_au_jalon"])
     ecart = Z_TEST_PLUS_Z_PUISSANCE * se
     return float(np.exp(-ecart)), float(np.exp(ecart))
@@ -364,7 +443,8 @@ def tableau_croise(df: pd.DataFrame) -> pd.DataFrame:
     Dénominateur : le nombre d'avis du groupe, au jalon."""
     lignes = []
     for var in ["reponse_au_jalon", "has_photo", "langue_minoritaire_sur_la_fiche",
-                "star", "bucket", "secteur", "situation_auteur", "taille_texte",
+                "star", "bucket", "secteur", "palier_local_guide", "taille_texte",
+                "habitude_reponse_fiche",
                 "region", "n_avis_meme_jour_auteur"]:
         g = df.groupby(var, observed=True)["supprime_fenetre"].agg(["sum", "size"])
         for valeur, row in g.iterrows():
@@ -420,7 +500,11 @@ def main() -> int:
     ap.add_argument("--fenetre-jours", type=int, default=6,
                     help="durée d'observation après le jalon, en jours (défaut 6)")
     ap.add_argument("--sans-enseignes-signalees", action="store_true",
-                    help="retire les 4 chaînes antiparasitaires et les 2 salles espagnoles")
+                    help="retire les fiches de biz_surveillance")
+    ap.add_argument("--sans-habitude", action="store_true",
+                    help="retire l'habitude de réponse de la fiche du modèle")
+    ap.add_argument("--reponse-par-habitude", action="store_true",
+                    help="mesure l'effet de la réponse dans chaque tranche d'habitude")
     args = ap.parse_args()
 
     if args.jalon_jours < 0 or args.fenetre_jours < 1:
@@ -437,8 +521,7 @@ def main() -> int:
     df = lire(client_bigquery())
 
     if args.sans_enseignes_signalees:
-        garde = (~df["chaine_antiparasitaire_us"].astype(bool)) & \
-                (~df["salle_de_sport_attaquee"].astype(bool))
+        garde = ~df["enseigne_surveillee"].astype(bool)
         print(f"[filtre] enseignes signalées retirées : "
               f"{int((~garde).sum()):,} avis".replace(",", " "))
         df = df[garde]
@@ -447,7 +530,9 @@ def main() -> int:
     df = ajouter_variables(df)
 
     suffixe = (f"jalon{args.jalon_jours}_fenetre{args.fenetre_jours}"
-               + ("_sans_enseignes" if args.sans_enseignes_signalees else ""))
+               + ("_sans_enseignes" if args.sans_enseignes_signalees else "")
+               + ("_sans_habitude" if args.sans_habitude else "")
+               + ("_reponse_par_habitude" if args.reponse_par_habitude else ""))
 
     # Le croisement qui décide si le modèle a de quoi tourner.
     croise_reponse = pd.crosstab(df["reponse_au_jalon"], df["supprime_fenetre"])
@@ -465,7 +550,21 @@ def main() -> int:
     print(f"  écrit : 08_croisements_{suffixe}.csv")
 
     avec_region = df["region"].nunique() > 1
-    res, tableau = ajuster(df, suffixe, avec_region)
+    if args.reponse_par_habitude and args.sans_habitude:
+        print("ARRÊT : --reponse-par-habitude demande l'habitude dans le modèle.",
+              file=sys.stderr)
+        return 1
+    res, tableau = ajuster(df, suffixe, avec_region, not args.sans_habitude,
+                           args.reponse_par_habitude)
+
+    # Réponse × habitude, avant tout modèle : taux pour 10 000 avis au jalon.
+    g = df.groupby(["habitude_reponse_fiche", "reponse_au_jalon"])["supprime_fenetre"]
+    croise_habitude = g.agg(avis_au_jalon="size", supprimes_dans_la_fenetre="sum").reset_index()
+    croise_habitude["taux_pour_10000_avis"] = (
+        croise_habitude["supprimes_dans_la_fenetre"] / croise_habitude["avis_au_jalon"] * 10000).round(1)
+    croise_habitude.to_csv(SORTIES / f"08_reponse_x_habitude_{suffixe}.csv", index=False)
+    print("\n--- réponse au jalon × habitude de réponse de la fiche ---")
+    print(croise_habitude.to_string(index=False))
     print(res.summary())
 
     tableau.index.name = "variable"
@@ -475,6 +574,20 @@ def main() -> int:
     mde = effet_minimal_detectable(res)
     ecrire_summary(res, suffixe, df, args.jalon_jours, args.fenetre_jours, mde)
     print(f"  écrit : 08_summary_{suffixe}.txt")
+
+    if args.reponse_par_habitude:
+        print("\n" + "=" * 78)
+        print("  EFFET DE LA RÉPONSE, SÉPARÉMENT PAR HABITUDE DE LA FICHE")
+        print("=" * 78)
+        for var in ["reponse_si_habitude_plus_de_75", "reponse_si_habitude_25_75",
+                    "reponse_si_habitude_moins_de_25"]:
+            if var not in tableau.index:
+                print(f"  {var:34s} colonne écartée, trop peu de suppressions")
+                continue
+            l = tableau.loc[var]
+            print(f"  {var:34s} ×{l['risque_relatif']:.2f} "
+                  f"[{l['borne_basse']:.2f} – {l['borne_haute']:.2f}]")
+        return 0
 
     ligne = tableau.loc["reponse_au_jalon"]
     print("\n" + "=" * 78)
@@ -495,7 +608,7 @@ def main() -> int:
         print("  Lecture             la fourchette exclut 1 : l'écart est net.")
     print()
     print("  À savoir en citant ce chiffre :")
-    print("  - Il porte sur les avis nés du 11 au 16 août, pas sur tout le panel.")
+    print("  - Il porte sur les avis publiés du 10 au 16 août, pas sur tout le panel.")
     print("  - Une réponse retirée est invisible dans l'export.")
     print("  - Le commerçant qui répond est souvent celui qui signale : le sens")
     print("    de la causalité n'est pas établi par ce modèle.")

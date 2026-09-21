@@ -1,0 +1,51 @@
+-- ============================================================================
+-- File: sql/controle_E_afflux_chaines_antiparasitaires.bqsql
+-- Lancé le 2026-09-17, à la demande de Romain.
+--
+-- Question : y a-t-il eu un pic d'avis sur les quatre chaînes antiparasitaires
+-- américaines ?
+--
+-- Unité : l'avis à enregistrement unique de `reviews`, publié sur une fiche
+-- américaine de `biz_surveillance`. Seuls les avis encore en ligne le 11 août,
+-- ou publiés ensuite, sont dans la table : un avis supprimé plus tôt manque.
+--
+-- Deux requêtes, à lancer séparément.
+-- ============================================================================
+
+-- 1. Avis publiés par semaine, par chaîne, du 2 février au 23 août 2026.
+WITH uniques AS (
+  SELECT review_id FROM `client-divers.reviewflowz.reviews` GROUP BY review_id HAVING COUNT(*) = 1
+),
+avis AS (
+  SELECT s.name AS chaine, DATE_TRUNC(CAST(r.created_at AS DATE), WEEK(MONDAY)) AS semaine,
+         r.deleted_detected_at IS NOT NULL AS supprime
+  FROM `client-divers.reviewflowz.reviews` r
+  JOIN uniques USING (review_id)
+  JOIN `client-divers.reviewflowz.biz_surveillance` s ON s.cid = r.cid
+  WHERE s.country = "US" AND CAST(r.created_at AS DATE) BETWEEN "2026-02-02" AND "2026-08-23"
+)
+SELECT semaine,
+  COUNTIF(chaine = "EcoShield Pest Solutions") AS ecoshield,
+  COUNTIF(chaine = "Bulwark Exterminating")    AS bulwark,
+  COUNTIF(chaine = "Insight Pest Solutions")   AS insight,
+  COUNTIF(chaine = "Pointe Pest Control")      AS pointe,
+  COUNT(*) AS total,
+  COUNTIF(supprime) AS dont_supprimes
+FROM avis GROUP BY semaine ORDER BY semaine;
+
+-- 2. Pic journalier par chaîne, sur la période du panel (13 mai au 16 août).
+WITH uniques AS (
+  SELECT review_id FROM `client-divers.reviewflowz.reviews` GROUP BY review_id HAVING COUNT(*) = 1
+),
+jour AS (
+  SELECT s.name AS chaine, CAST(r.created_at AS DATE) AS j, COUNT(*) AS n
+  FROM `client-divers.reviewflowz.reviews` r
+  JOIN uniques USING (review_id)
+  JOIN `client-divers.reviewflowz.biz_surveillance` s ON s.cid = r.cid
+  WHERE s.country = "US" AND CAST(r.created_at AS DATE) BETWEEN "2026-05-13" AND "2026-08-16"
+  GROUP BY 1, 2
+)
+SELECT chaine, COUNT(*) AS jours,
+       APPROX_QUANTILES(n, 2)[OFFSET(1)] AS mediane_par_jour, MAX(n) AS max_par_jour,
+       ARRAY_AGG(STRUCT(j, n) ORDER BY n DESC LIMIT 3) AS trois_jours_les_plus_charges
+FROM jour GROUP BY chaine ORDER BY chaine;

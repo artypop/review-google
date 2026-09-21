@@ -1,0 +1,314 @@
+[lecture] 17 735 avis publiés du 10 au 16 août
+[corpus] 56 avis supprimés à 9 jours ou plus  retirés
+[passages] Europe : aucun avis d'enseigne surveillée, un seul passage
+
+==============================================================================
+  PASSAGE US_avec_enseignes
+==============================================================================
+  9 948 avis  509 supprimés au plus tard au 8e jour  2 231 fiches
+
+--- par jour de publication ---
+date_publication  avis  suppressions  suppressions_pour_10000_avis
+      2026-08-10  1350            64                         474.1
+      2026-08-11  1483            85                         573.2
+      2026-08-12  1458            94                         644.7
+      2026-08-13  1585            87                         548.9
+      2026-08-14  1605            80                         498.4
+      2026-08-15  1410            57                         404.3
+      2026-08-16  1057            42                         397.4
+
+--- chiffres bruts, sans modèle ---
+caracteristique            valeur  avis  suppressions  suppressions_pour_10000_avis
+        etoiles         etoiles_1   621            61                         982.3
+        etoiles         etoiles_2   146             7                         479.5
+        etoiles         etoiles_3   182             4                         219.8
+        etoiles         etoiles_4   502            16                         318.7
+        etoiles         etoiles_5  8497           421                         495.5
+      has_photo                 0  9238           492                         532.6
+      has_photo                 1   710            17                         239.4
+          texte        texte_1_50  1638            80                         488.4
+          texte        texte_201p  2401           141                         587.3
+          texte      texte_51_200  3578           162                         452.8
+          texte  texte_sans_texte  2331           126                         540.5
+    avis_auteur                 0  1771           115                         649.4
+    avis_auteur               1_5  4165           206                         494.6
+    avis_auteur              6_20  2511           156                         621.3
+    avis_auteur            21_100  1124            23                         204.6
+    avis_auteur       plus_de_100   377             9                         238.7
+  photos_auteur                 0  6453           370                         573.4
+  photos_auteur              1_10  2430           121                         497.9
+  photos_auteur            11_100   721            14                         194.2
+  photos_auteur       plus_de_100   344             4                         116.3
+         profil         guide_1_3  6488           352                         542.5
+         profil   guide_4_et_plus  2564            87                         339.3
+         profil guide_sans_niveau   896            70                         781.2
+         rafale                 1  9875           486                         492.2
+         rafale                 2    52            12                        2307.7
+         rafale                 3     9             3                        3333.3
+         rafale         4_et_plus    12             8                        6666.7
+      pic_fiche        jusqu_a_1x   665            42                         631.6
+      pic_fiche             1x_3x  3783           207                         547.2
+      pic_fiche            3x_10x  3835           220                         573.7
+      pic_fiche       plus_de_10x  1665            40                         240.2
+  colonnes retirées, trop rares : etoiles_3
+
+--- effets, à autres caractéristiques égales ---
+                                risque_relatif  borne_basse  borne_haute
+variable                                                                
+etoiles_1                                 1.99         1.24         3.18
+etoiles_2                                 1.05         0.42         2.60
+etoiles_4                                 0.63         0.40         1.01
+etoiles_5                                 1.00         1.00         1.00
+has_photo                                 0.60         0.34         1.05
+texte_sans_texte                          1.00         1.00         1.00
+texte_1_50                                0.97         0.71         1.32
+texte_51_200                              0.92         0.67         1.25
+texte_201p                                1.20         0.84         1.71
+log_rc                                    1.10         0.93         1.30
+log_photos_auteur                         0.82         0.73         0.91
+guide_1_3                                 1.00         1.00         1.00
+guide_sans_niveau                         1.59         1.14         2.22
+guide_4_et_plus                           0.72         0.46         1.11
+log_burst                                44.42        14.18       139.11
+log_ratio_pic_journalier_fiche            0.72         0.59         0.88
+
+--- qualité, cinq tours par établissement ---
+  colonnes retirées, trop rares : etoiles_3
+  tour 1 : 1 975 avis  94 suppressions ; 13 avis écartés  auteur déjà vu
+  colonnes retirées, trop rares : etoiles_3
+  tour 2 : 2 215 avis  111 suppressions ; 14 avis écartés  auteur déjà vu
+  colonnes retirées, trop rares : etoiles_3
+  tour 3 : 1 998 avis  94 suppressions ; 16 avis écartés  auteur déjà vu
+  colonnes retirées, trop rares : etoiles_3
+  tour 4 : 1 765 avis  90 suppressions ; 17 avis écartés  auteur déjà vu
+  colonnes retirées, trop rares : etoiles_2, etoiles_3
+  tour 5 : 1 919 avis  95 suppressions ; 16 avis écartés  auteur déjà vu
+  AUC : 0.585
+  ciblage : 10% des avis → 13% des suppressions ; 20% des avis → 25% des suppressions ; 50% des avis → 60% des suppressions
+  suppressions annoncées 486, constatées 484
+ groupe  avis  annoncees  constatees
+      1   988       12.8          12
+      2   987       24.8          21
+      3   987       33.1          46
+      4   987       39.7          63
+      5   987       45.3          53
+      6   987       50.2          50
+      7   987       54.8          55
+      8   987       59.8          61
+      9   987       68.2          59
+     10   988       97.2          64
+
+==============================================================================
+  PASSAGE US_sans_enseignes
+==============================================================================
+  8 800 avis  293 supprimés au plus tard au 8e jour  2 146 fiches
+
+--- par jour de publication ---
+date_publication  avis  suppressions  suppressions_pour_10000_avis
+      2026-08-10  1221            37                         303.0
+      2026-08-11  1272            36                         283.0
+      2026-08-12  1257            41                         326.2
+      2026-08-13  1359            51                         375.3
+      2026-08-14  1401            51                         364.0
+      2026-08-15  1274            40                         314.0
+      2026-08-16  1016            37                         364.2
+
+--- chiffres bruts, sans modèle ---
+caracteristique            valeur  avis  suppressions  suppressions_pour_10000_avis
+        etoiles         etoiles_1   559            54                         966.0
+        etoiles         etoiles_2   144             6                         416.7
+        etoiles         etoiles_3   175             3                         171.4
+        etoiles         etoiles_4   467            10                         214.1
+        etoiles         etoiles_5  7455           220                         295.1
+      has_photo                 0  8104           278                         343.0
+      has_photo                 1   696            15                         215.5
+          texte        texte_1_50  1461            42                         287.5
+          texte        texte_201p  2173            99                         455.6
+          texte      texte_51_200  3171            87                         274.4
+          texte  texte_sans_texte  1995            65                         325.8
+    avis_auteur                 0  1581            84                         531.3
+    avis_auteur               1_5  3614           112                         309.9
+    avis_auteur              6_20  2181            74                         339.3
+    avis_auteur            21_100  1055            16                         151.7
+    avis_auteur       plus_de_100   369             7                         189.7
+  photos_auteur                 0  5596           208                         371.7
+  photos_auteur              1_10  2179            70                         321.2
+  photos_auteur            11_100   689            12                         174.2
+  photos_auteur       plus_de_100   336             3                          89.3
+         profil         guide_1_3  5599           182                         325.1
+         profil   guide_4_et_plus  2393            54                         225.7
+         profil guide_sans_niveau   808            57                         705.4
+         rafale                 1  8745           287                         328.2
+         rafale                 2    42             3                         714.3
+         rafale                 3     9             3                        3333.3
+         rafale         4_et_plus     4             0                           0.0
+      pic_fiche        jusqu_a_1x   532            24                         451.1
+      pic_fiche             1x_3x  3054           100                         327.4
+      pic_fiche            3x_10x  3556           132                         371.2
+      pic_fiche       plus_de_10x  1658            37                         223.2
+  colonnes retirées, trop rares : etoiles_3
+
+--- effets, à autres caractéristiques égales ---
+                                risque_relatif  borne_basse  borne_haute
+variable                                                                
+etoiles_1                                 3.20         1.91         5.37
+etoiles_2                                 1.41         0.52         3.85
+etoiles_4                                 0.74         0.41         1.35
+etoiles_5                                 1.00         1.00         1.00
+has_photo                                 0.74         0.40         1.35
+texte_sans_texte                          1.00         1.00         1.00
+texte_1_50                                0.88         0.54         1.42
+texte_51_200                              0.87         0.53         1.41
+texte_201p                                1.32         0.83         2.08
+log_rc                                    0.96         0.78         1.19
+log_photos_auteur                         0.89         0.77         1.02
+guide_1_3                                 1.00         1.00         1.00
+guide_sans_niveau                         2.17         1.47         3.21
+guide_4_et_plus                           0.85         0.52         1.40
+log_burst                                 7.11         1.30        38.81
+log_ratio_pic_journalier_fiche            0.76         0.60         0.96
+
+--- qualité, cinq tours par établissement ---
+  colonnes retirées, trop rares : etoiles_2, etoiles_3
+  tour 1 : 1 636 avis  71 suppressions ; 10 avis écartés  auteur déjà vu
+  colonnes retirées, trop rares : etoiles_3
+  tour 2 : 1 682 avis  101 suppressions ; 10 avis écartés  auteur déjà vu
+  colonnes retirées, trop rares : etoiles_3
+  tour 3 : 1 577 avis  41 suppressions ; 15 avis écartés  auteur déjà vu
+  colonnes retirées, trop rares : etoiles_3
+  tour 4 : 2 162 avis  41 suppressions ; 13 avis écartés  auteur déjà vu
+  colonnes retirées, trop rares : etoiles_3
+  tour 5 : 1 683 avis  29 suppressions ; 12 avis écartés  auteur déjà vu
+  AUC : 0.570
+  ciblage : 10% des avis → 23% des suppressions ; 20% des avis → 32% des suppressions ; 50% des avis → 56% des suppressions
+  suppressions annoncées 288, constatées 283
+ groupe  avis  annoncees  constatees
+      1   874        8.5          18
+      2   874       12.7          32
+      3   874       16.2          24
+      4   874       19.6          23
+      5   874       22.6          28
+      6   874       25.5          24
+      7   874       28.6          20
+      8   874       32.9          23
+      9   874       41.9          26
+     10   874       79.1          65
+
+==============================================================================
+  PASSAGE Europe
+==============================================================================
+  7 731 avis  152 supprimés au plus tard au 8e jour  2 025 fiches
+
+--- par jour de publication ---
+date_publication  avis  suppressions  suppressions_pour_10000_avis
+      2026-08-10  1118            37                         330.9
+      2026-08-11  1089            24                         220.4
+      2026-08-12  1006            10                          99.4
+      2026-08-13  1134            24                         211.6
+      2026-08-14  1195            23                         192.5
+      2026-08-15  1026            14                         136.5
+      2026-08-16  1163            20                         172.0
+
+--- chiffres bruts, sans modèle ---
+caracteristique            valeur  avis  suppressions  suppressions_pour_10000_avis
+        etoiles         etoiles_1   624            32                         512.8
+        etoiles         etoiles_2   289             8                         276.8
+        etoiles         etoiles_3   431             3                          69.6
+        etoiles         etoiles_4  1029            13                         126.3
+        etoiles         etoiles_5  5358            96                         179.2
+      has_photo                 0  6900           140                         202.9
+      has_photo                 1   831            12                         144.4
+          texte        texte_1_50   958            21                         219.2
+          texte        texte_201p  2355            58                         246.3
+          texte      texte_51_200  2060            51                         247.6
+          texte  texte_sans_texte  2358            22                          93.3
+    avis_auteur                 0  1259            48                         381.3
+    avis_auteur               1_5  2694            51                         189.3
+    avis_auteur              6_20  1863            32                         171.8
+    avis_auteur            21_100  1398            15                         107.3
+    avis_auteur       plus_de_100   517             6                         116.1
+  photos_auteur                 0  3940            91                         231.0
+  photos_auteur              1_10  2041            46                         225.4
+  photos_auteur            11_100  1171            13                         111.0
+  photos_auteur       plus_de_100   579             2                          34.5
+         profil         guide_1_3  3961            71                         179.2
+         profil   guide_4_et_plus  3229            47                         145.6
+         profil guide_sans_niveau   541            34                         628.5
+         rafale                 1  7659           147                         191.9
+         rafale                 2    69             5                         724.6
+         rafale                 3     3             0                           0.0
+      pic_fiche        jusqu_a_1x   308             7                         227.3
+      pic_fiche             1x_3x  2018            22                         109.0
+      pic_fiche            3x_10x  3488            68                         195.0
+      pic_fiche       plus_de_10x  1917            55                         286.9
+  colonnes retirées, trop rares : etoiles_3
+
+--- effets, à autres caractéristiques égales ---
+                                risque_relatif  borne_basse  borne_haute
+variable                                                                
+etoiles_1                                 2.97         1.63         5.38
+etoiles_2                                 1.84         0.82         4.15
+etoiles_4                                 0.98         0.49         1.93
+etoiles_5                                 1.00         1.00         1.00
+has_photo                                 0.96         0.50         1.84
+texte_sans_texte                          1.00         1.00         1.00
+texte_1_50                                2.23         1.11         4.47
+texte_51_200                              2.49         1.18         5.26
+texte_201p                                2.18         1.25         3.81
+log_rc                                    0.81         0.65         1.01
+log_photos_auteur                         0.85         0.71         1.00
+guide_1_3                                 1.00         1.00         1.00
+guide_sans_niveau                         2.91         1.66         5.07
+guide_4_et_plus                           1.79         1.02         3.14
+log_burst                                26.63         2.53       280.14
+log_ratio_pic_journalier_fiche            1.35         0.96         1.90
+
+--- qualité, cinq tours par établissement ---
+  colonnes retirées, trop rares : etoiles_3
+  tour 1 : 1 525 avis  42 suppressions ; 13 avis écartés  auteur déjà vu
+  colonnes retirées, trop rares : etoiles_3
+  tour 2 : 1 550 avis  25 suppressions ; 7 avis écartés  auteur déjà vu
+  colonnes retirées, trop rares : etoiles_3
+  tour 3 : 1 507 avis  34 suppressions ; 16 avis écartés  auteur déjà vu
+  colonnes retirées, trop rares : etoiles_3
+  tour 4 : 1 484 avis  28 suppressions ; 21 avis écartés  auteur déjà vu
+  colonnes retirées, trop rares : etoiles_3
+  tour 5 : 1 597 avis  17 suppressions ; 11 avis écartés  auteur déjà vu
+  AUC : 0.688
+  ciblage : 10% des avis → 26% des suppressions ; 20% des avis → 44% des suppressions ; 50% des avis → 77% des suppressions
+  suppressions annoncées 147, constatées 146
+ groupe  avis  annoncees  constatees
+      1   767        2.8           3
+      2   766        4.5           2
+      3   766        6.0          12
+      4   766        7.7           9
+      5   767        9.4           7
+      6   766       11.3          13
+      7   766       13.4          19
+      8   766       16.5          17
+      9   766       23.3          26
+     10   767       51.8          38
+
+==============================================================================
+  RISQUE RELATIF, PASSAGES CÔTE À CÔTE
+==============================================================================
+passage                         Europe  US_avec_enseignes  US_sans_enseignes
+variable                                                                    
+etoiles_1                         2.97               1.99               3.20
+etoiles_2                         1.84               1.05               1.41
+etoiles_4                         0.98               0.63               0.74
+etoiles_5                         1.00               1.00               1.00
+has_photo                         0.96               0.60               0.74
+texte_sans_texte                  1.00               1.00               1.00
+texte_1_50                        2.23               0.97               0.88
+texte_51_200                      2.49               0.92               0.87
+texte_201p                        2.18               1.20               1.32
+log_rc                            0.81               1.10               0.96
+log_photos_auteur                 0.85               0.82               0.89
+guide_1_3                         1.00               1.00               1.00
+guide_sans_niveau                 2.91               1.59               2.17
+guide_4_et_plus                   1.79               0.72               0.85
+log_burst                        26.63              44.42               7.11
+log_ratio_pic_journalier_fiche    1.35               0.72               0.76
+
+  fichiers écrits dans /home/romain/projets/review-google/logistic-regression-study/output-study/2026-09-17-sorties-10

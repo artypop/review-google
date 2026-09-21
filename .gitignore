@@ -12,3 +12,6 @@ __pycache__/
 # Les permissions propres à une machine vont dans `settings.local.json`, qui ne
 # l'est pas — sinon chacun écrase les réglages des autres.
 .claude/settings.local.json
+
+# Réglages de l'éditeur, propres à une machine.
+.vscode/

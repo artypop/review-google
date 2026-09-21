@@ -26,7 +26,7 @@ LE REPÉRAGE DES SIX ENSEIGNES
   deux salles de sport espagnoles   par le `cid`, écrit en dur ci-dessous.
                                     Décision de Romain du 2026-09-14.
 
-Aucune modification de `sql/02_adding_features.sql`, aucune table créée.
+Aucune modification de `sql/02_adding_features.bqsql`, aucune table créée.
 ==============================================================================
 """
 

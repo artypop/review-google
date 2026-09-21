@@ -1,0 +1,84 @@
+/home/romain/projets/review-google/.venv/lib/python3.12/site-packages/pandas/core/arraylike.py:402: RuntimeWarning: overflow encountered in exp
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+[auth] clé : client-divers-8b012e5b7c73.json
+[lecture] 17 735 avis publiés du 10 au 16 août
+[filtre] enseignes signalées retirées : 1 153 avis
+[jalon] jour 6, fenêtre de 2 jours (soit jusqu'au 8e jour de vie)
+  210 avis perdus avant le jalon  écartés
+  51 avis supprimés après le 8e jour  retirés
+  16 321 avis au jalon — c'est le dénominateur
+  7 932 avec une réponse (48.6%)
+  235 supprimés dans la fenêtre
+
+--- le croisement qui décide ---
+supprime_fenetre     0    1
+reponse_au_jalon           
+0                 8253  136
+1                 7833   99
+
+--- tableau croisé, avant tout modèle ---
+  écrit : 08_croisements_jalon6_fenetre2_sans_enseignes_reponse_par_habitude.csv
+  colonnes écartées, trop rares ou sans variation : etoiles_2, etoiles_3, habitude_historique_insuffisant, reponse_si_habitude_moins_de_25
+
+--- réponse au jalon × habitude de réponse de la fiche ---
+         habitude_reponse_fiche  reponse_au_jalon  avis_au_jalon  supprimes_dans_la_fenetre  taux_pour_10000_avis
+                 habitude_25_75                 0           2202                         28                 127.2
+                 habitude_25_75                 1            882                         24                 272.1
+habitude_historique_insuffisant                 0            218                          1                  45.9
+habitude_historique_insuffisant                 1             72                          0                   0.0
+           habitude_moins_de_25                 0           4440                         50                 112.6
+           habitude_moins_de_25                 1            214                          1                  46.7
+            habitude_plus_de_75                 0           1529                         57                 372.8
+            habitude_plus_de_75                 1           6764                         74                 109.4
+                 Generalized Linear Model Regression Results                  
+==============================================================================
+Dep. Variable:       supprime_fenetre   No. Observations:                16321
+Model:                            GLM   Df Residuals:                    16294
+Model Family:                Binomial   Df Model:                           26
+Link Function:                  Logit   Scale:                          1.0000
+Method:                          IRLS   Log-Likelihood:                -1073.0
+Date:                Thu, 17 Sep 2026   Deviance:                       2146.0
+Time:                        15:53:58   Pearson chi2:                 1.74e+04
+No. Iterations:                    24   Pseudo R-squ. (CS):            0.01904
+Covariance Type:              cluster                                         
+===================================================================================================
+                                      coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------------------------
+const                              29.7501        nan        nan        nan         nan         nan
+has_photo                          -0.1122      0.277     -0.405      0.685      -0.655       0.430
+langue_minoritaire_sur_la_fiche    -0.1831      0.328     -0.559      0.576      -0.825       0.459
+log_rc                             -0.0745      0.101     -0.741      0.459      -0.272       0.123
+log_photos_auteur                  -0.0533      0.069     -0.775      0.439      -0.188       0.082
+log_burst                         -50.1526    387.938     -0.129      0.897    -810.497     710.192
+log_ratio_pic_journalier_fiche     -0.0111      0.155     -0.071      0.943      -0.316       0.294
+etoiles_1                           0.7356      0.300      2.456      0.014       0.148       1.323
+etoiles_4                          -0.3781      0.443     -0.853      0.394      -1.247       0.491
+guide_4_et_plus                    -0.1192      0.283     -0.422      0.673      -0.673       0.435
+guide_sans_niveau                   1.1698      0.202      5.800      0.000       0.774       1.565
+habitude_25_75                      0.3135      0.375      0.836      0.403      -0.422       1.049
+habitude_plus_de_75                 0.7307      0.388      1.885      0.059      -0.029       1.490
+texte_texte_1_50                   -0.1297      0.291     -0.445      0.656      -0.701       0.441
+texte_texte_51_200                  0.1630      0.274      0.594      0.553      -0.375       0.701
+texte_texte_201p                    0.1232      0.255      0.483      0.629      -0.377       0.624
+secteur_food_beverage              -1.3696      0.700     -1.956      0.051      -2.742       0.003
+secteur_healthcare                  0.0733      0.401      0.183      0.855      -0.713       0.860
+secteur_home_services               0.6335      0.392      1.615      0.106      -0.135       1.402
+secteur_hospitality                -0.9377      0.520     -1.802      0.072      -1.958       0.082
+secteur_travel                      0.2575      0.587      0.438      0.661      -0.894       1.409
+secteur_wellness_fitness           -0.2309      0.519     -0.445      0.656      -1.247       0.785
+taille_large                        0.1601      0.372      0.430      0.667      -0.569       0.890
+taille_small                        1.0933      0.350      3.120      0.002       0.407       1.780
+region_US                           0.4594      0.293      1.566      0.117      -0.116       1.034
+reponse_si_habitude_plus_de_75     -1.1129      0.298     -3.738      0.000      -1.696      -0.529
+reponse_si_habitude_25_75           0.5206      0.378      1.377      0.169      -0.220       1.262
+===================================================================================================
+
+  écrit : 08_coefficients_jalon6_fenetre2_sans_enseignes_reponse_par_habitude.csv
+  écrit : 08_summary_jalon6_fenetre2_sans_enseignes_reponse_par_habitude.txt
+
+==============================================================================
+  EFFET DE LA RÉPONSE, SÉPARÉMENT PAR HABITUDE DE LA FICHE
+==============================================================================
+  reponse_si_habitude_plus_de_75     ×0.33 [0.18 – 0.59]
+  reponse_si_habitude_25_75          ×1.68 [0.80 – 3.53]
+  reponse_si_habitude_moins_de_25    colonne écartée, trop peu de suppressions
