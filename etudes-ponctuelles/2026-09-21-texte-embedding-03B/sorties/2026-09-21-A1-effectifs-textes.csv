@@ -1,0 +1,5 @@
+perimetre,supprime,n_avis,n_avec_texte,n_sans_texte,part_avec_texte_pct,n_fiches,n_fiches_avec_texte,n_auteurs,n_auteurs_avec_texte
+complet,False,34396,25147,9249,73.11,5540,4943,34235,25073
+complet,True,1355,1021,334,75.35,347,314,1304,999
+sans_enseignes,False,32211,23600,8611,73.27,5446,4849,32057,23529
+sans_enseignes,True,871,698,173,80.14,294,264,858,687

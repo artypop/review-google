@@ -1,0 +1,59 @@
+==============================================================================
+Passage : jalon5_fenetre3_sans_enseignes
+Jalon : fin du jour 5. Fenêtre de risque : jours 6 à 8.
+Dénominateur : 16 151 avis encore en ligne au jalon
+Cible : 319 suppressions dans la fenêtre
+Traités : 7 762 avis avec une réponse au jalon (48.1%)
+
+L'ÂGE N'EST PAS DANS CE MODÈLE, ET C'EST VOULU. Tous les avis ont le
+même âge au jalon et la même durée d'exposition ensuite. Contrairement
+à 07_regression_panel.py, il n'y a pas d'âge à contrôler.
+
+Effet minimal détectable par ce montage : ×0.41 en protection,
+×2.46 en aggravation (test bilatéral 5 %, puissance 80 %).
+Un résultat non significatif signifie « l'effet, s'il existe, est plus
+faible que cela », pas « il n'y a pas d'effet ».
+==============================================================================
+
+                 Generalized Linear Model Regression Results                  
+==============================================================================
+Dep. Variable:       supprime_fenetre   No. Observations:                16151
+Model:                            GLM   Df Residuals:                    16124
+Model Family:                Binomial   Df Model:                           26
+Link Function:                  Logit   Scale:                          1.0000
+Method:                          IRLS   Log-Likelihood:                -1374.9
+Date:                Mon, 21 Sep 2026   Deviance:                       2749.8
+Time:                        12:26:48   Pearson chi2:                 1.79e+04
+No. Iterations:                     8   Pseudo R-squ. (CS):            0.02360
+Covariance Type:              cluster                                         
+===================================================================================================
+                                      coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------------------------
+const                              -4.2371      1.073     -3.950      0.000      -6.339      -2.135
+reponse_au_jalon                   -0.8412      0.322     -2.613      0.009      -1.472      -0.210
+has_photo                           0.0139      0.254      0.055      0.956      -0.484       0.511
+langue_minoritaire_sur_la_fiche    -0.0511      0.346     -0.148      0.883      -0.729       0.627
+log_rc                             -0.1614      0.095     -1.700      0.089      -0.347       0.025
+log_photos_auteur                  -0.0851      0.067     -1.263      0.206      -0.217       0.047
+log_burst                          -0.4653      1.201     -0.388      0.698      -2.819       1.888
+log_ratio_pic_journalier_fiche     -0.0522      0.161     -0.325      0.746      -0.368       0.263
+etoiles_1                           0.7615      0.302      2.520      0.012       0.169       1.354
+etoiles_2                           0.3539      0.526      0.673      0.501      -0.676       1.384
+etoiles_4                          -0.4383      0.387     -1.133      0.257      -1.196       0.320
+guide_4_et_plus                     0.0487      0.235      0.207      0.836      -0.412       0.510
+guide_sans_niveau                   0.9874      0.178      5.557      0.000       0.639       1.336
+habitude_25_75                      0.3856      0.346      1.115      0.265      -0.292       1.063
+habitude_plus_de_75                 0.2345      0.383      0.612      0.540      -0.516       0.985
+texte_texte_1_50                   -0.1093      0.247     -0.442      0.658      -0.593       0.375
+texte_texte_51_200                  0.1534      0.260      0.590      0.555      -0.356       0.663
+texte_texte_201p                    0.3034      0.245      1.236      0.216      -0.178       0.784
+secteur_food_beverage              -0.9808      0.675     -1.453      0.146      -2.304       0.342
+secteur_healthcare                  0.3700      0.375      0.988      0.323      -0.364       1.104
+secteur_home_services               0.7061      0.403      1.751      0.080      -0.084       1.496
+secteur_hospitality                -0.8918      0.482     -1.849      0.064      -1.837       0.053
+secteur_travel                      0.6460      0.575      1.124      0.261      -0.481       1.773
+secteur_wellness_fitness            0.0214      0.467      0.046      0.963      -0.894       0.937
+taille_large                     1.548e-05      0.345   4.48e-05      1.000      -0.677       0.677
+taille_small                        1.0586      0.341      3.107      0.002       0.391       1.726
+region_US                           0.6967      0.308      2.265      0.024       0.094       1.300
+===================================================================================================

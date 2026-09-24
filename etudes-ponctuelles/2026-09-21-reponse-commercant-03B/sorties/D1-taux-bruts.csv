@@ -1,0 +1,17 @@
+corpus,habitude,reponse_au_jalon,avis_au_jalon,suppressions,taux_pour_10000_avis
+corpus entier,Fiches qui répondent à 25 à 75 %,0,2389,45,188.4
+corpus entier,Fiches qui répondent à 25 à 75 %,1,693,30,432.9
+corpus entier,Fiches sans historique suffisant,0,226,3,132.7
+corpus entier,Fiches sans historique suffisant,1,61,0,0.0
+corpus entier,Fiches qui répondent à moins de 25 %,0,5163,194,375.8
+corpus entier,Fiches qui répondent à moins de 25 %,1,182,10,549.5
+corpus entier,Fiches qui répondent à plus de 75 %,0,2601,103,396.0
+corpus entier,Fiches qui répondent à plus de 75 %,1,6039,211,349.4
+sans enseignes,Fiches qui répondent à 25 à 75 %,0,2370,45,189.9
+sans enseignes,Fiches qui répondent à 25 à 75 %,1,691,30,434.2
+sans enseignes,Fiches sans historique suffisant,0,225,2,88.9
+sans enseignes,Fiches sans historique suffisant,1,61,0,0.0
+sans enseignes,Fiches qui répondent à moins de 25 %,0,4502,109,242.1
+sans enseignes,Fiches qui répondent à moins de 25 %,1,149,3,201.3
+sans enseignes,Fiches qui répondent à plus de 75 %,0,2594,102,393.2
+sans enseignes,Fiches qui répondent à plus de 75 %,1,5620,89,158.4

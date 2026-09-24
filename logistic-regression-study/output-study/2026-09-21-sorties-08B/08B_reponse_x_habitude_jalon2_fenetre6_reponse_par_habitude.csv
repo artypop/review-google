@@ -1,0 +1,9 @@
+habitude_reponse_fiche,reponse_au_jalon,avis_au_jalon,supprimes_dans_la_fenetre,taux_pour_10000_avis
+habitude_25_75,0,2389,45,188.4
+habitude_25_75,1,693,30,432.9
+habitude_historique_insuffisant,0,226,3,132.7
+habitude_historique_insuffisant,1,61,0,0.0
+habitude_moins_de_25,0,5163,194,375.8
+habitude_moins_de_25,1,182,10,549.5
+habitude_plus_de_75,0,2601,103,396.0
+habitude_plus_de_75,1,6039,211,349.4

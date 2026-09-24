@@ -1,0 +1,57 @@
+==============================================================================
+Passage : Europe
+Panel : 15 823 avis, 305 suppressions
+AUC sur des établissements jamais vus : 0.666
+  0,5 = tirage au hasard, 1,0 = classement parfait.
+  Sur ce panel elle ne doit presque rien à l'âge : tous les avis
+  sont publiés sur quatorze jours. Elle ne se compare donc pas à
+  celle du 07, portée par trois mois d'écart d'âge.
+Aucun sous-échantillonnage : le modèle tourne sur tous les avis.
+Ce fichier et 07B_coefficients_*.csv donnent les mêmes valeurs.
+
+age_a_la_premiere_observation_j, fenetre_observation_j et vu_tardivement
+sont des variables de contrôle, pas des résultats à citer.
+==============================================================================
+
+                 Generalized Linear Model Regression Results                  
+==============================================================================
+Dep. Variable:               supprime   No. Observations:                15823
+Model:                            GLM   Df Residuals:                    15796
+Model Family:                Binomial   Df Model:                           26
+Link Function:                  Logit   Scale:                          1.0000
+Method:                          IRLS   Log-Likelihood:                -1335.5
+Date:                Mon, 21 Sep 2026   Deviance:                       2671.0
+Time:                        11:56:48   Pearson chi2:                 1.55e+04
+No. Iterations:                     8   Pseudo R-squ. (CS):            0.02138
+Covariance Type:              cluster                                         
+===================================================================================================
+                                      coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------------------------
+const                              -6.0363      0.733     -8.238      0.000      -7.472      -4.600
+has_photo                           0.2702      0.236      1.147      0.252      -0.192       0.732
+langue_minoritaire_sur_la_fiche    -0.0436      0.200     -0.218      0.828      -0.436       0.349
+vu_tardivement                      2.4182      0.930      2.599      0.009       0.595       4.242
+log_rc                             -0.2298      0.094     -2.435      0.015      -0.415      -0.045
+log_photos_auteur                  -0.0604      0.060     -1.010      0.312      -0.178       0.057
+log_burst                           0.4213      0.528      0.797      0.425      -0.614       1.457
+log_ratio_pic_journalier_fiche      0.3956      0.120      3.300      0.001       0.161       0.631
+age_a_la_premiere_observation_j    -0.1835      0.075     -2.443      0.015      -0.331      -0.036
+fenetre_observation_j               0.0887      0.047      1.897      0.058      -0.003       0.180
+etoiles_1                           1.2818      0.298      4.307      0.000       0.698       1.865
+etoiles_2                           0.7258      0.390      1.860      0.063      -0.039       1.490
+etoiles_3                          -0.6570      0.481     -1.366      0.172      -1.600       0.286
+etoiles_4                          -0.3761      0.298     -1.262      0.207      -0.961       0.208
+guide_4_et_plus                     0.3000      0.248      1.212      0.226      -0.185       0.785
+guide_sans_niveau                   0.9601      0.177      5.411      0.000       0.612       1.308
+texte_texte_1_50                    0.1470      0.296      0.497      0.619      -0.433       0.727
+texte_texte_51_200                  0.2263      0.278      0.814      0.416      -0.318       0.771
+texte_texte_201p                    0.2425      0.274      0.884      0.377      -0.295       0.780
+secteur_food_beverage              -0.0405      0.698     -0.058      0.954      -1.410       1.328
+secteur_healthcare                 -1.0255      0.580     -1.767      0.077      -2.163       0.112
+secteur_home_services               0.5916      0.608      0.973      0.331      -0.600       1.784
+secteur_hospitality                 0.0435      0.505      0.086      0.931      -0.947       1.034
+secteur_travel                      0.3843      0.781      0.492      0.623      -1.147       1.916
+secteur_wellness_fitness            0.5324      0.566      0.940      0.347      -0.578       1.642
+taille_large                        0.2445      0.459      0.532      0.595      -0.656       1.145
+taille_small                        0.1310      0.511      0.256      0.798      -0.871       1.133
+===================================================================================================

@@ -1,0 +1,7 @@
+passage,suffixe,avis,suppressions,taux_pct,auc
+Panel entier,tous,35751,1355,3.79,0.724
+Sans les enseignes signalées,tous_sans_enseignes,33411,880,2.63,0.689
+États-Unis,US,19928,1050,5.27,0.711
+Europe,Europe,15823,305,1.93,0.666
+Sans les avis vus tardivement,tous_sans_tardifs,35339,1323,3.74,0.735
+Sans les avis réécrits,tous_sans_modifies,35471,1343,3.79,0.734

@@ -4,7 +4,7 @@
     python etudes-ponctuelles/2026-09-18-reapparitions/note.py
 
 Aucun chiffre n'est calculé ici. Tout vient des CSV de `sorties/`, produits par
-`reapparitions.py`, et des figures de `matthieu/figures/`, produites par
+`reapparitions.py`, et des figures de `sorties/figures/`, produites par
 `graphiques.py`. Lancer les trois dans cet ordre.
 """
 from __future__ import annotations
@@ -18,11 +18,9 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.shared import Inches, Pt, RGBColor
 
 DOSSIER = Path(__file__).resolve().parent
-RACINE = DOSSIER.parent.parent
 SORTIES = DOSSIER / "sorties"
-MATTHIEU = RACINE / "matthieu"
-FIGURES = MATTHIEU / "figures"
-CIBLE = MATTHIEU / "2026-09-18-avis-disparus-puis-revenus.docx"
+FIGURES = SORTIES / "figures"
+CIBLE = SORTIES / "2026-09-18-avis-disparus-puis-revenus.docx"
 
 ENCRE_DOUCE = RGBColor(0x52, 0x51, 0x4E)
 
@@ -355,7 +353,7 @@ def construire():
     ]:
         doc.add_paragraph(puce, style="List Bullet")
 
-    MATTHIEU.mkdir(parents=True, exist_ok=True)
+    CIBLE.parent.mkdir(parents=True, exist_ok=True)
     doc.save(CIBLE)
     print(f"écrit : {CIBLE}")
 

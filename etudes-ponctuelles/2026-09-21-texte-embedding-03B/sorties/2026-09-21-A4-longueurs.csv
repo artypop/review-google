@@ -1,0 +1,5 @@
+perimetre,supprime,n_avec_texte,moyenne_caracteres,mediane_caracteres,neuf_sur_dix_sous_caracteres,cent_moins_un_sur_cent_sous_caracteres,max_caracteres,moyenne_mots,mediane_mots,neuf_sur_dix_sous_mots,cent_moins_un_sur_cent_sous_mots,max_mots
+complet,False,25147,261.0,136,603,2048,4085,45.0,23,106,344,771
+complet,True,1021,278.0,134,623,2452,3592,48.0,24,109,427,645
+sans_enseignes,False,23600,267.0,138,619,2074,4085,46.0,24,108,352,771
+sans_enseignes,True,698,322.0,157,763,2638,3351,56.0,27,133,439,587

@@ -98,11 +98,21 @@ changer oblige à reconstruire la table et à relancer tous les modèles.
 docs/                      la documentation — commencer ici
 logistic-regression-study/
   sql/                     la chaîne BigQuery et les contrôles
-  python/                  les deux scripts de modélisation
+  python/                  les scripts de modélisation
   output-study/            les résultats datés et leurs notes
+etudes-ponctuelles/        une question par dossier daté
+  AAAA-MM-JJ-sujet/
+    *.py, *.sql            le calcul, la note Word, les figures
+    sorties/               les CSV, la note .docx
+      figures/             les PNG de la note
+livrables/                 les synthèses qui reprennent plusieurs études
+outils/                    la copie locale des tables BigQuery
 etude-exploratoire/        GELÉ depuis le 2026-09-14 — voir son README
 data/                      les fichiers d'origine, hors dépôt
 ```
+
+Une étude ponctuelle garde tout ce qu'elle produit dans son propre `sorties/`. Un document
+qui assemble les résultats de plusieurs études va dans `livrables/`.
 
 **`etude-exploratoire/` est gelée.** C'est le premier travail, celui qui a servi à comprendre les
 données et à repérer les défauts de comptage. On n'y écrit plus et on n'y relance rien. Ses

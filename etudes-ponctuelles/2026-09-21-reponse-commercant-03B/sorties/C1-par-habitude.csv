@@ -1,0 +1,4 @@
+habitude,variable,ecartee,risque_relatif,borne_basse,borne_haute,risque_relatif_08
+Fiches qui répondent à plus de 75 %,reponse_si_habitude_plus_de_75,False,0.3738558476041448,0.2345188768389276,0.5959784417857726,0.4037704757743845
+Fiches qui répondent à 25 à 75 %,reponse_si_habitude_25_75,False,1.99082992540016,1.015972009838158,3.9010954568523655,2.035226493372639
+Fiches qui répondent à moins de 25 %,reponse_si_habitude_moins_de_25,True,,,,

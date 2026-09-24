@@ -3,7 +3,7 @@
 
     python etudes-ponctuelles/2026-09-18-concentration-suppressions/graphiques.py
 
-Lit `sorties/B3-courbe.csv` et écrit le PNG dans `matthieu/figures/`.
+Lit `sorties/B3-courbe.csv` et écrit le PNG dans `sorties/figures/`.
 Aucun chiffre n'est calculé ici.
 
 Couleurs : palette de référence de la compétence dataviz, slots 1 et 2. Le
@@ -20,9 +20,8 @@ import matplotlib.pyplot as plt  # noqa: E402
 import pandas as pd  # noqa: E402
 
 DOSSIER = Path(__file__).resolve().parent
-RACINE = DOSSIER.parent.parent
 SORTIES = DOSSIER / "sorties"
-FIGURES = RACINE / "matthieu" / "figures"
+FIGURES = SORTIES / "figures"
 
 SURFACE = "#fcfcfb"
 ENCRE = "#0b0b0b"

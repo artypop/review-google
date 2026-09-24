@@ -15,3 +15,8 @@ __pycache__/
 
 # Réglages de l'éditeur, propres à une machine.
 .vscode/
+
+# Fichiers de verrouillage de Word, créés tant qu'un document est ouvert.
+~$*
+# Fichiers temporaires de travail.
+.tmp/

@@ -1,0 +1,11 @@
+perimetre,note,n_avis,n_avec_texte,n_supprimes,n_supprimes_avec_texte,n_restes_avec_texte,part_supprimee_pct,part_supprimee_avec_texte_pct,part_des_supprimes_sans_texte_pct
+complet,1,2487,2266,182,157,2109,7.32,6.93,13.74
+complet,2,879,767,32,27,740,3.64,3.52,15.63
+complet,3,1194,899,12,10,889,1.01,1.11,16.67
+complet,4,3079,1815,48,30,1785,1.56,1.65,37.5
+complet,5,28112,20421,1081,797,19624,3.85,3.9,26.27
+sans_enseignes,1,2349,2149,153,142,2007,6.51,6.61,7.19
+sans_enseignes,2,862,754,24,23,731,2.78,3.05,4.17
+sans_enseignes,3,1179,885,11,9,876,0.93,1.02,18.18
+sans_enseignes,4,2994,1774,34,24,1750,1.14,1.35,29.41
+sans_enseignes,5,25698,18736,649,500,18236,2.53,2.67,22.96

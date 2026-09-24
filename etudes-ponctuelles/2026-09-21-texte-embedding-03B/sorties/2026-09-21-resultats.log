@@ -1,0 +1,75 @@
+[16:22:46] lecture des vecteurs
+[16:22:47] 26168 vecteurs, 768 dimensions
+[16:22:47] route B : 2000 tirages par case
+
+===== B1 : ecart entre les deux populations, a note et langue egales =====
+     perimetre  note langue  n_supprimes  n_restes  ecart_observe  hasard_moyen  hasard_borne_basse  hasard_borne_haute  au_dessus_du_hasard  rapport_observe_sur_hasard
+       complet     1     en          101      1124         0.0022        0.0011              0.0009              0.0015                 True                        1.90
+       complet     1     fr           24       298         0.0053        0.0038              0.0029              0.0051                 True                        1.41
+       complet     4     en           21       758         0.0310        0.0064              0.0048              0.0087                 True                        4.87
+       complet     5     de           37      1511         0.0059        0.0026              0.0019              0.0036                 True                        2.28
+       complet     5     en          668     13050         0.0022        0.0002              0.0001              0.0003                 True                       11.30
+       complet     5     es           28       961         0.0063        0.0031              0.0024              0.0044                 True                        2.02
+       complet     5     fr           41      2155         0.0068        0.0023              0.0017              0.0034                 True                        2.94
+sans_enseignes     1     en           89      1025         0.0025        0.0013              0.0010              0.0017                 True                        1.88
+sans_enseignes     1     fr           24       298         0.0053        0.0038              0.0029              0.0053                 True                        1.41
+sans_enseignes     5     de           37      1511         0.0059        0.0026              0.0019              0.0036                 True                        2.29
+sans_enseignes     5     en          373     11669         0.0011        0.0003              0.0003              0.0005                 True                        3.27
+sans_enseignes     5     es           27       959         0.0064        0.0033              0.0024              0.0046                 True                        1.93
+sans_enseignes     5     fr           41      2155         0.0068        0.0023              0.0017              0.0035                 True                        2.93
+[16:24:49] route A, tout_le_panel : 26168 textes, 30 groupes
+[16:25:40] route A, hors_enseignes : 24298 textes, 30 groupes
+[16:26:16] route A, 5_etoiles_anglais_hors_enseignes : 12042 textes, 20 groupes
+[16:26:28] route A, 1_etoile_anglais_hors_enseignes : 1114 textes, 20 groupes
+
+===== C1 : groupes de textes, tout_le_panel (10 premiers) =====
+   population  groupe  n_avis  n_supprimes  n_fiches  note_moyenne  longueur_mediane  part_supprimee_pct langue_dominante  part_5_etoiles_pct  part_enseignes_pct
+tout_le_panel      26    1666          154       419          4.97             221.0                9.24               en                98.1                38.7
+tout_le_panel      10     952           85       527          1.40             481.5                8.93               en                 2.4                12.8
+tout_le_panel      24    1032           86       357          4.98              98.0                8.33               en                98.3                35.6
+tout_le_panel      19     599           48       380          4.97              39.0                8.01               en                97.7                18.0
+tout_le_panel       1     624           42       433          4.94              19.5                6.73               en                94.2                 9.6
+tout_le_panel      12     698           42       343          4.93              78.0                6.02               en                95.4                16.9
+tout_le_panel       0     814           49       318          4.97              48.0                6.02               en                97.2                27.0
+tout_le_panel      13    1080           55       541          4.97             224.0                5.09               en                98.1                 1.5
+tout_le_panel      29     669           31       227          4.97              22.0                4.63               en                97.6                 9.6
+tout_le_panel      28    1044           45       700          1.86             332.0                4.31               fr                 7.3                 0.3
+
+===== C1 : groupes de textes, hors_enseignes (10 premiers) =====
+    population  groupe  n_avis  n_supprimes  n_fiches  note_moyenne  longueur_mediane  part_supprimee_pct langue_dominante  part_5_etoiles_pct  part_enseignes_pct
+hors_enseignes       6     857           70       497          1.44             493.0                8.17               en                 2.8                 0.0
+hors_enseignes      15     614           34       362          4.97              41.0                5.54               en                97.6                 0.0
+hors_enseignes      29     470           24       352          4.94              17.0                5.11               en                93.8                 0.0
+hors_enseignes       2    1091           49       532          4.98             220.0                4.49               en                98.2                 0.0
+hors_enseignes      24     326           13       232          4.92              27.0                3.99               en                93.6                 0.0
+hors_enseignes       7    1173           44       572          1.91             525.0                3.75               fr                 3.8                 0.0
+hors_enseignes       0    1979           72       608          4.97             214.0                3.64               en                97.7                 0.0
+hors_enseignes      22     828           29       567          4.96              90.0                3.50               en                96.7                 0.0
+hors_enseignes      12     344           12       254          4.73               8.0                3.49               en                83.7                 0.0
+hors_enseignes      14     797           27       380          4.99              56.0                3.39               en                98.6                 0.0
+
+===== C1 : groupes de textes, 5_etoiles_anglais_hors_enseignes (10 premiers) =====
+                      population  groupe  n_avis  n_supprimes  n_fiches  note_moyenne  longueur_mediane  part_supprimee_pct langue_dominante  part_5_etoiles_pct  part_enseignes_pct
+5_etoiles_anglais_hors_enseignes       2     503           27       353           5.0              40.0                5.37               en               100.0                 0.0
+5_etoiles_anglais_hors_enseignes       1     892           44       456           5.0             241.5                4.93               en               100.0                 0.0
+5_etoiles_anglais_hors_enseignes       3     739           35       277           5.0             232.0                4.74               en               100.0                 0.0
+5_etoiles_anglais_hors_enseignes      10     488           21       210           5.0              67.0                4.30               en               100.0                 0.0
+5_etoiles_anglais_hors_enseignes      15     582           25       288           5.0              79.0                4.30               en               100.0                 0.0
+5_etoiles_anglais_hors_enseignes       6     447           18       316           5.0              23.0                4.03               en               100.0                 0.0
+5_etoiles_anglais_hors_enseignes      11     506           19       232           5.0              78.0                3.75               en               100.0                 0.0
+5_etoiles_anglais_hors_enseignes      16     706           26       480           5.0              97.0                3.68               en               100.0                 0.0
+5_etoiles_anglais_hors_enseignes       8     741           25       282           5.0             228.0                3.37               en               100.0                 0.0
+5_etoiles_anglais_hors_enseignes      17     505           16       129           5.0              73.0                3.17               en               100.0                 0.0
+
+===== C1 : groupes de textes, 1_etoile_anglais_hors_enseignes (10 premiers) =====
+                     population  groupe  n_avis  n_supprimes  n_fiches  note_moyenne  longueur_mediane  part_supprimee_pct langue_dominante  part_5_etoiles_pct  part_enseignes_pct
+1_etoile_anglais_hors_enseignes       0      16            4        13           1.0             131.0               25.00               en                 0.0                 0.0
+1_etoile_anglais_hors_enseignes      11      75           14        37           1.0             342.0               18.67               en                 0.0                 0.0
+1_etoile_anglais_hors_enseignes      14     102           16        55           1.0             869.0               15.69               en                 0.0                 0.0
+1_etoile_anglais_hors_enseignes      17      54            8        48           1.0             354.0               14.81               en                 0.0                 0.0
+1_etoile_anglais_hors_enseignes      12      24            3        24           1.0              14.5               12.50               en                 0.0                 0.0
+1_etoile_anglais_hors_enseignes       5      95           10        59           1.0             804.0               10.53               en                 0.0                 0.0
+1_etoile_anglais_hors_enseignes       8      39            4        36           1.0              43.0               10.26               en                 0.0                 0.0
+1_etoile_anglais_hors_enseignes       1      53            5        43           1.0             507.0                9.43               en                 0.0                 0.0
+1_etoile_anglais_hors_enseignes      10      41            3        40           1.0              66.0                7.32               en                 0.0                 0.0
+1_etoile_anglais_hors_enseignes       2      93            6        87           1.0             311.0                6.45               en                 0.0                 0.0
