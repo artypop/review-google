@@ -1,0 +1,73 @@
+rang,cid,enseigne,secteur,pays,enseigne_signalee,avis,suppressions,part_cumulee_des_suppressions_pct,age_median_j
+1,3163466139043001754,Boutique The Boxer Club Dr Castelo,wellness_fitness,ES,True,781,229,4.8,15.0
+2,10346942689164695031,The Boxer Club,wellness_fitness,ES,True,668,135,7.7,11.0
+3,8592193049411979519,EcoShield Pest Solutions,home_services,US,True,11018,99,9.8,55.0
+4,817498439303474635,EcoShield Pest Solutions,home_services,US,True,11245,88,11.6,49.5
+5,10746082602604012869,Insight Pest Solutions,home_services,US,True,1745,87,13.4,9.0
+6,10505273405281271038,Cedar Park Overhead Doors,home_services,US,False,4907,61,14.7,35.0
+7,16248341169641882523,Insight Pest Solutions,home_services,US,True,3098,54,15.9,386.5
+8,4433090577107943247,EcoShield Pest Solutions,home_services,US,True,5537,49,16.9,18.0
+9,2034461622997448093,Bulwark Exterminating,home_services,US,True,5071,49,17.9,12.0
+10,1697023132609060386,Ichiban Japanese Bistro,food_beverage,US,False,4102,48,18.9,7.0
+11,758758450125883918,Bischoff Touristik KG Busreisen,travel,DE,False,158,48,19.9,1151.5
+12,12242899512208579596,Insight Pest Solutions,home_services,US,True,1299,43,20.9,18.0
+13,6979673743686913152,EcoShield Pest Solutions,home_services,US,True,7807,41,21.7,7.0
+14,3862407046066641134,Overhead Door Co Of Norwich,home_services,US,False,1054,40,22.6,43.0
+15,8256016555611678921,Solve Pest Pros,home_services,US,False,721,40,23.4,68.5
+16,6665036569245004844,EcoShield Pest Solutions,home_services,US,True,4490,39,24.2,458.0
+17,7478870134232076043,Rocky Mountain Balloon Adventures,travel,US,False,1295,38,25.0,28.5
+18,11253624861875245129,EcoShield Pest Solutions,home_services,US,True,7276,37,25.8,724.0
+19,3595820309544267485,EcoShield Pest Solutions,home_services,US,True,5384,37,26.6,7.0
+20,3352767676680426036,Solve Pest Pros,home_services,US,False,1418,37,27.4,44.0
+21,178064072666686963,EcoShield Pest Solutions,home_services,US,True,5635,36,28.1,58.5
+22,18135896731724490192,Coastal Heating and Cooling,home_services,US,False,609,32,28.8,68.5
+23,6278096211291522244,Active Pest Control,home_services,US,False,2027,31,29.5,503.0
+24,13357493140933391105,Insight Pest Solutions,home_services,US,True,933,31,30.1,14.0
+25,16201181649805957681,Heart and Vascular Care,healthcare,US,False,2239,30,30.7,192.0
+26,11882525582487875452,Northwest Exterminating,home_services,US,False,1684,29,31.3,30.0
+27,11183164932977516690,Insight Pest Solutions,home_services,US,True,1842,27,31.9,14.0
+28,13454390046806476880,Hand and Stone Massage and Facial Spa,wellness_fitness,US,False,1429,27,32.5,44.0
+29,6864222717854006596,Insight Pest Solutions,home_services,US,True,332,27,33.1,9.0
+30,15030713588446975167,EcoShield Pest Solutions,home_services,US,True,5728,26,33.6,12.5
+31,6832155753295535633,Insight Pest Solutions,home_services,US,True,483,25,34.1,9.0
+32,8303557791751296465,Insight Pest Solutions,home_services,US,True,1660,24,34.6,330.5
+33,9955525685526011894,Reno Massage Tree,wellness_fitness,US,False,226,24,35.1,30.0
+34,4535259281716615882,EcoShield Pest Solutions,home_services,US,True,7914,23,35.6,25.0
+35,15702480480125668198,Fox Rent A Car,automotive,US,False,3044,23,36.1,62.0
+36,4479702789086504102,MedVet Columbus,healthcare,US,False,1668,23,36.6,19.0
+37,17251484945567213252,Globales Simar,hospitality,ES,False,1655,23,37.1,18.0
+38,10789067178806450248,Fitness First Griesheim,wellness_fitness,DE,False,1370,22,37.5,7.5
+39,4350811955412203628,Streetside Classics,automotive,US,False,826,22,38.0,48.0
+40,10896163602322254565,Mumbai Masala Playa Paraíso,food_beverage,ES,False,671,22,38.5,8.0
+41,9284506857513497045,ABC Home & Commercial Services,home_services,US,False,5144,21,38.9,670.0
+42,11683972207017833004,Empire Today,home_services,US,False,2606,21,39.4,20.0
+43,18371253483526610359,Bulwark Exterminating,home_services,US,True,1235,21,39.8,307.0
+44,8675258714044865202,Aqua Plumbing and Air,home_services,US,False,942,21,40.2,13.0
+45,12653609458785639661,Delta Sonic Car Wash,automotive,US,False,1750,20,40.7,7.5
+46,16549891742331617014,Abilene Dermatology and Skin,healthcare,US,False,1428,20,41.1,41.5
+47,11752525017306549612,Insight Pest Solutions,home_services,US,True,704,20,41.5,10.5
+48,16011688751403367255,Doral Toyota,automotive,US,False,7381,19,41.9,7.0
+49,14933790454100186775,Pointe Pest Control,home_services,US,True,6025,19,42.3,13.0
+50,1943990090783039974,United Air Temp,home_services,US,False,1940,19,42.7,24.0
+51,8295483025098590212,Parker Cornea,healthcare,US,False,726,19,43.1,27.0
+52,12986326219479165233,Azur Service 06,home_services,FR,False,565,19,43.5,7.0
+53,16932179925125573715,Pointe Pest Control,home_services,US,True,5029,18,43.9,11.0
+54,11527874769595828404,Pointe Pest Control,home_services,US,True,1966,18,44.3,7.5
+55,2423693438449052039,Bulwark Exterminating,home_services,US,True,1124,18,44.6,23.0
+56,11468972147098209639,Lash and Company Med Spa - Centennial,wellness_fitness,US,False,197,18,45.0,18.0
+57,7864325941761932328,Globales Maioris,hospitality,ES,False,1646,17,45.4,12.0
+58,3932259871970128515,Alaska Fracture and Orthopedic Clinic,healthcare,US,False,1613,17,45.7,526.0
+59,15168756511886563707,Dermatology Affiliates,healthcare,US,False,1102,17,46.1,36.0
+60,14727272453529875622,Active Pest Control,home_services,US,False,913,17,46.5,117.0
+61,6622258630771505951,Bulwark Exterminating,home_services,US,True,650,17,46.8,329.0
+62,14825598912279374964,Chatham Sports Medicine & Physical Therapy,healthcare,US,False,1240,16,47.1,18.5
+63,8115244571708845709,Cocoa Beach Catamaran,travel,US,False,3932,15,47.5,7.0
+64,118597015968253014,EcoShield Pest Solutions Chicago East,home_services,US,True,2976,15,47.8,14.0
+65,11660062678522630526,Sierra Pacific Orthopedics,healthcare,US,False,1514,15,48.1,9.0
+66,15615984558165321771,Dermatology Affiliates (East Cobb),healthcare,US,False,1107,15,48.4,762.0
+67,16867174010602496547,Northwest Exterminating,home_services,US,False,1037,15,48.7,7.0
+68,15979917185231430356,A Plus Garage Door Repair,home_services,US,False,387,15,49.0,14.0
+69,6229159286904412148,Stadio Unirii,food_beverage,RO,False,5774,14,49.3,24.0
+70,5474549633975801069,OUTRIGGER Kauai Beach Resort & Spa,hospitality,US,False,4020,14,49.6,29.5
+71,8117786734318428670,Sunshine Ballooning,travel,DE,False,1883,14,49.9,7.5
+72,6220232788059998036,Heart and Vascular Care,healthcare,US,False,1643,14,50.2,73.0

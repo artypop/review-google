@@ -1,0 +1,13 @@
+perimetre,note,cases,fiches,supprimes,restes,contraste_observe,hasard_moyen,hasard_borne_haute,part_tirages_au_dessus_pct,au_dessus_du_hasard
+tout le panel,toutes notes,140,138,771,1550,0.0045,-0.0,0.00221,0.0,True
+tout le panel,1 étoile,23,23,79,94,0.00726,-0.00018,0.00967,6.95,False
+tout le panel,5 étoiles,116,116,690,1452,0.00415,-2e-05,0.00226,0.05,True
+sans les six enseignes,toutes notes,93,93,463,975,0.00587,1e-05,0.00336,0.0,True
+sans les six enseignes,1 étoile,19,19,67,87,0.00742,4e-05,0.01149,10.8,False
+sans les six enseignes,5 étoiles,74,74,396,888,0.00561,-3e-05,0.00318,0.1,True
+"tout le panel, sans copies ni quasi-copies",toutes notes,136,135,731,1525,0.00182,-2e-05,0.00228,5.8,False
+"tout le panel, sans copies ni quasi-copies",1 étoile,21,21,67,90,0.00409,-0.00031,0.01059,20.6,False
+"tout le panel, sans copies ni quasi-copies",5 étoiles,114,114,662,1431,0.00156,-4e-05,0.00228,9.7,False
+"sans les six enseignes, sans copies ni quasi-copies",toutes notes,91,91,443,954,0.00354,-5e-05,0.00305,1.4,True
+"sans les six enseignes, sans copies ni quasi-copies",1 étoile,19,19,61,86,0.00419,-0.00012,0.01052,21.65,False
+"sans les six enseignes, sans copies ni quasi-copies",5 étoiles,72,72,382,868,0.00344,-2e-05,0.00313,1.75,True

@@ -1,0 +1,5 @@
+population,n_fiches,n_supprimes,n_restes,ecart_observe,hasard_moyen,hasard_borne_haute,rapport_observe_sur_hasard,au_dessus_du_hasard
+1_etoile_toutes_fiches,617,95,966,0.0022,0.0012,0.0016,1.8,True
+1_etoile_sans_enseignes,573,83,867,0.0025,0.0014,0.0019,1.79,True
+5_etoiles_toutes_fiches,2311,644,12051,0.0022,0.0002,0.0003,10.88,True
+5_etoiles_sans_enseignes,2219,349,10670,0.0012,0.0004,0.0005,3.42,True

@@ -1,0 +1,9 @@
+perimetre,premier_supprime,second_supprime,paires
+tout le panel,False,False,42
+tout le panel,False,True,12
+tout le panel,True,False,5
+tout le panel,True,True,27
+sans les six enseignes,False,False,40
+sans les six enseignes,False,True,11
+sans les six enseignes,True,False,5
+sans les six enseignes,True,True,12

@@ -1,0 +1,2 @@
+Données : transposition locale reviews_panel_features_03B.parquet (03B_features_local.py)
+Moteur : glm_numpy (statsmodels indisponible sur ce poste)
