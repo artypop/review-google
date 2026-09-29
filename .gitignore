@@ -20,3 +20,4 @@ __pycache__/
 ~$*
 # Fichiers temporaires de travail.
 .tmp/
+.DS_Store
