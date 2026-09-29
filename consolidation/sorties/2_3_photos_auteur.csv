@@ -1,0 +1,11 @@
+modalite;perimetre;us_avis;us_suppressions;us_fiches_touchees;us_pour_10000;europe_avis;europe_suppressions;europe_fiches_touchees;europe_pour_10000;ensemble_avis;ensemble_suppressions;ensemble_fiches_touchees;ensemble_pour_10000
+0 photo;tous;12790;782;191;611;8155;190;81;233;20945;972;272;464
+1 à 5;tous;4028;200;109;497;3170;70;46;221;7198;270;155;375
+6 à 20;tous;1471;55;47;374;1764;23;20;130;3235;78;67;241
+21 à 100;tous;923;6;6;65;1574;14;13;89;2497;20;19;80
+plus de 100;tous;716;7;6;98;1160;8;7;69;1876;15;13;80
+0 photo;sans_enseignes;11071;440;145;397;8137;172;79;211;19208;612;224;319
+1 à 5;sans_enseignes;3618;110;70;304;3166;67;45;212;6784;177;115;261
+6 à 20;sans_enseignes;1358;37;33;272;1763;22;19;125;3121;59;52;189
+21 à 100;sans_enseignes;879;6;6;68;1573;13;12;83;2452;19;18;77
+plus de 100;sans_enseignes;699;5;4;72;1160;8;7;69;1859;13;11;70

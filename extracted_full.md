@@ -148,9 +148,9 @@
 
 [Normal] Le panel 03B, utilisé dans les sections 5 à 9, est construit comme convenu :
 
-[List Bullet] avis créés entre le 5 et le 18 août ;
+[List Bullet] avis créés entre le 4 et le 17 août (J-7 à J+6), soit 35 751 avis ;
 
-[List Bullet] suppressions constatées du 11 au 26 août (les deux semaines de surveillance) ;
+[List Bullet] suppressions constatées du 12 au 24 août (les deux semaines de surveillance), soit 1 355 avis supprimés ;
 
 [List Bullet] avis qui ont clignoté écartés (plusieurs relevés « false ») ;
 

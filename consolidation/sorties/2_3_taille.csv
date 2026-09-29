@@ -1,0 +1,7 @@
+modalite;perimetre;us_avis;us_suppressions;us_fiches_touchees;us_pour_10000;europe_avis;europe_suppressions;europe_fiches_touchees;europe_pour_10000;ensemble_avis;ensemble_suppressions;ensemble_fiches_touchees;ensemble_pour_10000
+mono (1 établissement);tous;4175;98;39;235;3887;78;28;201;8062;176;67;218
+small (4 à 10);tous;5618;297;74;529;5656;94;42;166;11274;391;116;347
+large (20 à 50);tous;10135;655;107;646;6280;133;57;212;16415;788;164;480
+mono (1 établissement);sans_enseignes;4175;98;39;235;3887;78;28;201;8062;176;67;218
+small (4 à 10);sans_enseignes;5618;297;74;529;5656;94;42;166;11274;391;116;347
+large (20 à 50);sans_enseignes;7832;203;58;259;6256;110;55;176;14088;313;113;222

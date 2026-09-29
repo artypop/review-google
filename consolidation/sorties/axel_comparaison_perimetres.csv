@@ -1,0 +1,16 @@
+caracteristique;modalite;panel_avis;panel_suppressions;panel_pour_10000;axel_avis;axel_suppressions;axel_pour_10000
+0. ensemble;tous les avis;35751;1355;379;40936;4035;986
+1. note;5 étoile(s);28112;1081;385;31826;2824;887
+1. note;4 étoile(s);3079;48;156;3425;163;476
+1. note;3 étoile(s);1194;12;101;1363;96;704
+1. note;2 étoile(s);879;32;364;1011;109;1078
+1. note;1 étoile(s);2487;182;732;3311;843;2546
+2. photos publiées par l'auteur;0 photo;20945;972;464;24208;2782;1149
+2. photos publiées par l'auteur;1 à 20 photos;10433;348;334;11903;1064;894
+2. photos publiées par l'auteur;plus de 20 photos;4373;35;80;4825;189;392
+3. niveau Local Guide;sans niveau;2955;210;711;3301;377;1142
+3. niveau Local Guide;niveau 1 à 4;24835;1034;416;28705;3151;1098
+3. niveau Local Guide;niveau 5 et plus;7961;111;139;8930;507;568
+4. date de publication;avant le 4 août;;;;2536;2536;10000
+4. date de publication;du 4 au 18 août;35751;1355;379;38319;1418;370
+4. date de publication;après le 18 août;;;;81;81;10000

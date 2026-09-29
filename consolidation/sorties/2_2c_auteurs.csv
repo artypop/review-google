@@ -1,0 +1,91 @@
+groupe;caracteristique;ordre;modalite;supprimes_avis;supprimes_part_pct;conserves_avis;conserves_part_pct
+autres_fiches_europe;1. note;1;5 étoile(s);273;60,8;34250;71,9
+autres_fiches_europe;1. note;2;4 étoile(s);27;6,0;6040;12,7
+autres_fiches_europe;1. note;3;3 étoile(s);13;2,9;2383;5,0
+autres_fiches_europe;1. note;4;2 étoile(s);20;4,5;1486;3,1
+autres_fiches_europe;1. note;5;1 étoile(s);116;25,8;3476;7,3
+autres_fiches_europe;2. niveau Local Guide;1;sans niveau;83;18,5;1812;3,8
+autres_fiches_europe;2. niveau Local Guide;2;niveau 1 à 3;244;54,3;26304;55,2
+autres_fiches_europe;2. niveau Local Guide;3;niveau 4 et plus;122;27,2;19519;41,0
+autres_fiches_europe;3. photos publiées par l'auteur;1;0;277;61,7;24447;51,3
+autres_fiches_europe;3. photos publiées par l'auteur;2;1 à 5;100;22,3;9611;20,2
+autres_fiches_europe;3. photos publiées par l'auteur;3;6 à 20;39;8,7;5447;11,4
+autres_fiches_europe;3. photos publiées par l'auteur;4;21 à 100;20;4,5;4529;9,5
+autres_fiches_europe;3. photos publiées par l'auteur;5;plus de 100;13;2,9;3601;7,6
+autres_fiches_europe;4. avis déclarés par l'auteur;1;1;196;43,7;11472;24,1
+autres_fiches_europe;4. avis déclarés par l'auteur;2;2 à 5;104;23,2;12183;25,6
+autres_fiches_europe;4. avis déclarés par l'auteur;3;6 à 20;88;19,6;12121;25,4
+autres_fiches_europe;4. avis déclarés par l'auteur;4;21 à 100;49;10,9;8749;18,4
+autres_fiches_europe;4. avis déclarés par l'auteur;5;plus de 100;12;2,7;3110;6,5
+autres_fiches_europe;5. avis du même auteur le même jour, sur le panel;1;1;435;96,9;47220;99,1
+autres_fiches_europe;5. avis du même auteur le même jour, sur le panel;2;2 ou 3;13;2,9;381;0,8
+autres_fiches_europe;5. avis du même auteur le même jour, sur le panel;3;4 et plus;1;0,2;34;0,1
+autres_fiches_europe;6. réponse du propriétaire;1;oui;136;30,3;21836;45,8
+autres_fiches_europe;6. réponse du propriétaire;2;non;313;69,7;25799;54,2
+autres_fiches_us;1. note;1;5 étoile(s);816;78,6;43973;84,9
+autres_fiches_us;1. note;2;4 étoile(s);38;3,7;2789;5,4
+autres_fiches_us;1. note;3;3 étoile(s);11;1,1;1092;2,1
+autres_fiches_us;1. note;4;2 étoile(s);21;2,0;927;1,8
+autres_fiches_us;1. note;5;1 étoile(s);152;14,6;2993;5,8
+autres_fiches_us;2. niveau Local Guide;1;sans niveau;139;13,4;2661;5,1
+autres_fiches_us;2. niveau Local Guide;2;niveau 1 à 3;695;67,0;33715;65,1
+autres_fiches_us;2. niveau Local Guide;3;niveau 4 et plus;204;19,7;15398;29,7
+autres_fiches_us;3. photos publiées par l'auteur;1;0;752;72,4;31643;61,1
+autres_fiches_us;3. photos publiées par l'auteur;2;1 à 5;201;19,4;10983;21,2
+autres_fiches_us;3. photos publiées par l'auteur;3;6 à 20;56;5,4;4260;8,2
+autres_fiches_us;3. photos publiées par l'auteur;4;21 à 100;19;1,8;2858;5,5
+autres_fiches_us;3. photos publiées par l'auteur;5;plus de 100;10;1,0;2030;3,9
+autres_fiches_us;4. avis déclarés par l'auteur;1;1;377;36,3;12893;24,9
+autres_fiches_us;4. avis déclarés par l'auteur;2;2 à 5;278;26,8;15492;29,9
+autres_fiches_us;4. avis déclarés par l'auteur;3;6 à 20;292;28,1;14179;27,4
+autres_fiches_us;4. avis déclarés par l'auteur;4;21 à 100;72;6,9;6997;13,5
+autres_fiches_us;4. avis déclarés par l'auteur;5;plus de 100;19;1,8;2213;4,3
+autres_fiches_us;5. avis du même auteur le même jour, sur le panel;1;1;1011;97,4;51505;99,5
+autres_fiches_us;5. avis du même auteur le même jour, sur le panel;2;2 ou 3;27;2,6;265;0,5
+autres_fiches_us;5. avis du même auteur le même jour, sur le panel;3;4 et plus;0;0,0;4;0,0
+autres_fiches_us;6. réponse du propriétaire;1;oui;503;48,5;30278;58,5
+autres_fiches_us;6. réponse du propriétaire;2;non;535;51,5;21496;41,5
+chaines_antiparasitaires;1. note;1;5 étoile(s);617;94,5;5222;90,6
+chaines_antiparasitaires;1. note;2;4 étoile(s);18;2,8;211;3,7
+chaines_antiparasitaires;1. note;3;3 étoile(s);1;0,2;31;0,5
+chaines_antiparasitaires;1. note;4;2 étoile(s);1;0,2;35;0,6
+chaines_antiparasitaires;1. note;5;1 étoile(s);16;2,5;263;4,6
+chaines_antiparasitaires;2. niveau Local Guide;1;sans niveau;52;8,0;265;4,6
+chaines_antiparasitaires;2. niveau Local Guide;2;niveau 1 à 3;503;77,0;4552;79,0
+chaines_antiparasitaires;2. niveau Local Guide;3;niveau 4 et plus;98;15,0;945;16,4
+chaines_antiparasitaires;3. photos publiées par l'auteur;1;0;501;76,7;4251;73,8
+chaines_antiparasitaires;3. photos publiées par l'auteur;2;1 à 5;125;19,1;1042;18,1
+chaines_antiparasitaires;3. photos publiées par l'auteur;3;6 à 20;25;3,8;301;5,2
+chaines_antiparasitaires;3. photos publiées par l'auteur;4;21 à 100;0;0,0;125;2,2
+chaines_antiparasitaires;3. photos publiées par l'auteur;5;plus de 100;2;0,3;43;0,7
+chaines_antiparasitaires;4. avis déclarés par l'auteur;1;1;182;27,9;1570;27,2
+chaines_antiparasitaires;4. avis déclarés par l'auteur;2;2 à 5;214;32,8;2094;36,3
+chaines_antiparasitaires;4. avis déclarés par l'auteur;3;6 à 20;223;34,2;1626;28,2
+chaines_antiparasitaires;4. avis déclarés par l'auteur;4;21 à 100;32;4,9;414;7,2
+chaines_antiparasitaires;4. avis déclarés par l'auteur;5;plus de 100;2;0,3;58;1,0
+chaines_antiparasitaires;5. avis du même auteur le même jour, sur le panel;1;1;582;89,1;5732;99,5
+chaines_antiparasitaires;5. avis du même auteur le même jour, sur le panel;2;2 ou 3;19;2,9;14;0,2
+chaines_antiparasitaires;5. avis du même auteur le même jour, sur le panel;3;4 et plus;52;8,0;16;0,3
+chaines_antiparasitaires;6. réponse du propriétaire;1;oui;364;55,7;2092;36,3
+chaines_antiparasitaires;6. réponse du propriétaire;2;non;289;44,3;3670;63,7
+salles_espagnoles;1. note;1;5 étoile(s);0;0,0;3;50,0
+salles_espagnoles;1. note;4;2 étoile(s);10;3,1;0;0,0
+salles_espagnoles;1. note;5;1 étoile(s);317;96,9;3;50,0
+salles_espagnoles;2. niveau Local Guide;1;sans niveau;79;24,2;0;0,0
+salles_espagnoles;2. niveau Local Guide;2;niveau 1 à 3;223;68,2;5;83,3
+salles_espagnoles;2. niveau Local Guide;3;niveau 4 et plus;25;7,6;1;16,7
+salles_espagnoles;3. photos publiées par l'auteur;1;0;270;82,6;4;66,7
+salles_espagnoles;3. photos publiées par l'auteur;2;1 à 5;35;10,7;2;33,3
+salles_espagnoles;3. photos publiées par l'auteur;3;6 à 20;13;4,0;0;0,0
+salles_espagnoles;3. photos publiées par l'auteur;4;21 à 100;7;2,1;0;0,0
+salles_espagnoles;3. photos publiées par l'auteur;5;plus de 100;2;0,6;0;0,0
+salles_espagnoles;4. avis déclarés par l'auteur;1;1;238;72,8;1;16,7
+salles_espagnoles;4. avis déclarés par l'auteur;2;2 à 5;53;16,2;3;50,0
+salles_espagnoles;4. avis déclarés par l'auteur;3;6 à 20;23;7,0;2;33,3
+salles_espagnoles;4. avis déclarés par l'auteur;4;21 à 100;12;3,7;0;0,0
+salles_espagnoles;4. avis déclarés par l'auteur;5;plus de 100;1;0,3;0;0,0
+salles_espagnoles;5. avis du même auteur le même jour, sur le panel;1;1;324;99,1;6;100,0
+salles_espagnoles;5. avis du même auteur le même jour, sur le panel;2;2 ou 3;2;0,6;0;0,0
+salles_espagnoles;5. avis du même auteur le même jour, sur le panel;3;4 et plus;1;0,3;0;0,0
+salles_espagnoles;6. réponse du propriétaire;1;oui;224;68,5;6;100,0
+salles_espagnoles;6. réponse du propriétaire;2;non;103;31,5;0;0,0

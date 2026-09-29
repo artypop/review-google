@@ -14,6 +14,9 @@ Il remplace, depuis le 2026-09-14 : `etude-exploratoire/BACKLOG.md`,
 
 ## À faire, par ordre d'intérêt
 
+0. **Refaire la régression du panel (07B / 07C) avec les décisions du 2026-09-29.** Le plan et
+   les questions à trancher sont dans `consolidation/6_plan_regression_panel.md`. Elle reprend
+   aussi le point 7 ci-dessous.
 1. **Comprendre les quatre chaînes américaines de traitement antiparasitaire.** Elles portent
    692 des 2 595 suppressions du panel, presque toutes sur des avis 4 et 5 étoiles. Vérifié le
    2026-09-17 : aucun afflux soudain d'avis, la hausse d'EcoShield est durable et commence en
@@ -27,10 +30,10 @@ Il remplace, depuis le 2026-09-14 : `etude-exploratoire/BACKLOG.md`,
    le phénomène est marginal.
 3. **Croiser le pic au septième jour avec ce qui fait tomber un avis.** Qui sont les avis qui
    sautent à 7 jours ? C'est le motif le plus net de l'étude et il n'a pas d'explication.
-4. **Comprendre pourquoi la réponse du propriétaire joue en sens opposés** selon l'habitude de
-   réponse de la fiche : ×0,40 sur les fiches qui répondent à plus de 75 % de leurs avis, ×2,0
-   sur celles qui répondent à 25 à 75 %. Il faudrait le contenu des réponses ou les
-   signalements, que les données ne portent pas.
+4. **La réponse du propriétaire sur les fiches qui répondent peu.** Le 2026-09-29, le sens
+   opposé ne tient plus : l'aggravation vue au 08 et au 3b vient d'une fiche, Cedar Park
+   Overhead Doors, et dans la même fiche l'avis répondu tombe moins (`consolidation/5_reponse_jour_par_jour.md`).
+   Reste ouvert : sur ces fiches, aucun effet de la réponse n'est citable, faute de suppressions.
 5. **Construire le modèle des suppressions tardives**, après le 8e jour de l'avis. Le modèle A
    couvre les 8 premiers jours ; rien ne couvre la suite.
 6. **Remonter dans `sql/03` les transformations restées en Python** — les tranches de texte, le
@@ -47,10 +50,11 @@ Il remplace, depuis le 2026-09-14 : `etude-exploratoire/BACKLOG.md`,
 Quatre décisions ont été soulevées puis laissées en suspens. Aucune n'est bloquante, toutes
 reviendront.
 
-- **Le niveau Local Guide** : tranché le 2026-09-17. Trois paliers — sans niveau, 1 à 3, 4 et
-  plus — dans `sql/03_adding_features.bqsql`. Reste ouvert : le palier 4 et plus ne protège pas
-  une fois les photos et le nombre d'avis de l'auteur pris en compte, et personne n'explique
-  pourquoi.
+- **Le niveau Local Guide** : paliers changés le 2026-09-29 en sans niveau / 1 à 4 / 5 et plus.
+  L'ancien palier « 4 et plus » mêlait le niveau 4, aussi exposé que les niveaux 1 à 3 en taux
+  bruts, et les niveaux 5 et plus, nettement moins exposés. Reste à voir si le palier 5 et plus
+  protège à caractéristiques égales : dans la même fiche (4b), ×0,75 [0,45 à 1,26], les données
+  ne tranchent pas.
 - **Le recalcul à âge comparable** : remplacé le 2026-09-17 par un indicateur oui / non, le 8e
   jour de l'avis tombe-t-il pendant le suivi. Reste ouvert : tous les avis publiés avant le
   3 août sont rangés ensemble, qu'ils aient 9 ou 90 jours.
@@ -112,6 +116,80 @@ document d'origine :
 ---
 
 # L'historique
+
+## 2026-09-29 — consolidation des chiffres du rapport, régressions 4 et 5
+
+**Nouveau dossier `consolidation/`.** Un script par point du plan de Romain, qui lance ses
+requêtes dans BigQuery, écrit des CSV prêts pour Google Sheets (`;`, virgule décimale), trace un
+graphique de contrôle, et une synthèse `.md` par point. Mode d'emploi : `consolidation/README.md`.
+
+| Point | Synthèse | Ce qu'on y trouve |
+|---|---|---|
+| 1. Le corpus | `1_corpus.md` | contenu des tables, construction pas à pas, secteurs, survie des avis de J-7 à J+7 |
+| 2.1 Google supprime peu | `2_1_peu_de_suppressions.md` | suppressions par année de publication et par âge de l'avis |
+| 2.2 Les deux phénomènes | `2_2_deux_phenomenes.md` | les 4 chaînes antiparasitaires, les 2 salles espagnoles |
+| 2.3 Taux par caractéristique | `2_3_taux.md` | 11 caractéristiques, US et Europe, calcul direct sans modèle |
+| 3. Réponse du propriétaire | `3_reponse_proprietaire.md` | jalon au 2e jour, reprise du 08B |
+| 4. Quelle fiche, quel avis | `4_quelle_fiche_quel_avis.md` | une ligne par fiche (4a) ; les avis d'une même fiche comparés le même jour (4b) |
+| 5. Réponse, jour par jour | `5_reponse_jour_par_jour.md` | une ligne par avis et par jour, sans jalon |
+| 6. Régression du panel (à faire) | `6_plan_regression_panel.md` | le plan et les 8 questions à trancher le 2026-09-30 |
+
+**Décisions de Romain, en vigueur pour toute la suite :**
+- base complète = `reviews_doublons_cleaned` ; panel = 03B (avis publiés du 4 au 17 août) ;
+- version « sans enseignes » = les 95 fiches de `biz_surveillance` ;
+- paliers Local Guide : sans niveau / 1 à 4 / 5 et plus (`consolidation/sorties/4_0_niveaux_local_guide.csv` :
+  le niveau 4 se comporte comme 1 à 3, le 5 nettement en dessous) ;
+- règle de citation des régressions : au moins 20 suppressions, sur au moins 10 fiches, aucune
+  fiche au-delà du quart, pour la case et pour sa référence (`consolidation/commun.py`) ;
+- toute fiche citée porte son cid, ses dates et le CSV qui la contient (`*_fiches_par_case.csv`) ;
+- ni rafale d'auteur, ni langue inhabituelle, ni avis modifié dans les taux du 2.3 ; la langue
+  inhabituelle sort aussi de la régression.
+
+**Ce qu'on a appris sur les données :**
+- La construction de `reviews_doublons_cleaned` est enfin écrite (`consolidation/sql/1b_entonnoir.sql`),
+  retrouvée dans l'historique des requêtes BigQuery. 03B est cette base filtrée sur le 4–17 août,
+  à l'avis près.
+- La règle « sans les avis modifiés plus d'un an après publication » retire 125 253 avis et
+  555 suppressions, dont 322 sur les 4 chaînes. Avec elles, les chaînes perdraient 1 194 avis ;
+  le décompte actuel en retient 872. Liste par fiche : `1b_retires_365_jours_par_fiche.csv` ;
+  lecture avis par avis : `consolidation/sql/verif_avis_modifies_plus_d_un_an.sql`, à lancer dans
+  la console BigQuery. Profil (`1b_retires_365_jours_profil.csv`) : 524 sur 555 portent
+  5 étoiles, 523 ont été modifiés entre mai et août 2026, 359 ont disparu les 16 et 17 août. La
+  règle écarte des avis anciens tout juste réécrits, que Google a retirés en bloc. **À trancher :
+  garder la règle, ou réintégrer ces avis.**
+- « Google supprime peu » tient sur la base entière (8,5 pour 10 000 avis en 14 jours). Sur les
+  avis récents, 2,3 % disparaissent, et les suppressions continuent après le 8e jour à un rythme
+  trois à quatre fois plus faible (`2_1_peu_de_suppressions.md`).
+- Les chaînes perdent surtout des 5 étoiles ; « au bout d'une semaine » décrit 290 de leurs
+  872 suppressions (`2_2_deux_phenomenes.md`).
+
+**Résultats des régressions 4 et 5**, deux enseignements repris de l'étude exploratoire :
+- 4b, comparer les avis d'une même fiche le même jour, neutralise toutes les fiches à
+  comportement particulier, repérées ou non. L'avis 1 étoile y tombe 5 fois plus que l'avis
+  5 étoiles ; l'avis déjà répondu 5 fois moins sur les fiches qui répondent à plus de 75 %, avec
+  ou sans les enseignes.
+- 5, le point 3 refait avec une ligne par avis et par jour, confirme la protection sur les fiches
+  qui répondent à plus de 75 % (×0,36 et ×0,33 sur mono + small). Trois calculs concordent
+  (3b, 4b, 5).
+- L'hypothèse de Romain sur les fiches qui répondent peu (« ne protège pas, voire augmente les
+  risques ») n'est pas établie : l'aggravation apparente vient de Cedar Park Overhead Doors
+  (cid `10505273405281271038`).
+
+**Malentendu à lever sur 03B** : 03B contient les avis publiés du 4 au 17 août et leurs
+suppressions (1 355), sans les suppressions d'avis plus anciens (2 680 des 4 035 de la base). Le
+périmètre voulu par Axel (« J-7 à J+7 + toutes les suppressions ») ne peut pas servir tel quel à
+calculer des taux : les avis anciens n'y entreraient que supprimés. Question 0 du plan
+`consolidation/6_plan_regression_panel.md`. Démonstration chiffrée et explication de la régression pour Axel :
+`consolidation/explication_pour_axel.md` (sur sa table, l'effet des comptes sans niveau Local
+Guide disparaît).
+
+**Rapport corrigé** : `livrables/reviewflowz-resultats-propre.docx`, section 4, les dates de 03B
+(4 au 17 août, suppressions du 12 au 24 août) ; même correction dans `extracted_full.md`.
+
+**Écarté** : mesurer l'incertitude par groupe d'entreprises. Jugé sans apport par Romain une fois
+la règle de citation posée.
+
+**Rien n'est commité** : `consolidation/`, le rapport corrigé et ce fichier sont à valider.
 
 ## 2026-09-17 — paliers d'auteur, mesure de qualité, réponse par type de fiche
 

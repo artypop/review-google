@@ -1,0 +1,15 @@
+region;secteur;fiches_mono;fiches_small;fiches_large;fiches
+US;automotive;238;237;236;711
+US;food_beverage;238;239;238;715
+US;healthcare;238;238;238;714
+US;home_services;238;238;238;714
+US;hospitality;238;241;223;702
+US;travel;240;0;0;240
+US;wellness_fitness;238;236;238;712
+Europe;automotive;238;239;240;717
+Europe;food_beverage;238;237;238;713
+Europe;healthcare;238;238;238;714
+Europe;home_services;238;238;238;714
+Europe;hospitality;238;235;253;726
+Europe;travel;240;0;0;240
+Europe;wellness_fitness;238;240;238;716

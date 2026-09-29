@@ -1,0 +1,19 @@
+perimetre;region;tranche;avis_publies;suppressions;jours_d_observation;pour_10000_par_jour
+tous;Europe;1 à 8 jours;;260;101302;25,7
+tous;Europe;9 jours et plus;;516;421942;12,2
+tous;Europe;total;48417;776;;
+tous;US;1 à 8 jours;;862;130183;66,2
+tous;US;9 jours et plus;;829;503656;16,5
+tous;US;total;59227;1691;;
+tous;ensemble;1 à 8 jours;;1122;231485;48,5
+tous;ensemble;9 jours et plus;;1345;925598;14,5
+tous;ensemble;total;107644;2467;;
+sans_enseignes;Europe;1 à 8 jours;;260;101301;25,7
+sans_enseignes;Europe;9 jours et plus;;189;420021;4,5
+sans_enseignes;Europe;total;48084;449;;
+sans_enseignes;US;1 à 8 jours;;501;115499;43,4
+sans_enseignes;US;9 jours et plus;;537;453317;11,8
+sans_enseignes;US;total;52812;1038;;
+sans_enseignes;ensemble;1 à 8 jours;;761;216800;35,1
+sans_enseignes;ensemble;9 jours et plus;;726;873338;8,3
+sans_enseignes;ensemble;total;100896;1487;;
