@@ -5,8 +5,8 @@ autres_fiches_europe;1. note;3;3 étoile(s);13;2,9;2383;5,0
 autres_fiches_europe;1. note;4;2 étoile(s);20;4,5;1486;3,1
 autres_fiches_europe;1. note;5;1 étoile(s);116;25,8;3476;7,3
 autres_fiches_europe;2. niveau Local Guide;1;sans niveau;83;18,5;1812;3,8
-autres_fiches_europe;2. niveau Local Guide;2;niveau 1 à 3;244;54,3;26304;55,2
-autres_fiches_europe;2. niveau Local Guide;3;niveau 4 et plus;122;27,2;19519;41,0
+autres_fiches_europe;2. niveau Local Guide;2;niveau 1 à 4;298;66,4;31910;67,0
+autres_fiches_europe;2. niveau Local Guide;3;niveau 5 et plus;68;15,1;13913;29,2
 autres_fiches_europe;3. photos publiées par l'auteur;1;0;277;61,7;24447;51,3
 autres_fiches_europe;3. photos publiées par l'auteur;2;1 à 5;100;22,3;9611;20,2
 autres_fiches_europe;3. photos publiées par l'auteur;3;6 à 20;39;8,7;5447;11,4
@@ -28,8 +28,8 @@ autres_fiches_us;1. note;3;3 étoile(s);11;1,1;1092;2,1
 autres_fiches_us;1. note;4;2 étoile(s);21;2,0;927;1,8
 autres_fiches_us;1. note;5;1 étoile(s);152;14,6;2993;5,8
 autres_fiches_us;2. niveau Local Guide;1;sans niveau;139;13,4;2661;5,1
-autres_fiches_us;2. niveau Local Guide;2;niveau 1 à 3;695;67,0;33715;65,1
-autres_fiches_us;2. niveau Local Guide;3;niveau 4 et plus;204;19,7;15398;29,7
+autres_fiches_us;2. niveau Local Guide;2;niveau 1 à 4;805;77,6;39159;75,6
+autres_fiches_us;2. niveau Local Guide;3;niveau 5 et plus;94;9,1;9954;19,2
 autres_fiches_us;3. photos publiées par l'auteur;1;0;752;72,4;31643;61,1
 autres_fiches_us;3. photos publiées par l'auteur;2;1 à 5;201;19,4;10983;21,2
 autres_fiches_us;3. photos publiées par l'auteur;3;6 à 20;56;5,4;4260;8,2
@@ -51,8 +51,8 @@ chaines_antiparasitaires;1. note;3;3 étoile(s);1;0,2;31;0,5
 chaines_antiparasitaires;1. note;4;2 étoile(s);1;0,2;35;0,6
 chaines_antiparasitaires;1. note;5;1 étoile(s);16;2,5;263;4,6
 chaines_antiparasitaires;2. niveau Local Guide;1;sans niveau;52;8,0;265;4,6
-chaines_antiparasitaires;2. niveau Local Guide;2;niveau 1 à 3;503;77,0;4552;79,0
-chaines_antiparasitaires;2. niveau Local Guide;3;niveau 4 et plus;98;15,0;945;16,4
+chaines_antiparasitaires;2. niveau Local Guide;2;niveau 1 à 4;573;87,7;5030;87,3
+chaines_antiparasitaires;2. niveau Local Guide;3;niveau 5 et plus;28;4,3;467;8,1
 chaines_antiparasitaires;3. photos publiées par l'auteur;1;0;501;76,7;4251;73,8
 chaines_antiparasitaires;3. photos publiées par l'auteur;2;1 à 5;125;19,1;1042;18,1
 chaines_antiparasitaires;3. photos publiées par l'auteur;3;6 à 20;25;3,8;301;5,2
@@ -72,8 +72,8 @@ salles_espagnoles;1. note;1;5 étoile(s);0;0,0;3;50,0
 salles_espagnoles;1. note;4;2 étoile(s);10;3,1;0;0,0
 salles_espagnoles;1. note;5;1 étoile(s);317;96,9;3;50,0
 salles_espagnoles;2. niveau Local Guide;1;sans niveau;79;24,2;0;0,0
-salles_espagnoles;2. niveau Local Guide;2;niveau 1 à 3;223;68,2;5;83,3
-salles_espagnoles;2. niveau Local Guide;3;niveau 4 et plus;25;7,6;1;16,7
+salles_espagnoles;2. niveau Local Guide;2;niveau 1 à 4;232;70,9;6;100,0
+salles_espagnoles;2. niveau Local Guide;3;niveau 5 et plus;16;4,9;0;0,0
 salles_espagnoles;3. photos publiées par l'auteur;1;0;270;82,6;4;66,7
 salles_espagnoles;3. photos publiées par l'auteur;2;1 à 5;35;10,7;2;33,3
 salles_espagnoles;3. photos publiées par l'auteur;3;6 à 20;13;4,0;0;0,0

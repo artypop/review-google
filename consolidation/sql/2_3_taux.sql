@@ -30,10 +30,13 @@ modalites AS (
     STRUCT("note" AS caracteristique, 6 - a.star AS ordre,
            CONCAT(CAST(a.star AS STRING), " étoile(s)") AS modalite),
 
+    -- Paliers décidés le 2026-09-29 : sans niveau / 1 à 4 / 5 et plus, calculés
+    -- sur le niveau brut. La colonne `palier_local_guide` de la table garde
+    -- l'ancien découpage 1 à 3 / 4 et plus.
     STRUCT("local_guide",
-           CASE a.palier_local_guide WHEN "sans_niveau" THEN 1 WHEN "1_3" THEN 2 ELSE 3 END,
-           CASE a.palier_local_guide WHEN "sans_niveau" THEN "sans niveau"
-                WHEN "1_3" THEN "niveau 1 à 3" ELSE "niveau 4 et plus" END),
+           CASE WHEN a.local_guide_level IS NULL THEN 1 WHEN a.local_guide_level <= 4 THEN 2 ELSE 3 END,
+           CASE WHEN a.local_guide_level IS NULL THEN "sans niveau"
+                WHEN a.local_guide_level <= 4 THEN "niveau 1 à 4" ELSE "niveau 5 et plus" END),
 
     STRUCT("photo_jointe",
            IF(a.has_photo, 1, 2),

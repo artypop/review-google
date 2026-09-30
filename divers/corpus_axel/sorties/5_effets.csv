@@ -1,0 +1,127 @@
+passage;colonne;risque_relatif;fourchette_basse;fourchette_haute;remarque;avis_jours;suppressions;fiches_touchees;enseignes_touchees;part_de_la_premiere_fiche;citable
+mono + small, tous;réponse jour même, fiche qui répond à 75 % ou moins;1,79;0,64;5,0;;4249;62;16;16;0,74;non
+mono + small, tous;réponse 1 jour, fiche qui répond à 75 % ou moins;1,23;0,66;2,27;;4850;42;22;21;0,19;oui
+mono + small, tous;réponse 2 jours, fiche qui répond à 75 % ou moins;0,98;0,47;2,05;;1980;12;9;9;0,25;oui
+mono + small, tous;réponse 3 jours et plus, fiche qui répond à 75 % ou moins;1,04;0,64;1,7;;4726;49;32;32;0,16;oui
+mono + small, tous;réponse jour même, fiche qui répond à plus de 75 %;0,49;0,32;0,74;;31465;260;89;80;0,09;oui
+mono + small, tous;réponse 1 jour, fiche qui répond à plus de 75 %;0,44;0,3;0,65;;22142;150;72;69;0,09;oui
+mono + small, tous;réponse 2 jours, fiche qui répond à plus de 75 %;0,35;0,23;0,53;;7115;37;30;29;0,08;oui
+mono + small, tous;réponse 3 jours et plus, fiche qui répond à plus de 75 %;0,49;0,34;0,69;;14271;135;74;72;0,1;oui
+mono + small, tous;fiche qui répond à plus de 75 %;1,94;1,34;2,79;;;;;;;contrôle
+mono + small, tous;note 1 ou 2 étoiles;2,14;1,53;2,97;;;;;;;contrôle
+mono + small, tous;note 3 ou 4 étoiles;0,91;0,71;1,18;;;;;;;contrôle
+mono + small, tous;fiche aux États-Unis;1,97;1,48;2,63;;;;;;;contrôle
+mono + small, tous;âge : 1 jour(s);2,58;1,27;5,24;;;;;;;contrôle
+mono + small, tous;âge : 2 jour(s);2,29;1,56;3,36;;;;;;;contrôle
+mono + small, tous;âge : 3 jour(s);1,4;0,88;2,22;;;;;;;contrôle
+mono + small, tous;âge : 4 jour(s);0,44;0,21;0,94;;;;;;;contrôle
+mono + small, tous;âge : 5 jour(s);0,66;0,42;1,04;;;;;;;contrôle
+mono + small, tous;âge : 6 jour(s);3,37;2,47;4,58;;;;;;;contrôle
+mono + small, tous;âge : 7 jour(s);4,93;3,8;6,39;;;;;;;contrôle
+mono + small, tous;âge : 8 jour(s);1,15;0,78;1,7;;;;;;;contrôle
+mono + small, tous;âge : 14 jours et plus;11,11;8,75;14,11;;;;;;;contrôle
+mono + small, sans_enseignes;réponse jour même, fiche qui répond à 75 % ou moins;1,79;0,64;5,0;;4249;62;16;16;0,74;non
+mono + small, sans_enseignes;réponse 1 jour, fiche qui répond à 75 % ou moins;1,23;0,66;2,27;;4850;42;22;21;0,19;oui
+mono + small, sans_enseignes;réponse 2 jours, fiche qui répond à 75 % ou moins;0,98;0,47;2,05;;1980;12;9;9;0,25;oui
+mono + small, sans_enseignes;réponse 3 jours et plus, fiche qui répond à 75 % ou moins;1,04;0,64;1,7;;4726;49;32;32;0,16;oui
+mono + small, sans_enseignes;réponse jour même, fiche qui répond à plus de 75 %;0,49;0,32;0,74;;31465;260;89;80;0,09;oui
+mono + small, sans_enseignes;réponse 1 jour, fiche qui répond à plus de 75 %;0,44;0,3;0,65;;22142;150;72;69;0,09;oui
+mono + small, sans_enseignes;réponse 2 jours, fiche qui répond à plus de 75 %;0,35;0,23;0,53;;7115;37;30;29;0,08;oui
+mono + small, sans_enseignes;réponse 3 jours et plus, fiche qui répond à plus de 75 %;0,49;0,34;0,69;;14271;135;74;72;0,1;oui
+mono + small, sans_enseignes;fiche qui répond à plus de 75 %;1,94;1,34;2,79;;;;;;;contrôle
+mono + small, sans_enseignes;note 1 ou 2 étoiles;2,14;1,53;2,97;;;;;;;contrôle
+mono + small, sans_enseignes;note 3 ou 4 étoiles;0,91;0,71;1,18;;;;;;;contrôle
+mono + small, sans_enseignes;fiche aux États-Unis;1,97;1,48;2,63;;;;;;;contrôle
+mono + small, sans_enseignes;âge : 1 jour(s);2,58;1,27;5,24;;;;;;;contrôle
+mono + small, sans_enseignes;âge : 2 jour(s);2,29;1,56;3,36;;;;;;;contrôle
+mono + small, sans_enseignes;âge : 3 jour(s);1,4;0,88;2,22;;;;;;;contrôle
+mono + small, sans_enseignes;âge : 4 jour(s);0,44;0,21;0,94;;;;;;;contrôle
+mono + small, sans_enseignes;âge : 5 jour(s);0,66;0,42;1,04;;;;;;;contrôle
+mono + small, sans_enseignes;âge : 6 jour(s);3,37;2,47;4,58;;;;;;;contrôle
+mono + small, sans_enseignes;âge : 7 jour(s);4,93;3,8;6,39;;;;;;;contrôle
+mono + small, sans_enseignes;âge : 8 jour(s);1,15;0,78;1,7;;;;;;;contrôle
+mono + small, sans_enseignes;âge : 14 jours et plus;11,11;8,75;14,11;;;;;;;contrôle
+large, tous;réponse jour même, fiche qui répond à 75 % ou moins;0,77;0,46;1,3;;2872;30;26;16;0,07;oui
+large, tous;réponse 1 jour, fiche qui répond à 75 % ou moins;0,94;0,5;1,76;;4360;56;27;18;0,23;oui
+large, tous;réponse 2 jours, fiche qui répond à 75 % ou moins;0,49;0,24;0,98;;1330;10;9;9;0,2;oui
+large, tous;réponse 3 jours et plus, fiche qui répond à 75 % ou moins;2,91;2,15;3,94;;3950;263;32;31;0,46;non
+large, tous;réponse jour même, fiche qui répond à plus de 75 %;0,75;0,51;1,11;;39964;494;115;55;0,06;oui
+large, tous;réponse 1 jour, fiche qui répond à plus de 75 %;0,38;0,27;0,53;;29807;178;92;58;0,09;oui
+large, tous;réponse 2 jours, fiche qui répond à plus de 75 %;0,37;0,24;0,55;;11495;64;52;44;0,06;oui
+large, tous;réponse 3 jours et plus, fiche qui répond à plus de 75 %;0,5;0,37;0,69;;13186;116;78;61;0,09;oui
+large, tous;fiche qui répond à plus de 75 %;1,22;0,81;1,83;;;;;;;contrôle
+large, tous;note 1 ou 2 étoiles;2,57;1,7;3,87;;;;;;;contrôle
+large, tous;note 3 ou 4 étoiles;0,54;0,43;0,68;;;;;;;contrôle
+large, tous;fiche aux États-Unis;1,75;1,21;2,52;;;;;;;contrôle
+large, tous;âge : 1 jour(s);0,91;0,36;2,3;;;;;;;contrôle
+large, tous;âge : 2 jour(s);0,92;0,54;1,57;;;;;;;contrôle
+large, tous;âge : 3 jour(s);0,62;0,35;1,1;;;;;;;contrôle
+large, tous;âge : 4 jour(s);0,33;0,12;0,86;;;;;;;contrôle
+large, tous;âge : 5 jour(s);0,26;0,14;0,5;;;;;;;contrôle
+large, tous;âge : 6 jour(s);1,96;1,23;3,12;;;;;;;contrôle
+large, tous;âge : 7 jour(s);3,09;1,97;4,86;;;;;;;contrôle
+large, tous;âge : 8 jour(s);0,86;0,53;1,39;;;;;;;contrôle
+large, tous;âge : 14 jours et plus;5,31;3,18;8,88;;;;;;;contrôle
+large, sans_enseignes;réponse jour même, fiche qui répond à 75 % ou moins;1,28;0,77;2,13;;2591;21;18;14;0,1;oui
+large, sans_enseignes;réponse 1 jour, fiche qui répond à 75 % ou moins;1,66;0,82;3,37;;4038;43;18;16;0,3;non
+large, sans_enseignes;réponse 2 jours, fiche qui répond à 75 % ou moins;0,78;0,3;2,01;;1153;6;5;5;0,33;non
+large, sans_enseignes;réponse 3 jours et plus, fiche qui répond à 75 % ou moins;1,52;0,97;2,39;;2272;34;27;27;0,09;oui
+large, sans_enseignes;réponse jour même, fiche qui répond à plus de 75 %;0,28;0,19;0,42;;32290;143;81;52;0,1;oui
+large, sans_enseignes;réponse 1 jour, fiche qui répond à plus de 75 %;0,31;0,22;0,43;;28726;130;71;55;0,12;oui
+large, sans_enseignes;réponse 2 jours, fiche qui répond à plus de 75 %;0,38;0,26;0,56;;11435;61;50;42;0,07;oui
+large, sans_enseignes;réponse 3 jours et plus, fiche qui répond à plus de 75 %;0,47;0,34;0,64;;13068;102;67;58;0,11;oui
+large, sans_enseignes;fiche qui répond à plus de 75 %;2,27;1,64;3,15;;;;;;;contrôle
+large, sans_enseignes;note 1 ou 2 étoiles;2,6;1,97;3,44;;;;;;;contrôle
+large, sans_enseignes;note 3 ou 4 étoiles;0,79;0,62;1,02;;;;;;;contrôle
+large, sans_enseignes;fiche aux États-Unis;1,61;1,23;2,11;;;;;;;contrôle
+large, sans_enseignes;âge : 1 jour(s);2,15;0,8;5,76;;;;;;;contrôle
+large, sans_enseignes;âge : 2 jour(s);2,37;1,42;3,93;;;;;;;contrôle
+large, sans_enseignes;âge : 3 jour(s);1,38;0,84;2,27;;;;;;;contrôle
+large, sans_enseignes;âge : 4 jour(s);0,56;0,25;1,24;;;;;;;contrôle
+large, sans_enseignes;âge : 5 jour(s);0,3;0,13;0,69;;;;;;;contrôle
+large, sans_enseignes;âge : 6 jour(s);1,78;1,17;2,69;;;;;;;contrôle
+large, sans_enseignes;âge : 7 jour(s);2,29;1,49;3,54;;;;;;;contrôle
+large, sans_enseignes;âge : 8 jour(s);1,12;0,76;1,65;;;;;;;contrôle
+large, sans_enseignes;âge : 14 jours et plus;9,76;7,04;13,52;;;;;;;contrôle
+mono, tous;réponse jour même, fiche qui répond à 75 % ou moins;0,46;0,19;1,11;;1666;6;6;6;0,17;non
+mono, tous;réponse 1 jour, fiche qui répond à 75 % ou moins;1,0;0,36;2,82;;1642;13;7;7;0,54;non
+mono, tous;réponse 2 jours, fiche qui répond à 75 % ou moins;1,08;0,38;3,08;;753;5;4;4;0,4;non
+mono, tous;réponse 3 jours et plus, fiche qui répond à 75 % ou moins;0,93;0,45;1,94;;1806;20;13;13;0,4;non
+mono, tous;réponse jour même, fiche qui répond à plus de 75 %;0,75;0,36;1,6;;9370;64;28;28;0,2;oui
+mono, tous;réponse 1 jour, fiche qui répond à plus de 75 %;0,75;0,37;1,52;;6830;50;29;29;0,22;oui
+mono, tous;réponse 2 jours, fiche qui répond à plus de 75 %;0,49;0,22;1,09;;2289;10;8;8;0,2;oui
+mono, tous;réponse 3 jours et plus, fiche qui répond à plus de 75 %;0,66;0,37;1,19;;6619;57;29;29;0,23;oui
+mono, tous;fiche qui répond à plus de 75 %;1,19;0,65;2,18;;;;;;;contrôle
+mono, tous;note 1 ou 2 étoiles;2,51;1,25;5,07;;;;;;;contrôle
+mono, tous;note 3 ou 4 étoiles;0,87;0,57;1,33;;;;;;;contrôle
+mono, tous;fiche aux États-Unis;1,6;1,02;2,51;;;;;;;contrôle
+mono, tous;âge : 1 jour(s);2,23;0,53;9,44;;;;;;;contrôle
+mono, tous;âge : 2 jour(s);3,45;1,85;6,42;;;;;;;contrôle
+mono, tous;âge : 3 jour(s);1,83;0,88;3,81;;;;;;;contrôle
+mono, tous;âge : 4 jour(s);0,47;0,16;1,38;;;;;;;contrôle
+mono, tous;âge : 5 jour(s);0,75;0,32;1,76;;;;;;;contrôle
+mono, tous;âge : 6 jour(s);4,05;2,75;5,97;;;;;;;contrôle
+mono, tous;âge : 7 jour(s);3,97;2,7;5,84;;;;;;;contrôle
+mono, tous;âge : 8 jour(s);1,2;0,65;2,24;;;;;;;contrôle
+mono, tous;âge : 14 jours et plus;16,41;10,91;24,69;;;;;;;contrôle
+small, tous;réponse jour même, fiche qui répond à 75 % ou moins;2,58;1,07;6,22;;2583;56;10;10;0,82;non
+small, tous;réponse 1 jour, fiche qui répond à 75 % ou moins;1,39;0,65;2,97;;3208;29;15;14;0,28;non
+small, tous;réponse 2 jours, fiche qui répond à 75 % ou moins;1,03;0,39;2,76;;1227;7;5;5;0,43;non
+small, tous;réponse 3 jours et plus, fiche qui répond à 75 % ou moins;1,19;0,64;2,21;;2920;29;19;19;0,21;oui
+small, tous;réponse jour même, fiche qui répond à plus de 75 %;0,38;0,24;0,62;;22095;196;61;52;0,12;oui
+small, tous;réponse 1 jour, fiche qui répond à plus de 75 %;0,35;0,22;0,55;;15312;100;43;40;0,13;oui
+small, tous;réponse 2 jours, fiche qui répond à plus de 75 %;0,3;0,19;0,49;;4826;27;22;21;0,11;oui
+small, tous;réponse 3 jours et plus, fiche qui répond à plus de 75 %;0,46;0,31;0,69;;7652;78;45;43;0,14;oui
+small, tous;fiche qui répond à plus de 75 %;2,41;1,54;3,79;;;;;;;contrôle
+small, tous;note 1 ou 2 étoiles;1,91;1,41;2,6;;;;;;;contrôle
+small, tous;note 3 ou 4 étoiles;0,92;0,68;1,25;;;;;;;contrôle
+small, tous;fiche aux États-Unis;2,31;1,64;3,25;;;;;;;contrôle
+small, tous;âge : 1 jour(s);2,61;1,17;5,82;;;;;;;contrôle
+small, tous;âge : 2 jour(s);1,85;1,14;2,99;;;;;;;contrôle
+small, tous;âge : 3 jour(s);1,23;0,68;2,21;;;;;;;contrôle
+small, tous;âge : 4 jour(s);0,43;0,16;1,12;;;;;;;contrôle
+small, tous;âge : 5 jour(s);0,63;0,37;1,07;;;;;;;contrôle
+small, tous;âge : 6 jour(s);3,11;2,06;4,69;;;;;;;contrôle
+small, tous;âge : 7 jour(s);5,31;3,87;7,28;;;;;;;contrôle
+small, tous;âge : 8 jour(s);1,14;0,7;1,85;;;;;;;contrôle
+small, tous;âge : 14 jours et plus;9,0;6,78;11,95;;;;;;;contrôle

@@ -1,0 +1,67 @@
+passage;habitude;reponse;lignes;avis;suppressions;fiches_touchees;enseignes_touchees;part_de_la_premiere_fiche;citable
+mono + small, tous;toutes;total du passage;211582;20047;1749;638;604;0,03;True
+mono + small, tous;75 % ou moins;jour même;4249;422;62;16;16;0,74;False
+mono + small, tous;75 % ou moins;1 jour;4850;454;42;22;21;0,19;True
+mono + small, tous;75 % ou moins;2 jours;1980;200;12;9;9;0,25;True
+mono + small, tous;75 % ou moins;3 jours et plus;4726;595;49;32;32;0,16;True
+mono + small, tous;75 % ou moins;pas encore de réponse;101241;9923;736;306;295;0,06;True
+mono + small, tous;plus de 75 %;jour même;31465;2952;260;89;80;0,09;True
+mono + small, tous;plus de 75 %;1 jour;22142;2078;150;72;69;0,09;True
+mono + small, tous;plus de 75 %;2 jours;7115;707;37;30;29;0,08;True
+mono + small, tous;plus de 75 %;3 jours et plus;14271;1745;135;74;72;0,1;True
+mono + small, tous;plus de 75 %;pas encore de réponse;19543;3160;266;128;122;0,06;True
+mono + small, sans_enseignes;toutes;total du passage;211582;20047;1749;638;604;0,03;True
+mono + small, sans_enseignes;75 % ou moins;jour même;4249;422;62;16;16;0,74;False
+mono + small, sans_enseignes;75 % ou moins;1 jour;4850;454;42;22;21;0,19;True
+mono + small, sans_enseignes;75 % ou moins;2 jours;1980;200;12;9;9;0,25;True
+mono + small, sans_enseignes;75 % ou moins;3 jours et plus;4726;595;49;32;32;0,16;True
+mono + small, sans_enseignes;75 % ou moins;pas encore de réponse;101241;9923;736;306;295;0,06;True
+mono + small, sans_enseignes;plus de 75 %;jour même;31465;2952;260;89;80;0,09;True
+mono + small, sans_enseignes;plus de 75 %;1 jour;22142;2078;150;72;69;0,09;True
+mono + small, sans_enseignes;plus de 75 %;2 jours;7115;707;37;30;29;0,08;True
+mono + small, sans_enseignes;plus de 75 %;3 jours et plus;14271;1745;135;74;72;0,1;True
+mono + small, sans_enseignes;plus de 75 %;pas encore de réponse;19543;3160;266;128;122;0,06;True
+large, tous;toutes;total du passage;183994;17664;2216;516;335;0,09;True
+large, tous;75 % ou moins;jour même;2872;270;30;26;16;0,07;True
+large, tous;75 % ou moins;1 jour;4360;421;56;27;18;0,23;True
+large, tous;75 % ou moins;2 jours;1330;138;10;9;9;0,2;True
+large, tous;75 % ou moins;3 jours et plus;3950;584;263;32;31;0,46;False
+large, tous;75 % ou moins;pas encore de réponse;63690;6496;834;169;127;0,09;True
+large, tous;plus de 75 %;jour même;39964;3791;494;115;55;0,06;True
+large, tous;plus de 75 %;1 jour;29807;2786;178;92;58;0,09;True
+large, tous;plus de 75 %;2 jours;11495;1096;64;52;44;0,06;True
+large, tous;plus de 75 %;3 jours et plus;13186;1484;116;78;61;0,09;True
+large, tous;plus de 75 %;pas encore de réponse;13340;2593;171;111;81;0,04;True
+large, sans_enseignes;toutes;total du passage;156850;14612;1016;453;329;0,02;True
+large, sans_enseignes;75 % ou moins;jour même;2591;242;21;18;14;0,1;True
+large, sans_enseignes;75 % ou moins;1 jour;4038;386;43;18;16;0,3;False
+large, sans_enseignes;75 % ou moins;2 jours;1153;119;6;5;5;0,33;False
+large, sans_enseignes;75 % ou moins;3 jours et plus;2272;323;34;27;27;0,09;True
+large, sans_enseignes;75 % ou moins;pas encore de réponse;48055;4723;312;144;123;0,06;True
+large, sans_enseignes;plus de 75 %;jour même;32290;2911;143;81;52;0,1;True
+large, sans_enseignes;plus de 75 %;1 jour;28726;2665;130;71;55;0,12;True
+large, sans_enseignes;plus de 75 %;2 jours;11435;1089;61;50;42;0,07;True
+large, sans_enseignes;plus de 75 %;3 jours et plus;13068;1469;102;67;58;0,11;True
+large, sans_enseignes;plus de 75 %;pas encore de réponse;13222;2575;164;107;79;0,04;True
+mono, tous;toutes;total du passage;87300;8187;628;246;246;0,07;True
+mono, tous;75 % ou moins;jour même;1666;156;6;6;6;0,17;False
+mono, tous;75 % ou moins;1 jour;1642;155;13;7;7;0,54;False
+mono, tous;75 % ou moins;2 jours;753;77;5;4;4;0,4;False
+mono, tous;75 % ou moins;3 jours et plus;1806;221;20;13;13;0,4;False
+mono, tous;75 % ou moins;pas encore de réponse;48419;4679;344;133;133;0,13;True
+mono, tous;plus de 75 %;jour même;9370;882;64;28;28;0,2;True
+mono, tous;plus de 75 %;1 jour;6830;645;50;29;29;0,22;True
+mono, tous;plus de 75 %;2 jours;2289;224;10;8;8;0,2;True
+mono, tous;plus de 75 %;3 jours et plus;6619;824;57;29;29;0,23;True
+mono, tous;plus de 75 %;pas encore de réponse;7906;1288;59;33;33;0,12;True
+small, tous;toutes;total du passage;124282;11860;1121;392;358;0,05;True
+small, tous;75 % ou moins;jour même;2583;266;56;10;10;0,82;False
+small, tous;75 % ou moins;1 jour;3208;299;29;15;14;0,28;False
+small, tous;75 % ou moins;2 jours;1227;123;7;5;5;0,43;False
+small, tous;75 % ou moins;3 jours et plus;2920;374;29;19;19;0,21;True
+small, tous;75 % ou moins;pas encore de réponse;52822;5244;392;173;162;0,12;True
+small, tous;plus de 75 %;jour même;22095;2070;196;61;52;0,12;True
+small, tous;plus de 75 %;1 jour;15312;1433;100;43;40;0,13;True
+small, tous;plus de 75 %;2 jours;4826;483;27;22;21;0,11;True
+small, tous;plus de 75 %;3 jours et plus;7652;921;78;45;43;0,14;True
+small, tous;plus de 75 %;pas encore de réponse;11637;1872;207;95;89;0,08;True

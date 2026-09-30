@@ -1,0 +1,95 @@
+passage;caracteristique;modalite;reference;fiches;fiches_touchees;suppressions;enseignes_touchees;part_de_la_premiere_fiche;case_citable
+ensemble, tous;secteur;Automobile;True;230;80;276;58;0,08;True
+ensemble, tous;secteur;Services à domicile;False;290;150;1483;68;0,05;True
+ensemble, tous;secteur;Santé;False;287;97;334;78;0,07;True
+ensemble, tous;secteur;Sport et bien-être;False;201;93;629;78;0,31;False
+ensemble, tous;secteur;Restauration;False;375;140;298;117;0,16;True
+ensemble, tous;secteur;Voyage;False;134;38;196;38;0,23;True
+ensemble, tous;secteur;Hôtellerie;False;452;134;287;134;0,08;True
+ensemble, tous;taille;mono;True;475;126;498;126;0,09;True
+ensemble, tous;taille;small;False;629;241;959;217;0,06;True
+ensemble, tous;taille;large;False;865;365;2046;228;0,09;True
+ensemble, tous;region;Europe;True;929;307;1057;287;0,18;True
+ensemble, tous;region;US;False;1040;425;2446;284;0,03;True
+ensemble, tous;habitude;75 % ou moins;True;956;342;1849;294;0,1;True
+ensemble, tous;habitude;plus de 75 %;False;1013;390;1654;281;0,02;True
+ensemble, tous;afflux;pas plus que d'habitude;True;334;124;269;99;0,06;True
+ensemble, tous;afflux;1 à 2 fois l'habitude;False;824;304;1162;248;0,06;True
+ensemble, tous;afflux;plus de 2 fois l'habitude;False;811;304;2072;270;0,09;True
+ensemble, sans_enseignes;secteur;Automobile;True;230;80;276;58;0,08;True
+ensemble, sans_enseignes;secteur;Services à domicile;False;212;90;613;64;0,1;True
+ensemble, sans_enseignes;secteur;Santé;False;287;97;334;78;0,07;True
+ensemble, sans_enseignes;secteur;Sport et bien-être;False;199;91;300;76;0,08;True
+ensemble, sans_enseignes;secteur;Restauration;False;375;140;298;117;0,16;True
+ensemble, sans_enseignes;secteur;Voyage;False;134;38;196;38;0,23;True
+ensemble, sans_enseignes;secteur;Hôtellerie;False;452;134;287;134;0,08;True
+ensemble, sans_enseignes;taille;mono;True;475;126;498;126;0,09;True
+ensemble, sans_enseignes;taille;small;False;629;241;959;217;0,06;True
+ensemble, sans_enseignes;taille;large;False;785;303;847;222;0,03;True
+ensemble, sans_enseignes;region;Europe;True;927;305;728;285;0,06;True
+ensemble, sans_enseignes;region;US;False;962;365;1576;280;0,04;True
+ensemble, sans_enseignes;habitude;75 % ou moins;True;921;316;1073;290;0,05;True
+ensemble, sans_enseignes;habitude;plus de 75 %;False;968;354;1231;278;0,03;True
+ensemble, sans_enseignes;afflux;pas plus que d'habitude;True;317;113;199;96;0,08;True
+ensemble, sans_enseignes;afflux;1 à 2 fois l'habitude;False;786;276;807;244;0,06;True
+ensemble, sans_enseignes;afflux;plus de 2 fois l'habitude;False;786;281;1298;264;0,05;True
+US, tous;secteur;Automobile;True;162;59;222;40;0,1;True
+US, tous;secteur;Services à domicile;False;231;132;1431;52;0,05;True
+US, tous;secteur;Santé;False;200;72;283;55;0,08;True
+US, tous;secteur;Sport et bien-être;False;71;28;148;23;0,17;True
+US, tous;secteur;Restauration;False;180;72;162;52;0,29;False
+US, tous;secteur;Voyage;False;66;22;110;22;0,35;False
+US, tous;secteur;Hôtellerie;False;130;40;90;40;0,14;True
+US, tous;taille;mono;True;238;71;315;71;0,12;True
+US, tous;taille;small;False;322;130;695;108;0,08;True
+US, tous;taille;large;False;480;224;1436;105;0,05;True
+US, tous;habitude;75 % ou moins;True;433;172;1117;127;0,07;True
+US, tous;habitude;plus de 75 %;False;607;253;1329;160;0,03;True
+US, tous;afflux;pas plus que d'habitude;True;206;75;194;55;0,08;True
+US, tous;afflux;1 à 2 fois l'habitude;False;486;194;972;142;0,07;True
+US, tous;afflux;plus de 2 fois l'habitude;False;348;156;1280;124;0,06;True
+US, sans_enseignes;secteur;Automobile;True;162;59;222;40;0,1;True
+US, sans_enseignes;secteur;Services à domicile;False;153;72;561;48;0,11;True
+US, sans_enseignes;secteur;Santé;False;200;72;283;55;0,08;True
+US, sans_enseignes;secteur;Sport et bien-être;False;71;28;148;23;0,17;True
+US, sans_enseignes;secteur;Restauration;False;180;72;162;52;0,29;False
+US, sans_enseignes;secteur;Voyage;False;66;22;110;22;0,35;False
+US, sans_enseignes;secteur;Hôtellerie;False;130;40;90;40;0,14;True
+US, sans_enseignes;taille;mono;True;238;71;315;71;0,12;True
+US, sans_enseignes;taille;small;False;322;130;695;108;0,08;True
+US, sans_enseignes;taille;large;False;402;164;566;101;0,04;True
+US, sans_enseignes;habitude;75 % ou moins;True;400;148;670;125;0,09;True
+US, sans_enseignes;habitude;plus de 75 %;False;562;217;906;157;0,04;True
+US, sans_enseignes;afflux;pas plus que d'habitude;True;189;64;124;52;0,12;True
+US, sans_enseignes;afflux;1 à 2 fois l'habitude;False;448;166;617;138;0,08;True
+US, sans_enseignes;afflux;plus de 2 fois l'habitude;False;325;135;835;120;0,07;True
+Europe, tous;secteur;Automobile;True;68;21;54;18;0,24;True
+Europe, tous;secteur;Services à domicile;False;59;18;52;16;0,35;False
+Europe, tous;secteur;Santé;False;87;25;51;23;0,18;True
+Europe, tous;secteur;Sport et bien-être;False;130;65;481;55;0,4;False
+Europe, tous;secteur;Restauration;False;195;68;136;65;0,16;True
+Europe, tous;secteur;Voyage;False;68;16;86;16;0,52;False
+Europe, tous;secteur;Hôtellerie;False;322;94;197;94;0,11;True
+Europe, tous;taille;mono;True;237;55;183;55;0,25;True
+Europe, tous;taille;small;False;307;111;264;109;0,08;True
+Europe, tous;taille;large;False;385;141;610;123;0,32;False
+Europe, tous;habitude;75 % ou moins;True;523;170;732;167;0,27;False
+Europe, tous;habitude;plus de 75 %;False;406;137;325;121;0,07;True
+Europe, tous;afflux;pas plus que d'habitude;True;128;49;75;44;0,05;True
+Europe, tous;afflux;1 à 2 fois l'habitude;False;338;110;190;106;0,05;True
+Europe, tous;afflux;plus de 2 fois l'habitude;False;463;148;792;146;0,24;True
+Europe, sans_enseignes;secteur;Automobile;True;68;21;54;18;0,24;True
+Europe, sans_enseignes;secteur;Services à domicile;False;59;18;52;16;0,35;False
+Europe, sans_enseignes;secteur;Santé;False;87;25;51;23;0,18;True
+Europe, sans_enseignes;secteur;Sport et bien-être;False;128;63;152;53;0,14;True
+Europe, sans_enseignes;secteur;Restauration;False;195;68;136;65;0,16;True
+Europe, sans_enseignes;secteur;Voyage;False;68;16;86;16;0,52;False
+Europe, sans_enseignes;secteur;Hôtellerie;False;322;94;197;94;0,11;True
+Europe, sans_enseignes;taille;mono;True;237;55;183;55;0,25;True
+Europe, sans_enseignes;taille;small;False;307;111;264;109;0,08;True
+Europe, sans_enseignes;taille;large;False;383;139;281;121;0,08;True
+Europe, sans_enseignes;habitude;75 % ou moins;True;521;168;403;165;0,11;True
+Europe, sans_enseignes;habitude;plus de 75 %;False;406;137;325;121;0,07;True
+Europe, sans_enseignes;afflux;pas plus que d'habitude;True;128;49;75;44;0,05;True
+Europe, sans_enseignes;afflux;1 à 2 fois l'habitude;False;338;110;190;106;0,05;True
+Europe, sans_enseignes;afflux;plus de 2 fois l'habitude;False;461;146;463;144;0,1;True

@@ -8,7 +8,8 @@ Quatre choses, rien d'autre :
   enregistrer(fig, n) écrit `sorties/figures/<n>.png`
 
 Tout le comptage se fait dans BigQuery. Python ne reçoit que des tableaux déjà
-agrégés, de quelques centaines de lignes au plus (sauf le 3b, 17 000 lignes).
+agrégés, de quelques centaines de lignes au plus. Les régressions font exception :
+3b, 4b, 5, et le 8 avec un million de lignes regroupées par fiche.
 """
 from __future__ import annotations
 
@@ -101,14 +102,16 @@ def enregistrer(fig, nom: str) -> None:
 
 
 # ---------------------------------------------------------------------------
-# Règle de citation des régressions 4 et 5 (décidée le 2026-09-29).
+# Règle de citation des points 4, 5, 7 et 8.
 # Un effet se cite si sa case ET sa case de référence ont :
-#   au moins 20 suppressions ;
-#   réparties sur au moins 10 fiches ;
+#   au moins 10 suppressions ;
+#   réparties sur au moins 5 fiches ;
 #   et aucune fiche ne porte plus du quart de ces suppressions.
+# Seuils du 2026-09-30. Ceux du 2026-09-29 (20 suppressions, 10 fiches), jugés
+# trop stricts par Romain, écartaient des cases à 14 suppressions sur 13 fiches.
 # ---------------------------------------------------------------------------
-MIN_SUPPRESSIONS_CITABLE = 20
-MIN_FICHES_CITABLE = 10
+MIN_SUPPRESSIONS_CITABLE = 10
+MIN_FICHES_CITABLE = 5
 PART_MAX_PREMIERE_FICHE = 0.25
 
 

@@ -42,14 +42,18 @@ Chaque case ci-dessous donne deux nombres : tous / sans enseignes. Ce sont des s
 
 ### Niveau Local Guide (`2_3_local_guide.csv`)
 
+Paliers décidés le 2026-09-29, appliqués ici le 2026-09-30 : sans niveau / 1 à 4 / 5 et plus.
+
 | | US | Europe |
 |---|---:|---:|
 | sans niveau | 777 / 634 | 601 / 551 |
-| niveau 1 à 3 | 575 / 355 | 191 / 174 |
-| niveau 4 et plus | 326 / 207 | 125 / 121 |
+| niveau 1 à 4 | 570 / 350 | 192 / 177 |
+| niveau 5 et plus | 198 / 139 | 97 / 93 |
 
-- Sans niveau, l'avis disparaît 1,8 fois plus qu'au niveau 1 à 3 aux États-Unis (sans
-  enseignes), 3,2 fois plus en Europe.
+- Sans niveau, l'avis disparaît 1,8 fois plus qu'au niveau 1 à 4 aux États-Unis (sans
+  enseignes), 3,1 fois plus en Europe.
+- Au niveau 5 et plus, l'avis disparaît 2,5 fois moins qu'au niveau 1 à 4 aux États-Unis (sans
+  enseignes), 1,9 fois moins en Europe.
 
 ### Photo jointe à l'avis (`2_3_photo_jointe.csv`)
 

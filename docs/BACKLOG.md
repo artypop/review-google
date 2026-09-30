@@ -16,7 +16,10 @@ Il remplace, depuis le 2026-09-14 : `etude-exploratoire/BACKLOG.md`,
 
 0. **Refaire la régression du panel (07B / 07C) avec les décisions du 2026-09-29.** Le plan et
    les questions à trancher sont dans `consolidation/6_plan_regression_panel.md`. Elle reprend
-   aussi le point 7 ci-dessous.
+   aussi le point 7 ci-dessous. Mise de côté le 2026-09-30 ; la question 0 (sur quels avis) se
+   tranche en premier. La régression sur toute la base pour la réponse du propriétaire est faite
+   (`consolidation/8_regression_reponse_base.md`). Question ouverte par ce point : tenir l'âge
+   égal plus finement dans la tranche de 8 à 30 jours.
 1. **Comprendre les quatre chaînes américaines de traitement antiparasitaire.** Elles portent
    692 des 2 595 suppressions du panel, presque toutes sur des avis 4 et 5 étoiles. Vérifié le
    2026-09-17 : aucun afflux soudain d'avis, la hausse d'EcoShield est durable et commence en
@@ -117,6 +120,50 @@ document d'origine :
 
 # L'historique
 
+## 2026-09-30 — corpus d'Axel, réponse sur toute la base, paliers du 2.3
+
+**La consolidation refaite sur le corpus d'Axel** (`divers/corpus_axel/`, bilan dans
+`bilan.md`). Le corpus : 03B plus toutes les suppressions de la base, soit 38 431 avis dont 4 035
+supprimés ; les 2 680 avis ajoutés sont tous supprimés. Même code que `consolidation/`, lancé par
+`divers/corpus_axel/lancer.py` sur la table `reviews_panel_features_axel`. Les taux sont
+multipliés par 1,4 à 12,6, l'effet des comptes sans niveau Local Guide disparaît, les avis de
+14 jours et plus paraissent 9 à 11 fois plus exposés. Le point 3 ne change pas.
+
+**Nouveau point 7, la réponse du propriétaire sur toute la base**
+(`consolidation/7_reponse_base_complete.md`). Taux directs sur les 4 718 683 avis publiés avant
+le 11 août, 3 189 suppressions. Sur les fiches qui répondent à plus de 75 %, sans enseignes,
+l'avis répondu disparaît 2 fois moins pendant son premier mois (×0,44 et ×0,51, citables) et
+5 fois moins de 91 jours à un an (×0,21, citable depuis les seuils du jour). De 31 à 90 jours,
+×0,30, non citable. Au-delà d'un an, aucune protection. Sur les fiches qui répondent à 75 % ou moins, aucune protection visible.
+
+**Paliers Local Guide du 2.3 et du 2.2c corrigés** : `consolidation/sql/2_3_taux.sql` et
+`consolidation/sql/2_2c_auteurs.sql` appliquent sans niveau / 1 à 4 / 5 et plus.
+
+**Règle de citation assouplie, décision de Romain** : au moins 10 suppressions, sur au moins
+5 fiches, aucune fiche au-delà du quart (`consolidation/commun.py`). Les seuils du 2026-09-29
+(20 suppressions, 10 fiches) étaient jugés trop stricts. Points 4a, 4b, 5 et 7 relancés : seules
+les colonnes `citable` changent. 4a : 38 effets citables sur 68, inchangé. 4b : 124 sur 154,
+contre 108. 5 : 15 sur 48, contre 10 ; la réponse à 2 jours sur les fiches qui répondent à plus
+de 75 % devient citable (×0,23 mono + small, ×0,24 large sans enseignes). Les sorties de
+`divers/corpus_axel/` sont relancées avec ces seuils (4a, 5, 4b) : 4a 56 effets citables sur 68,
+inchangé ; 4b 117 sur 156, contre 112 ; 5 36 sur 48, contre 32. Le passage « Europe, tous » du 4b
+n'aboutit toujours pas sur ce corpus.
+
+**Nouveau point 8, la régression sur toute la base pour la réponse du propriétaire**
+(`consolidation/8_regression_reponse_base.md`, plan validé par Romain). 4 488 470 avis publiés
+avant le 4 août sur les fiches d'habitude connue, 2 476 suppressions, 6 905 fiches ; aucun avis en
+commun avec le point 5. Réponse avant le 11 août, par âge et par habitude, à note, profil de
+l'auteur, photo, texte, secteur, taille et région égaux. Sans enseignes, fiches qui répondent à
+plus de 75 % : ×0,70 [0,43 à 1,15] de 8 à 30 jours (le rapport direct du point 7 donnait ×0,51,
+une partie venait de la note : 15,9 % d'avis 1 étoile chez les sans réponse, 4,6 % chez les
+répondus) ; ×0,26 [0,15 à 0,47] de 91 jours à un an ; ×1,00 au-delà d'un an ; 31 à 90 jours non
+citable. Fiches qui répondent à 75 % ou moins : aucune protection visible. 30 effets de réponse
+citables sur 48. BigQuery regroupe les avis en 983 948 lignes ; 35 secondes, 2,8 Go. DuckDB,
+autorisé par Romain, n'a pas servi. Écarté : le calcul direct par fiche sans passer par les
+combinaisons, 5 fois plus long pour le même résultat.
+
+**Rien n'est commité** de ce qui précède.
+
 ## 2026-09-29 — consolidation des chiffres du rapport, régressions 4 et 5
 
 **Nouveau dossier `consolidation/`.** Un script par point du plan de Romain, qui lance ses
@@ -132,7 +179,7 @@ graphique de contrôle, et une synthèse `.md` par point. Mode d'emploi : `conso
 | 3. Réponse du propriétaire | `3_reponse_proprietaire.md` | jalon au 2e jour, reprise du 08B |
 | 4. Quelle fiche, quel avis | `4_quelle_fiche_quel_avis.md` | une ligne par fiche (4a) ; les avis d'une même fiche comparés le même jour (4b) |
 | 5. Réponse, jour par jour | `5_reponse_jour_par_jour.md` | une ligne par avis et par jour, sans jalon |
-| 6. Régression du panel (à faire) | `6_plan_regression_panel.md` | le plan et les 8 questions à trancher le 2026-09-30 |
+| 6. Régression du panel (à faire) | `6_plan_regression_panel.md` | le plan et les 9 questions (0 à 8) à trancher |
 
 **Décisions de Romain, en vigueur pour toute la suite :**
 - base complète = `reviews_doublons_cleaned` ; panel = 03B (avis publiés du 4 au 17 août) ;
@@ -140,7 +187,8 @@ graphique de contrôle, et une synthèse `.md` par point. Mode d'emploi : `conso
 - paliers Local Guide : sans niveau / 1 à 4 / 5 et plus (`consolidation/sorties/4_0_niveaux_local_guide.csv` :
   le niveau 4 se comporte comme 1 à 3, le 5 nettement en dessous) ;
 - règle de citation des régressions : au moins 20 suppressions, sur au moins 10 fiches, aucune
-  fiche au-delà du quart, pour la case et pour sa référence (`consolidation/commun.py`) ;
+  fiche au-delà du quart, pour la case et pour sa référence (`consolidation/commun.py`) — seuils
+  ramenés à 10 suppressions et 5 fiches le 2026-09-30 ;
 - toute fiche citée porte son cid, ses dates et le CSV qui la contient (`*_fiches_par_case.csv`) ;
 - ni rafale d'auteur, ni langue inhabituelle, ni avis modifié dans les taux du 2.3 ; la langue
   inhabituelle sort aussi de la régression.
@@ -189,7 +237,8 @@ Guide disparaît).
 **Écarté** : mesurer l'incertitude par groupe d'entreprises. Jugé sans apport par Romain une fois
 la règle de citation posée.
 
-**Rien n'est commité** : `consolidation/`, le rapport corrigé et ce fichier sont à valider.
+**Commité le 2026-09-29** : commit `74bc51a`, branche `romain_refacto`. Il contient
+`consolidation/`, le rapport corrigé et ce fichier.
 
 ## 2026-09-17 — paliers d'auteur, mesure de qualité, réponse par type de fiche
 

@@ -50,8 +50,8 @@ Avis publiés de J-30 à J+13 sur les 4 chaînes : 653 supprimés, 5 762 conserv
 
 | Profil de l'auteur | Supprimés | Conservés |
 |---|---:|---:|
-| Local Guide niveau 1 à 3 | 77 % | 79 % |
-| Local Guide niveau 4 et plus | 15 % | 16 % |
+| Local Guide niveau 1 à 4 | 88 % | 87 % |
+| Local Guide niveau 5 et plus | 4 % | 8 % |
 | sans niveau Local Guide | 8 % | 5 % |
 | aucune photo sur son profil | 77 % | 74 % |
 | un seul avis déclaré | 28 % | 27 % |

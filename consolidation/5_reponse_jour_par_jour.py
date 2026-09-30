@@ -31,7 +31,7 @@ LECTURE ET CITATION
   « ×0,40 » : à âge, note et région égaux, l'avis répondu disparaît 0,40 fois
   autant que l'avis encore sans réponse. La fourchette tient compte de ce que
   les avis d'une même fiche se ressemblent. Un effet se cite selon la règle de
-  `commun.py` : 20 suppressions, 10 fiches, aucune fiche au-delà du quart.
+  `commun.py` : 10 suppressions, 5 fiches, aucune fiche au-delà du quart.
 
 Produit :
   sorties/5_effectifs.csv        avis-jours et suppressions par case, avant le modèle

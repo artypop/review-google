@@ -1,0 +1,9 @@
+modalite;perimetre;us_avis;us_suppressions;us_fiches_touchees;us_pour_10000;europe_avis;europe_suppressions;europe_fiches_touchees;europe_pour_10000;ensemble_avis;ensemble_suppressions;ensemble_fiches_touchees;ensemble_pour_10000
+répond à 25 % ou moins;tous;6316;892;191;1412;5240;350;175;668;11556;1242;366;1075
+répond à 25-75 %;tous;2577;351;100;1362;4431;501;105;1131;7008;852;205;1216
+répond à plus de 75 %;tous;12404;1439;353;1160;6761;432;230;639;19165;1871;583;976
+moins de 10 avis d'historique;tous;296;33;29;1115;406;37;29;911;702;70;58;997
+répond à 25 % ou moins;sans_enseignes;4711;486;168;1032;5240;350;175;668;9951;836;343;840
+répond à 25-75 %;sans_enseignes;2498;309;98;1237;4101;172;103;419;6599;481;201;729
+répond à plus de 75 %;sans_enseignes;11366;1016;317;894;6761;432;230;639;18127;1448;547;799
+moins de 10 avis d'historique;sans_enseignes;295;32;28;1085;406;37;29;911;701;69;57;984

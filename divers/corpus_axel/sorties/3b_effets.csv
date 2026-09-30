@@ -1,0 +1,67 @@
+passage;colonne;risque_relatif;fourchette_basse;fourchette_haute;avis;suppressions_3_8;remarque
+mono + small, tous;réponse jour même, fiche qui répond à plus de 75 %;0,41;0,22;0,79;1435;37;
+mono + small, tous;réponse 1 jour, fiche qui répond à plus de 75 %;0,46;0,23;0,92;923;22;
+mono + small, tous;réponse jour même, fiche qui répond à 75 % ou moins;2,45;0,93;6,46;223;14;
+mono + small, tous;réponse 1 jour, fiche qui répond à 75 % ou moins;2,17;0,7;6,77;202;10;
+mono + small, tous;fiche qui répond à plus de 75 %;2,02;1,0;4,1;3817;136;
+mono + small, tous;note 1 ou 2 étoiles;1,89;1,05;3,38;738;40;
+mono + small, tous;note 3 ou 4 étoiles;0,4;0,19;0,84;1055;11;
+mono + small, tous;fiche aux États-Unis;2,24;1,17;4,28;4539;190;
+mono + small, tous;réponse 2 jours, fiche qui répond à plus de 75 %;;;;298;4;écartée : moins de 5 suppressions
+mono + small, tous;réponse 2 jours, fiche qui répond à 75 % ou moins;;;;96;2;écartée : moins de 5 suppressions
+mono + small, tous;total du passage;;;;8935;273;2455 fiches
+mono + small, sans_enseignes;réponse jour même, fiche qui répond à plus de 75 %;0,41;0,22;0,79;1435;37;
+mono + small, sans_enseignes;réponse 1 jour, fiche qui répond à plus de 75 %;0,46;0,23;0,92;923;22;
+mono + small, sans_enseignes;réponse jour même, fiche qui répond à 75 % ou moins;2,45;0,93;6,46;223;14;
+mono + small, sans_enseignes;réponse 1 jour, fiche qui répond à 75 % ou moins;2,17;0,7;6,77;202;10;
+mono + small, sans_enseignes;fiche qui répond à plus de 75 %;2,02;1,0;4,1;3817;136;
+mono + small, sans_enseignes;note 1 ou 2 étoiles;1,89;1,05;3,38;738;40;
+mono + small, sans_enseignes;note 3 ou 4 étoiles;0,4;0,19;0,84;1055;11;
+mono + small, sans_enseignes;fiche aux États-Unis;2,24;1,17;4,28;4539;190;
+mono + small, sans_enseignes;réponse 2 jours, fiche qui répond à plus de 75 %;;;;298;4;écartée : moins de 5 suppressions
+mono + small, sans_enseignes;réponse 2 jours, fiche qui répond à 75 % ou moins;;;;96;2;écartée : moins de 5 suppressions
+mono + small, sans_enseignes;total du passage;;;;8935;273;2455 fiches
+large, tous;réponse jour même, fiche qui répond à plus de 75 %;2,36;1,13;4,94;1657;125;
+large, tous;réponse 1 jour, fiche qui répond à plus de 75 %;0,57;0,29;1,12;1275;22;
+large, tous;réponse 1 jour, fiche qui répond à 75 % ou moins;1,11;0,42;2,93;174;8;
+large, tous;fiche qui répond à plus de 75 %;0,55;0,24;1,27;4089;173;
+large, tous;note 1 ou 2 étoiles;1,74;0,93;3,26;627;36;
+large, tous;note 3 ou 4 étoiles;0,41;0,23;0,75;851;10;
+large, tous;fiche aux États-Unis;4,85;2,42;9,72;4619;278;
+large, tous;réponse 2 jours, fiche qui répond à plus de 75 %;;;;472;1;écartée : moins de 5 suppressions
+large, tous;réponse jour même, fiche qui répond à 75 % ou moins;;;;129;4;écartée : moins de 5 suppressions
+large, tous;réponse 2 jours, fiche qui répond à 75 % ou moins;;;;52;2;écartée : moins de 5 suppressions
+large, tous;total du passage;;;;7139;307;1434 fiches
+large, sans_enseignes;réponse jour même, fiche qui répond à plus de 75 %;0,44;0,18;1,07;1268;13;
+large, sans_enseignes;réponse 1 jour, fiche qui répond à plus de 75 %;0,41;0,2;0,86;1244;12;
+large, sans_enseignes;fiche qui répond à plus de 75 %;1,19;0,53;2,67;3662;50;
+large, sans_enseignes;note 1 ou 2 étoiles;4,41;2,14;9,06;564;31;
+large, sans_enseignes;note 3 ou 4 étoiles;0,45;0,16;1,26;776;4;
+large, sans_enseignes;fiche aux États-Unis;1,98;0,89;4,43;3428;62;
+large, sans_enseignes;réponse 2 jours, fiche qui répond à plus de 75 %;;;;472;1;écartée : moins de 5 suppressions
+large, sans_enseignes;réponse jour même, fiche qui répond à 75 % ou moins;;;;116;1;écartée : moins de 5 suppressions
+large, sans_enseignes;réponse 1 jour, fiche qui répond à 75 % ou moins;;;;158;4;écartée : moins de 5 suppressions
+large, sans_enseignes;réponse 2 jours, fiche qui répond à 75 % ou moins;;;;46;2;écartée : moins de 5 suppressions
+large, sans_enseignes;total du passage;;;;5854;91;1314 fiches
+mono, tous;réponse jour même, fiche qui répond à plus de 75 %;0,6;0,16;2,21;455;6;
+mono, tous;réponse 1 jour, fiche qui répond à plus de 75 %;0,9;0,26;3,09;265;5;
+mono, tous;fiche qui répond à plus de 75 %;0,9;0,33;2,43;1289;23;
+mono, tous;note 1 ou 2 étoiles;1,79;0,76;4,22;242;9;
+mono, tous;note 3 ou 4 étoiles;0,38;0,11;1,35;366;3;
+mono, tous;fiche aux États-Unis;1,18;0,53;2,65;1764;39;
+mono, tous;réponse 2 jours, fiche qui répond à plus de 75 %;;;;108;1;écartée : moins de 5 suppressions
+mono, tous;réponse jour même, fiche qui répond à 75 % ou moins;;;;91;1;écartée : moins de 5 suppressions
+mono, tous;réponse 1 jour, fiche qui répond à 75 % ou moins;;;;72;1;écartée : moins de 5 suppressions
+mono, tous;réponse 2 jours, fiche qui répond à 75 % ou moins;;;;46;1;écartée : moins de 5 suppressions
+mono, tous;total du passage;;;;3504;73;1163 fiches
+small, tous;réponse jour même, fiche qui répond à plus de 75 %;0,34;0,16;0,71;980;31;
+small, tous;réponse 1 jour, fiche qui répond à plus de 75 %;0,36;0,16;0,83;658;17;
+small, tous;réponse jour même, fiche qui répond à 75 % ou moins;3,82;1,59;9,17;132;13;
+small, tous;réponse 1 jour, fiche qui répond à 75 % ou moins;3,41;0,92;12,7;130;9;
+small, tous;fiche qui répond à plus de 75 %;2,65;1,04;6,75;2528;113;
+small, tous;note 1 ou 2 étoiles;1,82;0,88;3,79;477;31;
+small, tous;note 3 ou 4 étoiles;0,39;0,16;0,98;676;8;
+small, tous;fiche aux États-Unis;3,06;1,24;7,51;2689;149;
+small, tous;réponse 2 jours, fiche qui répond à plus de 75 %;;;;190;3;écartée : moins de 5 suppressions
+small, tous;réponse 2 jours, fiche qui répond à 75 % ou moins;;;;50;1;écartée : moins de 5 suppressions
+small, tous;total du passage;;;;5268;198;1251 fiches

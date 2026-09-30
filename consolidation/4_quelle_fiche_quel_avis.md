@@ -20,9 +20,11 @@ celles qu'on a repérées. On sépare donc deux questions :
 égales. La fourchette donne les valeurs compatibles avec les données ; quand elle contient 1, les
 données ne tranchent pas.
 
-**Règle de citation** (`commun.py`) : la case et sa référence ont au moins 20 suppressions, sur au
-moins 10 fiches, sans qu'une fiche en porte plus du quart. Seuls les effets « citables » sont
-repris ci-dessous.
+**Règle de citation** (`commun.py`, seuils du 2026-09-30) : la case et sa référence ont au moins
+10 suppressions, sur au moins 5 fiches, sans qu'une fiche en porte plus du quart. Seuls les effets
+« citables » sont repris ci-dessous. Les seuils du 2026-09-29 étaient 20 suppressions et
+10 fiches : le 4a ne change pas (38 effets citables sur 68), le 4b passe de 108 à 124 effets
+citables sur 154.
 
 ---
 
@@ -71,8 +73,8 @@ suppressions. Sans enseignes : 1 813 fiches, 214 touchées, 785 suppressions.
 - Restauration et voyage : une seule fiche porte plus du quart de leurs suppressions (31 % pour la
   restauration).
 - **Europe** : aucun effet de secteur, de taille ou d'afflux n'est citable. Les cases de
-  référence ont trop peu de fiches touchées : 7 fiches automobiles, 16 mono dont une porte 34 %
-  des suppressions, 7 fiches sans afflux (`4a_effectifs.csv`).
+  référence ne passent pas la règle : 7 fiches automobiles dont une porte 56 % des suppressions,
+  16 mono dont une porte 34 %, 8 suppressions sur les fiches sans afflux (`4a_effectifs.csv`).
 
 ---
 
@@ -109,6 +111,13 @@ les a tous perdus : rien à comparer.
   2,4 fois moins.
 - La photo jointe et la longueur du texte ne changent rien : toutes les fourchettes contiennent 1.
 - Le 7e jour de l'avis reste le jour le plus risqué, dans la même fiche comme ailleurs.
+- Devenus citables avec les seuils du 2026-09-30, hors colonnes d'âge (`4b_effets.csv`) :
+  - avis 3 étoiles, tous : ×0,67 [0,33 à 1,34], les données ne tranchent pas ;
+  - avis 2 étoiles aux États-Unis : ×2,57 [1,23 à 5,37], et ×4,55 [2,04 à 10,15] sans enseignes ;
+  - avis 4 étoiles en Europe : ×0,51 [0,27 à 0,97], et ×0,52 [0,28 à 0,98] sans enseignes ;
+  - auteur à plus de 20 photos aux États-Unis : ×0,28 [0,14 à 0,55] ;
+  - trois autres dont la fourchette contient 1 : 4 étoiles aux États-Unis sans enseignes,
+    2 étoiles et auteur à plus de 20 photos en Europe sans enseignes.
 
 ### Ce que change le retrait des enseignes
 

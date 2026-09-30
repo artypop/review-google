@@ -1,9 +1,9 @@
 passage;colonne;risque_relatif;fourchette_basse;fourchette_haute;avis_jours;suppressions;fiches_touchees;enseignes_touchees;part_de_la_premiere_fiche;citable;remarque
 ensemble, tous;note : 1 étoile(s);3,45;2,61;4,56;1029;172;96;88;0,08;oui;
 ensemble, tous;note : 2 étoile(s);2,1;1,24;3,54;220;30;22;22;0,23;oui;
-ensemble, tous;note : 3 étoile(s);0,67;0,33;1,34;240;10;10;10;0,1;non;
+ensemble, tous;note : 3 étoile(s);0,67;0,33;1,34;240;10;10;10;0,1;oui;
 ensemble, tous;note : 4 étoile(s);0,55;0,38;0,8;820;45;35;28;0,09;oui;
-ensemble, tous;age_cat : 1 jour(s);1,21;0,55;2,69;107;10;9;8;0,2;non;
+ensemble, tous;age_cat : 1 jour(s);1,21;0,55;2,69;107;10;9;8;0,2;oui;
 ensemble, tous;age_cat : 2 jour(s);0,57;0,4;0,83;933;54;48;47;0,06;oui;
 ensemble, tous;age_cat : 3 jour(s);0,45;0,31;0,66;1032;43;37;36;0,12;oui;
 ensemble, tous;age_cat : 4 jour(s);0,26;0,16;0,4;1200;24;12;12;0,33;non;
@@ -29,11 +29,11 @@ ensemble, sans_enseignes;note : 1 étoile(s);5,13;3,73;7,06;701;145;89;85;0,05;o
 ensemble, sans_enseignes;note : 2 étoile(s);2,82;1,59;5,02;155;22;20;20;0,09;oui;
 ensemble, sans_enseignes;note : 3 étoile(s);0,9;0,43;1,88;203;9;9;9;0,11;non;
 ensemble, sans_enseignes;note : 4 étoile(s);0,56;0,36;0,89;617;31;25;25;0,13;oui;
-ensemble, sans_enseignes;age_cat : 1 jour(s);1,78;0,74;4,31;80;10;9;8;0,2;non;
+ensemble, sans_enseignes;age_cat : 1 jour(s);1,78;0,74;4,31;80;10;9;8;0,2;oui;
 ensemble, sans_enseignes;age_cat : 2 jour(s);0,86;0,57;1,31;615;52;46;46;0,06;oui;
 ensemble, sans_enseignes;age_cat : 3 jour(s);0,56;0,36;0,87;729;37;35;34;0,05;oui;
-ensemble, sans_enseignes;age_cat : 4 jour(s);0,26;0,15;0,45;772;16;11;11;0,25;non;
-ensemble, sans_enseignes;age_cat : 5 jour(s);0,28;0,16;0,48;836;17;17;17;0,06;non;
+ensemble, sans_enseignes;age_cat : 4 jour(s);0,26;0,15;0,45;772;16;11;11;0,25;oui;
+ensemble, sans_enseignes;age_cat : 5 jour(s);0,28;0,16;0,48;836;17;17;17;0,06;oui;
 ensemble, sans_enseignes;age_cat : 6 jour(s);2,77;2,1;3,66;1006;146;77;66;0,07;oui;
 ensemble, sans_enseignes;age_cat : 7 jour(s);7,11;5,49;9,22;1022;250;93;79;0,06;oui;
 ensemble, sans_enseignes;age_cat : 8 jour(s);1,81;1,3;2,52;837;73;54;51;0,05;oui;
@@ -52,14 +52,14 @@ ensemble, sans_enseignes;reponse : réponse déjà là, fiche qui répond à 75 
 ensemble, sans_enseignes;reponse : réponse déjà là, fiche qui répond à plus de 75 %;0,21;0,15;0,31;4187;245;85;76;0,04;oui;
 ensemble, sans_enseignes;reponse : réponse déjà là, habitude inconnue;;;;3;1;;;;non;écartée : moins de 5 suppressions
 US, tous;note : 1 étoile(s);2,52;1,77;3,61;733;96;45;39;0,07;oui;
-US, tous;note : 2 étoile(s);2,57;1,23;5,37;107;12;11;11;0,17;non;
+US, tous;note : 2 étoile(s);2,57;1,23;5,37;107;12;11;11;0,17;oui;
 US, tous;note : 3 étoile(s);0,62;0,23;1,71;109;5;5;5;0,2;non;
 US, tous;note : 4 étoile(s);0,6;0,38;0,97;440;28;23;16;0,11;oui;
 US, tous;age_cat : 1 jour(s);0,61;0,22;1,66;101;6;5;4;0,33;non;
 US, tous;age_cat : 2 jour(s);0,29;0,17;0,48;758;24;24;23;0,04;oui;
 US, tous;age_cat : 3 jour(s);0,18;0,1;0,32;846;16;12;12;0,31;non;
 US, tous;age_cat : 4 jour(s);0,22;0,13;0,36;971;17;7;7;0,47;non;
-US, tous;age_cat : 5 jour(s);0,2;0,12;0,34;1130;16;15;14;0,12;non;
+US, tous;age_cat : 5 jour(s);0,2;0,12;0,34;1130;16;15;14;0,12;oui;
 US, tous;age_cat : 6 jour(s);3,33;2,65;4,2;1266;213;94;52;0,05;oui;
 US, tous;age_cat : 7 jour(s);10,0;8,0;12,5;1260;373;117;63;0,07;oui;
 US, tous;age_cat : 8 jour(s);1,78;1,33;2,38;969;90;59;38;0,07;oui;
@@ -71,20 +71,20 @@ US, tous;texte : 1 à 50 caractères;1,03;0,81;1,32;2623;164;90;51;0,05;oui;
 US, tous;texte : 51 à 200 caractères;0,91;0,74;1,11;5163;360;112;65;0,06;oui;
 US, tous;texte : plus de 200 caractères;1,09;0,85;1,4;2607;246;119;83;0,08;oui;
 US, tous;photos_auteur : 1 à 20 photos;0,99;0,81;1,22;3229;251;122;72;0,04;oui;
-US, tous;photos_auteur : plus de 20 photos;0,28;0,14;0,55;503;12;11;11;0,17;non;
+US, tous;photos_auteur : plus de 20 photos;0,28;0,14;0,55;503;12;11;11;0,17;oui;
 US, tous;avis_auteur : 2 à 20 avis;0,92;0,76;1,11;7869;604;156;91;0,03;oui;
 US, tous;avis_auteur : plus de 20 avis;0,75;0,43;1,3;1247;67;53;39;0,04;oui;
 US, tous;reponse : réponse déjà là, fiche qui répond à 75 % ou moins;0,54;0,32;0,92;856;49;15;10;0,43;non;
 US, tous;reponse : réponse déjà là, fiche qui répond à plus de 75 %;0,24;0,15;0,4;5486;445;95;58;0,05;oui;
 US, tous;reponse : réponse déjà là, habitude inconnue;;;;3;1;;;;non;écartée : moins de 5 suppressions
 US, sans_enseignes;note : 1 étoile(s);4,93;3,22;7,54;464;84;40;38;0,08;oui;
-US, sans_enseignes;note : 2 étoile(s);4,55;2,04;10,15;74;11;10;10;0,18;non;
-US, sans_enseignes;note : 4 étoile(s);0,61;0,31;1,19;237;14;13;13;0,14;non;
+US, sans_enseignes;note : 2 étoile(s);4,55;2,04;10,15;74;11;10;10;0,18;oui;
+US, sans_enseignes;note : 4 étoile(s);0,61;0,31;1,19;237;14;13;13;0,14;oui;
 US, sans_enseignes;age_cat : 1 jour(s);0,82;0,28;2,45;74;6;5;4;0,33;non;
 US, sans_enseignes;age_cat : 2 jour(s);0,39;0,21;0,71;438;21;21;21;0,05;oui;
-US, sans_enseignes;age_cat : 3 jour(s);0,15;0,07;0,33;540;10;10;10;0,1;non;
+US, sans_enseignes;age_cat : 3 jour(s);0,15;0,07;0,33;540;10;10;10;0,1;oui;
 US, sans_enseignes;age_cat : 4 jour(s);0,18;0,08;0,37;540;9;6;6;0,44;non;
-US, sans_enseignes;age_cat : 5 jour(s);0,23;0,12;0,45;618;10;10;10;0,1;non;
+US, sans_enseignes;age_cat : 5 jour(s);0,23;0,12;0,45;618;10;10;10;0,1;oui;
 US, sans_enseignes;age_cat : 6 jour(s);2,81;2,04;3,87;727;116;58;47;0,09;oui;
 US, sans_enseignes;age_cat : 7 jour(s);7,44;5,46;10,13;710;185;72;58;0,08;oui;
 US, sans_enseignes;age_cat : 8 jour(s);1,82;1,22;2,71;557;50;37;34;0,08;oui;
@@ -106,7 +106,7 @@ US, sans_enseignes;reponse : réponse déjà là, habitude inconnue;;;;3;1;;;;no
 Europe, tous;note : 1 étoile(s);4,73;2,81;7,96;293;73;49;47;0,19;oui;
 Europe, tous;note : 2 étoile(s);1,73;0,79;3,8;112;17;10;10;0,41;non;
 Europe, tous;note : 3 étoile(s);0,8;0,3;2,15;131;5;5;5;0,2;non;
-Europe, tous;note : 4 étoile(s);0,51;0,27;0,97;379;17;12;12;0,24;non;
+Europe, tous;note : 4 étoile(s);0,51;0,27;0,97;379;17;12;12;0,24;oui;
 Europe, tous;age_cat : 2 jour(s);2,55;1,24;5,23;175;30;24;24;0,1;oui;
 Europe, tous;age_cat : 3 jour(s);2,56;1,32;4,96;186;27;25;24;0,07;oui;
 Europe, tous;age_cat : 4 jour(s);0,5;0,2;1,22;229;7;5;5;0,43;non;
@@ -129,9 +129,9 @@ Europe, tous;reponse : réponse déjà là, fiche qui répond à 75 % ou moins;0
 Europe, tous;reponse : réponse déjà là, fiche qui répond à plus de 75 %;0,17;0,09;0,33;934;47;21;21;0,19;oui;
 Europe, tous;age_cat : 1 jour(s);;;;6;4;;;;non;écartée : moins de 5 suppressions
 Europe, sans_enseignes;note : 1 étoile(s);4,71;2,76;8,03;234;58;47;45;0,09;oui;
-Europe, sans_enseignes;note : 2 étoile(s);1,89;0,78;4,55;80;10;9;9;0,2;non;
+Europe, sans_enseignes;note : 2 étoile(s);1,89;0,78;4,55;80;10;9;9;0,2;oui;
 Europe, sans_enseignes;note : 3 étoile(s);0,84;0,32;2,25;131;5;5;5;0,2;non;
-Europe, sans_enseignes;note : 4 étoile(s);0,52;0,28;0,98;379;17;12;12;0,24;non;
+Europe, sans_enseignes;note : 4 étoile(s);0,52;0,28;0,98;379;17;12;12;0,24;oui;
 Europe, sans_enseignes;age_cat : 2 jour(s);2,66;1,29;5,48;175;30;24;24;0,1;oui;
 Europe, sans_enseignes;age_cat : 3 jour(s);2,66;1,37;5,18;186;27;25;24;0,07;oui;
 Europe, sans_enseignes;age_cat : 4 jour(s);0,51;0,21;1,25;229;7;5;5;0,43;non;
@@ -147,7 +147,7 @@ Europe, sans_enseignes;texte : 1 à 50 caractères;1,77;0,98;3,2;381;32;20;20;0,
 Europe, sans_enseignes;texte : 51 à 200 caractères;1,48;0,88;2,47;877;76;34;33;0,16;oui;
 Europe, sans_enseignes;texte : plus de 200 caractères;1,84;1,1;3,06;1018;101;62;60;0,07;oui;
 Europe, sans_enseignes;photos_auteur : 1 à 20 photos;1,4;0,89;2,18;859;80;46;45;0,12;oui;
-Europe, sans_enseignes;photos_auteur : plus de 20 photos;0,75;0,3;1,86;308;19;16;16;0,16;non;
+Europe, sans_enseignes;photos_auteur : plus de 20 photos;0,75;0,3;1,86;308;19;16;16;0,16;oui;
 Europe, sans_enseignes;avis_auteur : 2 à 20 avis;0,55;0,37;0,82;1390;103;65;65;0,07;oui;
 Europe, sans_enseignes;avis_auteur : plus de 20 avis;1,04;0,42;2,56;452;35;27;27;0,17;oui;
 Europe, sans_enseignes;reponse : réponse déjà là, fiche qui répond à 75 % ou moins;0,67;0,32;1,41;329;24;10;10;0,5;non;

@@ -1,0 +1,9 @@
+modalite;perimetre;us_avis;us_suppressions;us_fiches_touchees;us_pour_10000;europe_avis;europe_suppressions;europe_fiches_touchees;europe_pour_10000;ensemble_avis;ensemble_suppressions;ensemble_fiches_touchees;ensemble_pour_10000
+seul avis du jour;tous;7435;764;426;1028;6775;445;326;657;14210;1209;752;851
+2 à 4 avis ce jour-là;tous;8054;1163;340;1444;6568;350;239;533;14622;1513;579;1035
+5 à 9;tous;3760;578;126;1537;2158;136;57;630;5918;714;183;1206
+10 et plus;tous;2344;210;47;896;1337;389;36;2909;3681;599;83;1627
+seul avis du jour;sans_enseignes;7102;639;379;900;6769;439;325;649;13871;1078;704;777
+2 à 4 avis ce jour-là;sans_enseignes;6984;806;286;1154;6566;348;238;530;13550;1154;524;852
+5 à 9;sans_enseignes;2672;296;99;1108;2147;125;56;582;4819;421;155;874
+10 et plus;sans_enseignes;2112;102;33;483;1026;79;34;770;3138;181;67;577

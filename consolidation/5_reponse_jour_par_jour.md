@@ -20,8 +20,9 @@ passage »).
   réponses à 3 jours et plus se mesurent.
 - Chaque effet compare l'avis déjà répondu à l'avis du même âge encore sans réponse ce jour-là,
   sur des fiches de même habitude, à note et région égales.
-- Règle de citation (`commun.py`) : au moins 20 suppressions, sur au moins 10 fiches, sans qu'une
-  fiche en porte plus du quart.
+- Règle de citation (`commun.py`, seuils du 2026-09-30) : au moins 10 suppressions, sur au moins
+  5 fiches, sans qu'une fiche en porte plus du quart. Avec les seuils du 2026-09-29
+  (20 suppressions, 10 fiches), 10 effets sur 48 étaient citables ; 15 le sont maintenant.
 
 ---
 
@@ -34,15 +35,16 @@ passage »).
 | le jour même | ×0,36 [0,20 à 0,63] — 2 772 avis, 80 suppressions, 36 fiches | ×0,24 [0,12 à 0,48] — 2 811 avis, 43 suppressions, 19 fiches |
 | le lendemain | ×0,33 [0,18 à 0,60] — 1 972 avis, 44 suppressions, 22 fiches | ×0,23 [0,13 à 0,41] — 2 572 avis, 37 suppressions, 16 fiches |
 | référence : pas encore de réponse | 3 026 avis, 137 suppressions, 56 fiches | 2 480 avis, 74 suppressions, 38 fiches |
-| à 2 jours | ×0,23, 10 suppressions, non citable | ×0,24, 14 suppressions, non citable |
-| à 3 jours et plus | ×0,11, 9 suppressions, non citable | ×0,22, 14 suppressions, non citable |
+| à 2 jours | ×0,23 [0,11 à 0,49] — 680 avis, 10 suppressions, 9 fiches | ×0,24 [0,14 à 0,43] — 1 042 avis, 14 suppressions, 13 fiches |
+| à 3 jours et plus | ×0,11, 9 suppressions, non citable | ×0,22, 14 suppressions sur 8 fiches dont une en porte 36 %, non citable |
 
 - Un avis répondu au 3e jour compte d'abord dans « pas encore de réponse », puis dans sa case de
   réponse : les avis d'une ligne à l'autre ne s'additionnent pas.
 - Le jalon du 3b donnait ×0,41 et ×0,46 sur mono + small. Le calcul jour par jour donne ×0,36 et
   ×0,33 : même sens, même ordre de grandeur.
-- Les réponses à 2 jours et à 3 jours et plus vont dans le même sens, sur trop peu de
-  suppressions pour être citées.
+- La réponse à 2 jours donne le même ordre de grandeur que celle du jour même et du lendemain.
+  Elle est citable depuis les seuils du 2026-09-30.
+- La réponse à 3 jours et plus va dans le même sens et reste non citable.
 - Sur les `large` avec les 4 chaînes, la réponse du jour même donne ×0,84 [0,50 à 1,40]. Les
   chaînes répondent le jour même et perdent beaucoup d'avis : 258 suppressions sur 49 fiches, dont
   215 sur les chaînes.
@@ -51,8 +53,10 @@ passage »).
   - les mono donnent ×0,67 et ×0,46 sur 17 et 8 suppressions, non citables.
   - Le résultat mono + small vient des small.
 
-### Fiches qui répondent à 75 % ou moins : aucun effet citable
+### Fiches qui répondent à 75 % ou moins : un seul effet citable, qui ne tranche pas
 
+- Large avec les enseignes, réponse le lendemain : ×0,71 [0,33 à 1,52], sur 14 suppressions
+  portées par 8 fiches. Citable depuis les seuils du 2026-09-30 ; la fourchette contient 1.
 - Mono + small, réponse le jour même : ×2,26 [0,75 à 6,84], sur 24 suppressions portées par
   6 fiches. Cedar Park Overhead Doors (cid `10505273405281271038`) en porte 18
   (`5_fiches_par_case.csv`).
@@ -63,9 +67,10 @@ passage »).
 - **Hypothèse de Romain** : « la réponse d'un propriétaire qui ne répond pas régulièrement ne
   protège pas le score, voire augmente les risques de suppression ».
   - « Augmente les risques » : non établi. L'écart observé vient de Cedar Park.
-  - « Ne protège pas » : non établi non plus. Aucun effet de la réponse n'est citable sur ces
-    fiches au 5. Dans la même fiche (4b), l'avis répondu tombe moins : ×0,41 avec les enseignes,
-    citable ; ×0,56 sans les enseignes, non citable.
+  - « Ne protège pas » : non établi non plus. Au 5, le seul effet citable sur ces fiches a une
+    fourchette qui contient 1. Dans la même fiche (4b), l'avis répondu tombe moins : ×0,41 avec
+    les enseignes, citable ; ×0,56 sans les enseignes, non citable. Sur toute la base (point 7),
+    aucune protection visible sur ces fiches.
 
 ### L'avis resté sans réponse sur une fiche qui répond à tout
 

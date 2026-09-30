@@ -1,0 +1,9 @@
+ordre;controle;avis;suppressions
+1;base complète;4751680;4035
+2;publiés avant le 11 août (population du point 7);4718683;3189
+3;publiés à partir du 11 août (hors du point 7);32997;846
+4;point 7 : répondus avant le 11 août;1998648;1511
+5;point 7 : sans réponse au 11 août;2720035;1678
+6;point 7 : dont réponse arrivée le 11 août ou après;4496;149
+7;base complète : avis avec réponse au dernier passage;2016955;1982
+8;publiés après le 1er août, avec réponse au dernier passage;26033;786

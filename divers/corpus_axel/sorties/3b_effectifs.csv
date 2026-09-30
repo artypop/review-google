@@ -1,0 +1,49 @@
+taille;perimetre;habitude;delai;avis;suppressions_3_8;fiches_touchees;pour_10000;moins_de_5_suppressions
+mono + small;tous;plus de 75 %;jour même;1435;37;24;258;
+mono + small;tous;plus de 75 %;1 jour;923;22;16;238;
+mono + small;tous;plus de 75 %;2 jours;298;4;4;134;oui
+mono + small;tous;plus de 75 %;pas de réponse au 2e jour;1459;77;27;528;
+mono + small;tous;75 % ou moins;jour même;223;14;5;628;
+mono + small;tous;75 % ou moins;1 jour;202;10;5;495;
+mono + small;tous;75 % ou moins;2 jours;96;2;2;208;oui
+mono + small;tous;75 % ou moins;pas de réponse au 2e jour;4693;113;43;241;
+mono + small;sans_enseignes;plus de 75 %;jour même;1435;37;24;258;
+mono + small;sans_enseignes;plus de 75 %;1 jour;923;22;16;238;
+mono + small;sans_enseignes;plus de 75 %;2 jours;298;4;4;134;oui
+mono + small;sans_enseignes;plus de 75 %;pas de réponse au 2e jour;1459;77;27;528;
+mono + small;sans_enseignes;75 % ou moins;jour même;223;14;5;628;
+mono + small;sans_enseignes;75 % ou moins;1 jour;202;10;5;495;
+mono + small;sans_enseignes;75 % ou moins;2 jours;96;2;2;208;oui
+mono + small;sans_enseignes;75 % ou moins;pas de réponse au 2e jour;4693;113;43;241;
+large;tous;plus de 75 %;jour même;1657;125;38;754;
+large;tous;plus de 75 %;1 jour;1275;22;16;173;
+large;tous;plus de 75 %;2 jours;472;1;1;21;oui
+large;tous;plus de 75 %;pas de réponse au 2e jour;1157;26;15;225;
+large;tous;75 % ou moins;jour même;129;4;3;310;oui
+large;tous;75 % ou moins;1 jour;174;8;6;460;
+large;tous;75 % ou moins;2 jours;52;2;1;385;oui
+large;tous;75 % ou moins;pas de réponse au 2e jour;2876;126;33;438;
+large;sans_enseignes;plus de 75 %;jour même;1268;13;9;103;
+large;sans_enseignes;plus de 75 %;1 jour;1244;12;8;96;
+large;sans_enseignes;plus de 75 %;2 jours;472;1;1;21;oui
+large;sans_enseignes;plus de 75 %;pas de réponse au 2e jour;1150;25;14;217;
+large;sans_enseignes;75 % ou moins;jour même;116;1;1;86;oui
+large;sans_enseignes;75 % ou moins;1 jour;158;4;2;253;oui
+large;sans_enseignes;75 % ou moins;2 jours;46;2;1;435;oui
+large;sans_enseignes;75 % ou moins;pas de réponse au 2e jour;2192;41;21;187;
+mono;tous;plus de 75 %;jour même;455;6;5;132;
+mono;tous;plus de 75 %;1 jour;265;5;5;189;
+mono;tous;plus de 75 %;2 jours;108;1;1;93;oui
+mono;tous;plus de 75 %;pas de réponse au 2e jour;569;12;7;211;
+mono;tous;75 % ou moins;jour même;91;1;1;110;oui
+mono;tous;75 % ou moins;1 jour;72;1;1;139;oui
+mono;tous;75 % ou moins;2 jours;46;1;1;217;oui
+mono;tous;75 % ou moins;pas de réponse au 2e jour;2215;50;24;226;
+small;tous;plus de 75 %;jour même;980;31;19;316;
+small;tous;plus de 75 %;1 jour;658;17;11;258;
+small;tous;plus de 75 %;2 jours;190;3;3;158;oui
+small;tous;plus de 75 %;pas de réponse au 2e jour;890;65;20;730;
+small;tous;75 % ou moins;jour même;132;13;4;985;
+small;tous;75 % ou moins;1 jour;130;9;4;692;
+small;tous;75 % ou moins;2 jours;50;1;1;200;oui
+small;tous;75 % ou moins;pas de réponse au 2e jour;2478;63;19;254;

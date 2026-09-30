@@ -1,0 +1,11 @@
+ordre;controle;valeur
+1;lignes de corpus_axel;38431
+2;avis distincts;38431
+3;dont supprimés;4035
+4;publiés du 4 au 17 août;35751
+5;publiés du 4 au 17 août, supprimés;1355
+6;publiés à d'autres dates;2680
+7;publiés à d'autres dates, supprimés;2680
+8;avis de corpus_axel absents de 03B;2680
+9;avis de 03B absents de corpus_axel;0
+10;avis supprimés de reviews_doublons_cleaned absents de corpus_axel;0

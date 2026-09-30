@@ -22,8 +22,8 @@ LES COLONNES
 
 LA RÈGLE DE CITATION (voir `commun.py`)
   Ici une case est un groupe de fiches (par exemple « services à domicile »).
-  Elle est citable si ses fiches perdent au moins 20 avis, sur au moins
-  10 fiches, sans qu'une fiche en porte plus du quart. La case de référence
+  Elle est citable si ses fiches perdent au moins 10 avis, sur au moins
+  5 fiches, sans qu'une fiche en porte plus du quart. La case de référence
   doit l'être aussi.
 
 Produit :

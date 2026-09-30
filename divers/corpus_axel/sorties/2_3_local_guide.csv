@@ -1,0 +1,7 @@
+modalite;perimetre;us_avis;us_suppressions;us_fiches_touchees;us_pour_10000;europe_avis;europe_suppressions;europe_fiches_touchees;europe_pour_10000;ensemble_avis;ensemble_suppressions;ensemble_fiches_touchees;ensemble_pour_10000
+sans niveau;tous;1903;205;117;1077;1219;172;40;1411;3122;377;157;1208
+niveau 1 à 4;tous;16165;2246;529;1389;10787;905;402;839;26952;3151;931;1169
+niveau 5 et plus;tous;3525;264;204;749;4832;243;187;503;8357;507;391;607
+sans niveau;sans_enseignes;1702;150;92;881;1140;93;38;816;2842;243;130;855
+niveau 1 à 4;sans_enseignes;13838;1476;467;1067;10554;673;400;638;24392;2149;867;881
+niveau 5 et plus;sans_enseignes;3330;217;181;652;4814;225;185;467;8144;442;366;543

@@ -1,0 +1,15 @@
+modalite;perimetre;us_avis;us_suppressions;us_fiches_touchees;us_pour_10000;europe_avis;europe_suppressions;europe_fiches_touchees;europe_pour_10000;ensemble_avis;ensemble_suppressions;ensemble_fiches_touchees;ensemble_pour_10000
+Services à domicile;tous;6294;1480;174;2351;1056;86;52;814;7350;1566;226;2131
+Sport et bien-être;tous;1353;197;75;1456;2716;531;109;1955;4069;728;184;1789
+Santé;tous;3213;321;108;999;1426;109;71;764;4639;430;179;927
+Voyage;tous;1380;116;27;841;1275;99;25;776;2655;215;52;810
+Automobile;tous;3525;275;108;780;1321;100;61;757;4846;375;169;774
+Restauration;tous;3879;203;111;523;3418;182;111;532;7297;385;222;528
+Hôtellerie;tous;1949;123;70;631;5626;213;110;379;7575;336;180;444
+Services à domicile;sans_enseignes;3571;608;112;1703;1056;86;52;814;4627;694;164;1500
+Sport et bien-être;sans_enseignes;1353;197;75;1456;2386;202;107;847;3739;399;182;1067
+Santé;sans_enseignes;3213;321;108;999;1426;109;71;764;4639;430;179;927
+Voyage;sans_enseignes;1380;116;27;841;1275;99;25;776;2655;215;52;810
+Automobile;sans_enseignes;3525;275;108;780;1321;100;61;757;4846;375;169;774
+Restauration;sans_enseignes;3879;203;111;523;3418;182;111;532;7297;385;222;528
+Hôtellerie;sans_enseignes;1949;123;70;631;5626;213;110;379;7575;336;180;444

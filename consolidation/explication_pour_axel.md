@@ -112,7 +112,7 @@ données ne permettent pas de dire si l'effet existe.
 
 ### La règle qu'on s'est fixée avant de citer un chiffre
 
-Un effet se cite s'il repose sur au moins 20 suppressions, réparties sur au moins 10 fiches,
+Un effet se cite s'il repose sur au moins 10 suppressions, réparties sur au moins 5 fiches,
 sans qu'une seule fiche en porte plus du quart.
 
 Pourquoi : sur les fiches qui répondent peu à leurs avis, répondre le jour même semblait

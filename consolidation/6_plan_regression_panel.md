@@ -43,8 +43,9 @@ Sorties du 07C : `logistic-regression-study/output-study/2026-09-28-sorties-07C/
 - Panel 03B : 35 751 avis publiés du 4 au 17 août 2026, 1 355 suppressions, 5 566 fiches.
 - Paliers Local Guide : sans niveau / 1 à 4 / 5 et plus.
 - Hors du modèle : la langue inhabituelle pour la fiche, l'avis modifié par son auteur.
-- Règle de citation : au moins 20 suppressions, sur au moins 10 fiches, aucune fiche au-delà du
-  quart, pour la case et pour sa référence. Chaque effet porte une colonne `citable`.
+- Règle de citation (seuils du 2026-09-30) : au moins 10 suppressions, sur au moins 5 fiches,
+  aucune fiche au-delà du quart, pour la case et pour sa référence. Chaque effet porte une colonne
+  `citable`.
 - Toute fiche citée porte son cid, ses dates et le CSV qui la contient.
 - Outil : `statsmodels`. Tout le comptage dans BigQuery. Sorties dans `consolidation/`,
   préfixe **6**.

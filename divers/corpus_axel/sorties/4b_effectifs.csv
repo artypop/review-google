@@ -1,0 +1,219 @@
+passage;caracteristique;modalite;lignes;avis;suppressions;fiches_touchees;enseignes_touchees;part_de_la_premiere_fiche;citable
+ensemble, tous;total du passage;1906 journées de fiche;38426;16524;3757;1007;811;0,04;True
+ensemble, tous;note;1 étoile(s);3494;1593;770;259;237;0,21;True
+ensemble, tous;note;2 étoile(s);663;350;91;74;70;0,1;True
+ensemble, tous;note;3 étoile(s);823;469;83;79;78;0,02;True
+ensemble, tous;note;4 étoile(s);2154;1125;141;113;100;0,04;True
+ensemble, tous;note;5 étoile(s);31292;12987;2672;671;519;0,03;True
+ensemble, tous;age_cat;1 jour(s);246;246;15;14;12;0,13;True
+ensemble, tous;age_cat;14 jours et plus;9797;5597;2186;822;665;0,07;True
+ensemble, tous;age_cat;2 jour(s);2018;2018;102;91;88;0,03;True
+ensemble, tous;age_cat;3 jour(s);2120;2120;72;61;59;0,07;True
+ensemble, tous;age_cat;4 jour(s);2170;2170;31;19;19;0,26;False
+ensemble, tous;age_cat;5 jour(s);2575;2575;38;34;29;0,05;True
+ensemble, tous;age_cat;6 jour(s);3070;3070;273;121;78;0,05;True
+ensemble, tous;age_cat;7 jour(s);2999;2999;440;140;86;0,06;True
+ensemble, tous;age_cat;8 jour(s);2610;2610;114;77;56;0,05;True
+ensemble, tous;age_cat;9 à 13 jours;10821;6939;486;166;108;0,16;True
+ensemble, tous;local_guide;niveau 1 à 4;29899;12337;2958;790;629;0,04;True
+ensemble, tous;local_guide;niveau 5 et plus;5045;2698;436;328;286;0,03;True
+ensemble, tous;local_guide;sans niveau;3482;1489;363;148;120;0,13;True
+ensemble, tous;photo_jointe;avec photo;2077;1053;186;128;119;0,04;True
+ensemble, tous;photo_jointe;sans photo;36349;15471;3571;962;772;0,05;True
+ensemble, tous;texte;1 à 50 caractères;6698;2726;579;253;184;0,05;True
+ensemble, tous;texte;51 à 200 caractères;13138;5273;1242;435;338;0,03;True
+ensemble, tous;texte;plus de 200 caractères;8397;3975;921;478;402;0,03;True
+ensemble, tous;texte;sans texte;10193;4550;1015;373;292;0,11;True
+ensemble, tous;photos_auteur;0 photo;26159;10694;2624;721;568;0,05;True
+ensemble, tous;photos_auteur;1 à 20 photos;9835;4474;964;451;359;0,02;True
+ensemble, tous;photos_auteur;plus de 20 photos;2432;1356;169;143;136;0,04;True
+ensemble, tous;avis_auteur;1 avis ou moins;12609;5303;1218;398;305;0,1;True
+ensemble, tous;avis_auteur;2 à 20 avis;21198;8819;2103;669;531;0,02;True
+ensemble, tous;avis_auteur;plus de 20 avis;4619;2402;436;321;272;0,03;True
+ensemble, tous;reponse;pas de réponse, fiche qui répond à 75 % ou moins;17008;6831;1482;396;351;0,05;True
+ensemble, tous;reponse;pas de réponse, fiche qui répond à plus de 75 %;2918;1602;392;208;178;0,04;True
+ensemble, tous;reponse;pas de réponse, habitude inconnue;38;32;18;11;11;0,39;False
+ensemble, tous;reponse;réponse déjà là, fiche qui répond à 75 % ou moins;3325;1207;481;125;108;0,22;True
+ensemble, tous;reponse;réponse déjà là, fiche qui répond à plus de 75 %;15115;7178;1377;383;280;0,03;True
+ensemble, tous;reponse;réponse déjà là, habitude inconnue;22;19;7;7;7;0,14;False
+ensemble, sans_enseignes;total du passage;1580 journées de fiche;27640;13918;2586;945;805;0,02;True
+ensemble, sans_enseignes;note;1 étoile(s);2019;1175;456;247;233;0,09;True
+ensemble, sans_enseignes;note;2 étoile(s);557;333;81;72;68;0,04;True
+ensemble, sans_enseignes;note;3 étoile(s);769;460;82;78;77;0,02;True
+ensemble, sans_enseignes;note;4 étoile(s);1844;1056;122;100;97;0,04;True
+ensemble, sans_enseignes;note;5 étoile(s);22451;10894;1845;613;514;0,03;True
+ensemble, sans_enseignes;age_cat;1 jour(s);190;190;14;13;11;0,14;True
+ensemble, sans_enseignes;age_cat;14 jours et plus;6829;4411;1613;768;659;0,03;True
+ensemble, sans_enseignes;age_cat;2 jour(s);1537;1537;99;88;87;0,03;True
+ensemble, sans_enseignes;age_cat;3 jour(s);1616;1616;65;58;56;0,08;True
+ensemble, sans_enseignes;age_cat;4 jour(s);1602;1602;23;18;18;0,17;True
+ensemble, sans_enseignes;age_cat;5 jour(s);1862;1862;27;26;25;0,07;True
+ensemble, sans_enseignes;age_cat;6 jour(s);2248;2248;170;86;74;0,09;True
+ensemble, sans_enseignes;age_cat;7 jour(s);2227;2227;253;96;82;0,06;True
+ensemble, sans_enseignes;age_cat;8 jour(s);1954;1954;74;55;52;0,05;True
+ensemble, sans_enseignes;age_cat;9 à 13 jours;7575;5455;248;122;102;0,04;True
+ensemble, sans_enseignes;local_guide;niveau 1 à 4;20758;10147;1982;728;623;0,03;True
+ensemble, sans_enseignes;local_guide;niveau 5 et plus;4269;2520;373;303;280;0,03;True
+ensemble, sans_enseignes;local_guide;sans niveau;2613;1251;231;121;114;0,05;True
+ensemble, sans_enseignes;photo_jointe;avec photo;1948;1026;177;121;115;0,04;True
+ensemble, sans_enseignes;photo_jointe;sans photo;25692;12892;2409;900;766;0,02;True
+ensemble, sans_enseignes;texte;1 à 50 caractères;4903;2291;366;206;178;0,04;True
+ensemble, sans_enseignes;texte;51 à 200 caractères;9280;4372;871;386;332;0,03;True
+ensemble, sans_enseignes;texte;plus de 200 caractères;6723;3585;792;435;396;0,03;True
+ensemble, sans_enseignes;texte;sans texte;6734;3670;557;329;286;0,02;True
+ensemble, sans_enseignes;photos_auteur;0 photo;18021;8727;1719;659;562;0,03;True
+ensemble, sans_enseignes;photos_auteur;1 à 20 photos;7462;3895;714;405;353;0,02;True
+ensemble, sans_enseignes;photos_auteur;plus de 20 photos;2157;1296;153;133;131;0,04;True
+ensemble, sans_enseignes;avis_auteur;1 avis ou moins;9040;4404;779;352;299;0,04;True
+ensemble, sans_enseignes;avis_auteur;2 à 20 avis;14778;7296;1443;608;525;0,03;True
+ensemble, sans_enseignes;avis_auteur;plus de 20 avis;3822;2218;364;292;266;0,03;True
+ensemble, sans_enseignes;reponse;pas de réponse, fiche qui répond à 75 % ou moins;10803;5377;961;372;347;0,05;True
+ensemble, sans_enseignes;reponse;pas de réponse, fiche qui répond à plus de 75 %;2876;1587;385;204;176;0,04;True
+ensemble, sans_enseignes;reponse;pas de réponse, habitude inconnue;38;32;18;11;11;0,39;False
+ensemble, sans_enseignes;reponse;réponse déjà là, fiche qui répond à 75 % ou moins;2107;885;254;112;104;0,22;True
+ensemble, sans_enseignes;reponse;réponse déjà là, fiche qui répond à plus de 75 %;11794;6329;961;349;277;0,04;True
+ensemble, sans_enseignes;reponse;réponse déjà là, habitude inconnue;22;19;7;7;7;0,14;False
+US, tous;total du passage;1255 journées de fiche;27252;10307;2590;566;410;0,03;True
+US, tous;note;1 étoile(s);1613;687;254;128;113;0,07;True
+US, tous;note;2 étoile(s);282;134;41;35;34;0,07;True
+US, tous;note;3 étoile(s);304;149;38;36;35;0,05;True
+US, tous;note;4 étoile(s);977;429;69;54;41;0,07;True
+US, tous;note;5 étoile(s);24076;8908;2188;414;282;0,03;True
+US, tous;age_cat;1 jour(s);233;233;10;9;7;0,2;True
+US, tous;age_cat;14 jours et plus;6815;3549;1385;467;340;0,04;True
+US, tous;age_cat;2 jour(s);1486;1486;49;45;43;0,04;True
+US, tous;age_cat;3 jour(s);1559;1559;33;29;28;0,15;True
+US, tous;age_cat;4 jour(s);1597;1597;20;10;10;0,4;False
+US, tous;age_cat;5 jour(s);1898;1898;28;24;19;0,07;True
+US, tous;age_cat;6 jour(s);2229;2229;238;99;56;0,06;True
+US, tous;age_cat;7 jour(s);2190;2190;375;119;65;0,07;True
+US, tous;age_cat;8 jour(s);1835;1835;91;60;39;0,07;True
+US, tous;age_cat;9 à 13 jours;7410;4335;361;137;79;0,05;True
+US, tous;local_guide;niveau 1 à 4;22130;8117;2160;458;323;0,03;True
+US, tous;local_guide;niveau 5 et plus;2848;1268;231;171;137;0,03;True
+US, tous;local_guide;sans niveau;2274;922;199;111;83;0,06;True
+US, tous;photo_jointe;avec photo;1088;522;124;83;74;0,05;True
+US, tous;photo_jointe;sans photo;26164;9785;2466;536;384;0,03;True
+US, tous;texte;1 à 50 caractères;5074;1879;425;170;106;0,04;True
+US, tous;texte;51 à 200 caractères;10389;3762;943;265;176;0,04;True
+US, tous;texte;plus de 200 caractères;5492;2256;637;298;233;0,04;True
+US, tous;texte;sans texte;6297;2410;585;214;137;0,05;True
+US, tous;photos_auteur;0 photo;19404;7116;1854;430;297;0,03;True
+US, tous;photos_auteur;1 à 20 photos;6663;2625;669;280;199;0,02;True
+US, tous;photos_auteur;plus de 20 photos;1185;566;67;63;57;0,03;True
+US, tous;avis_auteur;1 avis ou moins;8478;3269;732;261;172;0,05;True
+US, tous;avis_auteur;2 à 20 avis;15965;5829;1605;391;274;0,03;True
+US, tous;avis_auteur;plus de 20 avis;2809;1209;253;179;138;0,02;True
+US, tous;reponse;pas de réponse, fiche qui répond à 75 % ou moins;11928;3810;999;206;162;0,08;True
+US, tous;reponse;pas de réponse, fiche qui répond à plus de 75 %;1720;841;230;116;98;0,04;True
+US, tous;reponse;pas de réponse, habitude inconnue;16;15;6;5;5;0,33;False
+US, tous;reponse;réponse déjà là, fiche qui répond à 75 % ou moins;1746;496;189;60;45;0,29;False
+US, tous;reponse;réponse déjà là, fiche qui répond à plus de 75 %;11842;5323;1166;254;169;0,03;True
+US, sans_enseignes;total du passage;941 journées de fiche;17526;8031;1720;506;406;0,03;True
+US, sans_enseignes;note;1 étoile(s);1139;587;231;118;111;0,07;True
+US, sans_enseignes;note;2 étoile(s);226;127;40;34;33;0,07;True
+US, sans_enseignes;note;3 étoile(s);250;140;37;35;34;0,05;True
+US, sans_enseignes;note;4 étoile(s);667;360;50;41;38;0,1;True
+US, sans_enseignes;note;5 étoile(s);15244;6817;1362;357;278;0,04;True
+US, sans_enseignes;age_cat;1 jour(s);177;177;9;8;6;0,22;False
+US, sans_enseignes;age_cat;14 jours et plus;4383;2609;1029;415;336;0,03;True
+US, sans_enseignes;age_cat;2 jour(s);1005;1005;46;42;42;0,04;True
+US, sans_enseignes;age_cat;3 jour(s);1055;1055;26;26;25;0,04;True
+US, sans_enseignes;age_cat;4 jour(s);1029;1029;12;9;9;0,33;False
+US, sans_enseignes;age_cat;5 jour(s);1185;1185;17;16;15;0,12;True
+US, sans_enseignes;age_cat;6 jour(s);1407;1407;135;64;52;0,11;True
+US, sans_enseignes;age_cat;7 jour(s);1418;1418;188;75;61;0,07;True
+US, sans_enseignes;age_cat;8 jour(s);1180;1180;51;38;35;0,08;True
+US, sans_enseignes;age_cat;9 à 13 jours;4687;3178;207;95;75;0,04;True
+US, sans_enseignes;local_guide;niveau 1 à 4;13747;6160;1392;398;319;0,04;True
+US, sans_enseignes;local_guide;niveau 5 et plus;2143;1108;184;148;133;0,04;True
+US, sans_enseignes;local_guide;sans niveau;1636;763;144;86;79;0,06;True
+US, sans_enseignes;photo_jointe;avec photo;973;499;118;77;71;0,05;True
+US, sans_enseignes;photo_jointe;sans photo;16553;7532;1602;476;380;0,04;True
+US, sans_enseignes;texte;1 à 50 caractères;3455;1494;258;125;102;0,05;True
+US, sans_enseignes;texte;51 à 200 caractères;6693;2909;614;218;172;0,05;True
+US, sans_enseignes;texte;plus de 200 caractères;3826;1870;512;257;229;0,04;True
+US, sans_enseignes;texte;sans texte;3552;1758;336;172;133;0,04;True
+US, sans_enseignes;photos_auteur;0 photo;12123;5419;1197;370;293;0,04;True
+US, sans_enseignes;photos_auteur;1 à 20 photos;4457;2096;464;236;195;0,03;True
+US, sans_enseignes;photos_auteur;plus de 20 photos;946;516;59;55;54;0,03;True
+US, sans_enseignes;avis_auteur;1 avis ou moins;5661;2608;513;217;168;0,07;True
+US, sans_enseignes;avis_auteur;2 à 20 avis;9803;4383;1013;332;270;0,04;True
+US, sans_enseignes;avis_auteur;plus de 20 avis;2062;1040;194;152;134;0,03;True
+US, sans_enseignes;reponse;pas de réponse, fiche qui répond à 75 % ou moins;5995;2478;581;184;160;0,08;True
+US, sans_enseignes;reponse;pas de réponse, fiche qui répond à plus de 75 %;1678;826;223;112;96;0,04;True
+US, sans_enseignes;reponse;pas de réponse, habitude inconnue;16;15;6;5;5;0,33;False
+US, sans_enseignes;reponse;réponse déjà là, fiche qui répond à 75 % ou moins;1316;401;160;49;43;0,34;False
+US, sans_enseignes;reponse;réponse déjà là, fiche qui répond à plus de 75 %;8521;4474;750;220;166;0,05;True
+Europe, tous;total du passage;648 journées de fiche;11152;6198;1160;434;395;0,14;True
+Europe, tous;note;1 étoile(s);1880;905;516;131;124;0,32;False
+Europe, tous;note;2 étoile(s);381;216;50;39;36;0,18;True
+Europe, tous;note;3 étoile(s);519;320;45;43;43;0,04;True
+Europe, tous;note;4 étoile(s);1176;695;71;58;58;0,07;True
+Europe, tous;note;5 étoile(s);7196;4062;478;251;231;0,05;True
+Europe, tous;age_cat;1 jour(s);13;13;5;5;5;0,2;False
+Europe, tous;age_cat;14 jours et plus;2970;2037;795;349;319;0,2;True
+Europe, tous;age_cat;2 jour(s);528;528;52;45;44;0,06;True
+Europe, tous;age_cat;3 jour(s);561;561;39;32;31;0,13;True
+Europe, tous;age_cat;4 jour(s);573;573;11;9;9;0,27;False
+Europe, tous;age_cat;5 jour(s);676;676;10;10;10;0,1;True
+Europe, tous;age_cat;6 jour(s);841;841;35;22;22;0,14;True
+Europe, tous;age_cat;7 jour(s);809;809;65;21;21;0,17;True
+Europe, tous;age_cat;8 jour(s);774;774;23;17;17;0,17;True
+Europe, tous;age_cat;9 à 13 jours;3407;2600;125;29;29;0,64;False
+Europe, tous;local_guide;niveau 1 à 4;7750;4204;793;327;301;0,14;True
+Europe, tous;local_guide;niveau 5 et plus;2195;1428;203;155;147;0,06;True
+Europe, tous;local_guide;sans niveau;1207;566;164;37;37;0,29;False
+Europe, tous;photo_jointe;avec photo;988;530;62;45;45;0,11;True
+Europe, tous;photo_jointe;sans photo;10164;5668;1098;419;382;0,15;True
+Europe, tous;texte;1 à 50 caractères;1623;846;153;82;77;0,2;True
+Europe, tous;texte;51 à 200 caractères;2738;1502;295;166;158;0,07;True
+Europe, tous;texte;plus de 200 caractères;2896;1711;282;178;167;0,1;True
+Europe, tous;texte;sans texte;3895;2139;430;159;155;0,26;False
+Europe, tous;photos_auteur;0 photo;6742;3567;767;288;269;0,18;True
+Europe, tous;photos_auteur;1 à 20 photos;3165;1843;293;169;158;0,08;True
+Europe, tous;photos_auteur;plus de 20 photos;1245;788;100;78;77;0,06;True
+Europe, tous;avis_auteur;1 avis ou moins;4125;2029;485;136;132;0,26;False
+Europe, tous;avis_auteur;2 à 20 avis;5219;2978;494;274;253;0,07;True
+Europe, tous;avis_auteur;plus de 20 avis;1808;1191;181;140;132;0,06;True
+Europe, tous;reponse;pas de réponse, fiche qui répond à 75 % ou moins;5080;3021;483;190;189;0,15;True
+Europe, tous;reponse;pas de réponse, fiche qui répond à plus de 75 %;1198;761;162;92;80;0,1;True
+Europe, tous;reponse;pas de réponse, habitude inconnue;22;17;12;6;6;0,58;False
+Europe, tous;reponse;réponse déjà là, fiche qui répond à 75 % ou moins;1579;711;292;65;63;0,36;False
+Europe, tous;reponse;réponse déjà là, fiche qui répond à plus de 75 %;3273;1855;211;129;111;0,07;True
+Europe, sans_enseignes;total du passage;636 journées de fiche;10092;5868;859;432;393;0,05;True
+Europe, sans_enseignes;note;1 étoile(s);879;587;225;129;122;0,19;True
+Europe, sans_enseignes;note;2 étoile(s);331;206;41;38;35;0,07;True
+Europe, sans_enseignes;note;3 étoile(s);519;320;45;43;43;0,04;True
+Europe, sans_enseignes;note;4 étoile(s);1176;695;71;58;58;0,07;True
+Europe, sans_enseignes;note;5 étoile(s);7187;4060;477;250;230;0,05;True
+Europe, sans_enseignes;age_cat;1 jour(s);13;13;5;5;5;0,2;False
+Europe, sans_enseignes;age_cat;14 jours et plus;2434;1791;578;347;317;0,08;True
+Europe, sans_enseignes;age_cat;2 jour(s);528;528;52;45;44;0,06;True
+Europe, sans_enseignes;age_cat;3 jour(s);561;561;39;32;31;0,13;True
+Europe, sans_enseignes;age_cat;4 jour(s);573;573;11;9;9;0,27;False
+Europe, sans_enseignes;age_cat;5 jour(s);676;676;10;10;10;0,1;True
+Europe, sans_enseignes;age_cat;6 jour(s);841;841;35;22;22;0,14;True
+Europe, sans_enseignes;age_cat;7 jour(s);809;809;65;21;21;0,17;True
+Europe, sans_enseignes;age_cat;8 jour(s);773;773;23;17;17;0,17;True
+Europe, sans_enseignes;age_cat;9 à 13 jours;2884;2273;41;27;27;0,22;True
+Europe, sans_enseignes;local_guide;niveau 1 à 4;6992;3971;585;325;299;0,05;True
+Europe, sans_enseignes;local_guide;niveau 5 et plus;2124;1410;187;153;145;0,07;True
+Europe, sans_enseignes;local_guide;sans niveau;976;487;87;35;35;0,14;True
+Europe, sans_enseignes;photo_jointe;avec photo;974;526;59;44;44;0,12;True
+Europe, sans_enseignes;photo_jointe;sans photo;9118;5342;800;417;380;0,05;True
+Europe, sans_enseignes;texte;1 à 50 caractères;1447;796;107;80;75;0,07;True
+Europe, sans_enseignes;texte;51 à 200 caractères;2576;1454;253;164;156;0,05;True
+Europe, sans_enseignes;texte;plus de 200 caractères;2888;1707;278;176;165;0,1;True
+Europe, sans_enseignes;texte;sans texte;3181;1911;221;157;153;0,05;True
+Europe, sans_enseignes;photos_auteur;0 photo;5885;3297;519;286;267;0,05;True
+Europe, sans_enseignes;photos_auteur;1 à 20 photos;2998;1793;248;167;156;0,05;True
+Europe, sans_enseignes;photos_auteur;plus de 20 photos;1209;778;92;76;75;0,07;True
+Europe, sans_enseignes;avis_auteur;1 avis ou moins;3373;1791;265;134;130;0,06;True
+Europe, sans_enseignes;avis_auteur;2 à 20 avis;4961;2901;426;272;251;0,07;True
+Europe, sans_enseignes;avis_auteur;plus de 20 avis;1758;1176;168;138;130;0,07;True
+Europe, sans_enseignes;reponse;pas de réponse, fiche qui répond à 75 % ou moins;4808;2899;380;188;187;0,12;True
+Europe, sans_enseignes;reponse;pas de réponse, fiche qui répond à plus de 75 %;1198;761;162;92;80;0,1;True
+Europe, sans_enseignes;reponse;pas de réponse, habitude inconnue;22;17;12;6;6;0,58;False
+Europe, sans_enseignes;reponse;réponse déjà là, fiche qui répond à 75 % ou moins;791;484;94;63;61;0,19;True
+Europe, sans_enseignes;reponse;réponse déjà là, fiche qui répond à plus de 75 %;3273;1855;211;129;111;0,07;True

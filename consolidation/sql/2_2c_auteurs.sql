@@ -52,10 +52,11 @@ modalites AS (
   FROM avis, UNNEST([
     STRUCT("1. note" AS caracteristique, 6 - star AS ordre,
            CONCAT(CAST(star AS STRING), " étoile(s)") AS modalite),
+    -- Paliers décidés le 2026-09-29 : sans niveau / 1 à 4 / 5 et plus.
     STRUCT("2. niveau Local Guide",
-           CASE WHEN local_guide_level IS NULL THEN 1 WHEN local_guide_level <= 3 THEN 2 ELSE 3 END,
+           CASE WHEN local_guide_level IS NULL THEN 1 WHEN local_guide_level <= 4 THEN 2 ELSE 3 END,
            CASE WHEN local_guide_level IS NULL THEN "sans niveau"
-                WHEN local_guide_level <= 3 THEN "niveau 1 à 3" ELSE "niveau 4 et plus" END),
+                WHEN local_guide_level <= 4 THEN "niveau 1 à 4" ELSE "niveau 5 et plus" END),
     STRUCT("3. photos publiées par l'auteur",
            CASE WHEN photos_auteur = 0 THEN 1 WHEN photos_auteur <= 5 THEN 2
                 WHEN photos_auteur <= 20 THEN 3 WHEN photos_auteur <= 100 THEN 4 ELSE 5 END,

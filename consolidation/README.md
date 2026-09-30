@@ -22,6 +22,8 @@ uv run python consolidation/4_0_niveaux_local_guide.py
 uv run python consolidation/4a_quelle_fiche.py
 nice -n 19 uv run python consolidation/4b_quel_avis.py      # environ 1 minute
 uv run python consolidation/5_reponse_jour_par_jour.py      # environ 20 secondes, plusieurs cœurs
+uv run python consolidation/7_reponse_base_complete.py
+nice -n 19 uv run python consolidation/8_regression_reponse_base.py   # environ 35 secondes, 2,8 Go de mémoire
 ```
 
 Les requêtes lisent BigQuery et n'écrivent rien dedans. Clé de service : le seul `.json` de
@@ -39,6 +41,8 @@ Les requêtes lisent BigQuery et n'écrivent rien dedans. Clé de service : le s
 | 4. Quelle fiche, quel avis dans la fiche | `4_quelle_fiche_quel_avis.md` | `4_0_niveaux_local_guide.py`, `4a_quelle_fiche.py`, `4b_quel_avis.py` |
 | 5. Réponse du propriétaire, jour par jour | `5_reponse_jour_par_jour.md` | `5_reponse_jour_par_jour.py` |
 | 6. Régression du panel (à faire) | `6_plan_regression_panel.md` : plan et questions à trancher | — |
+| 7. Réponse du propriétaire sur toute la base | `7_reponse_base_complete.md` | `7_reponse_base_complete.py` |
+| 8. Réponse du propriétaire sur toute la base, à caractéristiques égales | `8_regression_reponse_base.md` | `8_regression_reponse_base.py` |
 | Pour Axel : sur quels avis on mesure, comment se lit une régression | `explication_pour_axel.md` | `axel_comparaison_perimetres.py` |
 
 ## Les CSV
@@ -79,6 +83,11 @@ suppressions à côté des taux, pour pouvoir regrouper des lignes dans Sheets.
 | `5_effectifs.csv`, `5_effets.csv` | réponse du propriétaire jour par jour : effectifs, effets |
 | `5_fiches_par_case.csv` | les fiches derrière les suppressions de chaque case, avec les jours |
 | `3b_effets.csv` | effets de la régression, avec fourchette |
+| `7_reponse_base_complete.csv` | base complète, avis publiés avant le 11 août : suppressions pour 10 000 avis répondus et sans réponse, par âge, habitude, taille, région |
+| `7_controle.csv` | totaux de la base et rapprochement des comptages d'avis avec réponse |
+| `8_effectifs.csv`, `8_effets.csv` | base complète, avis publiés avant le 4 août : réponse du propriétaire à caractéristiques égales, effectifs et effets |
+| `8_fiches_par_case.csv` | les fiches derrière les suppressions de chaque case, avec les jours |
+| `8_notes_par_case.csv` | la note des avis répondus et des avis sans réponse, case par case |
 
 Chaque CSV porte une colonne `perimetre` : `tous`, puis `sans_enseignes`, sans les 95 fiches
 de `biz_surveillance` (les 4 chaînes antiparasitaires US au nom exact, 93 fiches, et les
@@ -88,7 +97,8 @@ de `biz_surveillance` (les 4 chaînes antiparasitaires US au nom exact, 93 fiche
 
 | Table BigQuery | Sert à |
 |---|---|
-| `reviews_doublons_cleaned` | la base complète : 1a à 1d, 2.1, 2.2 |
+| `reviews_doublons_cleaned` | la base complète : 1a à 1d, 2.1, 2.2, 7, 8 |
+| `01_reviews_avis_update_et_unique` | l'habitude de réponse des fiches aux points 7 et 8 |
 | `reviews_panel_features_03B` | 2.3 et 3 |
 | `reviews` | 1a, 1b, et le jour de première observation d'un avis (1d, 2.1b) |
 | `businesses`, `biz_surveillance` | secteur, pays, taille ; enseignes signalées |
@@ -102,11 +112,12 @@ Une suppression : la ligne gardée de l'avis dans `reviews_doublons_cleaned` a
 365 jours retire de la base : fiche, note, texte, dates, auteur, lien. À lancer dans la console
 BigQuery. Le résultat contient des données personnelles : ne pas l'exporter dans le dépôt.
 
-## Règle de citation des régressions 4 et 5
+## Règle de citation des points 4, 5, 7 et 8
 
-Un effet se cite si sa case et sa case de référence ont au moins 20 suppressions, réparties sur
-au moins 10 fiches, sans qu'une fiche en porte plus du quart (`commun.py`, décidé le
-2026-09-29). Chaque CSV d'effets porte la colonne `citable`.
+Un effet se cite si sa case et sa case de référence ont au moins 10 suppressions, réparties sur
+au moins 5 fiches, sans qu'une fiche en porte plus du quart (`commun.py`, seuils du 2026-09-30).
+Chaque CSV d'effets porte la colonne `citable`. Les seuils du 2026-09-29 étaient 20 suppressions
+et 10 fiches.
 
 ## Organisation
 
