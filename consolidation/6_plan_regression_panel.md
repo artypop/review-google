@@ -57,8 +57,8 @@ Sorties du 07C : `logistic-regression-study/output-study/2026-09-28-sorties-07C/
 ### Question 0 — Sur quels avis ? (posée le 29/09 au soir, à trancher en premier)
 
 **Ce que contient 03B.** Les 35 751 avis publiés du 4 au 17 août (J-7 à J+6), et parmi eux les
-1 355 qui ont disparu. Les suppressions d'avis plus anciens n'y sont pas : sur les 4 035
-suppressions de la base, 2 680 portent sur des avis publiés hors du 4-17 août.
+1 355 qui ont disparu. Les suppressions d'avis plus anciens n'y sont pas : sur les 4 590
+suppressions de la base, 3 235 portent sur des avis publiés hors du 4-17 août.
 
 **Ce qu'Axel voulait**, selon Romain : les avis publiés de J-7 à J+7, plus **toutes** les
 suppressions vues pendant les 14 jours, même celles d'avis anciens.
@@ -72,13 +72,13 @@ fréquente chez les avis anciens paraîtrait liée à la suppression.
 |---|---|---:|---|
 | A. 03B tel quel | publiés du 4 au 17 août | 1 355 | déjà prêt ; ne couvre que les avis récents |
 | B. 03B étendu au 18 août (J+7) | + 2 568 avis | un peu plus | les avis du 18 août ne sont suivis que 6 jours |
-| C. toute la base, une ligne par avis et par jour ; chaque avis entre à son âge du 11 août | 4 751 680 | 4 035 | couvre toutes les suppressions avec le bon dénominateur ; environ 60 millions de lignes : le modèle doit tourner sur des comptes regroupés dans BigQuery ; les caractéristiques des fiches sont à recalculer hors de 03B |
-| D. la table d'Axel à la lettre | J-7 à J+7 + tous les supprimés | 4 035 | inutilisable pour des taux ou une régression (voir plus haut) |
-| E. proposition de Romain : tous les avis publiés sur un an (11/08/2025 au 24/08/2026), une ligne par avis et par jour | 487 045 avis de 2026, plus ceux d'août à décembre 2025 | au moins 3 067, au plus 3 400 (`2_1a_par_annee.csv`) | plusieurs millions de lignes, à regrouper dans BigQuery ; l'habitude de réponse de la fiche est à calculer sur l'année d'avant (août 2024 à août 2025), sinon l'avis entre dans sa propre habitude ; mêle la routine du 7e jour et des retraits en bloc d'avis anciens |
+| C. toute la base, une ligne par avis et par jour ; chaque avis entre à son âge du 11 août | 4 876 933 | 4 590 | couvre toutes les suppressions avec le bon dénominateur ; environ 60 millions de lignes : le modèle doit tourner sur des comptes regroupés dans BigQuery ; les caractéristiques des fiches sont à recalculer hors de 03B |
+| D. la table d'Axel à la lettre | J-7 à J+7 + tous les supprimés | 4 590 | inutilisable pour des taux ou une régression (voir plus haut) |
+| E. proposition de Romain : tous les avis publiés sur un an (11/08/2025 au 24/08/2026), une ligne par avis et par jour | 487 045 avis de 2026, plus ceux d'août à décembre 2025 | au moins 3 067, au plus 3 585 (`2_1a_par_annee.csv`) | plusieurs millions de lignes, à regrouper dans BigQuery ; l'habitude de réponse de la fiche est à calculer sur l'année d'avant (août 2024 à août 2025), sinon l'avis entre dans sa propre habitude ; mêle la routine du 7e jour et des retraits en bloc d'avis anciens |
 | F. 90 jours avant J jusqu'à J+13 (13 mai au 24 août), comme l'ancien 07 | 243 901 (table `02_reviews_panel_…`) | à compter | le choix documenté dans `docs/01-etude.md` § 3 : au-delà de 90 jours, un avis ne risque presque plus rien ; environ 3 millions de lignes jour par jour |
 
 Pour mémoire, la fenêtre du 2.1b (J-30 à J+13) compte 107 644 avis et 2 467 suppressions, soit
-61 % des 4 035 (`2_1b_resume.csv`).
+54 % des 4 590 (`2_1b_resume.csv`).
 
 **Le biais des 14 jours**, commun à E, F et C : tous les avis sont regardés pendant les mêmes
 14 jours, donc les comparaisons entre eux tiennent. Ce qu'on ne voit pas, c'est ce qui arrive

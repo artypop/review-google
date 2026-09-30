@@ -19,7 +19,8 @@ Il remplace, depuis le 2026-09-14 : `etude-exploratoire/BACKLOG.md`,
    aussi le point 7 ci-dessous. Mise de côté le 2026-09-30 ; la question 0 (sur quels avis) se
    tranche en premier. La régression sur toute la base pour la réponse du propriétaire est faite
    (`consolidation/8_regression_reponse_base.md`). Question ouverte par ce point : tenir l'âge
-   égal plus finement dans la tranche de 8 à 30 jours.
+   égal plus finement dans la tranche de 8 à 30 jours. Le seuil de 75 % sur l'habitude est testé
+   (`consolidation/9_seuil_habitude.py`) : il reste le réglage des points 5 et 8.
 1. **Comprendre les quatre chaînes américaines de traitement antiparasitaire.** Elles portent
    692 des 2 595 suppressions du panel, presque toutes sur des avis 4 et 5 étoiles. Vérifié le
    2026-09-17 : aucun afflux soudain d'avis, la hausse d'EcoShield est durable et commence en
@@ -161,6 +162,51 @@ citable. Fiches qui répondent à 75 % ou moins : aucune protection visible. 30 
 citables sur 48. BigQuery regroupe les avis en 983 948 lignes ; 35 secondes, 2,8 Go. DuckDB,
 autorisé par Romain, n'a pas servi. Écarté : le calcul direct par fiche sans passer par les
 combinaisons, 5 fois plus long pour le même résultat.
+
+**Le seuil de 75 % sur l'habitude de réponse, testé à la demande de Romain**
+(`consolidation/9_seuil_habitude.py`, sorties `9_seuil_habitude_point5.csv` et
+`9_seuil_habitude_point8.csv`). Le 75 % venait de l'étude 08B et n'avait jamais été comparé à une
+autre coupure. Les points 5 et 8 sont relancés tels quels avec une coupure à 50 %, à 90 %, et avec
+quatre tranches (25, 50, 75 %) ; les coupures sont désormais un réglage de `commun.py`
+(`COUPURES_HABITUDE`), et les sorties des points 5 et 8 au réglage par défaut sont identiques à
+avant. Résultat : la protection sur les fiches au-dessus de la coupure apparaît à 50, 75 et 90 %
+(point 5, mono + small, réponse le jour même : ×0,52, ×0,36, ×0,30 ; point 8, 91 jours à un an,
+sans enseignes : ×0,50, ×0,26, ×0,24, tous citables) et se renforce quand la coupure monte. À
+90 %, le point 8 donne ×0,49 [0,28 à 0,85] de 8 à 30 jours, citable. Au-delà d'un an, rien à
+aucune coupure. Sous 75 %, les quatre tranches n'ont pas assez de suppressions d'avis répondus
+pour montrer ou exclure une progression régulière. Décision proposée : garder 75 %, ne pas passer
+à 90 % après coup.
+
+**La base complète devient `reviews_doublons_cleaned_all`, décision de Romain** (plan validé le
+30 en fin de journée). La table reprend les 125 253 avis modifiés plus d'un an après leur
+publication, que `reviews_doublons_cleaned` écartait, avec leurs 555 suppressions. La question
+laissée ouverte le 29 (« garder la règle, ou réintégrer ces avis ») est tranchée. Les chiffres des
+paragraphes ci-dessus et de l'entrée du 29 datent de l'ancienne base.
+
+- Contrôles (`1b_entonnoir.csv`) : la table est exactement l'étape 3 de l'entonnoir, mêmes avis
+  et mêmes avis supprimés ; 03B est inchangée ; cinq contrôles à 0.
+- Relancés : 1a, 1b, 1c, 1d, 2.1, 2.2, 2.2d, 7, 8, 9 (partie point 8),
+  `axel_comparaison_perimetres.py`, puis `presentation.py`. Sorties écrasées, synthèses `.md`
+  corrigées. Non relancés : 2.3, 3, 4, 5, qui lisent 03B.
+- Base : 4 876 933 avis, 4 590 suppressions, 9,4 pour 10 000 (4 751 680, 4 035 et 8,5 avant).
+  Sans enseignes : 4 627 581 avis, 3 067 suppressions, 6,6 pour 10 000 (6,3 avant).
+- Les 555 suppressions ajoutées : 322 sur les 4 chaînes (1 194 avis supprimés contre 872), 83 sur
+  les autres fiches antiparasitaires américaines (`2_2d_antiparasitaire_par_enseigne.csv`, 364
+  contre 281), 150 ailleurs.
+- Identiques à l'avis près, comme attendu : 1d, 2.1b, 2.2c, qui portent sur des avis publiés
+  depuis le 12 juillet.
+- Point 8, fiches qui répondent à plus de 75 %, sans enseignes : ×0,66 [0,40 à 1,08] de 8 à
+  30 jours (×0,70 avant), ×0,25 [0,14 à 0,44] de 91 jours à un an (×0,26 avant), ×1,11
+  [0,83 à 1,47] au-delà d'un an (×1,00 avant). Avec les enseignes, au-delà d'un an :
+  ×1,36 [1,05 à 1,75], citable (×1,08 [0,83 à 1,41] avant). 30 effets de réponse citables sur 48,
+  inchangé. 994 805 lignes regroupées, 50 secondes.
+- Réserve nouvelle, écrite dans `1_corpus.md`, `7_reponse_base_complete.md` et
+  `8_regression_reponse_base.md` : l'âge des avis réintégrés se compte depuis leur publication.
+  Ils sont rangés dans « plus d'un an », quelle que soit la date de leur modification.
+- Supprimés : `1b_retires_365_jours_par_fiche.csv`, `1b_retires_365_jours_profil.csv`, leurs deux
+  requêtes et `sql/verif_avis_modifies_plus_d_un_an.sql`. Ils restent dans le commit `61394d9`.
+- Non refaits, toujours sur l'ancienne base : `divers/corpus_axel/`, `etudes-ponctuelles/`,
+  `docs/01` à `03`, les trois rapports `.docx` de `livrables/`.
 
 **Rien n'est commité** de ce qui précède.
 

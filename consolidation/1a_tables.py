@@ -1,4 +1,4 @@
-"""1a. Ce que contiennent les tables `reviews`, `reviews_doublons_cleaned` et `businesses`.
+"""1a. Ce que contiennent les tables `reviews`, `reviews_doublons_cleaned_all` et `businesses`.
 
     uv run python consolidation/1a_tables.py
 

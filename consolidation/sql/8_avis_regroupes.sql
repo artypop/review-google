@@ -1,7 +1,7 @@
 -- ============================================================================
 -- 8. La réponse du propriétaire sur toute la base : les avis, regroupés
 --
--- Base : `reviews_doublons_cleaned`, avis publiés avant le 4 août 2026, sur les
+-- Base : `reviews_doublons_cleaned_all`, avis publiés avant le 4 août 2026, sur les
 -- fiches dont l'habitude de réponse est connue. Ce sont les avis que le panel
 -- 03B (4 au 17 août) laisse de côté : le point 5 et celui-ci ne se recouvrent pas.
 -- Suppressions : du 12 au 24 août.
@@ -15,10 +15,12 @@
 --
 --   repondu    le propriétaire avait répondu AVANT le 11 août.
 --   age        âge de l'avis le 11 août. Publié avant le 4 août : 8 jours ou plus.
---   habitude   part des avis de la fiche, publiés du 2025-08-11 au 2026-08-03,
---              qui avaient une réponse avant le 11 août. Inconnue sous 10 avis :
---              la fiche sort. Bloc repris tel quel de
---              `logistic-regression-study/sql/03B_adding_features.bqsql`.
+--   taux_reponse
+--              l'habitude de la fiche : part de ses avis, publiés du 2025-08-11
+--              au 2026-08-03, qui avaient une réponse avant le 11 août. Inconnue
+--              sous 10 avis : la fiche sort. Bloc repris tel quel de
+--              `logistic-regression-study/sql/03B_adding_features.bqsql`. Le
+--              script la range en tranches (`commun.py`).
 --   note, local_guide, photo_jointe, texte, photos_auteur, avis_auteur
 --              mêmes paliers qu'au 4b (`4b_quel_avis.py`), lus au dernier
 --              passage où l'avis est vu.
@@ -55,7 +57,7 @@ avis AS (
       ELSE b.industry
     END AS secteur,
     s.cid IS NOT NULL AS enseigne_signalee,
-    IF(h.taux > 0.75, "plus de 75 %", "75 % ou moins") AS habitude,
+    h.taux AS taux_reponse,
     CASE WHEN DATE_DIFF(DATE "2026-08-11", CAST(r.created_at AS DATE), DAY) <= 30 THEN "8 à 30 jours"
          WHEN DATE_DIFF(DATE "2026-08-11", CAST(r.created_at AS DATE), DAY) <= 90 THEN "31 à 90 jours"
          WHEN DATE_DIFF(DATE "2026-08-11", CAST(r.created_at AS DATE), DAY) <= 365 THEN "91 à 365 jours"
@@ -76,7 +78,7 @@ avis AS (
          WHEN r.reviewer_review_count <= 20 THEN "2 à 20 avis"
          ELSE "plus de 20 avis" END AS avis_auteur,
     DATE(r.deleted_detected_at) AS jour_de_suppression
-  FROM `client-divers.reviewflowz.reviews_doublons_cleaned` r
+  FROM `client-divers.reviewflowz.reviews_doublons_cleaned_all` r
   JOIN habitude_reponse_fiche h USING (cid)
   LEFT JOIN `client-divers.reviewflowz.businesses` b USING (cid)
   LEFT JOIN `client-divers.reviewflowz.biz_surveillance` s USING (cid)
@@ -85,7 +87,7 @@ avis AS (
 )
 
 SELECT
-  cid, region, taille, secteur, enseigne_signalee, habitude, age, repondu,
+  cid, region, taille, secteur, enseigne_signalee, taux_reponse, age, repondu,
   note, local_guide, photo_jointe, texte, photos_auteur, avis_auteur,
   COUNT(*)                                                     AS n,
   COUNT(jour_de_suppression)                                   AS k,
@@ -93,5 +95,5 @@ SELECT
   STRING_AGG(DISTINCT CAST(jour_de_suppression AS STRING), ", "
              ORDER BY CAST(jour_de_suppression AS STRING))     AS jours_de_suppression
 FROM avis
-GROUP BY cid, region, taille, secteur, enseigne_signalee, habitude, age, repondu,
+GROUP BY cid, region, taille, secteur, enseigne_signalee, taux_reponse, age, repondu,
          note, local_guide, photo_jointe, texte, photos_auteur, avis_auteur

@@ -1,7 +1,7 @@
 -- ============================================================================
 -- 1c. Suppressions pour 10 000 avis, par secteur, Europe et US — base complète
 --
--- Base : `reviews_doublons_cleaned`, toutes dates de publication.
+-- Base : `reviews_doublons_cleaned_all`, toutes dates de publication.
 -- Une suppression : la ligne gardée de l'avis est marquée disparue
 -- (`deleted_detected_at` rempli). Elles ont toutes été constatées du 12 au
 -- 24 août 2026.
@@ -25,7 +25,7 @@ WITH avis AS (
     END AS secteur,
     r.deleted_detected_at IS NOT NULL AS supprime,
     s.cid IS NOT NULL AS enseigne_signalee
-  FROM `client-divers.reviewflowz.reviews_doublons_cleaned` r
+  FROM `client-divers.reviewflowz.reviews_doublons_cleaned_all` r
   LEFT JOIN `client-divers.reviewflowz.businesses` b USING (cid)
   LEFT JOIN `client-divers.reviewflowz.biz_surveillance` s USING (cid)
 ),

@@ -72,6 +72,31 @@ passage »).
     les enseignes, citable ; ×0,56 sans les enseignes, non citable. Sur toute la base (point 7),
     aucune protection visible sur ces fiches.
 
+### Le seuil de 75 % : la protection apparaît aussi en coupant à 50 % et à 90 %
+
+Test du 2026-09-30 : `nice -n 19 uv run python consolidation/9_seuil_habitude.py 5`, sortie
+`9_seuil_habitude_point5.csv`. Mêmes avis, mêmes colonnes ; seule la coupure de l'habitude change.
+Le 75 % vient de l'étude 08B et n'avait jamais été comparé à une autre coupure.
+
+Fiches au-dessus de la coupure, réponse le jour même puis le lendemain :
+
+| Coupure | Mono + small | Large, sans enseignes |
+|---|---:|---:|
+| 50 % | ×0,52 [0,30 à 0,91] ; ×0,43 [0,25 à 0,74] | ×0,31 [0,16 à 0,60] ; ×0,31 [0,18 à 0,55] |
+| 75 % | ×0,36 [0,20 à 0,63] ; ×0,33 [0,18 à 0,60] | ×0,24 [0,12 à 0,48] ; ×0,23 [0,13 à 0,41] |
+| 90 % | ×0,30 [0,16 à 0,54] ; ×0,26 [0,13 à 0,52] | ×0,30 [0,14 à 0,64] ; ×0,22 [0,10 à 0,46], non citable |
+
+- Les douze fourchettes restent sous 1. Onze effets sont citables ; le douzième ne l'est pas parce
+  qu'une fiche porte 27 % de ses 26 suppressions.
+- Sur mono + small, l'effet se renforce quand la coupure monte : ×0,52, ×0,36, ×0,30.
+- Les fiches au-dessus de 75 % sont surtout des fiches au-dessus de 90 % : sur mono + small,
+  réponse le jour même, 25 487 des 30 294 avis-jours.
+- Sous la coupure, aucun effet n'est citable sur mono + small ni sur large sans enseignes, quelle
+  que soit la coupure.
+- Avec quatre tranches (25 % ou moins, 25 à 50, 50 à 75, plus de 75), sur mono + small : 9 des
+  12 cases sous 75 % ont moins de 5 suppressions d'avis répondus et sortent du calcul ; les 3 autres
+  reposent sur 1 à 3 fiches. Le panel ne permet pas de dire si l'effet grandit tranche par tranche.
+
 ### L'avis resté sans réponse sur une fiche qui répond à tout
 
 - Sur une fiche qui répond à plus de 75 %, un avis encore sans réponse disparaît 2,5 fois plus

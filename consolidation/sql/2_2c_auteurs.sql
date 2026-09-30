@@ -19,7 +19,7 @@
 
 WITH meme_jour AS (
   SELECT review_link, DATE(created_at) AS jour, COUNT(*) AS n
-  FROM `client-divers.reviewflowz.reviews_doublons_cleaned`
+  FROM `client-divers.reviewflowz.reviews_doublons_cleaned_all`
   WHERE review_link IS NOT NULL
   GROUP BY review_link, jour
 ),
@@ -39,7 +39,7 @@ avis AS (
     r.reviewer_review_count,
     COALESCE(mj.n, 1) AS avis_meme_jour,
     r.reply_date IS NOT NULL AS reponse
-  FROM `client-divers.reviewflowz.reviews_doublons_cleaned` r
+  FROM `client-divers.reviewflowz.reviews_doublons_cleaned_all` r
   LEFT JOIN `client-divers.reviewflowz.businesses` b USING (cid)
   LEFT JOIN `client-divers.reviewflowz.biz_surveillance` s USING (cid)
   LEFT JOIN meme_jour mj

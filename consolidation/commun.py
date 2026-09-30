@@ -20,6 +20,7 @@ import matplotlib
 
 matplotlib.use("Agg")  # pas d'écran sous WSL : les graphiques vont dans des fichiers
 import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
 
 PROJET = "client-divers"
@@ -99,6 +100,32 @@ def enregistrer(fig, nom: str) -> None:
     fig.savefig(FIGURES / f"{nom}.png", dpi=130)
     plt.close(fig)
     print(f"  sorties/figures/{nom}.png")
+
+
+# ---------------------------------------------------------------------------
+# Habitude de réponse d'une fiche : la part de ses avis de l'année précédente
+# qui avaient une réponse avant le 11 août. Les points 5 et 8 rangent les
+# fiches en tranches selon ces coupures. Une seule par défaut, à 75 % : elle
+# vient de l'étude 08B. `9_seuil_habitude.py` relance les deux points avec
+# d'autres coupures pour voir si le résultat en dépend.
+# ---------------------------------------------------------------------------
+COUPURES_HABITUDE = [0.75]
+
+
+def noms_habitudes() -> list[str]:
+    """Les tranches d'habitude, de la plus basse à la plus haute : « 75 % ou moins », « plus de 75 % »."""
+    c = [str(round(100 * x)) for x in COUPURES_HABITUDE]
+    return [f"{c[0]} % ou moins"] + [f"{a} à {b} %" for a, b in zip(c, c[1:])] + [f"plus de {c[-1]} %"]
+
+
+def habitude(taux: pd.Series) -> np.ndarray:
+    """La tranche de chaque ligne, d'après le taux de réponse de sa fiche.
+
+    Une fiche à 75 % tout rond va dans « 75 % ou moins ».
+    """
+    if taux.isna().any():
+        raise SystemExit("Taux de réponse vide : la requête doit écarter les fiches sans historique.")
+    return np.array(noms_habitudes())[np.searchsorted(COUPURES_HABITUDE, taux.astype(float), side="left")]
 
 
 # ---------------------------------------------------------------------------

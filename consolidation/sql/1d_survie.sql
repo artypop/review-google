@@ -1,7 +1,7 @@
 -- ============================================================================
 -- 1d. Survie des avis publiés de J-7 à J+7 (du 4 au 18 août 2026)
 --
--- Base : `reviews_doublons_cleaned`, avis publiés du 4 au 18 août.
+-- Base : `reviews_doublons_cleaned_all`, avis publiés du 4 au 18 août.
 --
 -- LE CALCUL, JOUR PAR JOUR
 --   Pour chaque âge (1 jour, 2 jours…), on prend les avis que le robot voyait
@@ -38,7 +38,7 @@ avis AS (
     GREATEST(DATE_DIFF(pv.premier_jour_vu, DATE(r.created_at), DAY), 0) AS age_entree,
     DATE_DIFF(COALESCE(DATE(r.deleted_detected_at), DATE "2026-08-24"),
               DATE(r.created_at), DAY) AS age_sortie
-  FROM `client-divers.reviewflowz.reviews_doublons_cleaned` r
+  FROM `client-divers.reviewflowz.reviews_doublons_cleaned_all` r
   JOIN premiere_vue pv USING (review_id)
   LEFT JOIN `client-divers.reviewflowz.businesses` b USING (cid)
   LEFT JOIN `client-divers.reviewflowz.biz_surveillance` s USING (cid)

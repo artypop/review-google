@@ -7,7 +7,7 @@
 | `uv run python consolidation/1c_secteurs.py` | `1c_avis_secteur_taille.csv`, `1c_suppressions_secteur_region.csv` |
 | `uv run python consolidation/1d_survie.py` | `1d_survie.csv` |
 
-Chiffres du 2026-09-29.
+Chiffres du 2026-09-30. Base complète : `reviews_doublons_cleaned_all`.
 
 ---
 
@@ -53,16 +53,14 @@ Chiffres du 2026-09-29.
 
 ## 1.2 Comment le corpus est construit
 
-`1b_entonnoir.csv` rejoue la requête qui a construit `reviews_doublons_cleaned` (Matthieu,
-2026-09-17), étape par étape.
+`1b_entonnoir.csv` rejoue la construction de `reviews_doublons_cleaned_all`, étape par étape.
 
 | Étape | Avis | Avis supprimés |
 |---|---:|---:|
 | 1. export brut, 4 880 163 lignes | 4 877 534 | 5 192 |
 | 2. une ligne par avis, la dernière version | 4 877 534 | 4 697 |
 | 3. sans les avis qui ont clignoté | 4 876 933 | 4 590 |
-| 4. sans les avis modifiés plus d'un an après publication | 4 751 680 | 4 035 |
-| 5. publiés du 4 au 17 août, J-7 à J+6 | 35 751 | 1 355 |
+| 4. publiés du 4 au 17 août, J-7 à J+6 | 35 751 | 1 355 |
 
 - Étape 2 : un avis modifié ou revenu a plusieurs lignes. On garde la plus récemment modifiée,
   puis la plus récemment vue. 495 avis avaient une ligne marquée disparue et sont en ligne dans
@@ -70,15 +68,18 @@ Chiffres du 2026-09-29.
 - Étape 3 : un avis à plusieurs lignes est gardé seulement si sa dernière ligne est une
   modification de l'auteur. Les 601 autres ont disparu puis sont revenus. Ils sortent, avec
   107 suppressions.
-- Étape 4 : sortent 125 253 avis dont la dernière modification tombe plus de 365 jours après la
-  publication, avec 555 suppressions.
-- L'étape 4 donne exactement la table `reviews_doublons_cleaned`. L'étape 5 donne exactement la
-  table 03B. Les quatre contrôles de `1b_entonnoir.csv` sont à 0.
+- L'étape 3 donne exactement la table `reviews_doublons_cleaned_all` : mêmes avis, mêmes avis
+  supprimés. L'étape 4 donne exactement la table 03B. Les cinq contrôles de `1b_entonnoir.csv`
+  sont à 0.
+- Jusqu'au 2026-09-29, la base était `reviews_doublons_cleaned`, qui écartait en plus les avis
+  modifiés plus de 365 jours après leur publication : 125 253 avis, dont 555 supprimés (écart
+  entre `1a_tables.csv` du commit `61394d9` et celui d'aujourd'hui). Ces avis sont maintenant
+  dans la base. Aucun n'a été publié du 4 au 17 août : 03B est inchangée.
 
 **Une suppression** : la ligne gardée de l'avis a `deleted_detected_at` rempli. Les premières sont
 constatées le 12 août (2e passage), les dernières le 24.
 
-**La base complète** : l'étape 4, `reviews_doublons_cleaned`. **Le panel 03B** : l'étape 5,
+**La base complète** : l'étape 3, `reviews_doublons_cleaned_all`. **Le panel 03B** : l'étape 4,
 utilisé aux points 2.3 et 3.
 
 ---
@@ -87,40 +88,40 @@ utilisé aux points 2.3 et 3.
 
 ### La base complète
 
-- 4 751 680 avis, dont 2 548 805 aux États-Unis et 2 202 875 en Europe.
-- 4 035 disparaissent pendant les 14 jours de suivi : 8,5 pour 10 000 avis.
-  US 10,7, Europe 6,0 (`1c_suppressions_secteur_region.csv`, ligne « Tous secteurs »).
-- Sans enseignes : 4 518 956 avis, 2 834 suppressions, 6,3 pour 10 000. US 8,0, Europe 4,5.
+- 4 876 933 avis, dont 2 627 609 aux États-Unis et 2 249 324 en Europe.
+- 4 590 disparaissent pendant les 14 jours de suivi : 9,4 pour 10 000 avis.
+  US 12,4, Europe 5,9 (`1c_suppressions_secteur_region.csv`, ligne « Tous secteurs »).
+- Sans enseignes : 4 627 581 avis, 3 067 suppressions, 6,6 pour 10 000. US 8,6, Europe 4,5.
 
 ### Avis par secteur (`1c_avis_secteur_taille.csv`)
 
 | Secteur | Avis | Part du corpus |
 |---|---:|---:|
-| Restauration | 1 161 748 | 24,4 % |
-| Hôtellerie | 977 386 | 20,6 % |
-| Services à domicile | 726 687 | 15,3 % |
-| Automobile | 633 935 | 13,3 % |
-| Santé | 537 221 | 11,3 % |
-| Sport et bien-être | 498 647 | 10,5 % |
-| Voyage | 216 056 | 4,5 % |
+| Restauration | 1 183 078 | 24,3 % |
+| Hôtellerie | 990 568 | 20,3 % |
+| Services à domicile | 761 023 | 15,6 % |
+| Automobile | 653 857 | 13,4 % |
+| Santé | 558 901 | 11,5 % |
+| Sport et bien-être | 512 023 | 10,5 % |
+| Voyage | 217 483 | 4,5 % |
 
 - Le détail mono / small / large est dans le CSV.
-- Sans enseignes, les services à domicile perdent 231 325 avis : 93 fiches `large` des 4 chaînes.
+- Sans enseignes, les services à domicile perdent 247 938 avis : 93 fiches `large` des 4 chaînes.
 
 ### Suppressions pour 10 000 avis, par secteur (`1c_suppressions_secteur_region.csv`)
 
 | Secteur | US | US sans enseignes | Europe | Europe sans enseignes |
 |---|---:|---:|---:|---:|
-| Services à domicile | 28,6 | 21,3 | 4,1 | 4,1 |
-| Sport et bien-être | 10,5 | 10,5 | 17,1 | 6,5 |
+| Services à domicile | 35,3 | 24,7 | 4,0 | 4,0 |
+| Sport et bien-être | 10,4 | 10,4 | 16,8 | 6,5 |
 | Voyage | 9,4 | 9,4 | 10,7 | 10,7 |
-| Santé | 9,9 | 9,9 | 5,1 | 5,1 |
-| Automobile | 6,9 | 6,9 | 4,3 | 4,3 |
+| Santé | 11,7 | 11,7 | 5,0 | 5,0 |
+| Automobile | 6,8 | 6,8 | 4,2 | 4,2 |
 | Hôtellerie | 3,2 | 3,2 | 3,6 | 3,6 |
-| Restauration | 3,3 | 3,3 | 3,3 | 3,3 |
+| Restauration | 3,3 | 3,3 | 3,4 | 3,4 |
 
 - Les services à domicile américains sont le secteur le plus touché, avec ou sans les 4 chaînes.
-- Le sport européen passe de 17,1 à 6,5 sans les 2 salles espagnoles.
+- Le sport européen passe de 16,8 à 6,5 sans les 2 salles espagnoles.
 - Hôtellerie et restauration sont au même niveau des deux côtés, autour de 3 pour 10 000.
 
 ### Survie des avis publiés de J-7 à J+7 (`1d_survie.csv`)
@@ -148,15 +149,10 @@ chaque âge.
 
 - Les suppressions sont celles des 14 jours de suivi. La base contient des avis publiés depuis
   2004, mais un avis supprimé avant le 11 août n'y figure pas.
-- La règle de l'étape 4 retire 125 253 avis et 555 suppressions. Ces avis modifiés plus d'un an
-  après leur publication disparaissent à 44 pour 10 000, contre 8,5 pour la base gardée.
-  322 des 555 sont sur les 4 chaînes antiparasitaires, dont 316 à 5 étoiles
-  (`1b_retires_365_jours_par_fiche.csv` : une ligne par fiche, avec son cid et ses dates). Pour
-  lire les avis un par un : `sql/verif_avis_modifies_plus_d_un_an.sql`, à lancer dans la console
-  BigQuery.
-  Leur profil (`1b_retires_365_jours_profil.csv`) : des avis 5 étoiles (524 sur 555), publiés
-  surtout de 2023 à 2025, modifiés récemment (523 entre mai et août 2026), et disparus en bloc
-  les 16 et 17 août (359). La règle écarte donc des avis anciens mais tout juste réécrits.
+- La base contient 125 253 avis modifiés plus d'un an après leur publication, dont 555 supprimés :
+  44 pour 10 000, contre 8,5 pour le reste de la base (4 035 sur 4 751 680). Leur âge se compte
+  depuis la publication : un avis de 2023 réécrit en juillet 2026 est rangé dans les avis de
+  plus d'un an aux points 2.1, 7 et 8.
 - Courbe de survie : un avis publié le 4 août n'est vu qu'à partir du 11, à 7 jours. Les premiers
   jours de la courbe reposent sur les avis publiés pendant le suivi. Au 1er jour, 2 308 avis
   seulement sont observés.

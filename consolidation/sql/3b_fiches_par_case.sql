@@ -6,7 +6,7 @@
 -- avis du 3e au 8e jour dans cette case.
 --
 -- Sert à retrouver une fiche citée dans `3_reponse_proprietaire.md` : chercher
--- son `cid` dans la console BigQuery, table `reviews_doublons_cleaned`, avis
+-- son `cid` dans la console BigQuery, table `reviews_doublons_cleaned_all`, avis
 -- publiés entre `publie_du` et `publie_au`.
 -- ============================================================================
 

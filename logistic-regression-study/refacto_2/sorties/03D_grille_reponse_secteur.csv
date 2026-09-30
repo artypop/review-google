@@ -1,0 +1,49 @@
+perimetre;secteur;reponse;avis;suppressions;fiches_touchees;pour_1000
+sans_enseignes;automotive;a répondu;2367;38;16;16,1
+sans_enseignes;automotive;n'a pas répondu;1637;72;25;44,0
+sans_enseignes;automotive;total;4004;110;38;27,5
+sans_enseignes;food_beverage;a répondu;2731;16;10;5,9
+sans_enseignes;food_beverage;n'a pas répondu;3481;79;27;22,7
+sans_enseignes;food_beverage;total;6212;95;35;15,3
+sans_enseignes;healthcare;a répondu;2247;38;16;16,9
+sans_enseignes;healthcare;n'a pas répondu;1267;90;28;71,0
+sans_enseignes;healthcare;total;3514;128;37;36,4
+sans_enseignes;home_services;a répondu;2234;109;33;48,8
+sans_enseignes;home_services;n'a pas répondu;1228;89;37;72,5
+sans_enseignes;home_services;total;3462;198;65;57,2
+sans_enseignes;hospitality;a répondu;3286;35;17;10,7
+sans_enseignes;hospitality;n'a pas répondu;3106;68;40;21,9
+sans_enseignes;hospitality;total;6392;103;52;16,1
+sans_enseignes;total;a répondu;14821;276;105;18,6
+sans_enseignes;total;n'a pas répondu;13883;514;204;37,0
+sans_enseignes;total;total;28704;790;281;27,5
+sans_enseignes;travel;a répondu;771;11;3;14,3
+sans_enseignes;travel;n'a pas répondu;1400;47;10;33,6
+sans_enseignes;travel;total;2171;58;12;26,7
+sans_enseignes;wellness_fitness;a répondu;1185;29;10;24,5
+sans_enseignes;wellness_fitness;n'a pas répondu;1764;69;37;39,1
+sans_enseignes;wellness_fitness;total;2949;98;42;33,2
+tous;automotive;a répondu;2367;38;16;16,1
+tous;automotive;n'a pas répondu;1637;72;25;44,0
+tous;automotive;total;4004;110;38;27,5
+tous;food_beverage;a répondu;2731;16;10;5,9
+tous;food_beverage;n'a pas répondu;3481;79;27;22,7
+tous;food_beverage;total;6212;95;35;15,3
+tous;healthcare;a répondu;2247;38;16;16,9
+tous;healthcare;n'a pas répondu;1267;90;28;71,0
+tous;healthcare;total;3514;128;37;36,4
+tous;home_services;a répondu;3046;341;69;112,0
+tous;home_services;n'a pas répondu;2340;258;53;110,3
+tous;home_services;total;5386;599;113;111,2
+tous;hospitality;a répondu;3286;35;17;10,7
+tous;hospitality;n'a pas répondu;3106;68;40;21,9
+tous;hospitality;total;6392;103;52;16,1
+tous;total;a répondu;15633;508;141;32,5
+tous;total;n'a pas répondu;14995;683;220;45,5
+tous;total;total;30628;1191;329;38,9
+tous;travel;a répondu;771;11;3;14,3
+tous;travel;n'a pas répondu;1400;47;10;33,6
+tous;travel;total;2171;58;12;26,7
+tous;wellness_fitness;a répondu;1185;29;10;24,5
+tous;wellness_fitness;n'a pas répondu;1764;69;37;39,1
+tous;wellness_fitness;total;2949;98;42;33,2

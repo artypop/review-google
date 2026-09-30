@@ -1,7 +1,7 @@
 -- ============================================================================
 -- 1c. Nombre d'avis par secteur et par taille d'entreprise — base complète
 --
--- Base : `reviews_doublons_cleaned`, une ligne par avis, toutes dates de
+-- Base : `reviews_doublons_cleaned_all`, une ligne par avis, toutes dates de
 -- publication.
 -- Périmètre : `tous`, puis `sans_enseignes` qui retire les 95 fiches de
 -- `biz_surveillance` (4 chaînes antiparasitaires US, 2 salles espagnoles).
@@ -24,7 +24,7 @@ WITH avis AS (
       ELSE b.industry
     END AS secteur,
     s.cid IS NOT NULL AS enseigne_signalee
-  FROM `client-divers.reviewflowz.reviews_doublons_cleaned` r
+  FROM `client-divers.reviewflowz.reviews_doublons_cleaned_all` r
   LEFT JOIN `client-divers.reviewflowz.businesses` b USING (cid)
   LEFT JOIN `client-divers.reviewflowz.biz_surveillance` s USING (cid)
 ),

@@ -1,0 +1,241 @@
+decoupage;passage;habitude;delai_de_la_reponse;risque_relatif;fourchette_basse;fourchette_haute;remarque;avis_jours;suppressions;fiches_touchees;enseignes_touchees;part_de_la_premiere_fiche;citable
+coupure à 75 % (points 5 et 8);mono + small, tous;75 % ou moins;jour même;2,26;0,75;6,84;;4062;24;6;6;0,75;non
+coupure à 75 % (points 5 et 8);mono + small, tous;75 % ou moins;1 jour;1,11;0,36;3,47;;4665;12;5;5;0,5;non
+coupure à 75 % (points 5 et 8);mono + small, tous;75 % ou moins;2 jours;1,15;0,31;4,28;;1914;5;3;3;0,6;non
+coupure à 75 % (points 5 et 8);mono + small, tous;75 % ou moins;3 jours et plus;0,66;0,22;1,98;;4399;6;4;4;0,5;non
+coupure à 75 % (points 5 et 8);mono + small, tous;plus de 75 %;jour même;0,36;0,2;0,63;;30294;80;36;31;0,09;oui
+coupure à 75 % (points 5 et 8);mono + small, tous;plus de 75 %;1 jour;0,33;0,18;0,6;;21383;44;22;21;0,14;oui
+coupure à 75 % (points 5 et 8);mono + small, tous;plus de 75 %;2 jours;0,23;0,11;0,49;;6965;10;9;9;0,2;oui
+coupure à 75 % (points 5 et 8);mono + small, tous;plus de 75 %;3 jours et plus;0,11;0,05;0,24;;13592;9;8;8;0,22;non
+coupure à 75 % (points 5 et 8);mono + small, sans_enseignes;75 % ou moins;jour même;2,26;0,75;6,84;;4062;24;6;6;0,75;non
+coupure à 75 % (points 5 et 8);mono + small, sans_enseignes;75 % ou moins;1 jour;1,11;0,36;3,47;;4665;12;5;5;0,5;non
+coupure à 75 % (points 5 et 8);mono + small, sans_enseignes;75 % ou moins;2 jours;1,15;0,31;4,28;;1914;5;3;3;0,6;non
+coupure à 75 % (points 5 et 8);mono + small, sans_enseignes;75 % ou moins;3 jours et plus;0,66;0,22;1,98;;4399;6;4;4;0,5;non
+coupure à 75 % (points 5 et 8);mono + small, sans_enseignes;plus de 75 %;jour même;0,36;0,2;0,63;;30294;80;36;31;0,09;oui
+coupure à 75 % (points 5 et 8);mono + small, sans_enseignes;plus de 75 %;1 jour;0,33;0,18;0,6;;21383;44;22;21;0,14;oui
+coupure à 75 % (points 5 et 8);mono + small, sans_enseignes;plus de 75 %;2 jours;0,23;0,11;0,49;;6965;10;9;9;0,2;oui
+coupure à 75 % (points 5 et 8);mono + small, sans_enseignes;plus de 75 %;3 jours et plus;0,11;0,05;0,24;;13592;9;8;8;0,22;non
+coupure à 75 % (points 5 et 8);large, tous;75 % ou moins;jour même;0,67;0,28;1,55;;2745;8;6;4;0,25;non
+coupure à 75 % (points 5 et 8);large, tous;75 % ou moins;1 jour;0,71;0,33;1,52;;4154;14;8;3;0,21;oui
+coupure à 75 % (points 5 et 8);large, tous;75 % ou moins;3 jours et plus;1,32;0,31;5,57;;2503;18;4;4;0,78;non
+coupure à 75 % (points 5 et 8);large, tous;plus de 75 %;jour même;0,84;0,5;1,4;;38759;258;49;19;0,09;oui
+coupure à 75 % (points 5 et 8);large, tous;plus de 75 %;1 jour;0,31;0,19;0,5;;29045;68;32;18;0,1;oui
+coupure à 75 % (points 5 et 8);large, tous;plus de 75 %;2 jours;0,18;0,1;0,32;;11122;14;13;12;0,14;oui
+coupure à 75 % (points 5 et 8);large, tous;plus de 75 %;3 jours et plus;0,19;0,1;0,38;;12445;15;9;9;0,33;non
+coupure à 75 % (points 5 et 8);large, tous;75 % ou moins;2 jours;;;;écartée : moins de 5 suppressions;1298;3;;;;non
+coupure à 75 % (points 5 et 8);large, sans_enseignes;75 % ou moins;1 jour;0,66;0,19;2,22;;3856;6;3;2;0,5;non
+coupure à 75 % (points 5 et 8);large, sans_enseignes;plus de 75 %;jour même;0,24;0,12;0,48;;31694;43;19;16;0,21;oui
+coupure à 75 % (points 5 et 8);large, sans_enseignes;plus de 75 %;1 jour;0,23;0,13;0,41;;28050;37;16;15;0,19;oui
+coupure à 75 % (points 5 et 8);large, sans_enseignes;plus de 75 %;2 jours;0,24;0,14;0,43;;11070;14;13;12;0,14;oui
+coupure à 75 % (points 5 et 8);large, sans_enseignes;plus de 75 %;3 jours et plus;0,22;0,11;0,44;;12434;14;8;8;0,36;non
+coupure à 75 % (points 5 et 8);large, sans_enseignes;75 % ou moins;jour même;;;;écartée : moins de 5 suppressions;2494;4;;;;non
+coupure à 75 % (points 5 et 8);large, sans_enseignes;75 % ou moins;2 jours;;;;écartée : moins de 5 suppressions;1135;2;;;;non
+coupure à 75 % (points 5 et 8);large, sans_enseignes;75 % ou moins;3 jours et plus;;;;écartée : moins de 5 suppressions;2067;2;;;;non
+coupure à 75 % (points 5 et 8);mono, tous;plus de 75 %;jour même;0,67;0,21;2,11;;9126;17;9;9;0,41;non
+coupure à 75 % (points 5 et 8);mono, tous;plus de 75 %;1 jour;0,46;0,16;1,33;;6568;8;7;7;0,25;non
+coupure à 75 % (points 5 et 8);mono, tous;plus de 75 %;2 jours;0,85;0,24;3,06;;2265;5;4;4;0,4;non
+coupure à 75 % (points 5 et 8);mono, tous;75 % ou moins;jour même;;;;écartée : moins de 5 suppressions;1638;2;;;;non
+coupure à 75 % (points 5 et 8);mono, tous;75 % ou moins;1 jour;;;;écartée : moins de 5 suppressions;1574;1;;;;non
+coupure à 75 % (points 5 et 8);mono, tous;75 % ou moins;2 jours;;;;écartée : moins de 5 suppressions;734;2;;;;non
+coupure à 75 % (points 5 et 8);mono, tous;75 % ou moins;3 jours et plus;;;;écartée : moins de 5 suppressions;1653;0;;;;non
+coupure à 75 % (points 5 et 8);mono, tous;plus de 75 %;3 jours et plus;;;;écartée : moins de 5 suppressions;6354;1;;;;non
+coupure à 75 % (points 5 et 8);small, tous;75 % ou moins;jour même;3,76;1,47;9,58;;2424;22;4;4;0,82;non
+coupure à 75 % (points 5 et 8);small, tous;75 % ou moins;1 jour;1,74;0,5;6,11;;3091;11;4;4;0,55;non
+coupure à 75 % (points 5 et 8);small, tous;75 % ou moins;3 jours et plus;1,3;0,46;3,67;;2746;6;4;4;0,5;non
+coupure à 75 % (points 5 et 8);small, tous;plus de 75 %;jour même;0,26;0,13;0,49;;21168;63;27;22;0,1;oui
+coupure à 75 % (points 5 et 8);small, tous;plus de 75 %;1 jour;0,27;0,13;0,56;;14815;36;15;14;0,17;oui
+coupure à 75 % (points 5 et 8);small, tous;plus de 75 %;2 jours;0,12;0,05;0,3;;4700;5;5;5;0,2;non
+coupure à 75 % (points 5 et 8);small, tous;plus de 75 %;3 jours et plus;0,13;0,05;0,3;;7238;8;7;7;0,25;non
+coupure à 75 % (points 5 et 8);small, tous;75 % ou moins;2 jours;;;;écartée : moins de 5 suppressions;1180;3;;;;non
+quatre tranches : 25, 50, 75 %;mono + small, tous;25 à 50 %;1 jour;3,78;0,78;18,31;;1136;7;2;2;0,86;non
+quatre tranches : 25, 50, 75 %;mono + small, tous;50 à 75 %;jour même;3,58;1,17;10,95;;2686;18;1;1;1,0;non
+quatre tranches : 25, 50, 75 %;mono + small, tous;50 à 75 %;1 jour;1,24;0,43;3,57;;2585;5;3;3;0,6;non
+quatre tranches : 25, 50, 75 %;mono + small, tous;plus de 75 %;jour même;0,36;0,2;0,63;;30294;80;36;31;0,09;oui
+quatre tranches : 25, 50, 75 %;mono + small, tous;plus de 75 %;1 jour;0,33;0,18;0,6;;21383;44;22;21;0,14;oui
+quatre tranches : 25, 50, 75 %;mono + small, tous;plus de 75 %;2 jours;0,23;0,11;0,49;;6965;10;9;9;0,2;oui
+quatre tranches : 25, 50, 75 %;mono + small, tous;plus de 75 %;3 jours et plus;0,11;0,05;0,24;;13592;9;8;8;0,22;non
+quatre tranches : 25, 50, 75 %;mono + small, tous;25 % ou moins;jour même;;;;écartée : moins de 5 suppressions;726;4;;;;non
+quatre tranches : 25, 50, 75 %;mono + small, tous;25 % ou moins;1 jour;;;;écartée : moins de 5 suppressions;944;0;;;;non
+quatre tranches : 25, 50, 75 %;mono + small, tous;25 % ou moins;2 jours;;;;écartée : moins de 5 suppressions;355;0;;;;non
+quatre tranches : 25, 50, 75 %;mono + small, tous;25 % ou moins;3 jours et plus;;;;écartée : moins de 5 suppressions;840;1;;;;non
+quatre tranches : 25, 50, 75 %;mono + small, tous;25 à 50 %;jour même;;;;écartée : moins de 5 suppressions;650;2;;;;non
+quatre tranches : 25, 50, 75 %;mono + small, tous;25 à 50 %;2 jours;;;;écartée : moins de 5 suppressions;438;3;;;;non
+quatre tranches : 25, 50, 75 %;mono + small, tous;25 à 50 %;3 jours et plus;;;;écartée : moins de 5 suppressions;1129;2;;;;non
+quatre tranches : 25, 50, 75 %;mono + small, tous;50 à 75 %;2 jours;;;;écartée : moins de 5 suppressions;1121;2;;;;non
+quatre tranches : 25, 50, 75 %;mono + small, tous;50 à 75 %;3 jours et plus;;;;écartée : moins de 5 suppressions;2430;3;;;;non
+quatre tranches : 25, 50, 75 %;mono + small, sans_enseignes;25 à 50 %;1 jour;3,78;0,78;18,31;;1136;7;2;2;0,86;non
+quatre tranches : 25, 50, 75 %;mono + small, sans_enseignes;50 à 75 %;jour même;3,58;1,17;10,95;;2686;18;1;1;1,0;non
+quatre tranches : 25, 50, 75 %;mono + small, sans_enseignes;50 à 75 %;1 jour;1,24;0,43;3,57;;2585;5;3;3;0,6;non
+quatre tranches : 25, 50, 75 %;mono + small, sans_enseignes;plus de 75 %;jour même;0,36;0,2;0,63;;30294;80;36;31;0,09;oui
+quatre tranches : 25, 50, 75 %;mono + small, sans_enseignes;plus de 75 %;1 jour;0,33;0,18;0,6;;21383;44;22;21;0,14;oui
+quatre tranches : 25, 50, 75 %;mono + small, sans_enseignes;plus de 75 %;2 jours;0,23;0,11;0,49;;6965;10;9;9;0,2;oui
+quatre tranches : 25, 50, 75 %;mono + small, sans_enseignes;plus de 75 %;3 jours et plus;0,11;0,05;0,24;;13592;9;8;8;0,22;non
+quatre tranches : 25, 50, 75 %;mono + small, sans_enseignes;25 % ou moins;jour même;;;;écartée : moins de 5 suppressions;726;4;;;;non
+quatre tranches : 25, 50, 75 %;mono + small, sans_enseignes;25 % ou moins;1 jour;;;;écartée : moins de 5 suppressions;944;0;;;;non
+quatre tranches : 25, 50, 75 %;mono + small, sans_enseignes;25 % ou moins;2 jours;;;;écartée : moins de 5 suppressions;355;0;;;;non
+quatre tranches : 25, 50, 75 %;mono + small, sans_enseignes;25 % ou moins;3 jours et plus;;;;écartée : moins de 5 suppressions;840;1;;;;non
+quatre tranches : 25, 50, 75 %;mono + small, sans_enseignes;25 à 50 %;jour même;;;;écartée : moins de 5 suppressions;650;2;;;;non
+quatre tranches : 25, 50, 75 %;mono + small, sans_enseignes;25 à 50 %;2 jours;;;;écartée : moins de 5 suppressions;438;3;;;;non
+quatre tranches : 25, 50, 75 %;mono + small, sans_enseignes;25 à 50 %;3 jours et plus;;;;écartée : moins de 5 suppressions;1129;2;;;;non
+quatre tranches : 25, 50, 75 %;mono + small, sans_enseignes;50 à 75 %;2 jours;;;;écartée : moins de 5 suppressions;1121;2;;;;non
+quatre tranches : 25, 50, 75 %;mono + small, sans_enseignes;50 à 75 %;3 jours et plus;;;;écartée : moins de 5 suppressions;2430;3;;;;non
+quatre tranches : 25, 50, 75 %;large, tous;25 % ou moins;jour même;1,19;0,39;3,66;;458;6;4;2;0,33;non
+quatre tranches : 25, 50, 75 %;large, tous;25 % ou moins;1 jour;1,09;0,41;2,94;;752;8;5;1;0,38;non
+quatre tranches : 25, 50, 75 %;large, tous;50 à 75 %;1 jour;0,74;0,18;3,07;;1765;5;2;1;0,6;non
+quatre tranches : 25, 50, 75 %;large, tous;50 à 75 %;3 jours et plus;4,0;0,95;16,77;;1089;15;2;2;0,93;non
+quatre tranches : 25, 50, 75 %;large, tous;plus de 75 %;jour même;0,87;0,53;1,44;;38759;258;49;19;0,09;oui
+quatre tranches : 25, 50, 75 %;large, tous;plus de 75 %;1 jour;0,32;0,2;0,51;;29045;68;32;18;0,1;oui
+quatre tranches : 25, 50, 75 %;large, tous;plus de 75 %;2 jours;0,18;0,1;0,33;;11122;14;13;12;0,14;oui
+quatre tranches : 25, 50, 75 %;large, tous;plus de 75 %;3 jours et plus;0,2;0,1;0,39;;12445;15;9;9;0,33;non
+quatre tranches : 25, 50, 75 %;large, tous;25 % ou moins;2 jours;;;;écartée : moins de 5 suppressions;379;1;;;;non
+quatre tranches : 25, 50, 75 %;large, tous;25 % ou moins;3 jours et plus;;;;écartée : moins de 5 suppressions;826;0;;;;non
+quatre tranches : 25, 50, 75 %;large, tous;25 à 50 %;jour même;;;;écartée : moins de 5 suppressions;1519;1;;;;non
+quatre tranches : 25, 50, 75 %;large, tous;25 à 50 %;1 jour;;;;écartée : moins de 5 suppressions;1637;1;;;;non
+quatre tranches : 25, 50, 75 %;large, tous;25 à 50 %;2 jours;;;;écartée : moins de 5 suppressions;381;2;;;;non
+quatre tranches : 25, 50, 75 %;large, tous;25 à 50 %;3 jours et plus;;;;écartée : moins de 5 suppressions;588;3;;;;non
+quatre tranches : 25, 50, 75 %;large, tous;50 à 75 %;jour même;;;;écartée : moins de 5 suppressions;768;1;;;;non
+quatre tranches : 25, 50, 75 %;large, tous;50 à 75 %;2 jours;;;;écartée : moins de 5 suppressions;538;0;;;;non
+quatre tranches : 25, 50, 75 %;large, sans_enseignes;50 à 75 %;1 jour;1,07;0,24;4,72;;1752;5;2;1;0,6;non
+quatre tranches : 25, 50, 75 %;large, sans_enseignes;plus de 75 %;jour même;0,24;0,12;0,48;;31694;43;19;16;0,21;oui
+quatre tranches : 25, 50, 75 %;large, sans_enseignes;plus de 75 %;1 jour;0,23;0,13;0,42;;28050;37;16;15;0,19;oui
+quatre tranches : 25, 50, 75 %;large, sans_enseignes;plus de 75 %;2 jours;0,25;0,14;0,44;;11070;14;13;12;0,14;oui
+quatre tranches : 25, 50, 75 %;large, sans_enseignes;plus de 75 %;3 jours et plus;0,22;0,11;0,44;;12434;14;8;8;0,36;non
+quatre tranches : 25, 50, 75 %;large, sans_enseignes;25 % ou moins;jour même;;;;écartée : moins de 5 suppressions;219;2;;;;non
+quatre tranches : 25, 50, 75 %;large, sans_enseignes;25 % ou moins;1 jour;;;;écartée : moins de 5 suppressions;467;0;;;;non
+quatre tranches : 25, 50, 75 %;large, sans_enseignes;25 % ou moins;2 jours;;;;écartée : moins de 5 suppressions;221;0;;;;non
+quatre tranches : 25, 50, 75 %;large, sans_enseignes;25 % ou moins;3 jours et plus;;;;écartée : moins de 5 suppressions;548;0;;;;non
+quatre tranches : 25, 50, 75 %;large, sans_enseignes;25 à 50 %;jour même;;;;écartée : moins de 5 suppressions;1519;1;;;;non
+quatre tranches : 25, 50, 75 %;large, sans_enseignes;25 à 50 %;1 jour;;;;écartée : moins de 5 suppressions;1637;1;;;;non
+quatre tranches : 25, 50, 75 %;large, sans_enseignes;25 à 50 %;2 jours;;;;écartée : moins de 5 suppressions;381;2;;;;non
+quatre tranches : 25, 50, 75 %;large, sans_enseignes;25 à 50 %;3 jours et plus;;;;écartée : moins de 5 suppressions;576;1;;;;non
+quatre tranches : 25, 50, 75 %;large, sans_enseignes;50 à 75 %;jour même;;;;écartée : moins de 5 suppressions;756;1;;;;non
+quatre tranches : 25, 50, 75 %;large, sans_enseignes;50 à 75 %;2 jours;;;;écartée : moins de 5 suppressions;533;0;;;;non
+quatre tranches : 25, 50, 75 %;large, sans_enseignes;50 à 75 %;3 jours et plus;;;;écartée : moins de 5 suppressions;943;1;;;;non
+quatre tranches : 25, 50, 75 %;mono, tous;plus de 75 %;jour même;0,67;0,21;2,11;;9126;17;9;9;0,41;non
+quatre tranches : 25, 50, 75 %;mono, tous;plus de 75 %;1 jour;0,46;0,16;1,33;;6568;8;7;7;0,25;non
+quatre tranches : 25, 50, 75 %;mono, tous;plus de 75 %;2 jours;0,86;0,24;3,07;;2265;5;4;4;0,4;non
+quatre tranches : 25, 50, 75 %;mono, tous;25 % ou moins;jour même;;;;écartée : moins de 5 suppressions;471;2;;;;non
+quatre tranches : 25, 50, 75 %;mono, tous;25 % ou moins;1 jour;;;;écartée : moins de 5 suppressions;354;0;;;;non
+quatre tranches : 25, 50, 75 %;mono, tous;25 % ou moins;2 jours;;;;écartée : moins de 5 suppressions;170;0;;;;non
+quatre tranches : 25, 50, 75 %;mono, tous;25 % ou moins;3 jours et plus;;;;écartée : moins de 5 suppressions;422;0;;;;non
+quatre tranches : 25, 50, 75 %;mono, tous;25 à 50 %;jour même;;;;écartée : moins de 5 suppressions;367;0;;;;non
+quatre tranches : 25, 50, 75 %;mono, tous;25 à 50 %;1 jour;;;;écartée : moins de 5 suppressions;296;0;;;;non
+quatre tranches : 25, 50, 75 %;mono, tous;25 à 50 %;2 jours;;;;écartée : moins de 5 suppressions;194;0;;;;non
+quatre tranches : 25, 50, 75 %;mono, tous;25 à 50 %;3 jours et plus;;;;écartée : moins de 5 suppressions;471;0;;;;non
+quatre tranches : 25, 50, 75 %;mono, tous;50 à 75 %;jour même;;;;écartée : moins de 5 suppressions;800;0;;;;non
+quatre tranches : 25, 50, 75 %;mono, tous;50 à 75 %;1 jour;;;;écartée : moins de 5 suppressions;924;1;;;;non
+quatre tranches : 25, 50, 75 %;mono, tous;50 à 75 %;2 jours;;;;écartée : moins de 5 suppressions;370;2;;;;non
+quatre tranches : 25, 50, 75 %;mono, tous;50 à 75 %;3 jours et plus;;;;écartée : moins de 5 suppressions;760;0;;;;non
+quatre tranches : 25, 50, 75 %;mono, tous;plus de 75 %;3 jours et plus;;;;écartée : moins de 5 suppressions;6354;1;;;;non
+quatre tranches : 25, 50, 75 %;small, tous;25 à 50 %;1 jour;4,64;0,93;23,19;;840;7;2;2;0,86;non
+quatre tranches : 25, 50, 75 %;small, tous;50 à 75 %;jour même;4,08;1,73;9,65;;1886;18;1;1;1,0;non
+quatre tranches : 25, 50, 75 %;small, tous;plus de 75 %;jour même;0,26;0,13;0,49;;21168;63;27;22;0,1;oui
+quatre tranches : 25, 50, 75 %;small, tous;plus de 75 %;1 jour;0,27;0,13;0,56;;14815;36;15;14;0,17;oui
+quatre tranches : 25, 50, 75 %;small, tous;plus de 75 %;2 jours;0,12;0,05;0,29;;4700;5;5;5;0,2;non
+quatre tranches : 25, 50, 75 %;small, tous;plus de 75 %;3 jours et plus;0,13;0,05;0,3;;7238;8;7;7;0,25;non
+quatre tranches : 25, 50, 75 %;small, tous;25 % ou moins;jour même;;;;écartée : moins de 5 suppressions;255;2;;;;non
+quatre tranches : 25, 50, 75 %;small, tous;25 % ou moins;1 jour;;;;écartée : moins de 5 suppressions;590;0;;;;non
+quatre tranches : 25, 50, 75 %;small, tous;25 % ou moins;2 jours;;;;écartée : moins de 5 suppressions;185;0;;;;non
+quatre tranches : 25, 50, 75 %;small, tous;25 % ou moins;3 jours et plus;;;;écartée : moins de 5 suppressions;418;1;;;;non
+quatre tranches : 25, 50, 75 %;small, tous;25 à 50 %;jour même;;;;écartée : moins de 5 suppressions;283;2;;;;non
+quatre tranches : 25, 50, 75 %;small, tous;25 à 50 %;2 jours;;;;écartée : moins de 5 suppressions;244;3;;;;non
+quatre tranches : 25, 50, 75 %;small, tous;25 à 50 %;3 jours et plus;;;;écartée : moins de 5 suppressions;658;2;;;;non
+quatre tranches : 25, 50, 75 %;small, tous;50 à 75 %;1 jour;;;;écartée : moins de 5 suppressions;1661;4;;;;non
+quatre tranches : 25, 50, 75 %;small, tous;50 à 75 %;2 jours;;;;écartée : moins de 5 suppressions;751;0;;;;non
+quatre tranches : 25, 50, 75 %;small, tous;50 à 75 %;3 jours et plus;;;;écartée : moins de 5 suppressions;1670;3;;;;non
+coupure à 50 %;mono + small, tous;50 % ou moins;jour même;1,51;0,55;4,15;;1376;6;5;5;0,33;non
+coupure à 50 %;mono + small, tous;50 % ou moins;1 jour;1,27;0,22;7,29;;2080;7;2;2;0,86;non
+coupure à 50 %;mono + small, tous;plus de 50 %;jour même;0,52;0,3;0,91;;32980;98;37;32;0,18;oui
+coupure à 50 %;mono + small, tous;plus de 50 %;1 jour;0,43;0,25;0,74;;23968;49;25;24;0,12;oui
+coupure à 50 %;mono + small, tous;plus de 50 %;2 jours;0,32;0,16;0,62;;8086;12;11;11;0,17;oui
+coupure à 50 %;mono + small, tous;plus de 50 %;3 jours et plus;0,17;0,08;0,36;;16022;12;9;9;0,25;oui
+coupure à 50 %;mono + small, tous;50 % ou moins;2 jours;;;;écartée : moins de 5 suppressions;793;3;;;;non
+coupure à 50 %;mono + small, tous;50 % ou moins;3 jours et plus;;;;écartée : moins de 5 suppressions;1969;3;;;;non
+coupure à 50 %;mono + small, sans_enseignes;50 % ou moins;jour même;1,51;0,55;4,15;;1376;6;5;5;0,33;non
+coupure à 50 %;mono + small, sans_enseignes;50 % ou moins;1 jour;1,27;0,22;7,29;;2080;7;2;2;0,86;non
+coupure à 50 %;mono + small, sans_enseignes;plus de 50 %;jour même;0,52;0,3;0,91;;32980;98;37;32;0,18;oui
+coupure à 50 %;mono + small, sans_enseignes;plus de 50 %;1 jour;0,43;0,25;0,74;;23968;49;25;24;0,12;oui
+coupure à 50 %;mono + small, sans_enseignes;plus de 50 %;2 jours;0,32;0,16;0,62;;8086;12;11;11;0,17;oui
+coupure à 50 %;mono + small, sans_enseignes;plus de 50 %;3 jours et plus;0,17;0,08;0,36;;16022;12;9;9;0,25;oui
+coupure à 50 %;mono + small, sans_enseignes;50 % ou moins;2 jours;;;;écartée : moins de 5 suppressions;793;3;;;;non
+coupure à 50 %;mono + small, sans_enseignes;50 % ou moins;3 jours et plus;;;;écartée : moins de 5 suppressions;1969;3;;;;non
+coupure à 50 %;large, tous;50 % ou moins;jour même;0,72;0,29;1,83;;1977;7;5;3;0,29;non
+coupure à 50 %;large, tous;50 % ou moins;1 jour;0,72;0,29;1,74;;2389;9;6;2;0,33;non
+coupure à 50 %;large, tous;plus de 50 %;jour même;0,98;0,63;1,53;;39527;259;50;20;0,08;oui
+coupure à 50 %;large, tous;plus de 50 %;1 jour;0,37;0,24;0,58;;30810;73;34;19;0,1;oui
+coupure à 50 %;large, tous;plus de 50 %;2 jours;0,2;0,11;0,36;;11660;14;13;12;0,14;oui
+coupure à 50 %;large, tous;plus de 50 %;3 jours et plus;0,43;0,17;1,07;;13534;30;11;11;0,47;non
+coupure à 50 %;large, tous;50 % ou moins;2 jours;;;;écartée : moins de 5 suppressions;760;3;;;;non
+coupure à 50 %;large, tous;50 % ou moins;3 jours et plus;;;;écartée : moins de 5 suppressions;1414;3;;;;non
+coupure à 50 %;large, sans_enseignes;plus de 50 %;jour même;0,31;0,16;0,6;;32450;44;20;17;0,2;oui
+coupure à 50 %;large, sans_enseignes;plus de 50 %;1 jour;0,31;0,18;0,55;;29802;42;18;16;0,17;oui
+coupure à 50 %;large, sans_enseignes;plus de 50 %;2 jours;0,3;0,17;0,53;;11603;14;13;12;0,14;oui
+coupure à 50 %;large, sans_enseignes;plus de 50 %;3 jours et plus;0,28;0,14;0,56;;13377;15;9;9;0,33;non
+coupure à 50 %;large, sans_enseignes;50 % ou moins;jour même;;;;écartée : moins de 5 suppressions;1738;3;;;;non
+coupure à 50 %;large, sans_enseignes;50 % ou moins;1 jour;;;;écartée : moins de 5 suppressions;2104;1;;;;non
+coupure à 50 %;large, sans_enseignes;50 % ou moins;2 jours;;;;écartée : moins de 5 suppressions;602;2;;;;non
+coupure à 50 %;large, sans_enseignes;50 % ou moins;3 jours et plus;;;;écartée : moins de 5 suppressions;1124;1;;;;non
+coupure à 50 %;mono, tous;plus de 50 %;jour même;0,72;0,25;2,11;;9926;17;9;9;0,41;non
+coupure à 50 %;mono, tous;plus de 50 %;1 jour;0,54;0,22;1,35;;7492;9;8;8;0,22;non
+coupure à 50 %;mono, tous;plus de 50 %;2 jours;1,2;0,43;3,38;;2635;7;6;6;0,29;non
+coupure à 50 %;mono, tous;50 % ou moins;jour même;;;;écartée : moins de 5 suppressions;838;2;;;;non
+coupure à 50 %;mono, tous;50 % ou moins;1 jour;;;;écartée : moins de 5 suppressions;650;0;;;;non
+coupure à 50 %;mono, tous;50 % ou moins;2 jours;;;;écartée : moins de 5 suppressions;364;0;;;;non
+coupure à 50 %;mono, tous;50 % ou moins;3 jours et plus;;;;écartée : moins de 5 suppressions;893;0;;;;non
+coupure à 50 %;mono, tous;plus de 50 %;3 jours et plus;;;;écartée : moins de 5 suppressions;7114;1;;;;non
+coupure à 50 %;small, tous;50 % ou moins;1 jour;1,99;0,31;12,99;;1430;7;2;2;0,86;non
+coupure à 50 %;small, tous;plus de 50 %;jour même;0,4;0,21;0,76;;23054;81;28;23;0,22;oui
+coupure à 50 %;small, tous;plus de 50 %;1 jour;0,38;0,2;0,72;;16476;40;17;16;0,15;oui
+coupure à 50 %;small, tous;plus de 50 %;2 jours;0,15;0,06;0,36;;5451;5;5;5;0,2;non
+coupure à 50 %;small, tous;plus de 50 %;3 jours et plus;0,21;0,09;0,46;;8908;11;8;8;0,27;non
+coupure à 50 %;small, tous;50 % ou moins;jour même;;;;écartée : moins de 5 suppressions;538;4;;;;non
+coupure à 50 %;small, tous;50 % ou moins;2 jours;;;;écartée : moins de 5 suppressions;429;3;;;;non
+coupure à 50 %;small, tous;50 % ou moins;3 jours et plus;;;;écartée : moins de 5 suppressions;1076;3;;;;non
+coupure à 90 %;mono + small, tous;90 % ou moins;jour même;1,37;0,48;3,94;;8869;37;10;10;0,49;non
+coupure à 90 %;mono + small, tous;90 % ou moins;1 jour;1,06;0,43;2,62;;6909;18;7;7;0,33;non
+coupure à 90 %;mono + small, tous;90 % ou moins;2 jours;0,68;0,18;2,51;;3120;5;3;3;0,6;non
+coupure à 90 %;mono + small, tous;90 % ou moins;3 jours et plus;0,46;0,18;1,18;;8097;8;6;6;0,38;non
+coupure à 90 %;mono + small, tous;plus de 90 %;jour même;0,3;0,16;0,54;;25487;67;32;27;0,09;oui
+coupure à 90 %;mono + small, tous;plus de 90 %;1 jour;0,26;0,13;0,52;;19139;38;20;19;0,16;oui
+coupure à 90 %;mono + small, tous;plus de 90 %;2 jours;0,23;0,11;0,49;;5759;10;9;9;0,2;oui
+coupure à 90 %;mono + small, tous;plus de 90 %;3 jours et plus;0,1;0,04;0,24;;9894;7;6;6;0,29;non
+coupure à 90 %;mono + small, sans_enseignes;90 % ou moins;jour même;1,37;0,48;3,94;;8869;37;10;10;0,49;non
+coupure à 90 %;mono + small, sans_enseignes;90 % ou moins;1 jour;1,06;0,43;2,62;;6909;18;7;7;0,33;non
+coupure à 90 %;mono + small, sans_enseignes;90 % ou moins;2 jours;0,68;0,18;2,51;;3120;5;3;3;0,6;non
+coupure à 90 %;mono + small, sans_enseignes;90 % ou moins;3 jours et plus;0,46;0,18;1,18;;8097;8;6;6;0,38;non
+coupure à 90 %;mono + small, sans_enseignes;plus de 90 %;jour même;0,3;0,16;0,54;;25487;67;32;27;0,09;oui
+coupure à 90 %;mono + small, sans_enseignes;plus de 90 %;1 jour;0,26;0,13;0,52;;19139;38;20;19;0,16;oui
+coupure à 90 %;mono + small, sans_enseignes;plus de 90 %;2 jours;0,23;0,11;0,49;;5759;10;9;9;0,2;oui
+coupure à 90 %;mono + small, sans_enseignes;plus de 90 %;3 jours et plus;0,1;0,04;0,24;;9894;7;6;6;0,29;non
+coupure à 90 %;large, tous;90 % ou moins;jour même;0,39;0,16;0,91;;4228;8;6;4;0,25;non
+coupure à 90 %;large, tous;90 % ou moins;1 jour;0,71;0,35;1,45;;7035;25;11;6;0,24;oui
+coupure à 90 %;large, tous;90 % ou moins;2 jours;0,48;0,18;1,23;;2223;6;5;5;0,33;non
+coupure à 90 %;large, tous;90 % ou moins;3 jours et plus;1,05;0,31;3,58;;4042;21;6;6;0,67;non
+coupure à 90 %;large, tous;plus de 90 %;jour même;1,04;0,58;1,86;;37276;258;49;19;0,09;oui
+coupure à 90 %;large, tous;plus de 90 %;1 jour;0,34;0,18;0,62;;26164;57;29;15;0,12;oui
+coupure à 90 %;large, tous;plus de 90 %;2 jours;0,18;0,09;0,36;;10197;11;10;9;0,18;oui
+coupure à 90 %;large, tous;plus de 90 %;3 jours et plus;0,2;0,09;0,47;;10906;12;7;7;0,42;non
+coupure à 90 %;large, sans_enseignes;90 % ou moins;1 jour;0,94;0,4;2,18;;6737;17;6;5;0,35;non
+coupure à 90 %;large, sans_enseignes;90 % ou moins;2 jours;0,83;0,32;2,2;;2060;5;4;4;0,4;non
+coupure à 90 %;large, sans_enseignes;90 % ou moins;3 jours et plus;0,52;0,2;1,31;;3606;5;4;4;0,4;non
+coupure à 90 %;large, sans_enseignes;plus de 90 %;jour même;0,3;0,14;0,64;;30211;43;19;16;0,21;oui
+coupure à 90 %;large, sans_enseignes;plus de 90 %;1 jour;0,22;0,1;0,46;;25169;26;13;12;0,27;non
+coupure à 90 %;large, sans_enseignes;plus de 90 %;2 jours;0,25;0,13;0,5;;10145;11;10;9;0,18;oui
+coupure à 90 %;large, sans_enseignes;plus de 90 %;3 jours et plus;0,24;0,1;0,56;;10895;11;6;6;0,45;non
+coupure à 90 %;large, sans_enseignes;90 % ou moins;jour même;;;;écartée : moins de 5 suppressions;3977;4;;;;non
+coupure à 90 %;mono, tous;90 % ou moins;jour même;1,39;0,33;5,74;;2827;10;4;4;0,7;non
+coupure à 90 %;mono, tous;plus de 90 %;jour même;0,25;0,08;0,78;;7937;9;7;7;0,22;non
+coupure à 90 %;mono, tous;plus de 90 %;1 jour;0,25;0,08;0,81;;5435;6;6;6;0,17;non
+coupure à 90 %;mono, tous;plus de 90 %;2 jours;0,68;0,18;2,54;;1746;5;4;4;0,4;non
+coupure à 90 %;mono, tous;90 % ou moins;1 jour;;;;écartée : moins de 5 suppressions;2707;3;;;;non
+coupure à 90 %;mono, tous;90 % ou moins;2 jours;;;;écartée : moins de 5 suppressions;1253;2;;;;non
+coupure à 90 %;mono, tous;90 % ou moins;3 jours et plus;;;;écartée : moins de 5 suppressions;4196;1;;;;non
+coupure à 90 %;mono, tous;plus de 90 %;3 jours et plus;;;;écartée : moins de 5 suppressions;3811;0;;;;non
+coupure à 90 %;small, tous;90 % ou moins;jour même;1,29;0,32;5,22;;6042;27;6;6;0,67;non
+coupure à 90 %;small, tous;90 % ou moins;1 jour;1,55;0,54;4,38;;4202;15;5;5;0,4;non
+coupure à 90 %;small, tous;90 % ou moins;3 jours et plus;0,95;0,38;2,37;;3901;7;5;5;0,43;non
+coupure à 90 %;small, tous;plus de 90 %;jour même;0,29;0,14;0,6;;17550;58;25;20;0,1;oui
+coupure à 90 %;small, tous;plus de 90 %;1 jour;0,26;0,12;0,59;;13704;32;14;13;0,19;oui
+coupure à 90 %;small, tous;plus de 90 %;2 jours;0,13;0,05;0,34;;4013;5;5;5;0,2;non
+coupure à 90 %;small, tous;plus de 90 %;3 jours et plus;0,13;0,05;0,33;;6083;7;6;6;0,29;non
+coupure à 90 %;small, tous;90 % ou moins;2 jours;;;;écartée : moins de 5 suppressions;1867;3;;;;non

@@ -1,6 +1,7 @@
 # Consolidation — les chiffres du rapport, régénérables
 
-Écrit le 2026-09-29. Un script par point du plan de Romain. Chaque script lance ses requêtes
+Écrit le 2026-09-29, base complète changée le 2026-09-30 (`reviews_doublons_cleaned_all`). Un
+script par point du plan de Romain. Chaque script lance ses requêtes
 dans BigQuery, écrit ses CSV dans `sorties/` et un graphique de contrôle dans
 `sorties/figures/`. Une synthèse `.md` par point reprend les résultats.
 
@@ -23,7 +24,8 @@ uv run python consolidation/4a_quelle_fiche.py
 nice -n 19 uv run python consolidation/4b_quel_avis.py      # environ 1 minute
 uv run python consolidation/5_reponse_jour_par_jour.py      # environ 20 secondes, plusieurs cœurs
 uv run python consolidation/7_reponse_base_complete.py
-nice -n 19 uv run python consolidation/8_regression_reponse_base.py   # environ 35 secondes, 2,8 Go de mémoire
+nice -n 19 uv run python consolidation/8_regression_reponse_base.py   # environ 50 secondes, 2,8 Go de mémoire
+nice -n 19 uv run python consolidation/9_seuil_habitude.py            # environ 3 minutes : relance le 5 et le 8 avec d'autres coupures
 ```
 
 Les requêtes lisent BigQuery et n'écrivent rien dedans. Clé de service : le seul `.json` de
@@ -43,6 +45,7 @@ Les requêtes lisent BigQuery et n'écrivent rien dedans. Clé de service : le s
 | 6. Régression du panel (à faire) | `6_plan_regression_panel.md` : plan et questions à trancher | — |
 | 7. Réponse du propriétaire sur toute la base | `7_reponse_base_complete.md` | `7_reponse_base_complete.py` |
 | 8. Réponse du propriétaire sur toute la base, à caractéristiques égales | `8_regression_reponse_base.md` | `8_regression_reponse_base.py` |
+| 9. Le seuil de 75 % sur l'habitude de réponse | paragraphes « Le seuil de 75 % » de `5_reponse_jour_par_jour.md` et de `8_regression_reponse_base.md` | `9_seuil_habitude.py` |
 | Pour Axel : sur quels avis on mesure, comment se lit une régression | `explication_pour_axel.md` | `axel_comparaison_perimetres.py` |
 
 ## Les CSV
@@ -53,11 +56,9 @@ suppressions à côté des taux, pour pouvoir regrouper des lignes dans Sheets.
 
 | Fichier | Contenu |
 |---|---|
-| `1a_tables.csv` | lignes, avis, fiches, pays, dates, suppressions de `reviews`, `reviews_doublons_cleaned`, `businesses` |
+| `1a_tables.csv` | lignes, avis, fiches, pays, dates, suppressions de `reviews`, `reviews_doublons_cleaned_all`, `businesses` |
 | `1a_fiches_par_case.csv` | fiches par région, secteur et taille |
-| `1b_entonnoir.csv` | de l'export brut à 03B, étape par étape, et quatre contrôles à 0 |
-| `1b_retires_365_jours_par_fiche.csv` | fiches qui perdent des avis supprimés à cause de la règle des 365 jours |
-| `1b_retires_365_jours_profil.csv` | les mêmes suppressions comptées par note, secteur, mois de modification, jour de disparition |
+| `1b_entonnoir.csv` | de l'export brut à 03B, étape par étape, et cinq contrôles à 0 |
 | `1c_avis_secteur_taille.csv` | avis et fiches par secteur et taille, part du corpus |
 | `1c_suppressions_secteur_region.csv` | suppressions pour 10 000 avis par secteur, Europe / US |
 | `1d_survie.csv` | avis publiés de J-7 à J+7 : suppressions par âge, encore en ligne sur 10 000 |
@@ -88,6 +89,7 @@ suppressions à côté des taux, pour pouvoir regrouper des lignes dans Sheets.
 | `8_effectifs.csv`, `8_effets.csv` | base complète, avis publiés avant le 4 août : réponse du propriétaire à caractéristiques égales, effectifs et effets |
 | `8_fiches_par_case.csv` | les fiches derrière les suppressions de chaque case, avec les jours |
 | `8_notes_par_case.csv` | la note des avis répondus et des avis sans réponse, case par case |
+| `9_seuil_habitude_point5.csv`, `9_seuil_habitude_point8.csv` | les effets de la réponse des points 5 et 8, refaits avec quatre découpages de l'habitude : coupure à 75 %, à 50 %, à 90 %, et quatre tranches |
 
 Chaque CSV porte une colonne `perimetre` : `tous`, puis `sans_enseignes`, sans les 95 fiches
 de `biz_surveillance` (les 4 chaînes antiparasitaires US au nom exact, 93 fiches, et les
@@ -97,20 +99,19 @@ de `biz_surveillance` (les 4 chaînes antiparasitaires US au nom exact, 93 fiche
 
 | Table BigQuery | Sert à |
 |---|---|
-| `reviews_doublons_cleaned` | la base complète : 1a à 1d, 2.1, 2.2, 7, 8 |
+| `reviews_doublons_cleaned_all` | la base complète : 1a à 1d, 2.1, 2.2, 7, 8 |
 | `01_reviews_avis_update_et_unique` | l'habitude de réponse des fiches aux points 7 et 8 |
 | `reviews_panel_features_03B` | 2.3 et 3 |
 | `reviews` | 1a, 1b, et le jour de première observation d'un avis (1d, 2.1b) |
 | `businesses`, `biz_surveillance` | secteur, pays, taille ; enseignes signalées |
 
-Une suppression : la ligne gardée de l'avis dans `reviews_doublons_cleaned` a
+Une suppression : la ligne gardée de l'avis dans `reviews_doublons_cleaned_all` a
 `deleted_detected_at` rempli. `1_corpus.md` explique la construction.
 
-## Requête de vérification, à lancer à la main
-
-`sql/verif_avis_modifies_plus_d_un_an.sql` liste les 555 avis supprimés que la règle des
-365 jours retire de la base : fiche, note, texte, dates, auteur, lien. À lancer dans la console
-BigQuery. Le résultat contient des données personnelles : ne pas l'exporter dans le dépôt.
+Jusqu'au 2026-09-29, la base complète était `reviews_doublons_cleaned`, qui écartait les avis
+modifiés plus d'un an après leur publication. Les fichiers `1b_retires_365_jours_*` et
+`sql/verif_avis_modifies_plus_d_un_an.sql`, qui décrivaient ces avis, ont été supprimés le
+2026-09-30 ; ils restent dans le commit `61394d9`.
 
 ## Règle de citation des points 4, 5, 7 et 8
 
@@ -122,7 +123,7 @@ et 10 fiches.
 ## Organisation
 
 ```
-commun.py        connexion BigQuery, écriture des CSV, style des graphiques
+commun.py        connexion BigQuery, écriture des CSV, style des graphiques, règle de citation, coupures de l'habitude
 sql/             une requête par CSV, expliquée en tête
 sorties/         les CSV
 sorties/figures/ les graphiques de contrôle

@@ -44,10 +44,11 @@ import pandas as pd
 import statsmodels.api as sm
 from matplotlib.ticker import FuncFormatter, NullFormatter
 
-from commun import COULEURS, ecrire_csv, effectifs, enregistrer, figure, requete
+from commun import COULEURS, ecrire_csv, effectifs, enregistrer, figure, habitude, noms_habitudes, requete
 
 DELAIS = ["jour même", "1 jour", "2 jours", "3 jours et plus"]
-HABITUDES = ["75 % ou moins", "plus de 75 %"]
+# Les tranches d'habitude de `commun.py` : « 75 % ou moins », « plus de 75 % ».
+HABITUDES = noms_habitudes()
 MIN_SUPPRESSIONS = 5
 
 d0 = requete("5_jours")
@@ -57,7 +58,7 @@ for col in ["enseigne_signalee", "reponse_la_veille"]:
     d0[col] = d0[col].fillna(False).astype(bool)
 d0["y"] = d0["y"].astype(int)
 d0["taille"] = np.where(d0["taille_detail"] == "large", "large", "mono + small")
-d0["habitude"] = np.where(d0["taux_reponse"] > 0.75, "plus de 75 %", "75 % ou moins")
+d0["habitude"] = habitude(d0["taux_reponse"])
 delai = np.select([d0["delai_reponse_j"] <= 0, d0["delai_reponse_j"] == 1, d0["delai_reponse_j"] == 2],
                   ["jour même", "1 jour", "2 jours"], "3 jours et plus")
 # La case de chaque ligne : la réponse déjà là (et son délai), ou pas encore.
@@ -83,7 +84,8 @@ def colonnes(d):
     for h in HABITUDES:
         for dl in DELAIS:
             X[f"réponse {dl}, fiche qui répond à {h}"] = (d["case"] == f"{dl}, fiche qui répond à {h}").astype(float)
-    X["fiche qui répond à plus de 75 %"] = (d["habitude"] == "plus de 75 %").astype(float)
+    for h in HABITUDES[1:]:
+        X[f"fiche qui répond à {h}"] = (d["habitude"] == h).astype(float)
     X["note 1 ou 2 étoiles"] = d["star"].isin([1, 2]).astype(float)
     X["note 3 ou 4 étoiles"] = d["star"].isin([3, 4]).astype(float)
     X["fiche aux États-Unis"] = (d["region"] == "US").astype(float)

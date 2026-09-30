@@ -2,7 +2,7 @@
 
     uv run python consolidation/2_2_deux_phenomenes.py
 
-Base complète (`reviews_doublons_cleaned`). Produit :
+Base complète (`reviews_doublons_cleaned_all`). Produit :
   sorties/2_2_resume.csv        par enseigne : avis, suppressions, notes, délais
   sorties/2_2a_calendrier.csv   date de publication × date de suppression des avis supprimés
   sorties/2_2b_delai.csv        jours entre publication et suppression, par note

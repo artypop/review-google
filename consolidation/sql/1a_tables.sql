@@ -2,15 +2,15 @@
 -- 1a. Ce que contiennent les tables de départ
 --
 -- Une ligne par table. Pour `reviews`, un avis peut avoir plusieurs lignes :
--- `lignes` et `avis` diffèrent. Dans `reviews_doublons_cleaned`, une ligne
--- par avis.
+-- `lignes` et `avis` diffèrent. Dans `reviews_doublons_cleaned_all`, une
+-- ligne par avis.
 --
 -- `suppressions` :
---   reviews                    lignes marquées disparues (`deleted_detected_at`
---                              rempli). Un avis revenu garde sa ligne marquée.
---   reviews_doublons_cleaned   avis dont la ligne gardée est marquée disparue.
---                              C'est la définition d'une suppression dans tout
---                              le dossier.
+--   reviews                        lignes marquées disparues (`deleted_detected_at`
+--                                  rempli). Un avis revenu garde sa ligne marquée.
+--   reviews_doublons_cleaned_all   avis dont la ligne gardée est marquée disparue.
+--                                  C'est la définition d'une suppression dans
+--                                  tout le dossier.
 -- ============================================================================
 
 SELECT
@@ -28,7 +28,7 @@ LEFT JOIN `client-divers.reviewflowz.businesses` b USING (cid)
 UNION ALL
 
 SELECT
-  "reviews_doublons_cleaned",
+  "reviews_doublons_cleaned_all",
   COUNT(*),
   COUNT(DISTINCT r.review_id),
   COUNT(DISTINCT r.cid),
@@ -36,7 +36,7 @@ SELECT
   MIN(DATE(r.created_at)),
   MAX(DATE(r.created_at)),
   COUNTIF(r.deleted_detected_at IS NOT NULL)
-FROM `client-divers.reviewflowz.reviews_doublons_cleaned` r
+FROM `client-divers.reviewflowz.reviews_doublons_cleaned_all` r
 LEFT JOIN `client-divers.reviewflowz.businesses` b USING (cid)
 
 UNION ALL

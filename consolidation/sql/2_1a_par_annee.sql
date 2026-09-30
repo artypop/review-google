@@ -1,7 +1,7 @@
 -- ============================================================================
 -- 2.1a. Suppressions par année de publication — base complète
 --
--- Base : `reviews_doublons_cleaned`. Les suppressions ont toutes été
+-- Base : `reviews_doublons_cleaned_all`. Les suppressions ont toutes été
 -- constatées pendant le suivi, du 12 au 24 août 2026. Une ligne dit : « parmi
 -- les avis publiés en 2019 et encore en ligne le 11 août, N ont disparu pendant
 -- ces 14 jours ».
@@ -12,7 +12,7 @@ WITH avis AS (
     EXTRACT(YEAR FROM r.created_at) AS annee,
     r.deleted_detected_at IS NOT NULL AS supprime,
     s.cid IS NOT NULL AS enseigne_signalee
-  FROM `client-divers.reviewflowz.reviews_doublons_cleaned` r
+  FROM `client-divers.reviewflowz.reviews_doublons_cleaned_all` r
   LEFT JOIN `client-divers.reviewflowz.biz_surveillance` s USING (cid)
 )
 

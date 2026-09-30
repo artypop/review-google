@@ -2,7 +2,7 @@
 -- 7. Contrôles du point 7 : les totaux de la base, et le rapprochement avec
 -- les comptages faits à la main dans la console
 --
--- Base : `reviews_doublons_cleaned`. Une ligne par contrôle : avis et
+-- Base : `reviews_doublons_cleaned_all`. Une ligne par contrôle : avis et
 -- suppressions.
 --
 -- Deux façons de compter « un avis avec réponse » :
@@ -17,7 +17,7 @@ WITH base AS (
     CAST(created_at AS DATE)                                       AS publie_le,
     reply_date IS NOT NULL                                         AS reponse_au_dernier_passage,
     reply_date IS NOT NULL AND CAST(reply_date AS DATE) < DATE "2026-08-11" AS reponse_avant_le_11_aout
-  FROM `client-divers.reviewflowz.reviews_doublons_cleaned`
+  FROM `client-divers.reviewflowz.reviews_doublons_cleaned_all`
 )
 
 SELECT 1 AS ordre, "base complète" AS controle, COUNT(*) AS avis, COUNTIF(supprime) AS suppressions FROM base

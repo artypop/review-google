@@ -7,7 +7,7 @@
 --                        les avis supprimés pendant le suivi, quelle que soit
 --                        leur date de publication
 --
--- Base : `reviews_doublons_cleaned`. Une suppression : `deleted_detected_at`
+-- Base : `reviews_doublons_cleaned_all`. Une suppression : `deleted_detected_at`
 -- rempli. Pour chaque table, par note, par photos publiées par l'auteur et par
 -- niveau Local Guide : avis, suppressions, suppressions pour 10 000 avis.
 -- ============================================================================
@@ -20,7 +20,7 @@ WITH base AS (
     star,
     COALESCE(reviewer_photo_count, 0) AS photos_auteur,
     local_guide_level
-  FROM `client-divers.reviewflowz.reviews_doublons_cleaned`
+  FROM `client-divers.reviewflowz.reviews_doublons_cleaned_all`
 ),
 
 tables AS (

@@ -1,4 +1,4 @@
 table_bigquery;lignes;avis;fiches;pays;premiere_publication;derniere_publication;suppressions
 businesses;9048;;9048;41;;;
 reviews;4880163;4877534;8997;41;2004-09-30;2026-08-24;5314
-reviews_doublons_cleaned;4751680;4751680;8997;41;2004-09-30;2026-08-24;4035
+reviews_doublons_cleaned_all;4876933;4876933;8997;41;2004-09-30;2026-08-24;4590

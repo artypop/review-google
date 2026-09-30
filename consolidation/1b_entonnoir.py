@@ -3,20 +3,13 @@
     uv run python consolidation/1b_entonnoir.py
 
 Produit :
-  sorties/1b_entonnoir.csv   une ligne par étape, puis quatre lignes de contrôle (attendu : 0)
-  sorties/1b_retires_365_jours_par_fiche.csv   fiches qui perdent des avis supprimés à l'étape 4
-  sorties/1b_retires_365_jours_profil.csv      les mêmes suppressions, comptées par dimension
+  sorties/1b_entonnoir.csv   une ligne par étape, puis cinq lignes de contrôle (attendu : 0)
   sorties/figures/1b_entonnoir.png
 """
 from commun import COULEURS, ecrire_csv, enregistrer, figure, requete
 
 df = requete("1b_entonnoir")
 ecrire_csv(df, "1b_entonnoir")
-
-retires = requete("1b_retires_365_jours_par_fiche")
-ecrire_csv(retires, "1b_retires_365_jours_par_fiche")
-print(retires.groupby("enseigne_signalee")[["suppressions_retirees", "dont_5_etoiles"]].sum())
-ecrire_csv(requete("1b_retires_365_jours_profil"), "1b_retires_365_jours_profil")
 
 controles = df[df["etape"].str.startswith("contrôle")]
 if (controles["avis"] != 0).any():

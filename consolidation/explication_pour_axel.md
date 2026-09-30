@@ -1,6 +1,6 @@
 # Suppressions d'avis : sur quels avis on mesure, et comment se lit une régression
 
-Pour Axel. Chiffres du 2026-09-29. Commande qui les régénère :
+Pour Axel. Chiffres du 2026-09-30. Commande qui les régénère :
 `uv run python consolidation/axel_comparaison_perimetres.py`, sortie
 `consolidation/sorties/axel_comparaison_perimetres.csv`.
 
@@ -9,7 +9,7 @@ Pour Axel. Chiffres du 2026-09-29. Commande qui les régénère :
 ## En bref
 
 - **Décrire les avis supprimés** (leur note, leur secteur, leur auteur) se fait sur toutes les
-  suppressions. C'est déjà le cas : les 4 035 avis disparus pendant le suivi, quelle que soit leur
+  suppressions. C'est déjà le cas : les 4 590 avis disparus pendant le suivi, quelle que soit leur
   date de publication, sont décrits aux points 1, 2.1 et 2.2 de l'étude.
 - **Mesurer ce qui fait supprimer un avis** oblige à comparer des avis supprimés à des avis restés
   en ligne, publiés à la même période. On le fait sur les 35 751 avis publiés du 4 au 17 août,
@@ -24,7 +24,7 @@ Pour Axel. Chiffres du 2026-09-29. Commande qui les régénère :
 
 **Première question : à quoi ressemble un avis supprimé ?** On regarde les avis supprimés, et eux
 seuls. Toutes les suppressions comptent, y compris celles d'avis publiés il y a des années.
-C'est ce que font les points 1c, 2.1 et 2.2 de l'étude, sur les 4 035 suppressions de la base.
+C'est ce que font les points 1c, 2.1 et 2.2 de l'étude, sur les 4 590 suppressions de la base.
 
 **Seconde question : qu'est-ce qui fait qu'un avis est supprimé ?** Il faut un taux : sur
 10 000 avis 1 étoile, combien disparaissent ? Et sur 10 000 avis 5 étoiles ? Un taux demande de
@@ -37,40 +37,40 @@ connaître aussi les avis **restés en ligne**. On prend donc tous les avis publ
 
 Cette table contiendrait :
 - 38 319 avis publiés du 4 au 18 août, supprimés ou non ;
-- plus 2 617 avis publiés en dehors de cette période, **tous supprimés** : 2 536 publiés avant
+- plus 3 172 avis publiés en dehors de cette période, **tous supprimés** : 3 091 publiés avant
   le 4 août, 81 publiés après le 18 août.
 
 Un avis de 2019 n'y entre que s'il a disparu. Les centaines de milliers d'avis de 2019 restés en
-ligne n'y sont pas. Les 2 536 avis anciens gonflent donc le nombre de suppressions sans qu'aucun
+ligne n'y sont pas. Les 3 091 avis anciens gonflent donc le nombre de suppressions sans qu'aucun
 avis ancien conservé ne les équilibre.
 
 **Le même calcul sur les deux tables** (suppressions pour 10 000 avis) :
 
 | | Notre panel (4 au 17 août) | Table « J-7 à J+7 + toutes les suppressions » |
 |---|---:|---:|
-| **Tous les avis** | **379** | **986** |
-| 5 étoiles | 385 | 887 |
-| 4 étoiles | 156 | 476 |
-| 3 étoiles | 101 | 704 |
-| 2 étoiles | 364 | 1 078 |
-| 1 étoile | 732 | 2 546 |
+| **Tous les avis** | **379** | **1 106** |
+| 5 étoiles | 385 | 1 035 |
+| 4 étoiles | 156 | 504 |
+| 3 étoiles | 101 | 711 |
+| 2 étoiles | 364 | 1 096 |
+| 1 étoile | 732 | 2 586 |
 | Auteur sans niveau Local Guide | 711 | 1 142 |
-| Auteur de niveau 1 à 4 | 416 | 1 098 |
-| Auteur de niveau 5 et plus | 139 | 568 |
-| Auteur sans photo publiée | 464 | 1 149 |
-| Auteur à plus de 20 photos | 80 | 392 |
+| Auteur de niveau 1 à 4 | 416 | 1 248 |
+| Auteur de niveau 5 et plus | 139 | 633 |
+| Auteur sans photo publiée | 464 | 1 285 |
+| Auteur à plus de 20 photos | 80 | 425 |
 
 **Ce que la seconde table fait dire à tort :**
-- **Un avis sur dix serait supprimé** (986 pour 10 000). Sur l'ensemble de la base, il en
-  disparaît 8,5 pour 10 000 pendant les 14 jours de suivi.
+- **Un avis sur neuf serait supprimé** (1 106 pour 10 000). Sur l'ensemble de la base, il en
+  disparaît 9,4 pour 10 000 pendant les 14 jours de suivi.
 - **Le compte sans niveau Local Guide ne se distinguerait plus.** Dans notre panel, il perd
   1,7 fois plus d'avis qu'un auteur de niveau 1 à 4 (711 contre 416). Dans l'autre table, 1 142
-  contre 1 098 : presque autant. Les auteurs des avis anciens ont eu des années pour obtenir un
+  contre 1 248 : il en perdrait moins. Les auteurs des avis anciens ont eu des années pour obtenir un
   niveau, et leurs avis supprimés noient le signal des comptes neufs.
 - **L'ordre des notes change.** Dans notre panel, l'avis 3 étoiles est le moins supprimé
-  (101 pour 10 000). Dans l'autre table, il passe à 704, au-dessus du 4 étoiles (476).
+  (101 pour 10 000). Dans l'autre table, il passe à 711, au-dessus du 4 étoiles (504).
 - **L'écart lié aux photos de l'auteur est divisé par deux.** Dans notre panel, un auteur sans
-  photo perd 5,8 fois plus d'avis qu'un auteur à plus de 20 photos. Dans l'autre table, 2,9 fois.
+  photo perd 5,8 fois plus d'avis qu'un auteur à plus de 20 photos. Dans l'autre table, 3 fois.
 
 Ajouter l'âge de l'avis au calcul ne répare rien : pour un avis de 2019, la table ne contient que
 des supprimés, et aucun conservé du même âge auquel le comparer.
@@ -136,7 +136,7 @@ Les données ne montrent pas les signalements et ne permettent pas de trancher.
 | Chiffre | Fichier |
 |---|---|
 | Comparaison des deux tables | `consolidation/sorties/axel_comparaison_perimetres.csv` |
-| 4 035 suppressions, 8,5 pour 10 000 | `consolidation/sorties/1a_tables.csv`, `1c_suppressions_secteur_region.csv` |
+| 4 590 suppressions, 9,4 pour 10 000 | `consolidation/sorties/1a_tables.csv`, `1c_suppressions_secteur_region.csv` |
 | 5 étoiles aux États-Unis : 529 et 320 | `consolidation/sorties/2_3_note.csv` |
 | 1 étoile ×5,13 dans la même fiche | `consolidation/sorties/4b_effets.csv` |
 | Réponse ×0,36, Cedar Park | `consolidation/sorties/5_effets.csv`, `5_fiches_par_case.csv` |

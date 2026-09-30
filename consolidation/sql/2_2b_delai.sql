@@ -12,7 +12,7 @@ WITH supprimes AS (
        "salles_espagnoles", "chaines_antiparasitaires") AS groupe,
     r.star AS note,
     DATE_DIFF(DATE(r.deleted_detected_at), DATE(r.created_at), DAY) AS delai
-  FROM `client-divers.reviewflowz.reviews_doublons_cleaned` r
+  FROM `client-divers.reviewflowz.reviews_doublons_cleaned_all` r
   JOIN `client-divers.reviewflowz.biz_surveillance` s USING (cid)
   WHERE r.deleted_detected_at IS NOT NULL
 )

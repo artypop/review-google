@@ -1,7 +1,7 @@
 -- ============================================================================
 -- 7. La réponse du propriétaire sur toute la base : taux directs
 --
--- Base : `reviews_doublons_cleaned`, avis publiés avant le 11 août 2026, donc
+-- Base : `reviews_doublons_cleaned_all`, avis publiés avant le 11 août 2026, donc
 -- déjà en ligne au premier passage du robot. Suppressions : du 12 au 24 août.
 -- Un calcul direct, sans modèle : pour chaque case, combien d'avis, combien
 -- supprimés.
@@ -49,7 +49,7 @@ avis AS (
     CASE WHEN COALESCE(h.n_avis, 0) < 10 THEN "inconnue"
          WHEN h.taux > 0.75 THEN "plus de 75 %"
          ELSE "75 % ou moins" END AS habitude
-  FROM `client-divers.reviewflowz.reviews_doublons_cleaned` r
+  FROM `client-divers.reviewflowz.reviews_doublons_cleaned_all` r
   LEFT JOIN `client-divers.reviewflowz.businesses` b USING (cid)
   LEFT JOIN `client-divers.reviewflowz.biz_surveillance` s USING (cid)
   LEFT JOIN habitude_reponse_fiche h USING (cid)

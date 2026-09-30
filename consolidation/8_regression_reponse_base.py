@@ -37,7 +37,7 @@ GARDE-FOU
 
 LE CALCUL
   BigQuery regroupe les avis par fiche et par combinaison de caractéristiques
-  (`sql/8_avis_regroupes.sql`, moins d'un million de lignes pour 4,5 millions
+  (`sql/8_avis_regroupes.sql`, moins d'un million de lignes pour 4,6 millions
   d'avis). Le modèle est d'abord calculé sur les combinaisons seules, toutes
   fiches réunies (100 000 lignes), puis repris par fiche à partir de ce
   résultat : les effets sont les mêmes, et la fourchette a besoin des fiches.
@@ -56,11 +56,12 @@ import pandas as pd
 import statsmodels.api as sm
 from matplotlib.ticker import FuncFormatter, NullFormatter
 
-from commun import (COULEURS, MIN_FICHES_CITABLE, MIN_SUPPRESSIONS_CITABLE,
-                    PART_MAX_PREMIERE_FICHE, ecrire_csv, enregistrer, figure, requete)
+from commun import (COULEURS, MIN_FICHES_CITABLE, MIN_SUPPRESSIONS_CITABLE, PART_MAX_PREMIERE_FICHE,
+                    ecrire_csv, enregistrer, figure, habitude, noms_habitudes, requete)
 
 AGES = ["8 à 30 jours", "31 à 90 jours", "91 à 365 jours", "plus d'un an"]
-HABITUDES = ["75 % ou moins", "plus de 75 %"]
+# Les tranches d'habitude de `commun.py` : « 75 % ou moins », « plus de 75 % ».
+HABITUDES = noms_habitudes()
 MIN_SUPPRESSIONS = 5
 
 # Les contrôles : (référence, modalités dans l'ordre d'affichage).
@@ -85,6 +86,7 @@ for col in ["n", "k"]:
 for col in ["repondu", "enseigne_signalee"]:
     d0[col] = d0[col].astype(bool)
 d0["reponse"] = np.where(d0["repondu"], "répondu avant le 11 août", "sans réponse")
+d0["habitude"] = habitude(d0["taux_reponse"])
 d0["case"] = d0["age"] + ", fiche qui répond à " + d0["habitude"]
 # Un million de lignes de texte pèsent lourd : chaque colonne devient une liste
 # de modalités, et la ligne n'en garde que le numéro.

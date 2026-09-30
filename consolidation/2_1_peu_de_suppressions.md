@@ -4,7 +4,7 @@
 |---|---|
 | `uv run python consolidation/2_1_peu_de_suppressions.py` | `2_1a_par_annee.csv`, `2_1b_par_age.csv`, `2_1b_resume.csv` |
 
-Chiffres du 2026-09-29. Base : `reviews_doublons_cleaned`.
+Chiffres du 2026-09-30. Base : `reviews_doublons_cleaned_all`.
 
 ---
 
@@ -12,20 +12,20 @@ Chiffres du 2026-09-29. Base : `reviews_doublons_cleaned`.
 
 ### Sur toute la base (`2_1a_par_annee.csv`)
 
-- 4 035 avis disparaissent pendant les 14 jours de suivi, sur 4 751 680 : 8,5 pour 10 000, soit
-  0,085 %.
-- 3 067 de ces 4 035 suppressions portent sur des avis publiés en 2026 (76 %) : 63 pour 10 000
+- 4 590 avis disparaissent pendant les 14 jours de suivi, sur 4 876 933 : 9,4 pour 10 000, soit
+  0,094 %.
+- 3 067 de ces 4 590 suppressions portent sur des avis publiés en 2026 (67 %) : 63 pour 10 000
   avis de 2026.
-- Les avis plus anciens ne disparaissent presque plus :
+- Les avis des années précédentes disparaissent au moins 8 fois moins :
 
 | Année de publication | Suppressions pour 10 000 avis | Sans enseignes |
 |---|---:|---:|
 | 2026 | 63,0 | 42,9 |
-| 2025 | 4,7 | 4,2 |
-| 2024 | 2,6 | 2,6 |
-| 2023 | 2,2 | 2,1 |
-| 2016 à 2022 | de 0,9 à 1,9 | de 0,9 à 1,9 |
-| 2014 et 2015 | 1,7 et 2,8 (5 suppressions) | 1,9 et 3,0 |
+| 2025 | 7,2 | 5,1 |
+| 2024 | 5,8 | 3,8 |
+| 2023 | 3,7 | 3,0 |
+| 2016 à 2022 | de 1,2 à 2,5 | de 1,2 à 2,2 |
+| 2014 et 2015 | 1,6 et 2,7 (5 suppressions) | 1,8 et 2,9 |
 | avant 2014 | 0 | 0 |
 
 ### Sur les avis publiés de J-30 à J+13 (`2_1b_resume.csv`, `2_1b_par_age.csv`)
@@ -57,7 +57,7 @@ ligne :
 
 ## Ce qui diffère de la formulation du plan
 
-- « Moins de 1 % » : vrai sur la base entière (0,085 %). Sur les avis de J-30 à J+13, 2,3 %
+- « Moins de 1 % » : vrai sur la base entière (0,094 %). Sur les avis de J-30 à J+13, 2,3 %
   disparaissent (1,5 % sans enseignes).
 - « Au-delà de 8 jours, quasi plus de suppressions » : le rythme quotidien baisse, mais il dure.
   Sans enseignes, sur 10 000 avis, 285 disparaissent pendant les 8 premiers jours, puis 210 du
@@ -74,6 +74,10 @@ ligne :
 - Un avis publié le 12 juillet n'est vu qu'à partir du 11 août, à 30 jours. Les âges de 9 à
   43 jours reposent donc surtout sur des avis publiés avant l'arrivée du robot. Les âges de 1 à
   8 jours reposent sur des avis publiés à partir du 4 août.
-- Les 4 chaînes ont perdu en deux jours, le 12 et le 17 août, 215 avis publiés avant le 4 août
-  (`2_2_par_jour.csv`, colonne `dont_publies_avant_le_4_aout`). Elles gonflent les âges au-delà du 8e jour dans la version « tous ».
+- Les 4 chaînes ont perdu en deux jours, le 12 et le 17 août, 147 avis publiés du 12 juillet au
+  3 août : 91 le 12, 56 le 17 (`2_2a_calendrier.csv`). Elles gonflent les âges au-delà du
+  8e jour dans la version « tous ».
+- Par année de publication, les taux de 2023 à 2025 comptent les avis modifiés plus d'un an après
+  leur publication (chapitre 1, réserves). Aucun n'a été publié depuis le 12 juillet : les
+  chiffres de J-30 à J+13 n'en contiennent pas.
 - La réserve sur les 14 jours de suivi est écrite au chapitre 1.

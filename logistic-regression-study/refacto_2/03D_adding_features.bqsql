@@ -1,0 +1,170 @@
+-- ============================================================================
+-- File: refacto_2/03D_adding_features.bqsql
+-- Table: client-divers.reviewflowz.reviews_panel_features_03D
+--
+-- Les caractéristiques de la nouvelle régression, une ligne par avis.
+-- Écrit le 2026-09-30 à la demande de Romain.
+--
+-- PANEL : `dataset_reg`, avis publiés du 2026-08-06 au 2026-08-17, tirés de
+-- la base complète `reviews_doublons_cleaned_all`. 30 628 avis, une ligne par
+-- `review_id`. Dates déjà converties en jour (UTC).
+--
+-- HISTORIQUE : `reviews_doublons_cleaned_all`, toute la période de l'export.
+-- Il sert au pic d'avis de la fiche et au taux de réponse du propriétaire.
+--
+-- COLONNES INTERDITES EN ENTRÉE DU MODÈLE
+--   supprime                       c'est la cible
+--   created_at, first_seen_at,
+--   deleted_detected_at            dates, pour contrôler l'âge et la durée
+--                                  de suivi
+-- ============================================================================
+
+CREATE OR REPLACE TABLE `client-divers`.reviewflowz.reviews_panel_features_03D AS
+
+WITH
+-- ---------------------------------------------------------------------------
+-- Premier jour du panel. Le rythme habituel de la fiche s'arrête la veille,
+-- pour qu'aucun avis du panel n'entre dans son propre rythme.
+-- ---------------------------------------------------------------------------
+bornes AS (
+  SELECT DATE "2026-08-06" AS debut_panel
+),
+
+-- ---------------------------------------------------------------------------
+-- Historique : tous les avis de la base complète, une ligne chacun.
+-- ---------------------------------------------------------------------------
+historique AS (
+  SELECT
+    cid,
+    CAST(created_at AS DATE) AS jour,
+    reply_date IS NOT NULL   AS a_une_reponse
+  FROM `client-divers`.reviewflowz.reviews_doublons_cleaned_all
+),
+
+-- ---------------------------------------------------------------------------
+-- Pic. Avis déposés sur la fiche chaque jour, suppressions comprises.
+-- ---------------------------------------------------------------------------
+fiche_jour AS (
+  SELECT cid, jour, COUNT(*) AS n_avis_ce_jour
+  FROM historique
+  GROUP BY cid, jour
+),
+
+-- ---------------------------------------------------------------------------
+-- Pic. Rythme habituel de la fiche : avis par jour sur les 365 jours qui
+-- précèdent le panel (2025-08-06 au 2026-08-05).
+-- Calculé sur les avis encore en ligne à l'arrivée du robot : un avis
+-- supprimé avant le 2026-08-11 n'est dans aucune table.
+-- ---------------------------------------------------------------------------
+rythme_fiche AS (
+  SELECT
+    cid,
+    COUNT(*) / 365.0 AS avis_par_jour
+  FROM historique, bornes
+  WHERE jour BETWEEN DATE_SUB(bornes.debut_panel, INTERVAL 365 DAY)
+                 AND DATE_SUB(bornes.debut_panel, INTERVAL 1 DAY)
+  GROUP BY cid
+),
+
+-- ---------------------------------------------------------------------------
+-- Taux de réponse du propriétaire : part des avis de la fiche qui portent une
+-- réponse, sur tous les avis de la base, toutes dates confondues. L'avis
+-- examiné et les avis du panel y sont compris.
+-- ---------------------------------------------------------------------------
+reponse_fiche AS (
+  SELECT
+    cid,
+    COUNT(*)                          AS n_avis,
+    COUNTIF(a_une_reponse) / COUNT(*) AS taux
+  FROM historique
+  GROUP BY cid
+)
+
+SELECT
+  -- =========================================================================
+  -- Identifiants
+  -- =========================================================================
+  p.review_id,
+  p.cid,
+
+  -- =========================================================================
+  -- Cible et dates. Pas en entrée du modèle.
+  -- =========================================================================
+  (p.is_deleted = 1)                       AS supprime,
+  p.created_at,
+  p.first_seen_at,
+  p.deleted_detected_at,
+
+  -- =========================================================================
+  -- L'avis
+  -- =========================================================================
+  p.star,
+  (p.n_photos > 0)                         AS has_photo,
+  COALESCE(LENGTH(p.text), 0)              AS text_chars,
+
+  -- =========================================================================
+  -- L'auteur
+  -- =========================================================================
+  -- Paliers décidés le 2026-09-29 : sans niveau / 1 à 4 / 5 et plus.
+  CASE
+    WHEN p.local_guide_level IS NULL THEN "sans_niveau"
+    WHEN p.local_guide_level <= 4    THEN "1_4"
+    ELSE                                  "5_et_plus"
+  END                                      AS palier_local_guide,
+
+  -- Photos publiées par l'auteur sur son profil. Vide mis à 0, décision de
+  -- Romain du 2026-09-17.
+  COALESCE(p.reviewer_photo_count, 0)      AS reviewer_photo_count,
+
+  -- Avis publiés par l'auteur, tels qu'affichés sur son profil au dernier
+  -- passage du robot. Aucune valeur vide ; vaut 0 pour des auteurs qui ont
+  -- pourtant écrit au moins l'avis du panel.
+  p.reviewer_review_count,
+
+  -- =========================================================================
+  -- La réponse du propriétaire, lue au dernier passage du robot.
+  -- =========================================================================
+  -- Vrai si le propriétaire a répondu, quel que soit le délai. Décision de
+  -- Romain du 2026-09-30 : une seule colonne, sans la rapidité.
+  (p.reply_date IS NOT NULL)               AS a_repondu,
+
+  -- Habitude de la fiche, voir `reponse_fiche`. `n_avis_fiche` donne le
+  -- nombre d'avis sur lequel le taux est calculé.
+  rep.taux                                 AS taux_reponse_fiche,
+  rep.n_avis                               AS n_avis_fiche,
+
+  -- =========================================================================
+  -- L'établissement
+  -- =========================================================================
+  b.industry                               AS secteur,
+  b.bucket,
+  -- Sert à faire tourner le modèle sur les États-Unis et l'Europe séparément.
+  IF(b.country = "US", "US", "EU")         AS region,
+
+  -- Les 6 enseignes signalées (4 chaînes antiparasitaires américaines,
+  -- 2 salles de sport espagnoles), repérées par `biz_surveillance` comme
+  -- dans toute la consolidation. Elles restent dans le corpus ; le drapeau
+  -- sert à relancer les modèles sans elles.
+  (s.cid IS NOT NULL)                      AS enseigne_signalee,
+
+  -- =========================================================================
+  -- Le pic d'avis sur la fiche le jour du dépôt
+  -- =========================================================================
+  -- Avis déposés sur la fiche ce jour-là, celui-ci compris.
+  fj.n_avis_ce_jour                        AS n_avis_meme_jour_fiche,
+  -- Une fiche sans aucun avis dans l'année qui précède le panel a un rythme
+  -- de 0, et le ratio ne se calcule pas. Son rythme est mis à 0,1 avis par
+  -- jour, décision de Romain du 2026-09-30 : 18 avis du panel.
+  COALESCE(rf.avis_par_jour, 0.1)          AS rythme_fiche,
+  (rf.avis_par_jour IS NULL)               AS rythme_fiche_mis_a_0_1,
+  -- Combien de fois le rythme habituel.
+  fj.n_avis_ce_jour / COALESCE(rf.avis_par_jour, 0.1)
+                                           AS ratio_pic_fiche
+
+FROM `client-divers`.reviewflowz.dataset_reg p
+LEFT JOIN `client-divers`.reviewflowz.businesses       b   ON p.cid = b.cid
+LEFT JOIN `client-divers`.reviewflowz.biz_surveillance s   ON p.cid = s.cid
+LEFT JOIN reponse_fiche                                rep ON p.cid = rep.cid
+LEFT JOIN rythme_fiche                                 rf  ON p.cid = rf.cid
+LEFT JOIN fiche_jour                                   fj  ON p.cid = fj.cid
+                                                          AND p.created_at = fj.jour;

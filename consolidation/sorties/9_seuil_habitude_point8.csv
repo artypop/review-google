@@ -1,0 +1,241 @@
+decoupage;passage;habitude;age_de_l_avis;risque_relatif;fourchette_basse;fourchette_haute;remarque;avis;suppressions;fiches_touchees;enseignes_touchees;part_de_la_premiere_fiche;avis_sans_reponse;suppressions_sans_reponse;fiches_touchees_sans_reponse;part_de_la_premiere_fiche_sans_reponse;rapport_direct;citable
+coupure à 75 % (points 5 et 8);ensemble, tous;75 % ou moins;8 à 30 jours;1,79;1,0;3,22;;4364;159;15;14;0,45;23131;426;84;0,31;1,98;non
+coupure à 75 % (points 5 et 8);ensemble, tous;75 % ou moins;31 à 90 jours;1,1;0,39;3,14;;11748;53;15;14;0,49;52524;188;65;0,18;1,26;non
+coupure à 75 % (points 5 et 8);ensemble, tous;75 % ou moins;91 à 365 jours;0,96;0,58;1,61;;53712;46;30;24;0,17;185350;143;98;0,06;1,11;oui
+coupure à 75 % (points 5 et 8);ensemble, tous;75 % ou moins;plus d'un an;1,29;0,95;1,76;;436270;215;103;86;0,08;1730560;494;262;0,07;1,73;oui
+coupure à 75 % (points 5 et 8);ensemble, tous;plus de 75 %;8 à 30 jours;0,88;0,53;1,47;;26360;342;114;79;0,05;2097;40;27;0,1;0,68;oui
+coupure à 75 % (points 5 et 8);ensemble, tous;plus de 75 %;31 à 90 jours;0,4;0,17;0,97;;67279;129;54;48;0,09;2893;19;11;0,32;0,29;non
+coupure à 75 % (points 5 et 8);ensemble, tous;plus de 75 %;91 à 365 jours;0,28;0,16;0,5;;265844;170;111;74;0,07;7579;20;18;0,1;0,24;oui
+coupure à 75 % (points 5 et 8);ensemble, tous;plus de 75 %;plus d'un an;1,36;1,05;1,75;;1134904;448;249;182;0,05;604471;138;104;0,05;1,73;oui
+coupure à 75 % (points 5 et 8);ensemble, sans_enseignes;75 % ou moins;8 à 30 jours;0,91;0,45;1,83;;4115;29;12;11;0,24;21002;159;70;0,08;0,93;oui
+coupure à 75 % (points 5 et 8);ensemble, sans_enseignes;75 % ou moins;31 à 90 jours;1,76;0,66;4,74;;11170;50;14;13;0,52;46366;111;56;0,16;1,87;non
+coupure à 75 % (points 5 et 8);ensemble, sans_enseignes;75 % ou moins;91 à 365 jours;1,12;0,63;2,0;;50105;39;25;22;0,21;167766;108;84;0,07;1,21;oui
+coupure à 75 % (points 5 et 8);ensemble, sans_enseignes;75 % ou moins;plus d'un an;1,27;0,86;1,89;;409299;138;88;83;0,12;1647348;353;244;0,1;1,57;oui
+coupure à 75 % (points 5 et 8);ensemble, sans_enseignes;plus de 75 %;8 à 30 jours;0,66;0,4;1,08;;25322;249;84;76;0,06;2090;40;27;0,1;0,51;oui
+coupure à 75 % (points 5 et 8);ensemble, sans_enseignes;plus de 75 %;31 à 90 jours;0,39;0,16;0,93;;64641;122;50;46;0,1;2855;18;10;0,33;0,3;non
+coupure à 75 % (points 5 et 8);ensemble, sans_enseignes;plus de 75 %;91 à 365 jours;0,25;0,14;0,44;;253655;132;97;71;0,09;7546;19;17;0,11;0,21;oui
+coupure à 75 % (points 5 et 8);ensemble, sans_enseignes;plus de 75 %;plus d'un an;1,11;0,83;1,47;;1072517;310;215;179;0,03;578524;120;94;0,06;1,39;oui
+coupure à 75 % (points 5 et 8);US, tous;75 % ou moins;8 à 30 jours;0,97;0,47;2,0;;1758;28;11;10;0,25;11402;196;55;0,14;0,93;oui
+coupure à 75 % (points 5 et 8);US, tous;75 % ou moins;31 à 90 jours;1,54;0,56;4,26;;5028;46;9;8;0,57;29205;163;43;0,21;1,64;non
+coupure à 75 % (points 5 et 8);US, tous;75 % ou moins;91 à 365 jours;1,06;0,5;2,22;;28270;28;12;8;0,29;101581;94;58;0,07;1,07;non
+coupure à 75 % (points 5 et 8);US, tous;75 % ou moins;plus d'un an;1,52;1,11;2,1;;232081;169;62;45;0,1;848306;327;139;0,07;1,89;oui
+coupure à 75 % (points 5 et 8);US, tous;plus de 75 %;8 à 30 jours;0,81;0,42;1,59;;16193;300;91;56;0,05;1123;25;14;0,16;0,83;oui
+coupure à 75 % (points 5 et 8);US, tous;plus de 75 %;31 à 90 jours;0,4;0,18;0,9;;41916;113;40;35;0,11;1854;12;9;0,17;0,42;oui
+coupure à 75 % (points 5 et 8);US, tous;plus de 75 %;91 à 365 jours;0,24;0,12;0,46;;169227;135;77;47;0,09;4533;13;12;0,15;0,28;oui
+coupure à 75 % (points 5 et 8);US, tous;plus de 75 %;plus d'un an;1,7;1,26;2,29;;680285;355;167;108;0,07;328989;79;62;0,06;2,17;oui
+coupure à 75 % (points 5 et 8);US, sans_enseignes;75 % ou moins;8 à 30 jours;1,36;0,67;2,76;;1642;27;10;9;0,26;9449;104;43;0,12;1,49;non
+coupure à 75 % (points 5 et 8);US, sans_enseignes;75 % ou moins;31 à 90 jours;2,09;0,76;5,75;;4474;43;8;7;0,6;23047;86;34;0,21;2,58;non
+coupure à 75 % (points 5 et 8);US, sans_enseignes;75 % ou moins;91 à 365 jours;1,13;0,43;2,93;;24705;21;7;6;0,38;84050;59;44;0,07;1,21;non
+coupure à 75 % (points 5 et 8);US, sans_enseignes;75 % ou moins;plus d'un an;1,52;0,94;2,44;;206065;94;48;43;0,18;765101;186;121;0,08;1,88;oui
+coupure à 75 % (points 5 et 8);US, sans_enseignes;plus de 75 %;8 à 30 jours;0,72;0,37;1,4;;15155;207;61;53;0,08;1116;25;14;0,16;0,61;oui
+coupure à 75 % (points 5 et 8);US, sans_enseignes;plus de 75 %;31 à 90 jours;0,52;0,22;1,2;;39278;106;36;33;0,11;1816;11;8;0,18;0,45;oui
+coupure à 75 % (points 5 et 8);US, sans_enseignes;plus de 75 %;91 à 365 jours;0,25;0,12;0,52;;157038;97;63;44;0,12;4500;12;11;0,17;0,23;oui
+coupure à 75 % (points 5 et 8);US, sans_enseignes;plus de 75 %;plus d'un an;1,37;0,96;1,96;;617898;217;133;105;0,05;303042;61;52;0,08;1,74;oui
+coupure à 75 % (points 5 et 8);Europe, tous;75 % ou moins;8 à 30 jours;1,91;1,04;3,53;;2606;131;4;4;0,55;11729;230;29;0,58;2,56;non
+coupure à 75 % (points 5 et 8);Europe, tous;75 % ou moins;31 à 90 jours;0,81;0,32;2,04;;6720;7;6;6;0,29;23319;25;22;0,08;0,97;non
+coupure à 75 % (points 5 et 8);Europe, tous;75 % ou moins;91 à 365 jours;1,02;0,59;1,74;;25442;18;18;16;0,06;83769;49;40;0,16;1,21;oui
+coupure à 75 % (points 5 et 8);Europe, tous;75 % ou moins;plus d'un an;0,84;0,48;1,46;;204189;46;41;41;0,04;882254;167;123;0,22;1,19;oui
+coupure à 75 % (points 5 et 8);Europe, tous;plus de 75 %;8 à 30 jours;0,48;0,22;1,02;;10167;42;23;23;0,21;974;15;13;0,13;0,27;oui
+coupure à 75 % (points 5 et 8);Europe, tous;plus de 75 %;31 à 90 jours;0,18;0,03;1,17;;25363;16;14;13;0,12;1039;7;2;0,86;0,09;non
+coupure à 75 % (points 5 et 8);Europe, tous;plus de 75 %;91 à 365 jours;0,29;0,11;0,76;;96617;35;34;27;0,06;3046;7;6;0,29;0,16;non
+coupure à 75 % (points 5 et 8);Europe, tous;plus de 75 %;plus d'un an;0,95;0,62;1,44;;454619;93;82;74;0,03;275482;59;42;0,12;0,96;oui
+coupure à 75 % (points 5 et 8);Europe, sans_enseignes;75 % ou moins;31 à 90 jours;0,93;0,37;2,31;;6696;7;6;6;0,29;23319;25;22;0,08;0,98;non
+coupure à 75 % (points 5 et 8);Europe, sans_enseignes;75 % ou moins;91 à 365 jours;1,11;0,65;1,9;;25400;18;18;16;0,06;83716;49;40;0,16;1,21;oui
+coupure à 75 % (points 5 et 8);Europe, sans_enseignes;75 % ou moins;plus d'un an;0,88;0,51;1,54;;203234;44;40;40;0,05;882247;167;123;0,22;1,14;oui
+coupure à 75 % (points 5 et 8);Europe, sans_enseignes;plus de 75 %;8 à 30 jours;0,41;0,2;0,83;;10167;42;23;23;0,21;974;15;13;0,13;0,27;oui
+coupure à 75 % (points 5 et 8);Europe, sans_enseignes;plus de 75 %;31 à 90 jours;0,15;0,02;0,92;;25363;16;14;13;0,12;1039;7;2;0,86;0,09;non
+coupure à 75 % (points 5 et 8);Europe, sans_enseignes;plus de 75 %;91 à 365 jours;0,24;0,09;0,61;;96617;35;34;27;0,06;3046;7;6;0,29;0,16;non
+coupure à 75 % (points 5 et 8);Europe, sans_enseignes;plus de 75 %;plus d'un an;0,84;0,56;1,27;;454619;93;82;74;0,03;275482;59;42;0,12;0,96;oui
+coupure à 75 % (points 5 et 8);Europe, sans_enseignes;75 % ou moins;8 à 30 jours;;;;écartée : moins de 5 suppressions;2473;2;2;2;0,5;11553;55;27;0,22;0,17;non
+quatre tranches : 25, 50, 75 %;ensemble, tous;25 % ou moins;31 à 90 jours;0,3;0,05;1,74;;1628;5;2;2;0,8;39966;151;44;0,23;0,81;non
+quatre tranches : 25, 50, 75 %;ensemble, tous;25 % ou moins;91 à 365 jours;0,25;0,1;0,65;;9069;5;4;1;0,4;146133;122;79;0,07;0,66;non
+quatre tranches : 25, 50, 75 %;ensemble, tous;25 % ou moins;plus d'un an;1,28;0,86;1,9;;168565;121;46;35;0,14;1282678;419;199;0,09;2,2;oui
+quatre tranches : 25, 50, 75 %;ensemble, tous;25 à 50 %;8 à 30 jours;1,18;0,87;1,6;;1356;59;3;3;0,97;4408;157;12;0,85;1,22;non
+quatre tranches : 25, 50, 75 %;ensemble, tous;25 à 50 %;31 à 90 jours;0,39;0,12;1,24;;3699;5;5;5;0,2;7757;24;12;0,38;0,44;non
+quatre tranches : 25, 50, 75 %;ensemble, tous;25 à 50 %;91 à 365 jours;1,07;0,48;2,38;;16650;9;9;8;0,11;24908;13;12;0,15;1,04;non
+quatre tranches : 25, 50, 75 %;ensemble, tous;25 à 50 %;plus d'un an;1,17;0,7;1,98;;128552;24;23;22;0,08;249188;31;28;0,06;1,5;oui
+quatre tranches : 25, 50, 75 %;ensemble, tous;50 à 75 %;8 à 30 jours;1,37;0,72;2,61;;2330;96;10;9;0,75;2633;89;11;0,47;1,22;non
+quatre tranches : 25, 50, 75 %;ensemble, tous;50 à 75 %;31 à 90 jours;2,38;0,77;7,37;;6421;43;8;7;0,6;4801;13;9;0,23;2,47;non
+quatre tranches : 25, 50, 75 %;ensemble, tous;50 à 75 %;91 à 365 jours;2,21;0,94;5,21;;27993;32;17;16;0,25;14309;8;7;0,25;2,04;non
+quatre tranches : 25, 50, 75 %;ensemble, tous;50 à 75 %;plus d'un an;1,8;1,04;3,11;;139153;70;34;31;0,24;198694;44;35;0,18;2,27;oui
+quatre tranches : 25, 50, 75 %;ensemble, tous;plus de 75 %;8 à 30 jours;0,88;0,53;1,45;;26360;342;114;79;0,05;2097;40;27;0,1;0,68;oui
+quatre tranches : 25, 50, 75 %;ensemble, tous;plus de 75 %;31 à 90 jours;0,41;0,17;0,98;;67279;129;54;48;0,09;2893;19;11;0,32;0,29;non
+quatre tranches : 25, 50, 75 %;ensemble, tous;plus de 75 %;91 à 365 jours;0,29;0,16;0,5;;265844;170;111;74;0,07;7579;20;18;0,1;0,24;oui
+quatre tranches : 25, 50, 75 %;ensemble, tous;plus de 75 %;plus d'un an;1,36;1,05;1,75;;1134904;448;249;182;0,05;604471;138;104;0,05;1,73;oui
+quatre tranches : 25, 50, 75 %;ensemble, tous;25 % ou moins;8 à 30 jours;;;;écartée : moins de 5 suppressions;678;4;2;2;0,75;16090;180;61;0,11;0,53;non
+quatre tranches : 25, 50, 75 %;ensemble, sans_enseignes;25 % ou moins;31 à 90 jours;1,26;0,23;6,97;;1296;5;2;2;0,8;33983;76;36;0,24;1,73;non
+quatre tranches : 25, 50, 75 %;ensemble, sans_enseignes;25 % ou moins;plus d'un an;1,06;0,59;1,88;;142872;47;33;33;0,23;1200181;280;182;0,13;1,41;oui
+quatre tranches : 25, 50, 75 %;ensemble, sans_enseignes;25 à 50 %;31 à 90 jours;0,42;0,13;1,37;;3674;5;5;5;0,2;7720;24;12;0,38;0,44;non
+quatre tranches : 25, 50, 75 %;ensemble, sans_enseignes;25 à 50 %;91 à 365 jours;0,99;0,45;2,2;;16631;9;9;8;0,11;24858;13;12;0,15;1,03;non
+quatre tranches : 25, 50, 75 %;ensemble, sans_enseignes;25 à 50 %;plus d'un an;1,25;0,73;2,11;;127975;22;22;21;0,05;248866;29;27;0,07;1,48;oui
+quatre tranches : 25, 50, 75 %;ensemble, sans_enseignes;50 à 75 %;8 à 30 jours;1,39;0,63;3,06;;2247;24;9;8;0,29;2448;19;9;0,26;1,38;non
+quatre tranches : 25, 50, 75 %;ensemble, sans_enseignes;50 à 75 %;31 à 90 jours;2,6;0,82;8,23;;6200;40;7;6;0,65;4663;11;8;0,27;2,73;non
+quatre tranches : 25, 50, 75 %;ensemble, sans_enseignes;50 à 75 %;91 à 365 jours;1,92;0,8;4,63;;27615;30;16;15;0,27;14109;8;7;0,25;1,92;non
+quatre tranches : 25, 50, 75 %;ensemble, sans_enseignes;50 à 75 %;plus d'un an;1,8;1,03;3,16;;138452;69;33;30;0,25;198301;44;35;0,18;2,25;oui
+quatre tranches : 25, 50, 75 %;ensemble, sans_enseignes;plus de 75 %;8 à 30 jours;0,65;0,4;1,07;;25322;249;84;76;0,06;2090;40;27;0,1;0,51;oui
+quatre tranches : 25, 50, 75 %;ensemble, sans_enseignes;plus de 75 %;31 à 90 jours;0,38;0,16;0,92;;64641;122;50;46;0,1;2855;18;10;0,33;0,3;non
+quatre tranches : 25, 50, 75 %;ensemble, sans_enseignes;plus de 75 %;91 à 365 jours;0,25;0,14;0,44;;253655;132;97;71;0,09;7546;19;17;0,11;0,21;oui
+quatre tranches : 25, 50, 75 %;ensemble, sans_enseignes;plus de 75 %;plus d'un an;1,11;0,84;1,47;;1072517;310;215;179;0,03;578524;120;94;0,06;1,39;oui
+quatre tranches : 25, 50, 75 %;ensemble, sans_enseignes;25 % ou moins;8 à 30 jours;;;;écartée : moins de 5 suppressions;580;3;1;1;1,0;14283;116;50;0,11;0,64;non
+quatre tranches : 25, 50, 75 %;ensemble, sans_enseignes;25 % ou moins;91 à 365 jours;;;;écartée : moins de 5 suppressions;5859;0;0;0;;128799;87;65;0,09;0,0;non
+quatre tranches : 25, 50, 75 %;ensemble, sans_enseignes;25 à 50 %;8 à 30 jours;;;;écartée : moins de 5 suppressions;1288;2;2;2;0,5;4271;24;11;0,25;0,28;non
+quatre tranches : 25, 50, 75 %;US, tous;25 % ou moins;31 à 90 jours;0,61;0,11;3,48;;959;5;2;2;0,8;23421;135;30;0,25;0,9;non
+quatre tranches : 25, 50, 75 %;US, tous;25 % ou moins;91 à 365 jours;0,43;0,17;1,06;;6623;5;4;1;0,4;84257;84;49;0,08;0,76;non
+quatre tranches : 25, 50, 75 %;US, tous;25 % ou moins;plus d'un an;1,48;1,0;2,21;;101123;102;29;18;0,17;642607;280;103;0,09;2,31;oui
+quatre tranches : 25, 50, 75 %;US, tous;25 à 50 %;plus d'un an;0,8;0,39;1,61;;66493;10;10;9;0,1;112553;19;16;0,11;0,89;oui
+quatre tranches : 25, 50, 75 %;US, tous;50 à 75 %;8 à 30 jours;0,72;0,26;1,95;;895;23;8;7;0,3;1275;44;8;0,64;0,74;non
+quatre tranches : 25, 50, 75 %;US, tous;50 à 75 %;31 à 90 jours;2,59;0,89;7,58;;2674;39;5;4;0,67;2542;9;6;0,33;4,12;non
+quatre tranches : 25, 50, 75 %;US, tous;50 à 75 %;91 à 365 jours;2,3;0,81;6,56;;13950;23;8;7;0,35;6592;5;5;0,2;2,17;non
+quatre tranches : 25, 50, 75 %;US, tous;50 à 75 %;plus d'un an;2,26;1,18;4,3;;64465;57;23;20;0,3;93146;28;20;0,29;2,94;non
+quatre tranches : 25, 50, 75 %;US, tous;plus de 75 %;8 à 30 jours;0,8;0,41;1,56;;16193;300;91;56;0,05;1123;25;14;0,16;0,83;oui
+quatre tranches : 25, 50, 75 %;US, tous;plus de 75 %;31 à 90 jours;0,39;0,17;0,87;;41916;113;40;35;0,11;1854;12;9;0,17;0,42;oui
+quatre tranches : 25, 50, 75 %;US, tous;plus de 75 %;91 à 365 jours;0,23;0,12;0,46;;169227;135;77;47;0,09;4533;13;12;0,15;0,28;oui
+quatre tranches : 25, 50, 75 %;US, tous;plus de 75 %;plus d'un an;1,68;1,25;2,27;;680285;355;167;108;0,07;328989;79;62;0,06;2,17;oui
+quatre tranches : 25, 50, 75 %;US, tous;25 % ou moins;8 à 30 jours;;;;écartée : moins de 5 suppressions;373;4;2;2;0,75;8587;136;39;0,15;0,68;non
+quatre tranches : 25, 50, 75 %;US, tous;25 à 50 %;8 à 30 jours;;;;écartée : moins de 5 suppressions;490;1;1;1;1,0;1540;16;8;0,38;0,2;non
+quatre tranches : 25, 50, 75 %;US, tous;25 à 50 %;31 à 90 jours;;;;écartée : moins de 5 suppressions;1395;2;2;2;0,5;3242;19;7;0,47;0,24;non
+quatre tranches : 25, 50, 75 %;US, tous;25 à 50 %;91 à 365 jours;;;;écartée : moins de 5 suppressions;7697;0;0;0;;10732;5;4;0,4;0,0;non
+quatre tranches : 25, 50, 75 %;US, sans_enseignes;25 % ou moins;31 à 90 jours;1,8;0,31;10,57;;627;5;2;2;0,8;17438;60;22;0,3;2,32;non
+quatre tranches : 25, 50, 75 %;US, sans_enseignes;25 % ou moins;plus d'un an;1,09;0,49;2,43;;75430;28;16;16;0,39;560110;141;86;0,11;1,47;non
+quatre tranches : 25, 50, 75 %;US, sans_enseignes;25 à 50 %;plus d'un an;0,92;0,46;1,87;;66419;10;10;9;0,1;112237;17;15;0,12;0,99;oui
+quatre tranches : 25, 50, 75 %;US, sans_enseignes;50 à 75 %;8 à 30 jours;1,51;0,69;3,29;;887;23;8;7;0,3;1133;16;7;0,31;1,84;non
+quatre tranches : 25, 50, 75 %;US, sans_enseignes;50 à 75 %;31 à 90 jours;3,31;1,02;10,79;;2464;36;4;3;0,72;2404;7;5;0,43;5,02;non
+quatre tranches : 25, 50, 75 %;US, sans_enseignes;50 à 75 %;91 à 365 jours;2,11;0,72;6,17;;13599;21;7;6;0,38;6429;5;5;0,2;1,99;non
+quatre tranches : 25, 50, 75 %;US, sans_enseignes;50 à 75 %;plus d'un an;2,24;1,14;4,4;;64216;56;22;19;0,3;92754;28;20;0,29;2,89;non
+quatre tranches : 25, 50, 75 %;US, sans_enseignes;plus de 75 %;8 à 30 jours;0,71;0,36;1,38;;15155;207;61;53;0,08;1116;25;14;0,16;0,61;oui
+quatre tranches : 25, 50, 75 %;US, sans_enseignes;plus de 75 %;31 à 90 jours;0,49;0,21;1,14;;39278;106;36;33;0,11;1816;11;8;0,18;0,45;oui
+quatre tranches : 25, 50, 75 %;US, sans_enseignes;plus de 75 %;91 à 365 jours;0,24;0,12;0,51;;157038;97;63;44;0,12;4500;12;11;0,17;0,23;oui
+quatre tranches : 25, 50, 75 %;US, sans_enseignes;plus de 75 %;plus d'un an;1,37;0,96;1,96;;617898;217;133;105;0,05;303042;61;52;0,08;1,74;oui
+quatre tranches : 25, 50, 75 %;US, sans_enseignes;25 % ou moins;8 à 30 jours;;;;écartée : moins de 5 suppressions;275;3;1;1;1,0;6780;72;28;0,18;1,03;non
+quatre tranches : 25, 50, 75 %;US, sans_enseignes;25 % ou moins;91 à 365 jours;;;;écartée : moins de 5 suppressions;3413;0;0;0;;66923;49;35;0,08;0,0;non
+quatre tranches : 25, 50, 75 %;US, sans_enseignes;25 à 50 %;8 à 30 jours;;;;écartée : moins de 5 suppressions;480;1;1;1;1,0;1536;16;8;0,38;0,2;non
+quatre tranches : 25, 50, 75 %;US, sans_enseignes;25 à 50 %;31 à 90 jours;;;;écartée : moins de 5 suppressions;1383;2;2;2;0,5;3205;19;7;0,47;0,24;non
+quatre tranches : 25, 50, 75 %;US, sans_enseignes;25 à 50 %;91 à 365 jours;;;;écartée : moins de 5 suppressions;7693;0;0;0;;10698;5;4;0,4;0,0;non
+quatre tranches : 25, 50, 75 %;Europe, tous;25 % ou moins;plus d'un an;0,96;0,44;2,1;;67442;19;17;17;0,11;640071;139;96;0,27;1,3;non
+quatre tranches : 25, 50, 75 %;Europe, tous;25 à 50 %;8 à 30 jours;1,3;1,06;1,6;;866;58;2;2;0,98;2868;141;4;0,94;1,36;non
+quatre tranches : 25, 50, 75 %;Europe, tous;25 à 50 %;91 à 365 jours;2,1;0,95;4,66;;8953;9;9;8;0,11;14176;8;8;0,12;1,78;non
+quatre tranches : 25, 50, 75 %;Europe, tous;25 à 50 %;plus d'un an;1,57;0,71;3,48;;62059;14;13;13;0,14;136635;12;12;0,08;2,57;oui
+quatre tranches : 25, 50, 75 %;Europe, tous;50 à 75 %;8 à 30 jours;1,54;1,16;2,05;;1435;73;2;2;0,99;1358;45;3;0,93;1,54;non
+quatre tranches : 25, 50, 75 %;Europe, tous;50 à 75 %;plus d'un an;0,87;0,4;1,86;;74688;13;11;11;0,15;105548;16;15;0,12;1,15;oui
+quatre tranches : 25, 50, 75 %;Europe, tous;plus de 75 %;8 à 30 jours;0,48;0,22;1,02;;10167;42;23;23;0,21;974;15;13;0,13;0,27;oui
+quatre tranches : 25, 50, 75 %;Europe, tous;plus de 75 %;31 à 90 jours;0,18;0,03;1,19;;25363;16;14;13;0,12;1039;7;2;0,86;0,09;non
+quatre tranches : 25, 50, 75 %;Europe, tous;plus de 75 %;91 à 365 jours;0,29;0,11;0,76;;96617;35;34;27;0,06;3046;7;6;0,29;0,16;non
+quatre tranches : 25, 50, 75 %;Europe, tous;plus de 75 %;plus d'un an;0,95;0,62;1,44;;454619;93;82;74;0,03;275482;59;42;0,12;0,96;oui
+quatre tranches : 25, 50, 75 %;Europe, tous;25 % ou moins;8 à 30 jours;;;;écartée : moins de 5 suppressions;305;0;0;0;;7503;44;22;0,27;0,0;non
+quatre tranches : 25, 50, 75 %;Europe, tous;25 % ou moins;31 à 90 jours;;;;écartée : moins de 5 suppressions;669;0;0;0;;16545;16;14;0,12;0,0;non
+quatre tranches : 25, 50, 75 %;Europe, tous;25 % ou moins;91 à 365 jours;;;;écartée : moins de 5 suppressions;2446;0;0;0;;61876;38;30;0,21;0,0;non
+quatre tranches : 25, 50, 75 %;Europe, tous;25 à 50 %;31 à 90 jours;;;;écartée : moins de 5 suppressions;2304;3;3;3;0,33;4515;5;5;0,2;1,18;non
+quatre tranches : 25, 50, 75 %;Europe, tous;50 à 75 %;31 à 90 jours;;;;écartée : moins de 5 suppressions;3747;4;3;3;0,5;2259;4;3;0,5;0,6;non
+quatre tranches : 25, 50, 75 %;Europe, tous;50 à 75 %;91 à 365 jours;;;;écartée : moins de 5 suppressions;14043;9;9;9;0,11;7717;3;2;0,67;1,65;non
+quatre tranches : 25, 50, 75 %;Europe, sans_enseignes;25 % ou moins;plus d'un an;1,03;0,48;2,19;;67442;19;17;17;0,11;640071;139;96;0,27;1,3;non
+quatre tranches : 25, 50, 75 %;Europe, sans_enseignes;25 à 50 %;91 à 365 jours;1,95;0,88;4,3;;8938;9;9;8;0,11;14160;8;8;0,12;1,78;non
+quatre tranches : 25, 50, 75 %;Europe, sans_enseignes;25 à 50 %;plus d'un an;1,62;0,72;3,64;;61556;12;12;12;0,08;136629;12;12;0,08;2,22;oui
+quatre tranches : 25, 50, 75 %;Europe, sans_enseignes;50 à 75 %;plus d'un an;0,87;0,41;1,87;;74236;13;11;11;0,15;105547;16;15;0,12;1,16;oui
+quatre tranches : 25, 50, 75 %;Europe, sans_enseignes;plus de 75 %;8 à 30 jours;0,39;0,19;0,8;;10167;42;23;23;0,21;974;15;13;0,13;0,27;oui
+quatre tranches : 25, 50, 75 %;Europe, sans_enseignes;plus de 75 %;31 à 90 jours;0,14;0,02;0,88;;25363;16;14;13;0,12;1039;7;2;0,86;0,09;non
+quatre tranches : 25, 50, 75 %;Europe, sans_enseignes;plus de 75 %;91 à 365 jours;0,23;0,09;0,59;;96617;35;34;27;0,06;3046;7;6;0,29;0,16;non
+quatre tranches : 25, 50, 75 %;Europe, sans_enseignes;plus de 75 %;plus d'un an;0,83;0,55;1,25;;454619;93;82;74;0,03;275482;59;42;0,12;0,96;oui
+quatre tranches : 25, 50, 75 %;Europe, sans_enseignes;25 % ou moins;8 à 30 jours;;;;écartée : moins de 5 suppressions;305;0;0;0;;7503;44;22;0,27;0,0;non
+quatre tranches : 25, 50, 75 %;Europe, sans_enseignes;25 % ou moins;31 à 90 jours;;;;écartée : moins de 5 suppressions;669;0;0;0;;16545;16;14;0,12;0,0;non
+quatre tranches : 25, 50, 75 %;Europe, sans_enseignes;25 % ou moins;91 à 365 jours;;;;écartée : moins de 5 suppressions;2446;0;0;0;;61876;38;30;0,21;0,0;non
+quatre tranches : 25, 50, 75 %;Europe, sans_enseignes;25 à 50 %;8 à 30 jours;;;;écartée : moins de 5 suppressions;808;1;1;1;1,0;2735;8;3;0,62;0,42;non
+quatre tranches : 25, 50, 75 %;Europe, sans_enseignes;25 à 50 %;31 à 90 jours;;;;écartée : moins de 5 suppressions;2291;3;3;3;0,33;4515;5;5;0,2;1,18;non
+quatre tranches : 25, 50, 75 %;Europe, sans_enseignes;50 à 75 %;8 à 30 jours;;;;écartée : moins de 5 suppressions;1360;1;1;1;1,0;1315;3;2;0,67;0,32;non
+quatre tranches : 25, 50, 75 %;Europe, sans_enseignes;50 à 75 %;31 à 90 jours;;;;écartée : moins de 5 suppressions;3736;4;3;3;0,5;2259;4;3;0,5;0,6;non
+quatre tranches : 25, 50, 75 %;Europe, sans_enseignes;50 à 75 %;91 à 365 jours;;;;écartée : moins de 5 suppressions;14016;9;9;9;0,11;7680;3;2;0,67;1,64;non
+coupure à 50 %;ensemble, tous;50 % ou moins;8 à 30 jours;1,39;0,6;3,24;;2034;63;5;5;0,9;20498;337;73;0,39;1,88;non
+coupure à 50 %;ensemble, tous;50 % ou moins;31 à 90 jours;0,36;0,12;1,06;;5327;10;7;7;0,4;47723;175;56;0,19;0,51;non
+coupure à 50 %;ensemble, tous;50 % ou moins;91 à 365 jours;0,49;0,28;0,84;;25719;14;13;9;0,14;171041;135;91;0,06;0,69;oui
+coupure à 50 %;ensemble, tous;50 % ou moins;plus d'un an;1,17;0,83;1,66;;297117;145;69;57;0,12;1531866;450;227;0,08;1,66;oui
+coupure à 50 %;ensemble, tous;plus de 50 %;8 à 30 jours;0,66;0,41;1,04;;28690;438;124;88;0,16;4730;129;38;0,33;0,56;non
+coupure à 50 %;ensemble, tous;plus de 50 %;31 à 90 jours;0,63;0,32;1,25;;73700;172;62;54;0,15;7694;32;20;0,19;0,56;oui
+coupure à 50 %;ensemble, tous;plus de 50 %;91 à 365 jours;0,57;0,34;0,95;;293837;202;128;87;0,06;21888;28;25;0,07;0,54;oui
+coupure à 50 %;ensemble, tous;plus de 50 %;plus d'un an;1,4;1,12;1,76;;1274057;518;283;210;0,05;803165;182;139;0,04;1,79;oui
+coupure à 50 %;ensemble, sans_enseignes;50 % ou moins;8 à 30 jours;0,35;0,09;1,33;;1868;5;3;3;0,6;18554;140;61;0,09;0,35;non
+coupure à 50 %;ensemble, sans_enseignes;50 % ou moins;31 à 90 jours;0,82;0,29;2,27;;4970;10;7;7;0,4;41703;100;48;0,18;0,84;non
+coupure à 50 %;ensemble, sans_enseignes;50 % ou moins;91 à 365 jours;0,56;0,28;1,13;;22490;9;9;8;0,11;153657;100;77;0,08;0,61;non
+coupure à 50 %;ensemble, sans_enseignes;50 % ou moins;plus d'un an;0,98;0,62;1,55;;270847;69;55;54;0,16;1449047;309;209;0,12;1,19;oui
+coupure à 50 %;ensemble, sans_enseignes;plus de 50 %;8 à 30 jours;0,82;0,54;1,23;;27569;273;93;84;0,06;4538;59;36;0,08;0,76;oui
+coupure à 50 %;ensemble, sans_enseignes;plus de 50 %;31 à 90 jours;0,62;0,31;1,23;;70841;162;57;52;0,16;7518;29;18;0,21;0,59;oui
+coupure à 50 %;ensemble, sans_enseignes;plus de 50 %;91 à 365 jours;0,47;0,29;0,76;;281270;162;113;84;0,07;21655;27;24;0,07;0,46;oui
+coupure à 50 %;ensemble, sans_enseignes;plus de 50 %;plus d'un an;1,17;0,92;1,5;;1210969;379;248;207;0,04;776825;164;129;0,05;1,48;oui
+coupure à 50 %;US, tous;50 % ou moins;8 à 30 jours;0,37;0,1;1,41;;863;5;3;3;0,6;10127;152;47;0,13;0,39;non
+coupure à 50 %;US, tous;50 % ou moins;31 à 90 jours;0,5;0,13;1,91;;2354;7;4;4;0,57;26663;154;37;0,22;0,51;non
+coupure à 50 %;US, tous;50 % ou moins;91 à 365 jours;0,31;0,12;0,78;;14320;5;4;1;0,4;94989;89;53;0,08;0,37;non
+coupure à 50 %;US, tous;50 % ou moins;plus d'un an;1,32;0,91;1,92;;167616;112;39;27;0,15;755160;299;119;0,08;1,69;oui
+coupure à 50 %;US, tous;plus de 50 %;8 à 30 jours;0,6;0,3;1,18;;17088;323;99;63;0,05;2398;69;22;0,41;0,66;non
+coupure à 50 %;US, tous;plus de 50 %;31 à 90 jours;0,59;0,3;1,14;;44590;152;45;38;0,17;4396;21;15;0,14;0,71;oui
+coupure à 50 %;US, tous;plus de 50 %;91 à 365 jours;0,46;0,25;0,83;;183177;158;85;52;0,08;11125;18;17;0,11;0,53;oui
+coupure à 50 %;US, tous;plus de 50 %;plus d'un an;1,67;1,27;2,19;;744750;412;190;125;0,06;422135;107;82;0,07;2,18;oui
+coupure à 50 %;US, sans_enseignes;50 % ou moins;31 à 90 jours;0,89;0,22;3,52;;2010;7;4;4;0,57;20643;79;29;0,23;0,91;non
+coupure à 50 %;US, sans_enseignes;50 % ou moins;plus d'un an;0,97;0,51;1,84;;141849;38;26;25;0,29;672347;158;101;0,09;1,14;non
+coupure à 50 %;US, sans_enseignes;plus de 50 %;8 à 30 jours;0,79;0,47;1,31;;16042;230;69;60;0,07;2249;41;21;0,12;0,79;oui
+coupure à 50 %;US, sans_enseignes;plus de 50 %;31 à 90 jours;0,74;0,36;1,5;;41742;142;40;36;0,18;4220;18;13;0,17;0,8;oui
+coupure à 50 %;US, sans_enseignes;plus de 50 %;91 à 365 jours;0,45;0,24;0,84;;170637;118;70;49;0,1;10929;17;16;0,12;0,44;oui
+coupure à 50 %;US, sans_enseignes;plus de 50 %;plus d'un an;1,4;1,02;1,92;;682114;273;155;122;0,06;395796;89;72;0,09;1,78;oui
+coupure à 50 %;US, sans_enseignes;50 % ou moins;8 à 30 jours;;;;écartée : moins de 5 suppressions;755;4;2;2;0,75;8316;88;36;0,15;0,5;non
+coupure à 50 %;US, sans_enseignes;50 % ou moins;91 à 365 jours;;;;écartée : moins de 5 suppressions;11106;0;0;0;;77621;54;39;0,07;0,0;non
+coupure à 50 %;Europe, tous;50 % ou moins;8 à 30 jours;1,86;1,25;2,76;;1171;58;2;2;0,98;10371;185;26;0,72;2,78;non
+coupure à 50 %;Europe, tous;50 % ou moins;91 à 365 jours;0,99;0,49;2,0;;11399;9;9;8;0,11;76052;46;38;0,17;1,31;non
+coupure à 50 %;Europe, tous;50 % ou moins;plus d'un an;0,86;0,45;1,64;;129501;33;30;30;0,06;776706;151;108;0,25;1,31;oui
+coupure à 50 %;Europe, tous;plus de 50 %;8 à 30 jours;0,67;0,47;0,94;;11602;115;25;25;0,63;2332;60;16;0,7;0,39;non
+coupure à 50 %;Europe, tous;plus de 50 %;31 à 90 jours;0,35;0,1;1,28;;29110;20;17;16;0,1;3298;11;5;0,55;0,21;non
+coupure à 50 %;Europe, tous;plus de 50 %;91 à 365 jours;0,71;0,31;1,59;;110660;44;43;35;0,05;10763;10;8;0,2;0,43;oui
+coupure à 50 %;Europe, tous;plus de 50 %;plus d'un an;0,98;0,68;1,41;;529307;106;93;85;0,03;381030;75;57;0,09;1,02;oui
+coupure à 50 %;Europe, tous;50 % ou moins;31 à 90 jours;;;;écartée : moins de 5 suppressions;2973;3;3;3;0,33;21060;21;19;0,1;1,01;non
+coupure à 50 %;Europe, sans_enseignes;50 % ou moins;91 à 365 jours;1,16;0,57;2,36;;11384;9;9;8;0,11;76036;46;38;0,17;1,31;non
+coupure à 50 %;Europe, sans_enseignes;50 % ou moins;plus d'un an;0,95;0,49;1,82;;128998;31;29;29;0,06;776700;151;108;0,25;1,24;oui
+coupure à 50 %;Europe, sans_enseignes;plus de 50 %;8 à 30 jours;0,62;0,31;1,25;;11527;43;24;24;0,21;2289;18;15;0,11;0,47;oui
+coupure à 50 %;Europe, sans_enseignes;plus de 50 %;31 à 90 jours;0,27;0,08;0,96;;29099;20;17;16;0,1;3298;11;5;0,55;0,21;non
+coupure à 50 %;Europe, sans_enseignes;plus de 50 %;91 à 365 jours;0,53;0,24;1,18;;110633;44;43;35;0,05;10726;10;8;0,2;0,43;oui
+coupure à 50 %;Europe, sans_enseignes;plus de 50 %;plus d'un an;0,87;0,61;1,25;;528855;106;93;85;0,03;381029;75;57;0,09;1,02;oui
+coupure à 50 %;Europe, sans_enseignes;50 % ou moins;8 à 30 jours;;;;écartée : moins de 5 suppressions;1113;1;1;1;1,0;10238;52;25;0,23;0,18;non
+coupure à 50 %;Europe, sans_enseignes;50 % ou moins;31 à 90 jours;;;;écartée : moins de 5 suppressions;2960;3;3;3;0,33;21060;21;19;0,1;1,02;non
+coupure à 90 %;ensemble, tous;90 % ou moins;8 à 30 jours;1,43;0,84;2,41;;7466;189;28;27;0,38;24138;433;90;0,31;1,41;non
+coupure à 90 %;ensemble, tous;90 % ou moins;31 à 90 jours;0,94;0,37;2,36;;18747;63;20;19;0,41;54143;190;67;0,18;0,96;non
+coupure à 90 %;ensemble, tous;90 % ou moins;91 à 365 jours;0,78;0,49;1,24;;80490;53;37;30;0,15;189696;151;105;0,05;0,83;oui
+coupure à 90 %;ensemble, tous;90 % ou moins;plus d'un an;1,22;0,92;1,62;;557528;247;131;113;0,07;1856697;519;279;0,07;1,58;oui
+coupure à 90 %;ensemble, tous;plus de 90 %;8 à 30 jours;0,65;0,37;1,15;;23258;312;101;66;0,05;1090;33;21;0,12;0,44;oui
+coupure à 90 %;ensemble, tous;plus de 90 %;31 à 90 jours;0,26;0,1;0,68;;60280;119;49;43;0,1;1274;17;9;0,35;0,15;non
+coupure à 90 %;ensemble, tous;plus de 90 %;91 à 365 jours;0,26;0,13;0,51;;239066;163;104;68;0,07;3233;12;11;0,17;0,18;oui
+coupure à 90 %;ensemble, tous;plus de 90 %;plus d'un an;1,41;1,07;1,84;;1013646;416;221;158;0,06;478334;113;87;0,06;1,74;oui
+coupure à 90 %;ensemble, sans_enseignes;90 % ou moins;8 à 30 jours;1,02;0,58;1,81;;7217;59;25;24;0,15;22009;166;76;0,08;1,08;oui
+coupure à 90 %;ensemble, sans_enseignes;90 % ou moins;31 à 90 jours;1,3;0,53;3,21;;18169;60;19;18;0,43;47985;113;58;0,16;1,4;non
+coupure à 90 %;ensemble, sans_enseignes;90 % ou moins;91 à 365 jours;0,81;0,49;1,37;;76883;46;32;28;0,17;172112;116;91;0,07;0,89;oui
+coupure à 90 %;ensemble, sans_enseignes;90 % ou moins;plus d'un an;1,2;0,84;1,7;;530557;170;116;110;0,1;1773485;378;261;0,1;1,5;oui
+coupure à 90 %;ensemble, sans_enseignes;plus de 90 %;8 à 30 jours;0,47;0,27;0,82;;22220;219;71;63;0,07;1083;33;21;0,12;0,32;oui
+coupure à 90 %;ensemble, sans_enseignes;plus de 90 %;31 à 90 jours;0,23;0,09;0,63;;57642;112;45;41;0,11;1236;16;8;0,38;0,15;non
+coupure à 90 %;ensemble, sans_enseignes;plus de 90 %;91 à 365 jours;0,23;0,11;0,46;;226877;125;90;65;0,1;3200;11;10;0,18;0,16;oui
+coupure à 90 %;ensemble, sans_enseignes;plus de 90 %;plus d'un an;1,13;0,83;1,55;;951259;278;187;155;0,04;452387;95;77;0,07;1,39;oui
+coupure à 90 %;US, tous;90 % ou moins;8 à 30 jours;0,74;0,38;1,42;;3427;37;16;15;0,19;11914;199;57;0,14;0,65;oui
+coupure à 90 %;US, tous;90 % ou moins;31 à 90 jours;1,21;0,46;3,16;;8916;54;12;11;0,48;30183;164;44;0,21;1,11;non
+coupure à 90 %;US, tous;90 % ou moins;91 à 365 jours;0,87;0,45;1,68;;43568;33;17;13;0,24;103932;97;61;0,07;0,81;oui
+coupure à 90 %;US, tous;90 % ou moins;plus d'un an;1,39;1,03;1,87;;298125;188;78;60;0,09;901764;342;149;0,07;1,66;oui
+coupure à 90 %;US, tous;plus de 90 %;8 à 30 jours;0,63;0,3;1,33;;14524;291;86;51;0,05;611;22;12;0,18;0,56;oui
+coupure à 90 %;US, tous;plus de 90 %;31 à 90 jours;0,24;0,1;0,57;;38028;105;37;32;0,11;876;11;8;0,18;0,22;oui
+coupure à 90 %;US, tous;plus de 90 %;91 à 365 jours;0,18;0,08;0,38;;153929;130;72;42;0,09;2182;10;9;0,2;0,18;oui
+coupure à 90 %;US, tous;plus de 90 %;plus d'un an;1,88;1,39;2,54;;614241;336;151;94;0,07;275531;64;52;0,06;2,36;oui
+coupure à 90 %;US, sans_enseignes;90 % ou moins;8 à 30 jours;0,92;0,48;1,8;;3311;36;15;14;0,19;9961;107;45;0,12;1,01;oui
+coupure à 90 %;US, sans_enseignes;90 % ou moins;31 à 90 jours;1,44;0,53;3,93;;8362;51;11;10;0,51;24025;87;35;0,21;1,68;non
+coupure à 90 %;US, sans_enseignes;90 % ou moins;91 à 365 jours;0,84;0,37;1,89;;40003;26;12;11;0,31;86401;62;47;0,06;0,91;non
+coupure à 90 %;US, sans_enseignes;90 % ou moins;plus d'un an;1,36;0,89;2,05;;272109;113;64;58;0,15;818559;201;131;0,07;1,69;oui
+coupure à 90 %;US, sans_enseignes;plus de 90 %;8 à 30 jours;0,54;0,26;1,14;;13486;198;56;48;0,08;604;22;12;0,18;0,4;oui
+coupure à 90 %;US, sans_enseignes;plus de 90 %;31 à 90 jours;0,31;0,12;0,76;;35390;98;33;30;0,12;838;10;7;0,2;0,23;oui
+coupure à 90 %;US, sans_enseignes;plus de 90 %;91 à 365 jours;0,19;0,08;0,44;;141740;92;58;39;0,13;2149;9;8;0,22;0,15;non
+coupure à 90 %;US, sans_enseignes;plus de 90 %;plus d'un an;1,53;1,05;2,23;;551854;198;117;91;0,05;249584;46;42;0,04;1,95;oui
+coupure à 90 %;Europe, tous;90 % ou moins;8 à 30 jours;1,74;0,97;3,13;;4039;152;12;12;0,47;12224;234;33;0,57;1,97;non
+coupure à 90 %;Europe, tous;90 % ou moins;31 à 90 jours;0,76;0,33;1,74;;9831;9;8;8;0,22;23960;26;23;0,08;0,84;non
+coupure à 90 %;Europe, tous;90 % ou moins;91 à 365 jours;0,75;0,44;1,27;;36922;20;20;17;0,05;85764;54;44;0,15;0,86;oui
+coupure à 90 %;Europe, tous;90 % ou moins;plus d'un an;0,89;0,52;1,5;;259403;59;53;53;0,03;954933;177;130;0,21;1,23;oui
+coupure à 90 %;Europe, tous;plus de 90 %;8 à 30 jours;0,19;0,08;0,49;;8734;21;15;15;0,19;479;11;9;0,18;0,1;oui
+coupure à 90 %;Europe, tous;plus de 90 %;31 à 90 jours;0,09;0,01;0,72;;22252;14;12;11;0,14;398;6;1;1,0;0,04;non
+coupure à 90 %;Europe, tous;plus de 90 %;plus d'un an;0,83;0,53;1,32;;399405;80;70;64;0,04;202803;49;35;0,14;0,83;oui
+coupure à 90 %;Europe, tous;plus de 90 %;91 à 365 jours;;;;écartée : moins de 5 suppressions;85137;33;32;26;0,06;1051;2;2;0,5;0,2;non
+coupure à 90 %;Europe, sans_enseignes;90 % ou moins;8 à 30 jours;1,24;0,45;3,42;;3906;23;10;10;0,39;12048;59;31;0,2;1,2;non
+coupure à 90 %;Europe, sans_enseignes;90 % ou moins;31 à 90 jours;0,83;0,37;1,88;;9807;9;8;8;0,22;23960;26;23;0,08;0,85;non
+coupure à 90 %;Europe, sans_enseignes;90 % ou moins;91 à 365 jours;0,81;0,47;1,37;;36880;20;20;17;0,05;85711;54;44;0,15;0,86;oui
+coupure à 90 %;Europe, sans_enseignes;90 % ou moins;plus d'un an;0,95;0,55;1,61;;258448;57;52;52;0,04;954926;177;130;0,21;1,19;oui
+coupure à 90 %;Europe, sans_enseignes;plus de 90 %;8 à 30 jours;0,17;0,07;0,4;;8734;21;15;15;0,19;479;11;9;0,18;0,1;oui
+coupure à 90 %;Europe, sans_enseignes;plus de 90 %;31 à 90 jours;0,07;0,01;0,56;;22252;14;12;11;0,14;398;6;1;1,0;0,04;non
+coupure à 90 %;Europe, sans_enseignes;plus de 90 %;plus d'un an;0,74;0,47;1,16;;399405;80;70;64;0,04;202803;49;35;0,14;0,83;oui
+coupure à 90 %;Europe, sans_enseignes;plus de 90 %;91 à 365 jours;;;;écartée : moins de 5 suppressions;85137;33;32;26;0,06;1051;2;2;0,5;0,2;non

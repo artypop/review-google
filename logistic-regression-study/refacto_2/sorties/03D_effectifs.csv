@@ -1,0 +1,176 @@
+passage;caracteristique;case;avis;suppressions;fiches_touchees
+US, tous;total;;17104;940;215
+US, tous;note;3 étoile(s);317;4;4
+US, tous;note;1 étoile(s);1019;93;48
+US, tous;note;2 étoile(s);258;11;10
+US, tous;note;4 étoile(s);882;25;22
+US, tous;note;5 étoile(s);14628;807;159
+US, tous;pic;pas de pic;10822;529;174
+US, tous;pic;pic;6282;411;114
+US, tous;local_guide;sans niveau;1572;122;74
+US, tous;local_guide;niveau 1 à 4;12678;762;178
+US, tous;local_guide;niveau 5 et plus;2854;56;42
+US, tous;photo_avis;sans photo;15831;906;208
+US, tous;photo_avis;avec photo;1273;34;26
+US, tous;texte;sans texte;4000;240;89
+US, tous;texte;1 à 50 caractères;2775;146;87
+US, tous;texte;51 à 200 caractères;6212;320;108
+US, tous;texte;plus de 200 caractères;4117;234;123
+US, tous;photos_auteur;0 photo;10989;703;185
+US, tous;photos_auteur;1 à 20 photos;4710;227;117
+US, tous;photos_auteur;plus de 20 photos;1405;10;10
+US, tous;avis_auteur;1 avis ou moins;5156;327;134
+US, tous;avis_auteur;2 à 20 avis;9309;555;160
+US, tous;avis_auteur;plus de 20 avis;2639;58;48
+US, tous;reponse;n'a pas répondu;7269;497;129
+US, tous;reponse;a répondu;9835;443;110
+US, tous;secteur_fr;automobile;2923;85;26
+US, tous;secteur_fr;services à domicile;4550;566;101
+US, tous;secteur_fr;santé;2522;119;29
+US, tous;secteur_fr;sport et bien-être;1046;56;21
+US, tous;secteur_fr;restauration;3334;57;18
+US, tous;secteur_fr;voyage;1127;38;7
+US, tous;secteur_fr;hôtellerie;1602;19;13
+US, tous;taille;mono;3604;90;38
+US, tous;taille;small;4847;268;72
+US, tous;taille;large;8653;582;105
+US, sans_enseignes;total;;15180;539;167
+US, sans_enseignes;note;3 étoile(s);305;3;3
+US, sans_enseignes;note;1 étoile(s);924;81;42
+US, sans_enseignes;note;2 étoile(s);252;10;9
+US, sans_enseignes;note;4 étoile(s);821;13;13
+US, sans_enseignes;note;5 étoile(s);12878;432;115
+US, sans_enseignes;pic;pas de pic;9391;297;128
+US, sans_enseignes;pic;pic;5789;242;86
+US, sans_enseignes;local_guide;sans niveau;1420;93;56
+US, sans_enseignes;local_guide;niveau 1 à 4;11052;410;131
+US, sans_enseignes;local_guide;niveau 5 et plus;2708;36;32
+US, sans_enseignes;photo_avis;sans photo;13927;508;161
+US, sans_enseignes;photo_avis;avec photo;1253;31;23
+US, sans_enseignes;texte;sans texte;3447;118;55
+US, sans_enseignes;texte;1 à 50 caractères;2485;80;54
+US, sans_enseignes;texte;51 à 200 caractères;5501;178;72
+US, sans_enseignes;texte;plus de 200 caractères;3747;163;94
+US, sans_enseignes;photos_auteur;0 photo;9551;400;140
+US, sans_enseignes;photos_auteur;1 à 20 photos;4273;130;78
+US, sans_enseignes;photos_auteur;plus de 20 photos;1356;9;9
+US, sans_enseignes;avis_auteur;1 avis ou moins;4571;212;98
+US, sans_enseignes;avis_auteur;2 à 20 avis;8118;290;113
+US, sans_enseignes;avis_auteur;plus de 20 avis;2491;37;34
+US, sans_enseignes;reponse;n'a pas répondu;6157;328;113
+US, sans_enseignes;reponse;a répondu;9023;211;74
+US, sans_enseignes;secteur_fr;automobile;2923;85;26
+US, sans_enseignes;secteur_fr;services à domicile;2626;165;53
+US, sans_enseignes;secteur_fr;santé;2522;119;29
+US, sans_enseignes;secteur_fr;sport et bien-être;1046;56;21
+US, sans_enseignes;secteur_fr;restauration;3334;57;18
+US, sans_enseignes;secteur_fr;voyage;1127;38;7
+US, sans_enseignes;secteur_fr;hôtellerie;1602;19;13
+US, sans_enseignes;taille;mono;3604;90;38
+US, sans_enseignes;taille;small;4847;268;72
+US, sans_enseignes;taille;large;6729;181;57
+EU, tous;total;;13524;251;114
+EU, tous;note;3 étoile(s);730;6;6
+EU, tous;note;1 étoile(s);1105;61;49
+EU, tous;note;2 étoile(s);491;11;10
+EU, tous;note;4 étoile(s);1776;15;11
+EU, tous;note;5 étoile(s);9422;158;50
+EU, tous;pic;pas de pic;7805;108;79
+EU, tous;pic;pic;5719;143;49
+EU, tous;local_guide;sans niveau;939;52;16
+EU, tous;local_guide;niveau 1 à 4;8540;158;89
+EU, tous;local_guide;niveau 5 et plus;4045;41;33
+EU, tous;photo_avis;sans photo;12088;225;107
+EU, tous;photo_avis;avec photo;1436;26;16
+EU, tous;texte;sans texte;4170;38;24
+EU, tous;texte;1 à 50 caractères;1651;32;20
+EU, tous;texte;51 à 200 caractères;3573;79;36
+EU, tous;texte;plus de 200 caractères;4130;102;64
+EU, tous;photos_auteur;0 photo;6879;149;73
+EU, tous;photos_auteur;1 à 20 photos;4270;82;49
+EU, tous;photos_auteur;plus de 20 photos;2375;20;17
+EU, tous;avis_auteur;1 avis ou moins;3712;106;39
+EU, tous;avis_auteur;2 à 20 avis;6455;106;71
+EU, tous;avis_auteur;plus de 20 avis;3357;39;31
+EU, tous;reponse;n'a pas répondu;7726;186;91
+EU, tous;reponse;a répondu;5798;65;31
+EU, tous;secteur_fr;automobile;1081;25;12
+EU, tous;secteur_fr;services à domicile;836;33;12
+EU, tous;secteur_fr;santé;992;9;8
+EU, tous;secteur_fr;sport et bien-être;1903;42;21
+EU, tous;secteur_fr;restauration;2878;38;17
+EU, tous;secteur_fr;voyage;1044;20;5
+EU, tous;secteur_fr;hôtellerie;4790;84;39
+EU, tous;taille;mono;3397;72;26
+EU, tous;taille;small;4921;89;38
+EU, tous;taille;large;5206;90;50
+ensemble, tous;total;;30628;1191;329
+ensemble, tous;note;3 étoile(s);1047;10;10
+ensemble, tous;note;1 étoile(s);2124;154;97
+ensemble, tous;note;2 étoile(s);749;22;20
+ensemble, tous;note;4 étoile(s);2658;40;33
+ensemble, tous;note;5 étoile(s);24050;965;209
+ensemble, tous;pic;pas de pic;18627;637;253
+ensemble, tous;pic;pic;12001;554;163
+ensemble, tous;local_guide;sans niveau;2511;174;90
+ensemble, tous;local_guide;niveau 1 à 4;21218;920;267
+ensemble, tous;local_guide;niveau 5 et plus;6899;97;75
+ensemble, tous;photo_avis;sans photo;27919;1131;315
+ensemble, tous;photo_avis;avec photo;2709;60;42
+ensemble, tous;texte;sans texte;8170;278;113
+ensemble, tous;texte;1 à 50 caractères;4426;178;107
+ensemble, tous;texte;51 à 200 caractères;9785;399;144
+ensemble, tous;texte;plus de 200 caractères;8247;336;187
+ensemble, tous;photos_auteur;0 photo;17868;852;258
+ensemble, tous;photos_auteur;1 à 20 photos;8980;309;166
+ensemble, tous;photos_auteur;plus de 20 photos;3780;30;27
+ensemble, tous;avis_auteur;1 avis ou moins;8868;433;173
+ensemble, tous;avis_auteur;2 à 20 avis;15764;661;231
+ensemble, tous;avis_auteur;plus de 20 avis;5996;97;79
+ensemble, tous;reponse;n'a pas répondu;14995;683;220
+ensemble, tous;reponse;a répondu;15633;508;141
+ensemble, tous;secteur_fr;automobile;4004;110;38
+ensemble, tous;secteur_fr;services à domicile;5386;599;113
+ensemble, tous;secteur_fr;santé;3514;128;37
+ensemble, tous;secteur_fr;sport et bien-être;2949;98;42
+ensemble, tous;secteur_fr;restauration;6212;95;35
+ensemble, tous;secteur_fr;voyage;2171;58;12
+ensemble, tous;secteur_fr;hôtellerie;6392;103;52
+ensemble, tous;taille;mono;7001;162;64
+ensemble, tous;taille;small;9768;357;110
+ensemble, tous;taille;large;13859;672;155
+ensemble, sans_enseignes;total;;28704;790;281
+ensemble, sans_enseignes;note;3 étoile(s);1035;9;9
+ensemble, sans_enseignes;note;1 étoile(s);2029;142;91
+ensemble, sans_enseignes;note;2 étoile(s);743;21;19
+ensemble, sans_enseignes;note;4 étoile(s);2597;28;24
+ensemble, sans_enseignes;note;5 étoile(s);22300;590;165
+ensemble, sans_enseignes;pic;pas de pic;17196;405;207
+ensemble, sans_enseignes;pic;pic;11508;385;135
+ensemble, sans_enseignes;local_guide;sans niveau;2359;145;72
+ensemble, sans_enseignes;local_guide;niveau 1 à 4;19592;568;220
+ensemble, sans_enseignes;local_guide;niveau 5 et plus;6753;77;65
+ensemble, sans_enseignes;photo_avis;sans photo;26015;733;268
+ensemble, sans_enseignes;photo_avis;avec photo;2689;57;39
+ensemble, sans_enseignes;texte;sans texte;7617;156;79
+ensemble, sans_enseignes;texte;1 à 50 caractères;4136;112;74
+ensemble, sans_enseignes;texte;51 à 200 caractères;9074;257;108
+ensemble, sans_enseignes;texte;plus de 200 caractères;7877;265;158
+ensemble, sans_enseignes;photos_auteur;0 photo;16430;549;213
+ensemble, sans_enseignes;photos_auteur;1 à 20 photos;8543;212;127
+ensemble, sans_enseignes;photos_auteur;plus de 20 photos;3731;29;26
+ensemble, sans_enseignes;avis_auteur;1 avis ou moins;8283;318;137
+ensemble, sans_enseignes;avis_auteur;2 à 20 avis;14573;396;184
+ensemble, sans_enseignes;avis_auteur;plus de 20 avis;5848;76;65
+ensemble, sans_enseignes;reponse;n'a pas répondu;13883;514;204
+ensemble, sans_enseignes;reponse;a répondu;14821;276;105
+ensemble, sans_enseignes;secteur_fr;automobile;4004;110;38
+ensemble, sans_enseignes;secteur_fr;services à domicile;3462;198;65
+ensemble, sans_enseignes;secteur_fr;santé;3514;128;37
+ensemble, sans_enseignes;secteur_fr;sport et bien-être;2949;98;42
+ensemble, sans_enseignes;secteur_fr;restauration;6212;95;35
+ensemble, sans_enseignes;secteur_fr;voyage;2171;58;12
+ensemble, sans_enseignes;secteur_fr;hôtellerie;6392;103;52
+ensemble, sans_enseignes;taille;mono;7001;162;64
+ensemble, sans_enseignes;taille;small;9768;357;110
+ensemble, sans_enseignes;taille;large;11935;271;107

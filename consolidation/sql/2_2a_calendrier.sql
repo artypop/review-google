@@ -14,7 +14,7 @@ SELECT
   DATE(r.deleted_detected_at)                       AS jour_suppression,
   r.star                                            AS note,
   COUNT(*)                                          AS avis_supprimes
-FROM `client-divers.reviewflowz.reviews_doublons_cleaned` r
+FROM `client-divers.reviewflowz.reviews_doublons_cleaned_all` r
 JOIN `client-divers.reviewflowz.biz_surveillance` s USING (cid)
 WHERE r.deleted_detected_at IS NOT NULL
 GROUP BY groupe, enseigne, jour_publication, jour_suppression, note

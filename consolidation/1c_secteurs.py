@@ -2,7 +2,7 @@
 
     uv run python consolidation/1c_secteurs.py
 
-Base complète (`reviews_doublons_cleaned`). Produit :
+Base complète (`reviews_doublons_cleaned_all`). Produit :
   sorties/1c_avis_secteur_taille.csv
   sorties/1c_suppressions_secteur_region.csv   le CSV de l'histogramme
   sorties/figures/1c_suppressions_secteur_region.png

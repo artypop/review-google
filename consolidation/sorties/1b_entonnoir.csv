@@ -1,10 +1,10 @@
 ordre;etape;lignes;avis;avis_supprimes
 1;1. export brut (reviews);4880163;4877534;5192
 2;2. une ligne par avis, la dernière version;4877534;4877534;4697
-3;3. sans les avis qui ont clignoté;4876933;4876933;4590
-4;4. sans les avis modifiés plus d'un an après publication (= reviews_doublons_cleaned);4751680;4751680;4035
-5;5. publiés du 4 au 17 août, J-7 à J+6 (= 03B);35751;35751;1355
-6;contrôle : avis de l'étape 4 absents de la table reviews_doublons_cleaned;0;0;
-7;contrôle : avis de la table reviews_doublons_cleaned absents de l'étape 4;0;0;
-8;contrôle : avis de l'étape 5 absents de la table 03B;0;0;
-9;contrôle : avis de la table 03B absents de l'étape 5;0;0;
+3;3. sans les avis qui ont clignoté (= reviews_doublons_cleaned_all);4876933;4876933;4590
+4;4. publiés du 4 au 17 août, J-7 à J+6 (= 03B);35751;35751;1355
+5;contrôle : avis de l'étape 3 absents de la table reviews_doublons_cleaned_all;0;0;
+6;contrôle : avis de la table reviews_doublons_cleaned_all absents de l'étape 3;0;0;
+7;contrôle : avis supprimés à l'étape 3 et en ligne dans la table, ou l'inverse;0;0;
+8;contrôle : avis de l'étape 4 absents de la table 03B;0;0;
+9;contrôle : avis de la table 03B absents de l'étape 4;0;0;

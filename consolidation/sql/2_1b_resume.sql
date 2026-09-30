@@ -26,7 +26,7 @@ avis AS (
     GREATEST(DATE_DIFF(pv.premier_jour_vu, DATE(r.created_at), DAY), 0) AS age_entree,
     DATE_DIFF(COALESCE(DATE(r.deleted_detected_at), DATE "2026-08-24"),
               DATE(r.created_at), DAY) AS age_sortie
-  FROM `client-divers.reviewflowz.reviews_doublons_cleaned` r
+  FROM `client-divers.reviewflowz.reviews_doublons_cleaned_all` r
   JOIN premiere_vue pv USING (review_id)
   LEFT JOIN `client-divers.reviewflowz.businesses` b USING (cid)
   LEFT JOIN `client-divers.reviewflowz.biz_surveillance` s USING (cid)

@@ -15,7 +15,7 @@ WITH supprimes AS (
        "salles_espagnoles", "chaines_antiparasitaires") AS groupe,
     DATE(r.created_at)          AS jour_publication,
     DATE(r.deleted_detected_at) AS jour_suppression
-  FROM `client-divers.reviewflowz.reviews_doublons_cleaned` r
+  FROM `client-divers.reviewflowz.reviews_doublons_cleaned_all` r
   JOIN `client-divers.reviewflowz.biz_surveillance` s USING (cid)
   WHERE r.deleted_detected_at IS NOT NULL
 ),

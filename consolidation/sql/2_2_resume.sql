@@ -4,7 +4,7 @@
 -- Groupes :
 --   chaines_antiparasitaires  les 93 fiches des 4 chaînes US de `biz_surveillance`
 --   salles_espagnoles         les 2 salles de sport attaquées, repérées par leur cid
--- Base : `reviews_doublons_cleaned`, toutes dates de publication. Les
+-- Base : `reviews_doublons_cleaned_all`, toutes dates de publication. Les
 -- suppressions ont toutes été constatées du 12 au 24 août 2026.
 -- `delai` = jours entre la publication de l'avis et la constatation de sa
 -- disparition.
@@ -21,7 +21,7 @@ WITH avis AS (
     DATE(r.created_at) AS jour_publication,
     r.deleted_detected_at IS NOT NULL AS supprime,
     DATE_DIFF(DATE(r.deleted_detected_at), DATE(r.created_at), DAY) AS delai
-  FROM `client-divers.reviewflowz.reviews_doublons_cleaned` r
+  FROM `client-divers.reviewflowz.reviews_doublons_cleaned_all` r
   JOIN `client-divers.reviewflowz.biz_surveillance` s USING (cid)
 )
 
