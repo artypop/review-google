@@ -4,7 +4,7 @@
 
 Base complète (`reviews_doublons_cleaned_all`). Produit :
   sorties/2_2_resume.csv        par enseigne : avis, suppressions, notes, délais
-  sorties/2_2a_calendrier.csv   date de publication × date de suppression des avis supprimés
+  sorties/2_2a_calendrier.csv   date de publication × vague de suppression des avis supprimés
   sorties/2_2b_delai.csv        jours entre publication et suppression, par note
   sorties/2_2c_auteurs.csv      profil des auteurs, avis supprimés et conservés
   sorties/2_2_par_jour.csv      avis supprimés par jour de publication et par jour de suppression
@@ -26,23 +26,25 @@ ecrire_csv(delai, "2_2b_delai")
 ecrire_csv(requete("2_2c_auteurs"), "2_2c_auteurs")
 ecrire_csv(requete("2_2_par_jour"), "2_2_par_jour")
 
-# Contrôle : chaque point est un couple (publication, suppression), sa taille le
+# Contrôle : chaque point est un couple (publication, vague de suppression), sa taille le
 # nombre d'avis. Seuls les avis publiés depuis le 1er juillet 2026 sont tracés.
 fig, axes = figure(1, 2, largeur=12, hauteur=5)
 for ax, (groupe, titre) in zip(axes[0], GROUPES.items()):
     d = cal[(cal["groupe"] == groupe)
             & (pd.to_datetime(cal["jour_publication"]) >= "2026-07-01")]
-    d = d.groupby(["jour_publication", "jour_suppression", "note"], as_index=False)["avis_supprimes"].sum()
+    d = d.groupby(["jour_publication", "vague_suppression", "note"], as_index=False)["avis_supprimes"].sum()
     for note, couleur in [(5, COULEURS["US"]), (1, COULEURS["Europe"])]:
         n = d[d["note"] == note]
-        ax.scatter(pd.to_datetime(n["jour_publication"]), pd.to_datetime(n["jour_suppression"]),
+        ax.scatter(pd.to_datetime(n["jour_publication"]), n["vague_suppression"],
                    s=12 * n["avis_supprimes"], color=couleur, alpha=0.7, label=f"{note} étoile(s)")
     autres = d[~d["note"].isin([1, 5])]
-    ax.scatter(pd.to_datetime(autres["jour_publication"]), pd.to_datetime(autres["jour_suppression"]),
+    ax.scatter(pd.to_datetime(autres["jour_publication"]), autres["vague_suppression"],
                s=12 * autres["avis_supprimes"], color="#999999", alpha=0.7, label="2 à 4 étoiles")
     ax.set_title(f"{titre} : publication et suppression")
     ax.set_xlabel("jour de publication")
-    ax.set_ylabel("jour de suppression")
+    ax.set_ylabel("vague de passage du robot (1 = 11 août, 14 = 24 août)")
+    ax.set_yticks(range(1, 15))
+    ax.set_ylim(0.5, 14.5)
     ax.tick_params(axis="x", rotation=45)
     ax.legend()
 enregistrer(fig, "2_2a_calendrier")

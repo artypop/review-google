@@ -34,15 +34,31 @@ for car, d in df.groupby("caracteristique"):
         large = large.sort_values(["perimetre", "ensemble_pour_10000"], ascending=[False, False])
     ecrire_csv(large, f"2_3_{car}")
 
-    # Contrôle : barres US et Europe, un panneau par périmètre.
-    fig, axes = figure(1, 2, largeur=12, hauteur=0.9 + 0.45 * large["modalite"].nunique() * 2)
+    # Barres verticales US et Europe, modalités en abscisse, un panneau par périmètre.
+    n = large["modalite"].nunique()
+    fig, axes = figure(1, 2, largeur=max(12, 1.6 * n), hauteur=5)
+    longs = large["modalite"].astype(str).str.len().max() > 12
+    # Même échelle sur les deux panneaux, pour comparer avec et sans enseignes.
+    haut = 1.1 * large[["us_pour_10000", "europe_pour_10000"]].max().max()
     for ax, perimetre in zip(axes[0], ["tous", "sans_enseignes"]):
         p = large[large["perimetre"] == perimetre]
-        y = np.arange(len(p))
-        ax.barh(y - 0.2, p["us_pour_10000"], height=0.38, color=COULEURS["US"], label="US")
-        ax.barh(y + 0.2, p["europe_pour_10000"], height=0.38, color=COULEURS["Europe"], label="Europe")
-        ax.set_yticks(y, p["modalite"])
-        ax.invert_yaxis()
-        ax.set_title(f"{car} — suppressions pour 10 000 avis — {perimetre}")
+        # Abscisse croissante : 1 à 5 étoiles, secteurs par ordre alphabétique.
+        # Les autres caractéristiques sont déjà rangées dans l'ordre croissant.
+        if car == "note":
+            p = p.iloc[::-1]
+        elif car == "secteur":
+            p = p.sort_values("modalite")
+        x = np.arange(len(p))
+        for decalage, region, nom in [(-0.2, "us", "US"), (0.2, "europe", "Europe")]:
+            barres = ax.bar(x + decalage, p[f"{region}_pour_10000"], width=0.38,
+                            color=COULEURS[nom], label=nom)
+            # La valeur au-dessus de chaque barre, en suppressions pour 10 000 avis.
+            ax.bar_label(barres, labels=[f"{v:,}".replace(",", " ") for v in p[f"{region}_pour_10000"]],
+                         padding=2, fontsize=7.5)
+        ax.set_xticks(x, p["modalite"], rotation=30 if longs else 0, ha="right" if longs else "center")
+        ax.set_ylabel("suppressions pour 10 000 avis")
+        ax.set_ylim(0, haut)
+        ax.grid(axis="x", visible=False)
+        ax.set_title(f"{car} — {perimetre}")
         ax.legend()
     enregistrer(fig, f"2_3_{car}")

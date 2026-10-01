@@ -32,6 +32,7 @@ LECTURE
 Produit, dans `sorties/` à côté de ce fichier :
   03D_effectifs.csv   avis, suppressions et fiches touchées par case, par passage
   03D_effets.csv      risque relatif et fourchette, par passage
+  figures/03D_effets.png, 03D_effets_US.png, 03D_effets_EU.png
 """
 import os
 from pathlib import Path
@@ -210,8 +211,9 @@ effets.to_csv(SORTIES / "03D_effets.csv", sep=";", decimal=",", index=False)
 print(f"  {SORTIES / '03D_effectifs.csv'}\n  {SORTIES / '03D_effets.csv'}")
 
 # ---------------------------------------------------------------------------
-# Graphique : passage « ensemble, tous ». Chaque groupe commence par sa
-# référence, posée sur ×1. La région, simple contrôle, n'y figure pas.
+# Graphiques : passages « ensemble », « US » et « EU », toutes les fiches.
+# Chaque groupe commence par sa référence, posée sur ×1. La région, simple
+# contrôle du passage « ensemble », n'y figure pas.
 # ---------------------------------------------------------------------------
 import matplotlib
 
@@ -220,7 +222,11 @@ import matplotlib.pyplot as plt
 import matplotlib.transforms
 from matplotlib.ticker import FuncFormatter, NullFormatter
 
-PASSAGE_GRAPHIQUE = "ensemble, tous"
+# (passage, fichier, fin du titre, périmètre écrit dans le sous-titre)
+GRAPHIQUES = [("ensemble, tous", "03D_effets.png", "", "toutes les fiches"),
+              ("US, tous", "03D_effets_US.png", ", États-Unis",
+               "fiches des États-Unis, chaînes comprises"),
+              ("EU, tous", "03D_effets_EU.png", ", Europe", "fiches d'Europe")]
 BLEU, GRIS, ENCRE, FOND = "#2a78d6", "#8a8984", "#0b0b0b", "#fcfcfb"
 TITRES = {"note": "Note", "pic": "Pic d'avis sur la fiche le jour du dépôt",
           "local_guide": "Niveau Local Guide", "photo_avis": "Photo dans l'avis",
@@ -233,74 +239,81 @@ def libelle(case):
     return case.replace("1 étoile(s)", "1 étoile").replace("étoile(s)", "étoiles")
 
 
-e = effets[effets["passage"] == PASSAGE_GRAPHIQUE].set_index("colonne")
 groupes = [(carac, cases[0], [f"{carac} : {c}" for c in cases[1:]])
            for carac, cases in CARACTERISTIQUES.items()]
 groupes.insert(8, ("taux", f"taux médian ({100 * MEDIANE_TAUX:.0f} %)".replace(".", ","),
                    ["taux_reponse_fiche : +10 points"]))
 
-# Une ligne par titre de groupe, par référence et par case.
-lignes = []
-for carac, reference, colonnes in groupes:
-    lignes.append(("titre", TITRES[carac], None))
-    lignes.append(("reference", f"{libelle(reference)} (référence)", None))
-    for col in colonnes:
-        if col in e.index:
-            nom = "10 points de plus" if carac == "taux" else libelle(col.split(" : ", 1)[1])
-            lignes.append(("case", nom, e.loc[col]))
 
-fig, ax = plt.subplots(figsize=(10, 0.28 * len(lignes) + 1.6), facecolor=FOND)
-ax.set_facecolor(FOND)
-X_MIN, X_MAX = 0.1, 10
-# Libellés à gauche du graphique : x en fraction de largeur, y en lignes.
-gauche = matplotlib.transforms.blended_transform_factory(ax.transAxes, ax.transData)
-for y, (sorte, nom, r) in enumerate(lignes):
-    if sorte == "titre":
-        ax.text(-0.42, y, nom, transform=gauche, fontweight="bold", va="center", ha="left",
-                fontsize=9.5, color=ENCRE)
-        continue
-    ax.text(-0.01, y, nom, transform=gauche, va="center", ha="right", fontsize=9, color=ENCRE)
-    if sorte == "reference":
-        ax.scatter(1, y, s=36, facecolor=FOND, edgecolor=GRIS, linewidth=1.5, zorder=3)
-    elif pd.notna(r["risque_relatif"]):
-        rr, bas, haut = r["risque_relatif"], r["fourchette_basse"], r["fourchette_haute"]
-        ax.plot([max(bas, X_MIN), min(haut, X_MAX)], [y, y], color=BLEU, linewidth=2, zorder=2)
-        ax.scatter(rr, y, s=36, color=BLEU, zorder=3)
-        ax.text(X_MAX * 1.05, y, f"×{rr:.2f}  [{bas:.2f} – {haut:.2f}]".replace(".", ","),
-                va="center", ha="left", fontsize=8, color=GRIS)
-    else:
-        ax.text(1.08, y, r["remarque"], va="center", ha="left", fontsize=8, color=GRIS, style="italic")
+def graphique(passage, fichier, fin_titre, perimetre):
+    e = effets[effets["passage"] == passage].set_index("colonne")
+    # Une ligne par titre de groupe, par référence et par case.
+    lignes = []
+    for carac, reference, colonnes in groupes:
+        lignes.append(("titre", TITRES[carac], None))
+        lignes.append(("reference", f"{libelle(reference)} (référence)", None))
+        for col in colonnes:
+            if col in e.index:
+                nom = "10 points de plus" if carac == "taux" else libelle(col.split(" : ", 1)[1])
+                lignes.append(("case", nom, e.loc[col]))
 
-ax.axvline(1, color=ENCRE, linewidth=1.2, zorder=1)
-ax.set_xscale("log")
-ax.set_xlim(X_MIN, X_MAX)
-ax.set_xticks([0.1, 0.2, 0.5, 1, 2, 5, 10])
-ax.xaxis.set_major_formatter(FuncFormatter(lambda v, _: f"×{v:g}".replace(".", ",")))
-ax.xaxis.set_minor_formatter(NullFormatter())
-ax.set_ylim(len(lignes) - 0.5, -2.2)
-ax.set_yticks([])
-ax.grid(axis="x", color="#e4e3df", linewidth=0.6)
-for cote in ["top", "right", "left"]:
-    ax.spines[cote].set_visible(False)
-ax.tick_params(axis="x", colors=GRIS, labelsize=9)
+    fig, ax = plt.subplots(figsize=(10, 0.28 * len(lignes) + 1.6), facecolor=FOND)
+    ax.set_facecolor(FOND)
+    X_MIN, X_MAX = 0.1, 10
+    # Libellés à gauche du graphique : x en fraction de largeur, y en lignes.
+    gauche = matplotlib.transforms.blended_transform_factory(ax.transAxes, ax.transData)
+    for y, (sorte, nom, r) in enumerate(lignes):
+        if sorte == "titre":
+            ax.text(-0.42, y, nom, transform=gauche, fontweight="bold", va="center", ha="left",
+                    fontsize=9.5, color=ENCRE)
+            continue
+        ax.text(-0.01, y, nom, transform=gauche, va="center", ha="right", fontsize=9, color=ENCRE)
+        if sorte == "reference":
+            ax.scatter(1, y, s=36, facecolor=FOND, edgecolor=GRIS, linewidth=1.5, zorder=3)
+        elif pd.notna(r["risque_relatif"]):
+            rr, bas, haut = r["risque_relatif"], r["fourchette_basse"], r["fourchette_haute"]
+            ax.plot([max(bas, X_MIN), min(haut, X_MAX)], [y, y], color=BLEU, linewidth=2, zorder=2)
+            ax.scatter(rr, y, s=36, color=BLEU, zorder=3)
+            ax.text(X_MAX * 1.05, y, f"×{rr:.2f}  [{bas:.2f} – {haut:.2f}]".replace(".", ","),
+                    va="center", ha="left", fontsize=8, color=GRIS)
+        else:
+            ax.text(1.08, y, r["remarque"], va="center", ha="left", fontsize=8, color=GRIS, style="italic")
 
-# Les deux sens de lecture, au-dessus du graphique.
-ax.annotate("", xy=(0.35, -1.6), xytext=(0.93, -1.6), arrowprops=dict(arrowstyle="->", color=GRIS))
-ax.text(0.9, -1.6, "disparaît moins souvent\nque la référence", ha="right", va="bottom",
-        fontsize=9, color=ENCRE)
-ax.annotate("", xy=(2.85, -1.6), xytext=(1.07, -1.6), arrowprops=dict(arrowstyle="->", color=GRIS))
-ax.text(1.1, -1.6, "disparaît plus souvent\nque la référence", ha="left", va="bottom",
-        fontsize=9, color=ENCRE)
+    ax.axvline(1, color=ENCRE, linewidth=1.2, zorder=1)
+    ax.set_xscale("log")
+    ax.set_xlim(X_MIN, X_MAX)
+    ax.set_xticks([0.1, 0.2, 0.5, 1, 2, 5, 10])
+    ax.xaxis.set_major_formatter(FuncFormatter(lambda v, _: f"×{v:g}".replace(".", ",")))
+    ax.xaxis.set_minor_formatter(NullFormatter())
+    ax.set_ylim(len(lignes) - 0.5, -2.2)
+    ax.set_yticks([])
+    ax.grid(axis="x", color="#e4e3df", linewidth=0.6)
+    for cote in ["top", "right", "left"]:
+        ax.spines[cote].set_visible(False)
+    ax.tick_params(axis="x", colors=GRIS, labelsize=9)
 
-n_avis, n_suppr = (f"{n:,}".replace(",", " ") for n in modele_par_passage[PASSAGE_GRAPHIQUE])
-fig.suptitle("Risque de suppression d'un avis face à la référence de son groupe",
-             x=0.02, ha="left", fontsize=12, color=ENCRE)
-fig.text(0.02, 0.965 - 0.3 / fig.get_figheight(),
-         f"{n_avis} avis publiés du 6 au 17 août 2026 et entrés dans le modèle, dont {n_suppr} supprimés, toutes les fiches. "
-         "Point : risque relatif. Trait : fourchette à 95 %.\n"
-         "Les autres caractéristiques, et la région, sont tenues égales.",
-         ha="left", va="top", fontsize=8.5, color=GRIS)
-fig.tight_layout(rect=(0, 0, 0.93, 1 - 0.9 / fig.get_figheight()))
-(SORTIES / "figures").mkdir(exist_ok=True)
-fig.savefig(SORTIES / "figures" / "03D_effets.png", dpi=130, facecolor=FOND, bbox_inches="tight")
-print(f"  {SORTIES / 'figures' / '03D_effets.png'}")
+    # Les deux sens de lecture, au-dessus du graphique.
+    ax.annotate("", xy=(0.35, -1.6), xytext=(0.93, -1.6), arrowprops=dict(arrowstyle="->", color=GRIS))
+    ax.text(0.9, -1.6, "disparaît moins souvent\nque la référence", ha="right", va="bottom",
+            fontsize=9, color=ENCRE)
+    ax.annotate("", xy=(2.85, -1.6), xytext=(1.07, -1.6), arrowprops=dict(arrowstyle="->", color=GRIS))
+    ax.text(1.1, -1.6, "disparaît plus souvent\nque la référence", ha="left", va="bottom",
+            fontsize=9, color=ENCRE)
+
+    n_avis, n_suppr = (f"{n:,}".replace(",", " ") for n in modele_par_passage[passage])
+    fig.suptitle(f"Risque de suppression d'un avis face à la référence de son groupe{fin_titre}",
+                 x=0.02, ha="left", fontsize=12, color=ENCRE)
+    fig.text(0.02, 0.965 - 0.3 / fig.get_figheight(),
+             f"{n_avis} avis publiés du 6 au 17 août 2026 et entrés dans le modèle, dont {n_suppr} supprimés, {perimetre}. "
+             "Point : risque relatif. Trait : fourchette à 95 %.\n"
+             f"Les autres caractéristiques{', et la région,' if passage.startswith('ensemble') else ''} sont tenues égales.",
+             ha="left", va="top", fontsize=8.5, color=GRIS)
+    fig.tight_layout(rect=(0, 0, 0.93, 1 - 0.9 / fig.get_figheight()))
+    (SORTIES / "figures").mkdir(exist_ok=True)
+    fig.savefig(SORTIES / "figures" / fichier, dpi=130, facecolor=FOND, bbox_inches="tight")
+    plt.close(fig)
+    print(f"  {SORTIES / 'figures' / fichier}")
+
+
+for passage, fichier, fin_titre, perimetre in GRAPHIQUES:
+    graphique(passage, fichier, fin_titre, perimetre)
