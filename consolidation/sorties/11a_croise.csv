@@ -1,0 +1,33 @@
+perimetre;noms;vitesse;fiches;touchees_en_masse;pct
+sans les chaînes ni les salles;10 à 25 %;15 et plus;230;5;2,2
+sans les chaînes ni les salles;10 à 25 %;3 à 7;417;1;0,2
+sans les chaînes ni les salles;10 à 25 %;7 à 15;322;0;0,0
+sans les chaînes ni les salles;10 à 25 %;moins de 3;1037;0;0,0
+sans les chaînes ni les salles;25 à 50 %;15 et plus;188;14;7,4
+sans les chaînes ni les salles;25 à 50 %;3 à 7;324;0;0,0
+sans les chaînes ni les salles;25 à 50 %;7 à 15;221;6;2,7
+sans les chaînes ni les salles;25 à 50 %;moins de 3;674;1;0,1
+sans les chaînes ni les salles;50 % et plus;15 et plus;194;26;13,4
+sans les chaînes ni les salles;50 % et plus;3 à 7;267;1;0,4
+sans les chaînes ni les salles;50 % et plus;7 à 15;173;3;1,7
+sans les chaînes ni les salles;50 % et plus;moins de 3;482;0;0,0
+sans les chaînes ni les salles;moins de 10 %;15 et plus;267;2;0,7
+sans les chaînes ni les salles;moins de 10 %;3 à 7;810;1;0,1
+sans les chaînes ni les salles;moins de 10 %;7 à 15;469;3;0,6
+sans les chaînes ni les salles;moins de 10 %;moins de 3;2262;0;0,0
+toutes les fiches;10 à 25 %;15 et plus;230;5;2,2
+toutes les fiches;10 à 25 %;3 à 7;417;1;0,2
+toutes les fiches;10 à 25 %;7 à 15;322;0;0,0
+toutes les fiches;10 à 25 %;moins de 3;1037;0;0,0
+toutes les fiches;25 à 50 %;15 et plus;190;16;8,4
+toutes les fiches;25 à 50 %;3 à 7;324;0;0,0
+toutes les fiches;25 à 50 %;7 à 15;221;6;2,7
+toutes les fiches;25 à 50 %;moins de 3;675;1;0,1
+toutes les fiches;50 % et plus;15 et plus;262;55;21,0
+toutes les fiches;50 % et plus;3 à 7;270;2;0,7
+toutes les fiches;50 % et plus;7 à 15;188;5;2,7
+toutes les fiches;50 % et plus;moins de 3;486;0;0,0
+toutes les fiches;moins de 10 %;15 et plus;267;2;0,7
+toutes les fiches;moins de 10 %;3 à 7;810;1;0,1
+toutes les fiches;moins de 10 %;7 à 15;469;3;0,6
+toutes les fiches;moins de 10 %;moins de 3;2262;0;0,0

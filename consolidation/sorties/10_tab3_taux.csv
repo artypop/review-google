@@ -1,0 +1,11 @@
+base;groupe;fiches;avis;suppressions;pct_tous;pct_recents;pct_pendant_suivi
+axel;1 à 10;1288;1684493;2216;0,132;2,04;3,08
+axel;11 et plus;111;240883;3014;1,251;22,64;18,21
+axel;aucune;7598;2952775;0;0,0;0,0;0,0
+axel;toutes;8997;4878151;5230;0,107;2,5;2,69
+axel;toutes sauf 11 et plus;8886;4637268;2216;0,048;0,85;1,32
+nettoyee;1 à 10;1139;1509368;1921;0,127;2,09;3,26
+nettoyee;11 et plus;97;229448;2669;1,163;21,34;17,66
+nettoyee;aucune;7761;3138117;0;0,0;0,0;0,0
+nettoyee;toutes;8997;4876933;4590;0,094;2,29;2,56
+nettoyee;toutes sauf 11 et plus;8900;4647485;1921;0,041;0,79;1,28

@@ -1,0 +1,4 @@
+perimetre;fiches;avis_avec_nom;supprimes_avec_nom;avis_sans_nom;supprimes_sans_nom;rapport_brut;effet_meme_fiche_meme_age;fourchette_basse;fourchette_haute
+toutes les fiches;97;107516;1099;57514;676;0,87;1,01;0,89;1,14
+sans les chaînes;65;36469;519;37595;459;1,17;1,06;0,91;1,23
+sans les chaînes ni les salles;63;36261;517;37013;459;1,15;1,05;0,9;1,22

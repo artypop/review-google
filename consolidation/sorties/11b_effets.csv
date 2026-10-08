@@ -1,0 +1,22 @@
+perimetre;modele;fiches;suppressions;colonne;effet;fourchette_basse;fourchette_haute
+toutes les fiches;sans la vélocité;8333;1909;noms : 10 à 25 %;1,24;1,01;1,52
+toutes les fiches;sans la vélocité;8333;1909;noms : 25 à 50 %;1,35;1,08;1,69
+toutes les fiches;sans la vélocité;8333;1909;noms : 50 % et plus;1,51;1,17;1,95
+toutes les fiches;avec la vélocité;8333;1909;noms : 10 à 25 %;1,34;1,1;1,64
+toutes les fiches;avec la vélocité;8333;1909;noms : 25 à 50 %;1,48;1,18;1,85
+toutes les fiches;avec la vélocité;8333;1909;noms : 50 % et plus;1,77;1,37;2,29
+toutes les fiches;avec la vélocité;8333;1909;vitesse : 2 fois plus d'avis par mois;0,91;0,88;0,94
+sans les chaînes;sans la vélocité;8274;1770;noms : 10 à 25 %;1,26;1,02;1,54
+sans les chaînes;sans la vélocité;8274;1770;noms : 25 à 50 %;1,39;1,11;1,74
+sans les chaînes;sans la vélocité;8274;1770;noms : 50 % et plus;1,47;1,14;1,91
+sans les chaînes;avec la vélocité;8274;1770;noms : 10 à 25 %;1,35;1,1;1,65
+sans les chaînes;avec la vélocité;8274;1770;noms : 25 à 50 %;1,51;1,21;1,89
+sans les chaînes;avec la vélocité;8274;1770;noms : 50 % et plus;1,68;1,29;2,19
+sans les chaînes;avec la vélocité;8274;1770;vitesse : 2 fois plus d'avis par mois;0,92;0,89;0,95
+sans les chaînes ni les salles;sans la vélocité;8274;1770;noms : 10 à 25 %;1,26;1,02;1,54
+sans les chaînes ni les salles;sans la vélocité;8274;1770;noms : 25 à 50 %;1,39;1,11;1,74
+sans les chaînes ni les salles;sans la vélocité;8274;1770;noms : 50 % et plus;1,47;1,14;1,91
+sans les chaînes ni les salles;avec la vélocité;8274;1770;noms : 10 à 25 %;1,35;1,1;1,65
+sans les chaînes ni les salles;avec la vélocité;8274;1770;noms : 25 à 50 %;1,51;1,21;1,89
+sans les chaînes ni les salles;avec la vélocité;8274;1770;noms : 50 % et plus;1,68;1,29;2,19
+sans les chaînes ni les salles;avec la vélocité;8274;1770;vitesse : 2 fois plus d'avis par mois;0,92;0,89;0,95

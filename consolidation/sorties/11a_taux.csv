@@ -1,0 +1,25 @@
+perimetre;caracteristique;tranche;fiches;touchees_en_masse;pct;touchees_seuil_relatif
+toutes les fiches;noms;moins de 10 %;3808;6;0,2;12
+toutes les fiches;noms;10 à 25 %;2006;6;0,3;12
+toutes les fiches;noms;25 à 50 %;1410;23;1,6;28
+toutes les fiches;noms;50 % et plus;1206;62;5,1;76
+toutes les fiches;vitesse;moins de 3;4460;1;0,0;1
+toutes les fiches;vitesse;3 à 7;1821;4;0,2;14
+toutes les fiches;vitesse;7 à 15;1200;14;1,2;15
+toutes les fiches;vitesse;15 et plus;949;78;8,2;98
+sans les chaînes;noms;moins de 10 %;3808;6;0,2;12
+sans les chaînes;noms;10 à 25 %;2006;6;0,3;12
+sans les chaînes;noms;25 à 50 %;1409;23;1,6;28
+sans les chaînes;noms;50 % et plus;1116;30;2,7;37
+sans les chaînes;vitesse;moins de 3;4455;1;0,0;1
+sans les chaînes;vitesse;3 à 7;1818;3;0,2;13
+sans les chaînes;vitesse;7 à 15;1185;12;1,0;12
+sans les chaînes;vitesse;15 et plus;881;49;5,6;63
+sans les chaînes ni les salles;noms;moins de 10 %;3808;6;0,2;12
+sans les chaînes ni les salles;noms;10 à 25 %;2006;6;0,3;12
+sans les chaînes ni les salles;noms;25 à 50 %;1407;21;1,5;26
+sans les chaînes ni les salles;noms;50 % et plus;1116;30;2,7;37
+sans les chaînes ni les salles;vitesse;moins de 3;4455;1;0,0;1
+sans les chaînes ni les salles;vitesse;3 à 7;1818;3;0,2;13
+sans les chaînes ni les salles;vitesse;7 à 15;1185;12;1,0;12
+sans les chaînes ni les salles;vitesse;15 et plus;879;47;5,3;61

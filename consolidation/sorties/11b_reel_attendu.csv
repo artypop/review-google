@@ -1,0 +1,25 @@
+perimetre;caracteristique;tranche;fiches;suppressions;attendues;reel_sur_attendu
+toutes les fiches;noms;moins de 10 %;3802;594;791,3;0,75
+toutes les fiches;noms;10 à 25 %;2000;441;427,2;1,03
+toutes les fiches;noms;25 à 50 %;1387;345;303,2;1,14
+toutes les fiches;noms;50 % et plus;1144;529;387,3;1,37
+toutes les fiches;vitesse;moins de 3;4459;299;268,8;1,11
+toutes les fiches;vitesse;3 à 7;1817;355;325,3;1,09
+toutes les fiches;vitesse;7 à 15;1186;385;422,0;0,91
+toutes les fiches;vitesse;15 et plus;871;870;892,9;0,97
+sans les chaînes;noms;moins de 10 %;3802;594;762,2;0,78
+sans les chaînes;noms;10 à 25 %;2000;441;409,9;1,08
+sans les chaînes;noms;25 à 50 %;1386;345;290,4;1,19
+sans les chaînes;noms;50 % et plus;1086;390;307,6;1,27
+sans les chaînes;vitesse;moins de 3;4454;297;259,2;1,15
+sans les chaînes;vitesse;3 à 7;1815;354;312,4;1,13
+sans les chaînes;vitesse;7 à 15;1173;359;400,0;0,9
+sans les chaînes;vitesse;15 et plus;832;760;798,4;0,95
+sans les chaînes ni les salles;noms;moins de 10 %;3802;594;762,2;0,78
+sans les chaînes ni les salles;noms;10 à 25 %;2000;441;409,9;1,08
+sans les chaînes ni les salles;noms;25 à 50 %;1386;345;290,4;1,19
+sans les chaînes ni les salles;noms;50 % et plus;1086;390;307,6;1,27
+sans les chaînes ni les salles;vitesse;moins de 3;4454;297;259,2;1,15
+sans les chaînes ni les salles;vitesse;3 à 7;1815;354;312,4;1,13
+sans les chaînes ni les salles;vitesse;7 à 15;1173;359;400,0;0,9
+sans les chaînes ni les salles;vitesse;15 et plus;832;760;798,4;0,95

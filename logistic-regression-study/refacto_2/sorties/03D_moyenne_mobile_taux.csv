@@ -1,0 +1,21 @@
+passage;tranche;avis;suppressions;fiches_touchees;pour_1000
+ensemble, tous;au plus la moyenne;4624;198;94;42,8
+ensemble, tous;1 à 2 fois la moyenne;8296;372;134;44,8
+ensemble, tous;2 à 3 fois la moyenne;4426;216;101;48,8
+ensemble, tous;plus de 3 fois la moyenne;9932;340;168;34,2
+ensemble, tous;aucun avis les 7 jours avant;3350;65;57;19,4
+ensemble, sans_enseignes;au plus la moyenne;4180;117;64;28,0
+ensemble, sans_enseignes;1 à 2 fois la moyenne;7327;192;94;26,2
+ensemble, sans_enseignes;2 à 3 fois la moyenne;4151;136;76;32,8
+ensemble, sans_enseignes;plus de 3 fois la moyenne;9701;281;143;29,0
+ensemble, sans_enseignes;aucun avis les 7 jours avant;3345;64;56;19,1
+US, tous;au plus la moyenne;2697;166;74;61,5
+US, tous;1 à 2 fois la moyenne;4756;311;104;65,4
+US, tous;2 à 3 fois la moyenne;2570;179;76;69,6
+US, tous;plus de 3 fois la moyenne;5371;253;119;47,1
+US, tous;aucun avis les 7 jours avant;1710;31;30;18,1
+EU, tous;au plus la moyenne;1927;32;20;16,6
+EU, tous;1 à 2 fois la moyenne;3540;61;30;17,2
+EU, tous;2 à 3 fois la moyenne;1856;37;25;19,9
+EU, tous;plus de 3 fois la moyenne;4561;87;49;19,1
+EU, tous;aucun avis les 7 jours avant;1640;34;27;20,7

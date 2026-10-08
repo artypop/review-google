@@ -1,0 +1,17 @@
+passage;tranche;avis_dans_le_modele;risque_relatif;fourchette_basse;fourchette_haute
+ensemble, tous;1 à 2 fois la moyenne;30628;1,02;0,83;1,26
+ensemble, tous;2 à 3 fois la moyenne;30628;1,34;1,03;1,74
+ensemble, tous;plus de 3 fois la moyenne;30628;1,09;0,84;1,42
+ensemble, tous;aucun avis les 7 jours avant;30628;0,57;0,38;0,84
+ensemble, sans_enseignes;1 à 2 fois la moyenne;28704;0,94;0,72;1,22
+ensemble, sans_enseignes;2 à 3 fois la moyenne;28704;1,18;0,87;1,6
+ensemble, sans_enseignes;plus de 3 fois la moyenne;28704;1,01;0,75;1,36
+ensemble, sans_enseignes;aucun avis les 7 jours avant;28704;0,57;0,38;0,87
+US, tous;1 à 2 fois la moyenne;17104;1,01;0,8;1,28
+US, tous;2 à 3 fois la moyenne;17104;1,41;1,04;1,92
+US, tous;plus de 3 fois la moyenne;17104;1,19;0,87;1,64
+US, tous;aucun avis les 7 jours avant;17104;0,44;0,27;0,71
+EU, tous;1 à 2 fois la moyenne;13524;1,04;0,66;1,64
+EU, tous;2 à 3 fois la moyenne;13524;1,18;0,81;1,71
+EU, tous;plus de 3 fois la moyenne;13524;1,05;0,67;1,64
+EU, tous;aucun avis les 7 jours avant;13524;1,01;0,55;1,87
