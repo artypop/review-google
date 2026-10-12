@@ -21,3 +21,8 @@ __pycache__/
 # Fichiers temporaires de travail.
 .tmp/
 .DS_Store
+
+# Appartenance des avis aux groupes : trop lourds pour GitHub (220 et 16 Mo).
+# Régénérables par les scripts de leur étude.
+etudes-ponctuelles/2026-09-30-avis-antiparasitaires/sorties/regroupement/A3-appartenance-avis.csv
+etudes-ponctuelles/2026-09-29-home-services-us/sorties/A3-appartenance-avis.csv
