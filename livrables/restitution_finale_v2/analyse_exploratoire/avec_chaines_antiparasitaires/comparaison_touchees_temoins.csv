@@ -1,0 +1,18 @@
+indicateur,libelle,famille,touchees,statistique,fiches_touchees,temoins,fiches_temoins
+volume_semaine,Volume habituel (avis par semaine),Volume et sollicitation,6.846575342465753,médiane,75,6.501369863013698,381
+intensite,Intensité de la semaine (× le rythme habituel),Volume et sollicitation,1.7152255639097744,médiane,75,1.4605842336934773,381
+delai_reponse_j,Délai médian de réponse (jours),Propriétaire,1.0,médiane,63,0.5,333
+au_moins_un_pic,Au moins un jour de pic dans la semaine,Sollicitation,0.5066666666666667,part des fiches,75,0.3151862959708062,381
+jours_pic,Jours de pic dans la semaine,Sollicitation,0.8,nombre moyen,75,0.4559549384851086,381
+part_jour_max,Part du jour le plus chargé,Sollicitation,0.37806275629362274,moyenne des fiches,75,0.36475299288579455,381
+part_comptes_neufs,Comptes neufs (2 avis ou moins),Auteurs,0.40952064224708856,moyenne des fiches,75,0.4290659798111076,381
+part_sans_niveau,Auteurs sans niveau Local Guide,Auteurs,0.09603512757655562,moyenne des fiches,75,0.08362590405431107,381
+auteur_ailleurs,Au moins un auteur actif sur une autre fiche le même jour,Auteurs,0.10666666666666667,part des fiches,75,0.038502641731437165,381
+part_5_etoiles,Avis 5 étoiles,Contenu,0.9661652983355293,moyenne des fiches,75,0.9622416490047317,381
+part_sans_texte,Avis sans texte,Contenu,0.3031800202395418,moyenne des fiches,75,0.23973212323717163,381
+part_texte_court,Texte court (1 à 40 caractères),Contenu,0.1004555182214445,moyenne des fiches,75,0.1218525960017944,381
+part_prenom,Prénom cité,Contenu,0.40076800741208624,moyenne des fiches,75,0.41771603919411165,381
+part_photo,Photo jointe,Contenu,0.040625861827533784,moyenne des fiches,75,0.05551721661639346,381
+texte_double,Au moins deux avis au même texte,Contenu,0.02666666666666667,part des fiches,75,0.0,381
+taux_reponse,Taux de réponse du propriétaire (année précédente),Propriétaire,0.6354247599253416,moyenne des fiches,75,0.6895203043144793,381
+part_reponses_standard,Réponses standardisées (année précédente),Propriétaire,0.21786710451248806,moyenne des fiches,63,0.23208814574662626,333

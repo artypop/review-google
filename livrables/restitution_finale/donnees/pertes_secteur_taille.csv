@@ -1,0 +1,33 @@
+secteur,taille,avis_4_5_perdus,avis_4_5_nouveaux,perdus_pour_100_nouveaux
+Automobile,Mono,52,743,7.0
+Automobile,Small,93,1448,6.4
+Automobile,Large,89,1456,6.1
+Automobile,Total,234,3647,6.4
+Restauration,Mono,50,1072,4.7
+Restauration,Small,127,2152,5.9
+Restauration,Large,102,2361,4.3
+Restauration,Total,279,5585,5.0
+Santé,Mono,83,716,11.6
+Santé,Small,152,961,15.8
+Santé,Large,178,1755,10.1
+Santé,Total,413,3432,12.0
+Services à domicile,Mono,83,589,14.1
+Services à domicile,Small,415,1263,32.9
+Services à domicile,Large,1428,3701,38.6
+Services à domicile,Total,1926,5553,34.7
+Hôtellerie,Mono,35,954,3.7
+Hôtellerie,Small,61,2089,2.9
+Hôtellerie,Large,97,2476,3.9
+Hôtellerie,Total,193,5519,3.5
+Voyage,Mono,161,2134,7.5
+Voyage,Small,0,0,
+Voyage,Large,0,0,
+Voyage,Total,161,2134,7.5
+Sport et bien-être,Mono,97,489,19.8
+Sport et bien-être,Small,132,1257,10.5
+Sport et bien-être,Large,85,1195,7.1
+Sport et bien-être,Total,314,2941,10.7
+Total,Mono,561,6697,8.4
+Total,Small,980,9170,10.7
+Total,Large,1979,12944,15.3
+Total,Total,3520,28811,12.2

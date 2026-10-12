@@ -1,0 +1,3 @@
+Copie : similarité ≥ 0.97, texte d'au moins 30 caractères
+Données : reviews_panel_features_03B.parquet, signaux : 03B_e5base.parquet (longueur) et etudes-ponctuelles/2026-09-28-embeddings-further/sorties/A5-similarite-avis.csv (copies)
+Moteur : numpy (Newton, marges groupées par fiche), validé contre le 07C du 2026-09-28

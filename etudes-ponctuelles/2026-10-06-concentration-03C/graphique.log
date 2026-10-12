@@ -1,0 +1,18 @@
+enseignes                                mesure  valeur  part_nouveaux_avis_pct
+     sans                      fiches du corpus    4614                     NaN
+     sans                         nouveaux avis   22378                     NaN
+     sans                        avis supprimés     379                     NaN
+     sans fiches qui ont perdu au moins un avis     148                     NaN
+     sans  fiches portant 25 % des suppressions       9                    1.38
+     sans  fiches portant 50 % des suppressions      26                    2.88
+     sans  fiches portant 75 % des suppressions      59                    4.44
+     avec                      fiches du corpus    4705                     NaN
+     avec                         nouveaux avis   24191                     NaN
+     avec                        avis supprimés     631                     NaN
+     avec fiches qui ont perdu au moins un avis     191                     NaN
+     avec  fiches portant 25 % des suppressions      11                    2.28
+     avec  fiches portant 50 % des suppressions      34                    4.68
+     avec  fiches portant 75 % des suppressions      72                    6.61
+écrit : C:\Matt\reviewflowz_shared\review-google\livrables\restitution_finale\graphiques\faits-saignants\graphiques\concentration_fiches.png
+écrit : C:\Matt\reviewflowz_shared\review-google\livrables\restitution_finale\graphiques\faits-saignants\donnees\concentration_fiches.csv
+écrit : C:\Matt\reviewflowz_shared\review-google\livrables\restitution_finale\graphiques\faits-saignants\donnees\concentration_fiches_seuils.csv

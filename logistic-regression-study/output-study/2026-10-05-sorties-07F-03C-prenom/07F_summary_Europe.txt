@@ -1,0 +1,23 @@
+Passage : Europe
+10177 avis, 119 suppressions, 2248 fiches
+
+                 Generalized Linear Model Regression Results                  
+==============================================================================
+Dep. Variable:               supprime   No. Observations:                10177
+Model:                            GLM   Df Residuals:                    10172
+Model Family:                Binomial   Df Model:                            4
+Link Function:                  Logit   Scale:                          1.0000
+Method:                          IRLS   Log-Likelihood:                -624.34
+Date:                Mon, 05 Oct 2026   Deviance:                       1248.7
+Time:                        11:40:56   Pearson chi2:                 1.03e+04
+No. Iterations:                     8   Pseudo R-squ. (CS):           0.004582
+Covariance Type:              cluster                                         
+===================================================================================
+                      coef    std err          z      P>|z|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const              -5.3890      0.443    -12.156      0.000      -6.258      -4.520
+prenom              0.6432      0.331      1.945      0.052      -0.005       1.291
+photo              -0.2050      0.338     -0.607      0.544      -0.867       0.457
+sans_reponse_j7     0.8611      0.428      2.011      0.044       0.022       1.700
+pic                 0.9470      0.389      2.437      0.015       0.185       1.709
+===================================================================================

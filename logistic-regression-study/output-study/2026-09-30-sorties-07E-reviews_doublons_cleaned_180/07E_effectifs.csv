@@ -1,0 +1,193 @@
+﻿passage,famille,valeur,avis,suppressions,taux_pour_10000_avis
+US_toutes_fiches,Note,1 étoile,12832,199,155.1
+US_toutes_fiches,Note,2 étoiles,3512,21,59.8
+US_toutes_fiches,Note,3 étoiles,4444,14,31.5
+US_toutes_fiches,Note,4 étoiles,12376,49,39.6
+US_toutes_fiches,Note,5 étoiles,207651,1725,83.1
+US_toutes_fiches,Longueur du texte,1 à 50 caractères,39731,338,85.1
+US_toutes_fiches,Longueur du texte,plus de 200 caractères,57208,500,87.4
+US_toutes_fiches,Longueur du texte,51 à 200 caractères,88161,714,81.0
+US_toutes_fiches,Longueur du texte,sans texte,55715,456,81.8
+US_toutes_fiches,Photo jointe,sans photo,221947,1913,86.2
+US_toutes_fiches,Photo jointe,photo jointe,18868,95,50.3
+US_toutes_fiches,Photos de l'auteur,0 photo,150357,1462,97.2
+US_toutes_fiches,Photos de l'auteur,1 à 10 photos,61235,475,77.6
+US_toutes_fiches,Photos de l'auteur,11 à 100 photos,20267,57,28.1
+US_toutes_fiches,Photos de l'auteur,plus de 100 photos,8956,14,15.6
+US_toutes_fiches,Profil Local Guide,niveau 1 à 4,194160,1683,86.7
+US_toutes_fiches,Profil Local Guide,niveau 5 et plus,43512,146,33.6
+US_toutes_fiches,Profil Local Guide,compte sans niveau,3143,179,569.5
+US_toutes_fiches,Afflux sur la fiche,1 à 3 fois,95766,894,93.4
+US_toutes_fiches,Afflux sur la fiche,3 à 10 fois,90475,801,88.5
+US_toutes_fiches,Afflux sur la fiche,jusqu'à 1 fois le rythme habituel,20114,184,91.5
+US_toutes_fiches,Afflux sur la fiche,plus de 10 fois,34460,129,37.4
+US_toutes_fiches,Secteur,automobile,37578,162,43.1
+US_toutes_fiches,Secteur,restauration,51159,103,20.1
+US_toutes_fiches,Secteur,santé,36529,218,59.7
+US_toutes_fiches,Secteur,services à domicile,64664,1235,191.0
+US_toutes_fiches,Secteur,hôtellerie,20604,71,34.5
+US_toutes_fiches,Secteur,voyage,12429,98,78.8
+US_toutes_fiches,Secteur,sport et bien-être,17852,121,67.8
+US_toutes_fiches,Taille de l'entreprise,groupe de 20 à 50 établissements,124784,1149,92.1
+US_toutes_fiches,Taille de l'entreprise,un seul établissement,48279,278,57.6
+US_toutes_fiches,Taille de l'entreprise,groupe de 4 à 10 établissements,67752,581,85.8
+US_sans_enseignes,Note,1 étoile,11820,172,145.5
+US_sans_enseignes,Note,2 étoiles,3388,20,59.0
+US_sans_enseignes,Note,3 étoiles,4294,13,30.3
+US_sans_enseignes,Note,4 étoiles,11409,32,28.0
+US_sans_enseignes,Note,5 étoiles,180850,1009,55.8
+US_sans_enseignes,Longueur du texte,1 à 50 caractères,34660,199,57.4
+US_sans_enseignes,Longueur du texte,plus de 200 caractères,52536,378,72.0
+US_sans_enseignes,Longueur du texte,51 à 200 caractères,76955,446,58.0
+US_sans_enseignes,Longueur du texte,sans texte,47610,223,46.8
+US_sans_enseignes,Photo jointe,sans photo,193184,1155,59.8
+US_sans_enseignes,Photo jointe,photo jointe,18577,91,49.0
+US_sans_enseignes,Photos de l'auteur,0 photo,128674,885,68.8
+US_sans_enseignes,Photos de l'auteur,1 à 10 photos,55311,304,55.0
+US_sans_enseignes,Photos de l'auteur,11 à 100 photos,19099,45,23.6
+US_sans_enseignes,Photos de l'auteur,plus de 100 photos,8677,12,13.8
+US_sans_enseignes,Profil Local Guide,niveau 1 à 4,167749,1009,60.1
+US_sans_enseignes,Profil Local Guide,niveau 5 et plus,41238,108,26.2
+US_sans_enseignes,Profil Local Guide,compte sans niveau,2774,129,465.0
+US_sans_enseignes,Afflux sur la fiche,1 à 3 fois,77454,491,63.4
+US_sans_enseignes,Afflux sur la fiche,3 à 10 fois,85059,531,62.4
+US_sans_enseignes,Afflux sur la fiche,jusqu'à 1 fois le rythme habituel,14902,100,67.1
+US_sans_enseignes,Afflux sur la fiche,plus de 10 fois,34346,124,36.1
+US_sans_enseignes,Secteur,automobile,37578,162,43.1
+US_sans_enseignes,Secteur,restauration,51159,103,20.1
+US_sans_enseignes,Secteur,santé,36529,218,59.7
+US_sans_enseignes,Secteur,services à domicile,35610,473,132.8
+US_sans_enseignes,Secteur,hôtellerie,20604,71,34.5
+US_sans_enseignes,Secteur,voyage,12429,98,78.8
+US_sans_enseignes,Secteur,sport et bien-être,17852,121,67.8
+US_sans_enseignes,Taille de l'entreprise,groupe de 20 à 50 établissements,95730,387,40.4
+US_sans_enseignes,Taille de l'entreprise,un seul établissement,48279,278,57.6
+US_sans_enseignes,Taille de l'entreprise,groupe de 4 à 10 établissements,67752,581,85.8
+Europe_toutes_fiches,Note,1 étoile,12086,458,379.0
+Europe_toutes_fiches,Note,2 étoiles,4177,32,76.6
+Europe_toutes_fiches,Note,3 étoiles,6469,18,27.8
+Europe_toutes_fiches,Note,4 étoiles,18487,32,17.3
+Europe_toutes_fiches,Note,5 étoiles,132505,311,23.5
+Europe_toutes_fiches,Longueur du texte,1 à 50 caractères,24501,113,46.1
+Europe_toutes_fiches,Longueur du texte,plus de 200 caractères,42927,196,45.7
+Europe_toutes_fiches,Longueur du texte,51 à 200 caractères,49677,205,41.3
+Europe_toutes_fiches,Longueur du texte,sans texte,56619,337,59.5
+Europe_toutes_fiches,Photo jointe,sans photo,157396,803,51.0
+Europe_toutes_fiches,Photo jointe,photo jointe,16328,48,29.4
+Europe_toutes_fiches,Photos de l'auteur,0 photo,93902,594,63.3
+Europe_toutes_fiches,Photos de l'auteur,1 à 10 photos,43717,192,43.9
+Europe_toutes_fiches,Photos de l'auteur,11 à 100 photos,23553,48,20.4
+Europe_toutes_fiches,Photos de l'auteur,plus de 100 photos,12552,17,13.5
+Europe_toutes_fiches,Profil Local Guide,niveau 1 à 4,124763,590,47.3
+Europe_toutes_fiches,Profil Local Guide,niveau 5 et plus,46959,102,21.7
+Europe_toutes_fiches,Profil Local Guide,compte sans niveau,2002,159,794.2
+Europe_toutes_fiches,Afflux sur la fiche,1 à 3 fois,52738,109,20.7
+Europe_toutes_fiches,Afflux sur la fiche,3 à 10 fois,73181,226,30.9
+Europe_toutes_fiches,Afflux sur la fiche,jusqu'à 1 fois le rythme habituel,9165,20,21.8
+Europe_toutes_fiches,Afflux sur la fiche,plus de 10 fois,38640,496,128.4
+Europe_toutes_fiches,Secteur,automobile,16849,57,33.8
+Europe_toutes_fiches,Secteur,restauration,35420,87,24.6
+Europe_toutes_fiches,Secteur,santé,23509,45,19.1
+Europe_toutes_fiches,Secteur,services à domicile,14723,64,43.5
+Europe_toutes_fiches,Secteur,hôtellerie,40821,122,29.9
+Europe_toutes_fiches,Secteur,voyage,9541,41,43.0
+Europe_toutes_fiches,Secteur,sport et bien-être,32861,435,132.4
+Europe_toutes_fiches,Taille de l'entreprise,groupe de 20 à 50 établissements,72628,537,73.9
+Europe_toutes_fiches,Taille de l'entreprise,un seul établissement,35035,121,34.5
+Europe_toutes_fiches,Taille de l'entreprise,groupe de 4 à 10 établissements,66061,193,29.2
+Europe_sans_enseignes,Note,1 étoile,11766,141,119.8
+Europe_sans_enseignes,Note,2 étoiles,4167,22,52.8
+Europe_sans_enseignes,Note,3 étoiles,6469,18,27.8
+Europe_sans_enseignes,Note,4 étoiles,18487,32,17.3
+Europe_sans_enseignes,Note,5 étoiles,132427,311,23.5
+Europe_sans_enseignes,Longueur du texte,1 à 50 caractères,24442,64,26.2
+Europe_sans_enseignes,Longueur du texte,plus de 200 caractères,42909,192,44.7
+Europe_sans_enseignes,Longueur du texte,51 à 200 caractères,49591,159,32.1
+Europe_sans_enseignes,Longueur du texte,sans texte,56374,109,19.3
+Europe_sans_enseignes,Photo jointe,sans photo,156993,480,30.6
+Europe_sans_enseignes,Photo jointe,photo jointe,16323,44,27.0
+Europe_sans_enseignes,Photos de l'auteur,0 photo,93574,324,34.6
+Europe_sans_enseignes,Photos de l'auteur,1 à 10 photos,43654,146,33.4
+Europe_sans_enseignes,Photos de l'auteur,11 à 100 photos,23540,39,16.6
+Europe_sans_enseignes,Photos de l'auteur,plus de 100 photos,12548,15,12.0
+Europe_sans_enseignes,Profil Local Guide,niveau 1 à 4,124457,358,28.8
+Europe_sans_enseignes,Profil Local Guide,niveau 5 et plus,46936,86,18.3
+Europe_sans_enseignes,Profil Local Guide,compte sans niveau,1923,80,416.0
+Europe_sans_enseignes,Afflux sur la fiche,1 à 3 fois,52704,105,19.9
+Europe_sans_enseignes,Afflux sur la fiche,3 à 10 fois,73156,219,29.9
+Europe_sans_enseignes,Afflux sur la fiche,jusqu'à 1 fois le rythme habituel,9165,20,21.8
+Europe_sans_enseignes,Afflux sur la fiche,plus de 10 fois,38291,180,47.0
+Europe_sans_enseignes,Secteur,automobile,16849,57,33.8
+Europe_sans_enseignes,Secteur,restauration,35420,87,24.6
+Europe_sans_enseignes,Secteur,santé,23509,45,19.1
+Europe_sans_enseignes,Secteur,services à domicile,14723,64,43.5
+Europe_sans_enseignes,Secteur,hôtellerie,40821,122,29.9
+Europe_sans_enseignes,Secteur,voyage,9541,41,43.0
+Europe_sans_enseignes,Secteur,sport et bien-être,32453,108,33.3
+Europe_sans_enseignes,Taille de l'entreprise,groupe de 20 à 50 établissements,72220,210,29.1
+Europe_sans_enseignes,Taille de l'entreprise,un seul établissement,35035,121,34.5
+Europe_sans_enseignes,Taille de l'entreprise,groupe de 4 à 10 établissements,66061,193,29.2
+tous_toutes_fiches,Note,1 étoile,24918,657,263.7
+tous_toutes_fiches,Note,2 étoiles,7689,53,68.9
+tous_toutes_fiches,Note,3 étoiles,10913,32,29.3
+tous_toutes_fiches,Note,4 étoiles,30863,81,26.2
+tous_toutes_fiches,Note,5 étoiles,340156,2036,59.9
+tous_toutes_fiches,Longueur du texte,1 à 50 caractères,64232,451,70.2
+tous_toutes_fiches,Longueur du texte,plus de 200 caractères,100135,696,69.5
+tous_toutes_fiches,Longueur du texte,51 à 200 caractères,137838,919,66.7
+tous_toutes_fiches,Longueur du texte,sans texte,112334,793,70.6
+tous_toutes_fiches,Photo jointe,sans photo,379343,2716,71.6
+tous_toutes_fiches,Photo jointe,photo jointe,35196,143,40.6
+tous_toutes_fiches,Photos de l'auteur,0 photo,244259,2056,84.2
+tous_toutes_fiches,Photos de l'auteur,1 à 10 photos,104952,667,63.6
+tous_toutes_fiches,Photos de l'auteur,11 à 100 photos,43820,105,24.0
+tous_toutes_fiches,Photos de l'auteur,plus de 100 photos,21508,31,14.4
+tous_toutes_fiches,Profil Local Guide,niveau 1 à 4,318923,2273,71.3
+tous_toutes_fiches,Profil Local Guide,niveau 5 et plus,90471,248,27.4
+tous_toutes_fiches,Profil Local Guide,compte sans niveau,5145,338,656.9
+tous_toutes_fiches,Afflux sur la fiche,1 à 3 fois,148504,1003,67.5
+tous_toutes_fiches,Afflux sur la fiche,3 à 10 fois,163656,1027,62.8
+tous_toutes_fiches,Afflux sur la fiche,jusqu'à 1 fois le rythme habituel,29279,204,69.7
+tous_toutes_fiches,Afflux sur la fiche,plus de 10 fois,73100,625,85.5
+tous_toutes_fiches,Secteur,automobile,54427,219,40.2
+tous_toutes_fiches,Secteur,restauration,86579,190,21.9
+tous_toutes_fiches,Secteur,santé,60038,263,43.8
+tous_toutes_fiches,Secteur,services à domicile,79387,1299,163.6
+tous_toutes_fiches,Secteur,hôtellerie,61425,193,31.4
+tous_toutes_fiches,Secteur,voyage,21970,139,63.3
+tous_toutes_fiches,Secteur,sport et bien-être,50713,556,109.6
+tous_toutes_fiches,Taille de l'entreprise,groupe de 20 à 50 établissements,197412,1686,85.4
+tous_toutes_fiches,Taille de l'entreprise,un seul établissement,83314,399,47.9
+tous_toutes_fiches,Taille de l'entreprise,groupe de 4 à 10 établissements,133813,774,57.8
+tous_sans_enseignes,Note,1 étoile,23586,313,132.7
+tous_sans_enseignes,Note,2 étoiles,7555,42,55.6
+tous_sans_enseignes,Note,3 étoiles,10763,31,28.8
+tous_sans_enseignes,Note,4 étoiles,29896,64,21.4
+tous_sans_enseignes,Note,5 étoiles,313277,1320,42.1
+tous_sans_enseignes,Longueur du texte,1 à 50 caractères,59102,263,44.5
+tous_sans_enseignes,Longueur du texte,plus de 200 caractères,95445,570,59.7
+tous_sans_enseignes,Longueur du texte,51 à 200 caractères,126546,605,47.8
+tous_sans_enseignes,Longueur du texte,sans texte,103984,332,31.9
+tous_sans_enseignes,Photo jointe,sans photo,350177,1635,46.7
+tous_sans_enseignes,Photo jointe,photo jointe,34900,135,38.7
+tous_sans_enseignes,Photos de l'auteur,0 photo,222248,1209,54.4
+tous_sans_enseignes,Photos de l'auteur,1 à 10 photos,98965,450,45.5
+tous_sans_enseignes,Photos de l'auteur,11 à 100 photos,42639,84,19.7
+tous_sans_enseignes,Photos de l'auteur,plus de 100 photos,21225,27,12.7
+tous_sans_enseignes,Profil Local Guide,niveau 1 à 4,292206,1367,46.8
+tous_sans_enseignes,Profil Local Guide,niveau 5 et plus,88174,194,22.0
+tous_sans_enseignes,Profil Local Guide,compte sans niveau,4697,209,445.0
+tous_sans_enseignes,Afflux sur la fiche,1 à 3 fois,130158,596,45.8
+tous_sans_enseignes,Afflux sur la fiche,3 à 10 fois,158215,750,47.4
+tous_sans_enseignes,Afflux sur la fiche,jusqu'à 1 fois le rythme habituel,24067,120,49.9
+tous_sans_enseignes,Afflux sur la fiche,plus de 10 fois,72637,304,41.9
+tous_sans_enseignes,Secteur,automobile,54427,219,40.2
+tous_sans_enseignes,Secteur,restauration,86579,190,21.9
+tous_sans_enseignes,Secteur,santé,60038,263,43.8
+tous_sans_enseignes,Secteur,services à domicile,50333,537,106.7
+tous_sans_enseignes,Secteur,hôtellerie,61425,193,31.4
+tous_sans_enseignes,Secteur,voyage,21970,139,63.3
+tous_sans_enseignes,Secteur,sport et bien-être,50305,229,45.5
+tous_sans_enseignes,Taille de l'entreprise,groupe de 20 à 50 établissements,167950,597,35.5
+tous_sans_enseignes,Taille de l'entreprise,un seul établissement,83314,399,47.9
+tous_sans_enseignes,Taille de l'entreprise,groupe de 4 à 10 établissements,133813,774,57.8

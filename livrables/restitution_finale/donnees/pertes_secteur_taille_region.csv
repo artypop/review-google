@@ -1,0 +1,65 @@
+region,secteur,taille,avis_4_5_perdus,avis_4_5_nouveaux,perdus_pour_100_nouveaux,avis_4_5_perdus_sans_enseignes,avis_4_5_nouveaux_sans_enseignes,perdus_pour_100_nouveaux_sans_enseignes
+États-Unis,Automobile,Mono,32,459,7.0,32,459,7.0
+États-Unis,Automobile,Small,65,1011,6.4,65,1011,6.4
+États-Unis,Automobile,Large,70,1196,5.9,70,1196,5.9
+États-Unis,Automobile,Total,167,2666,6.3,167,2666,6.3
+États-Unis,Restauration,Mono,14,508,2.8,14,508,2.8
+États-Unis,Restauration,Small,81,840,9.6,81,840,9.6
+États-Unis,Restauration,Large,53,1732,3.1,53,1732,3.1
+États-Unis,Restauration,Total,148,3080,4.8,148,3080,4.8
+États-Unis,Santé,Mono,73,479,15.2,73,479,15.2
+États-Unis,Santé,Small,136,666,20.4,136,666,20.4
+États-Unis,Santé,Large,145,1473,9.8,145,1473,9.8
+États-Unis,Santé,Total,354,2618,13.5,354,2618,13.5
+États-Unis,Services à domicile,Mono,75,447,16.8,75,447,16.8
+États-Unis,Services à domicile,Small,379,1089,34.8,379,1089,34.8
+États-Unis,Services à domicile,Large,1412,3263,43.3,213,978,21.8
+États-Unis,Services à domicile,Total,1866,4799,38.9,667,2514,26.5
+États-Unis,Hôtellerie,Mono,19,304,6.2,19,304,6.2
+États-Unis,Hôtellerie,Small,32,620,5.2,32,620,5.2
+États-Unis,Hôtellerie,Large,12,488,2.5,12,488,2.5
+États-Unis,Hôtellerie,Total,63,1412,4.5,63,1412,4.5
+États-Unis,Voyage,Mono,111,1088,10.2,111,1088,10.2
+États-Unis,Voyage,Small,0,0,,0,0,
+États-Unis,Voyage,Large,0,0,,0,0,
+États-Unis,Voyage,Total,111,1088,10.2,111,1088,10.2
+États-Unis,Sport et bien-être,Mono,72,307,23.5,72,307,23.5
+États-Unis,Sport et bien-être,Small,63,511,12.3,63,511,12.3
+États-Unis,Sport et bien-être,Large,30,278,10.8,30,278,10.8
+États-Unis,Sport et bien-être,Total,165,1096,15.1,165,1096,15.1
+États-Unis,Total,Mono,396,3592,11.0,396,3592,11.0
+États-Unis,Total,Small,756,4737,16.0,756,4737,16.0
+États-Unis,Total,Large,1722,8430,20.4,523,6145,8.5
+États-Unis,Total,Total,2874,16759,17.1,1675,14474,11.6
+Europe,Automobile,Mono,20,284,7.0,20,284,7.0
+Europe,Automobile,Small,28,437,6.4,28,437,6.4
+Europe,Automobile,Large,19,260,7.3,19,260,7.3
+Europe,Automobile,Total,67,981,6.8,67,981,6.8
+Europe,Restauration,Mono,36,564,6.4,36,564,6.4
+Europe,Restauration,Small,46,1312,3.5,46,1312,3.5
+Europe,Restauration,Large,49,629,7.8,49,629,7.8
+Europe,Restauration,Total,131,2505,5.2,131,2505,5.2
+Europe,Santé,Mono,10,237,4.2,10,237,4.2
+Europe,Santé,Small,16,295,5.4,16,295,5.4
+Europe,Santé,Large,33,282,11.7,33,282,11.7
+Europe,Santé,Total,59,814,7.2,59,814,7.2
+Europe,Services à domicile,Mono,8,142,5.6,8,142,5.6
+Europe,Services à domicile,Small,36,174,20.7,36,174,20.7
+Europe,Services à domicile,Large,16,438,3.7,16,438,3.7
+Europe,Services à domicile,Total,60,754,8.0,60,754,8.0
+Europe,Hôtellerie,Mono,16,650,2.5,16,650,2.5
+Europe,Hôtellerie,Small,29,1469,2.0,29,1469,2.0
+Europe,Hôtellerie,Large,85,1988,4.3,85,1988,4.3
+Europe,Hôtellerie,Total,130,4107,3.2,130,4107,3.2
+Europe,Voyage,Mono,50,1046,4.8,50,1046,4.8
+Europe,Voyage,Small,0,0,,0,0,
+Europe,Voyage,Large,0,0,,0,0,
+Europe,Voyage,Total,50,1046,4.8,50,1046,4.8
+Europe,Sport et bien-être,Mono,25,182,13.7,25,182,13.7
+Europe,Sport et bien-être,Small,69,746,9.2,69,746,9.2
+Europe,Sport et bien-être,Large,55,917,6.0,53,917,5.8
+Europe,Sport et bien-être,Total,149,1845,8.1,147,1845,8.0
+Europe,Total,Mono,165,3105,5.3,165,3105,5.3
+Europe,Total,Small,224,4433,5.1,224,4433,5.1
+Europe,Total,Large,257,4514,5.7,255,4514,5.6
+Europe,Total,Total,646,12052,5.4,644,12052,5.3

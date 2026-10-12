@@ -1,0 +1,1273 @@
+Speaker 1
+Salut Mathieu, salut Romain, comment ça va ?
+
+Microphone
+Écoute, ça va depuis ce matin.
+
+Speaker 1
+Salut !
+
+Microphone
+C'est une journée de réunion pour moi aujourd'hui.
+
+Speaker 1
+Ça va toujours ?
+
+Il est chaud dans le bureau.
+
+Microphone
+je suis en télétravail aujourd'hui mais oui c'est chaud et beaucoup beaucoup beaucoup de réunions donc hop Juste pour te dire, voilà, j'ai fait un petit changement juste pour te le montrer, du moins si ça te convient un peu plus, sur cette partie-là. Alors je la ferai plus jolie, je l'ai fait assez rapidement. Tu sais le truc avec les points qui ne te disaient pas trop. J'ai regardé vraiment la distribution du nombre de reviews qu'il y avait, les antiparasitaires, de début juillet jusqu'à notre corpus de fin.
+
+Speaker 1
+Where
+
+Microphone
+Et ça, c'est la distribution des avis par jour. Alors ce qui nous intéresse, c'est plutôt ici, parce qu'évidemment, là, les avis de plus de 7 jours, on ne les voit pas. Et ça, en bleu, c'est le nombre de commentaires qui ont été supprimés sur le nombre total d'avis.
+
+Speaker 1
+Oh yeah, should we see it on?
+
+Microphone
+Et donc là, tu vois, tu as la moyenne sur les 7 jours de chaque secatchaine. Donc ça c'est le premier phénomène et j'ai regardé aussi la même chose pour les sales espagnols et alors eux c'est l'inverse, c'est qu'ils n'ont pas quasiment pas de review.
+
+Elle a bam bam, ils ont bombardé pendant 2-3 jours. Et voilà. Mais donc ça a été supprimé par la suite.
+
+Speaker 1
+Et quand est-ce qu'ils les perdent ? Les or. . Alors attends.
+
+Microphone
+Là, ceux-là, ils ont été supprimés. Alors là, tu ne l'as pas, ce truc-là, je peux te le ressortir.
+
+Sont supprimés par là, aux alentours du dixième jour après la publication, donc 13.
+
+Speaker 1
+j'ai compris.
+
+C'est les cohortes que tu montres, ok.
+
+Microphone
+Ouais, voilà, c'est des cortes là.
+
+Speaker 1
+Ok. Mon feedback, c'est que sur les chaînes antiparasitaires, on ne peut mettre que deux semaines, je pense.
+
+Du premier au. .
+
+Enfin, ou du trois.
+
+Microphone
+Ouais, moi ce que je trouve intéressant, c'était qu'en fait, par rapport à ce que je disais tout à l'heure sur la façon dont il publie.
+
+Il n'y a pas vraiment, tu vois, le phénomène de publication est toujours plus ou moins constant en fait en réalité je trouvais.
+
+Est-ce qu'ils ont demandé à des gens d'écrire beaucoup à un moment donné ? Non en fait. façon générale, ils le font tout le temps.
+
+Speaker 1
+Ah oui, oui, oui.
+
+Microphone
+Voilà.
+
+Speaker 1
+Oui, oui. Mais je pense qu'avec
+
+deux semaines on le voit là ce qui me chagrine c'est qu'on dit supprimer cinq étoiles en fait le chiffre est faux avant le 1er août parce qu'on ne peut pas le savoir
+
+Microphone
+Ah oui, oui, bien sûr.
+
+Ah, tout à fait, oui, bien sûr. Ça, c'était pour te montrer sur la.
+
+Speaker 1
+Tu vois, c'est compliqué, je pense, de montrer un truc.
+
+Microphone
+Je vais au premier août.
+
+Speaker 1
+Oui, par exemple, voilà, là où tu as commencé au 3, c'est un lundi, je suppose, le 3, non ?
+
+Microphone
+Je pense parce que le dimanche il n'y a jamais de review, donc j'imagine que c'est les gens qui.
+
+Ça va être un dimanche ça.
+
+Speaker 1
+Ouais si ouais allez d'accord bon ben voilà bah tu vois de là je sais pas enfin bon deux deux deux deux
+
+Tout ce maillet quoi, qu'on ait un truc où on voit bien la distribution.
+
+Microphone
+Okay.
+
+Speaker 1
+Et du coup, on sait combien ça représente en pourcentage ?
+
+Microphone
+De leurs avis par jour ou au total?
+
+Speaker 1
+Non, non, de leurs avis par jour là, parce qu'on voit comme ça à grosse maille, on a l'impression que c'est 15 ou 10 ou 15%.
+
+Microphone
+Ouais je pensais ça, ouais c'est à peu près tout le temps pareil là on est à 0,9025 sur ce pic là par exemple et là on est un peu moins on doit être sur ça après 0,20
+
+Speaker 1
+Ah, c'est ce que tu as mis en haut les chiffres.
+
+Microphone
+Ouais c'est 51 sur 51 applications sur le 137.
+
+Speaker 1
+Ah j'ai capté.
+
+Microphone
+Je peux mettre les pourcentages si c'est plus vu.
+
+Speaker 1
+A la limite, ouais, peut-être.
+
+Microphone
+Ok.
+
+Speaker 1
+Non ? Les absolus, on les a en fait, parce qu'on a la graduation.
+
+Microphone
+Ouais ouais. C'est juste que moi je trouvais ça pas pratique de savoir où est-ce qu'on était, donc je voulais les écrire là, mais ok, je passe en pourcentage.
+
+Speaker 1
+Ouais mais si t'as que deux semaines ce sera beaucoup plus simple.
+
+Microphone
+Where we okay.
+
+Speaker 1
+Et comme ça on donne une autre info, je trouve, quand même.
+
+Ça pour le coup c'est un c'est une sideful quoi.
+
+Microphone
+Oui, oui.
+
+Speaker 1
+C'est cool.
+
+Microphone
+Et là on voit vraiment le haut de phénomène, c'est donc lui sur la publication qui s'est fait striker. Il avait une trentaine de publications par an, une quarantaine, je crois, un peu comme ça. Voilà, donc pour cette partie-là, ce que je te propose du coup, c'est qu'on se focalise sur ce qu'on met là-dedans, du coup, ce qu'on a commencé à faire.
+
+Speaker 1
+Where?
+
+Microphone
+Là on l'a revu avec avec Mathieu il y a deux secondes et enfin une seconde il y a une demi-heure.
+
+Speaker 1
+Where should I go?
+
+Microphone
+Et est-ce qu'on est OK sur. .
+
+Alors je récupère un tout petit peu pour avoir plus de place. Est-ce qu'on est OK sur les features qu'on choisit ? -ce que ça te va?
+
+Speaker 1
+Alors attends.
+
+Microphone
+laquelle on met en référence, exactement.
+
+Speaker 1
+Ouais, en contrôle et en. Ouais. Attends.
+
+Microphone
+Et voilà. Je vais remonter pour que tu les vois. Niveau local guide, je répète ce qu'on s'est dit ce matin, là on va filtrer sur les 4 et 5 étoiles et on ne va plus regarder le nombre d'étoiles. Le pic d'avis, on le garde. On va refaire un calcul parce que là, je n'étais pas tout à fait au clair ce matin sur ce qu'était le pic. On avait une autre méthode que j'avais trouvé un peu trop compliquée, j'ai voulu faire un truc plus simple.
+
+On voit comment calculer ça et on fait ce pic d'avis par rapport à une moyenne mobile de l'affiche pour savoir s'il y a vraiment un strike qui se fait.
+
+Speaker 1
+Étant entendu qu'en fait on cherche un truc significatif, c'est-à-dire on cherche une différence où on peut dire quand il y a un pic c'est différent et on va tricher sur la moyenne mobile pour l'obtenir quoi sur la variance à la moyenne mobile pour l'obtenir
+
+Microphone
+Ah oui, parce qu'on aura. . Oui. Parce que c'est la moyenne mobile, sinon on pourra avoir du 0,2, du 0,1 sur plein de trucs.
+
+Donc voilà quoi
+
+Speaker 1
+Ouais, enfin bon, on définit le pic comment. . Non mais après sinon si tu. .
+
+Parce que tu peux regarder par semaine aussi si tu veux plus de volume.
+
+Microphone
+De toute façon là on va être sur deux semaines mais par contre pour regarder sur l'intégralité du scope comme nous on a ce qu'on a vu que sur 14 jours on a on pourra
+
+les gens qui n'ont que 5 reviews tu vois sur 2026 sont pas forcément une ah d'accord ok ça peut être euh peak semaine
+
+Speaker 1
+Isaac Genia, ce qu'on appelle un pic, ça peut être une semaine où il y a plein d
+
+C'est pas forcément un jour.
+
+Et comme ça, c'est beaucoup plus facile en fait.
+
+Microphone
+Avec plein d'avis. Ok, donc on ne regarde pas sur le jour même.
+
+Speaker 1
+À spotter.
+
+parce qu'il y en a 50 dans l'année quoi, si les mecs ils font. . Enfin tu vois ce que je veux dire ? Tu vas les spotter quoi.
+
+Microphone
+Ouais, voilà. Alors avec le fait que je vois parce qu'en fait il faut qu'on arrive à coller l'avis puisqu'on a un jour de publication. On remarque qu'on n'a que deux semaines en réalité. Oui, non, c'est zo est bon. Ok. Je pense que je vois comment faire. bien en référence on choisit pas de pique en contrôle niveau cad guide on regardait un truc avec mathieu il ya deux secondes il ya un petit truc qui se passe c'est que alors
+
+Speaker 1
+En référence, on ne choisait pas de pipette, tout à fait.
+
+Microphone
+Le niveau du local guide, c'est celui à la dernière vision de la vie, en l'occurrence quand il est publié. Le sans niveau, quand on va les regarder un peu à la mano, certains ils ont quand même un niveau mais il n'a pas été récupéré par le scrapper pour une raison que j'ignore ou j'en sais rien. Moi je pense que le garder comme référence c'est bien parce que quelque part c'est pas crucial.
+
+Ce qui est important de constater, c'est que c'est plutôt quand tu es un niveau haut de local gate que c'est un pic.
+
+Speaker 1
+Ouais. Ça à la limite d'ailleurs, oui, on peut faire une régression comme tu dis, mais on peut aussi dire on le chart, en fonction du niveau, pourcentage de suppression, tu vois.
+
+Microphone
+Je te suis pas volé pardon.
+
+qu'on ne garde pas dans la régression on peut la garder puis si on voit que
+
+Speaker 1
+Bah je n'en sais rien. On peut garder dans la régression si.
+
+Mais ce que je veux dire, c'est que si on pense que le niveau de local guide a un impact sur le taux de suppression, on peut juste un des bâtons quoi niveau 1 niveau 2 niveau 3 et comme ce que tu avais plus haut là sur les sur les pest contrôles chacun quel pourcentage et divite quoi et tu as le même insight
+
+C'est pas une régression
+
+le.
+
+Microphone
+Oui, il ne sera pas dans les logistiques, donc tu n'auras pas les effets
+
+croiser potentiel quoi mais bon on peut le faire comme ça ouais je crois que je l'ai fait d'ailleurs je crois que je l'ai fait d'ailleurs je crois que je l'ai quelque part ce truc donc je peux te le sortir de toute façon il me semble que je l'avais déjà fait
+
+Speaker 1
+Non, mais les petites connues potentielles, oui, bon fin.
+
+Je pense que ça, ça dit est-ce que local guide est un truc ou pas, indépendamment de reste, et voilà quoi.
+
+Microphone
+Après local guide c'est pas actionnable.
+
+Speaker 1
+Hein?
+
+Microphone
+Local guide c'est pas actionnable.
+
+Je crois que tomber qui écrit la review
+
+Speaker 1
+Non, c'est pas actionnable. C'est pour ça aussi que je ne sais pas si on le laisse dans la régression. Je pense que c'est un datapone qui est rigolo parce que ça dit bon bah voilà il y a quand même un truc. C'est intéressant de montrer qu'on a pensé à ça, si tu veux, dans le cadre de l'étude, mais c'est un peu un fun fact et on s'en fout un peu, effectivement.
+
+Microphone
+Okay.
+
+Speaker 1
+C'est pour ça qu'une distribue qui dit en gros les niveaux 10 ils sont supprimés 10 fois moins que les niveaux 1, bon bah c'est pas inintéressant, tu vois, ça montre qu'il y a quelque chose et tout.
+
+Uh verspressing well.
+
+Microphone
+Ok, par rapport à ça du coup, juste pour info, toutes ces ces valeurs là dont on parlait tout à l'heure là enfin ça la survivant par secteur là c'est full full dataset on regarde on regarde l'intégralité de ton dataset Donc il y a les 1 étoile, les 2 étoiles, les 3 étoiles, les 4 étoiles, les 5 étoiles. Ça te rend bleu.
+
+Speaker 1
+Eh ben c'est un petit ça moi je trouve
+
+Microphone
+Ah bah c'est un biais par rapport à ce matin, c'était pas un biais par rapport à hier soir. C'est soit on redécide qu'on refait l'étude sur les 4 et 5 étoiles. Enfin, qu'on refait cette partie sur les 4 et 5 étoiles, on les filtre en avant et on refait les calculs. En fait en vrai les requêtes elles sont toutes écrites donc c'est vraiment juste de décider ce qu'on met dedans
+
+Speaker 1
+Moi, j'ai quand même un peu l'impression que regarder les avis supprimés 1 et 2 et 3 étoiles C'est beaucoup moins quelque chose qu'on va analyser ou quelque chose sur lequel on peut trouver des choses. C'est beaucoup plus random et ça fait beaucoup de bruit par rapport à des avis 4 et 5 étoiles, et même, je dirais presque que à des avis 5 étoiles.
+
+Microphone
+Ouais, faisons 4 à 5 quand même parce que bon, ça me vient d'avoir quand même.
+
+Speaker 1
+on peut faire 4 et 5.
+
+Microphone
+Je peux que sinon. Bon, c'est un choix.
+
+Speaker 1
+Je ne sais pas s'il y en a tant que ça des quatre. à mon avis si tu regardes la distribution moi je vais regarder tout à l'heure pour pour pour info des 4 et 5 il y en a 3000 et quel quoi et en tout il y en avait 4900 des avis supprimés donc si tu veux hein
+
+Microphone
+What
+
+Oui, non, les avez supprimés, oui. Oui, non, les avez supprimés.
+
+Speaker 1
+Oui, dans les avis supprimés, oui. Mais même quand tu regardes les diagrammes des clients, je les vois, c'est 5 et 1.
+
+Microphone
+Oui, bien sûr, mais c'est logique, mais ce que je veux dire, c'est que dans cette vue-là. On dirait si ça complique un tout petit peu sa lecture, parce que ça veut dire qu'il y a 1175 pour 10 000 avis de 5 étoiles qui sont supprimées. Enfin, je ne sais pas quel serait le chiffre, mais. . Du coup, la vie ici serait 10 000 acides, 2, 4 et 5 étoiles.
+
+Speaker 1
+Ah, j'ai compris. Parce qu'on le ramène à dix mille là, ouais.
+
+Microphone
+Ah mais ils sont tous ramenadimes, sinon en fait le fait qu'il y ait plus dans un secteur que dans l'autre, on ne le verrait pas. Là tu vois le voyage il a autant de suppression que les autres parce qu'on le ramène à 10 000.
+
+Speaker 1
+Ah oui, j'ai compris.
+
+Oui, je comprends.
+
+Microphone
+Donc moi si tu me.
+
+Speaker 1
+Oui, non, c'est l'indicateur à 10 000 parce qu'on n'en a que 5 000 qui nous questionnent.
+
+Pourquoi pas Amine?
+
+Microphone
+. Enfin c'est un choix, c'est que c'est. . Pareil, on peut le changer comme on veut. Si tu préfères mille, on met mille. C'était euh.
+
+Speaker 1
+Je ne sais pas si je préfère, mais c'est juste qu'on en a 5000, donc faire du pour 10 000, je trouve ça un peu gonflé entre guillemets.
+
+Microphone
+D'accord. Ok. Mais alors du coup, on les fait pour 5000. Pour pas. Attends, je vais le noter en commentaire pour pas que j'oublie, parce que sinon.
+
+Speaker 1
+Même en pourcent quoi, non
+
+Microphone
+On peut le mettre en pourcent, en pourcentage. Et donc, est-ce que je reste 3 ou 4 et 5 étoiles sur tous ces tous ces tous ces trucs-là ? il faut qu'on soit cohérent, si je le fais quelque part, je fais partout.
+
+Enfin je fais que je le fais partout entre guillemets parce que si je le fais partout je peux pas le faire ici
+
+Speaker 1
+Il faut être cohérent. D'accord avec toi, il faut être cohérent, mais ça ne veut pas forcément dire qu'on regarde 4
+
+5 étoiles partout parce qu'il y a différents contextes.
+
+Microphone
+C'est pour ça que je te voilà.
+
+Speaker 1
+Par exemple, les avis 1 étoile qui ont été supprimés un peu plus haut, c'est un contexte qui est vraisemblablement très différent du contexte des avis normalement collectés qui sont cinq étoiles.
+
+Microphone
+J'allais pas l'enlever ici, évidemment.
+
+Speaker 1
+Voilà, non mais c'est pour ça, là je me pose la question, qu'est-ce qu'on regarde par secteur ?
+
+Microphone
+Après on peut le faire en dat chair dedans, tu vois, c'est colorier une étoile, deux étoiles, trois étoiles, cinq étoiles, si tu veux.
+
+Speaker 1
+Oh bah faut faire plus simple que ça, il faut faire un ou deux.
+
+Microphone
+Oui.
+
+Speaker 1
+Mais enfin positif, négatif, ou je sais pas. Je veux dire 1, 1, 2, 3 et 4, 5 par exemple. Mais à mon avis, ça complexifie beaucoup.
+
+Microphone
+Sinon
+
+Speaker 1
+Et en fait, je serais tenté de voir ce que ça donne, 4-5.
+
+Microphone
+Regarde sur quatre-cinq, au quai
+
+Speaker 1
+Parce que c'est quand même ça le truc qu'on essaie de savoir là, c'est s'il y a des industries qui sont plus ou moins pénalisées par rapport à. d'autres. Tu vois, quand on voit santé un énorme taux aux US, je ne sais pas, c'est que moi tout ça, ça m'interroge pas mal en fait. Je ne comprends pas trop pourquoi tous ces trucs-là. Service à domicile, je comprends à peu près parce que c'est tous des filots.
+
+Mais les autres, il n'y a rien d'évident là pour moi.
+
+Quand je vois le truc, ça me semble un peu random, je ne l'explique pas trop.
+
+Microphone
+Dans les santés, beaucoup de. . beaucoup. . Alors dans les santés, rentre le vétérinaire. Et c'est beaucoup de gens qui se plaignent de vétérinaires, en gros. Voilà. Pour que moi quand je les avais regardés au tout début.
+
+Speaker 1
+Mais qui se plaignent de beaucoup de vétérinaires ou d'un vétérinaire ?
+
+Microphone
+On n'a qu'une de mémoire qu'on avait que un que j'avais beaucoup regardé parce que j'avais regardé ce guet terror
+
+Speaker 1
+Il y a une concentration anormale d'avis une étoile sur des fiches ou.
+
+Microphone
+Non, non, non, c'est impossible de dire si ça ne peut pas considérer si c'est anormal ou pas normal, ça j'en sais rien. Mais ce que je veux dire, c'est qu'en fait, quand je les avais regardés sur la santé, c'était plutôt des gens qui écrivaient des commentaires autour du vétérinaire. C'était ceux que j'avais regardés, c'était des avis négatifs parce que je regardais des avis négatifs à ce moment-là. Mais je me suis. . c'est juste que la santé, je pense qu'elle est représentée en partie, ça a checké. Mais par le côté vétérinaire, plus que par le côté, j'ai été voir mon médecin, etc. Parce que tu sais, ce matin, tu disais que c'était des données personnelles. De dire, putain, ma radiothérapie s'est super bien passée chez mon cancérologue.
+
+Mais par contre, mon chien a été bien soigné par bidul truc.
+
+Speaker 1
+Oh ce sont bien putain en Amérique ils en ont rien à foutre Ah ouais non
+
+Microphone
+Oui, non mais. . En France en tout cas, on voit que c'est quand même. .
+
+En tout cas, en Europe, on voit que ça a plus d'impact, tu vois.
+
+Speaker 1
+Ouais. J'ai un client, moi c'est les. .
+
+C'est des cliniques de rééducation du comment on appelle ça ?
+
+Microphone
+Du pain, oui.
+
+Speaker 1
+Du périnée.
+
+Microphone
+Et les gens disent euh. . et les gens ont des avis du style.
+
+Speaker 1
+Voilà. le nombre de commentaires qu'elles ont.
+
+Non mais c'est fou quoi pour faire un.
+
+Microphone
+Non mais ok bah écoute, on regarde ce que ça donne en cas de 5 étoiles, on t'en verra pour qu'on tranche sur ce qu'on décide. Et du coup je note que le local guide on voit si on le garde ou sinon si on en fait juste une distribue. Moi je propose de le garder parce que effectivement même si l'info fait que, et comme pour la longueur du texte, ça n'a pas l'air d'avoir un énorme impact malgré tout. De regarder si une photo ou pas de photo, une longueur de texte a un impact, je pense que c'est valable. Je te corrige sur ce que j'ai dit ce matin.
+
+Speaker 1
+Ouais, alors la longueur de texte, restaur.
+
+Microphone
+Ouais.
+
+Speaker 1
+Il y en a plein qui ont du texte en fait.
+
+Microphone
+Ouais, c'est exactement. J'ai couvert complètement inversé le rapport, donc Mathieu m'a repris tout à l'heure et voilà. Donc j'étais persuadé de l'inverse. Mais non.
+
+Speaker 1
+Et alors du coup, c'est quoi le. . Moi je veux bien qu'on dise non-garde de texte, mais ça devient quoi le contrôle à ce moment-là ?
+
+Microphone
+Ou alors on fait une moyenne des textes et on considère qu'on fait la médiane ou la moyenne, comme tu veux.
+
+On peut essayer de regarder la série médiane et de
+
+Speaker 1
+À la limite, moi j'ai envie de te dire, c'est un peu la même C'est-à-dire qu'il y a trop de data points pour faire une règle là en vrai. Moi je dirais on fait un on fait une distrib pareil quoi c'est quoi les différents pourcentils machin est-ce qu'on arrive à en tirer quelque chose?
+
+et si oui intéressant, sinon c'est pas grave. Mais tu vois, une distribution en décils, par exemple, c'est peut-être trop en quintil.
+
+Microphone
+Right.
+
+Speaker 1
+Et dire, bah celle-là. . Alors encore une fois, en ne regardant que du 4 et 5, parce que si tu regardes du.
+
+Microphone
+Ah bah oui
+
+Speaker 1
+. Mais ça pourrait être rigolo. Alors, attention, je ne sais pas comment ça marcherait les quintiles ou décils, mais il faut que 0 ce soit un data point.
+
+C'est pas pareil. Zéro, c'est pas comme un, quoi. C'est ça que je veux dire.
+
+Microphone
+Ah tu veux dire que s'il y a ne serait-ce qu'un caractère, ça doit considérer comme étant différent de zéro ?
+
+Speaker 1
+Oui.
+
+Microphone
+De toute façon, en fait en plus en Chine, des fois ils n'écrivent que deux caractères, donc ce serait mieux de les garder comme ça.
+
+Speaker 1
+Oui, oui, oui, non mais le seul fait qu'il y ait un texte, quel qu'il soit. Si on regarde la longueur, je veux dire 0, ce n'est pas linéaire du tout avec 1. Le reste à peu près quand même.
+
+Mais je ne sais pas si on fait caractère ou mot d'ailleurs, mais par contre, zéro, ce n'est pas pareil, je pense.
+
+Microphone
+Caractère, moi je préfère qu'on phare. C
+
+Mais la langue allemande a une démos plutôt longue d'une façon générale et du coup c'est de toute façon un peu biaisé parce qu'on va les mélanger dans le corpus à la sortie. Donc je pense qu'il faut partir dans l'idée que ça rentre dans une fenêtre d'écriture Google et le gars n'en a pas écrit une tartine quand il n'est pas content où effectivement là il écrit une tartine derrière.
+
+Ok, bon, ça on regarde et on voit derrière si on la garde ou pas dans la règle.
+
+Speaker 1
+Ouais mais pour moi ça va moins dans la règle que. . En fait ça c'est assez linéaire comme truc quoi. Donc on a vraiment envie de boire une distribution pour moi. Comme niveau local guide, tu vois, ça fait assez linéaire. Pour moi, une régression comme ça, c'est oui-non, quoi. Non ? 3 points à la limite, mais c'est bête ce que je dis là, je ne m'en rends pas compte.
+
+Speaker 2
+Mais en fait on peut introduire des variables continues dans la régression quand même. Et en fait on met des paliers et à chaque palier on multiplie par exemple 1,04 le risque quoi.
+
+tous les 10 caractères se multiplient par un 0,4. Si jamais il y a un truc qui suit.
+
+Speaker 1
+Oui, oui, oui, j'ai compris, mais comment je peux dire ?
+
+Microphone
+La régression linéaire, ce que on peut se considérer que quand j'ai parlé avec JB, en gros. . 6 jusqu'à 6, 10 caractéristiques, c'est ok. Au-delà, ça dit un peu trop. Plus tu vas en mettre, plus tu vas être un peu précis sur tes effets, d'une façon générale, puisque c'est les les. Chaque caractéristique a des. Ce n'est pas indépendante l'une des autres, mais elle se suffit à elle-même puisque c'est des modifications pour toutes les autres caractéristiques égales. Donc pas bouger quoi. Donc t'as pas bougé tout ça, tu vas juste bouger ça pour regarder un peu ce qui se passe. Et les flèches bleues t'indiquent que si tu bouges les autres caractéristiques, où est-ce que ça va quoi?
+
+Donc c'est pas forcément crucial de les garder. Par contre, je ne sais pas si on. . Je ne me rends pas bien compte parce que j'ai peur que si on garde que des 0-1, peut-être que ça va être un peu plus effets plus marqués ou peut-être des effets moins marqués.
+
+On peut essayer, voir, rajouter une caractéristique ou pas, ça pourra se décider éventuellement.
+
+Speaker 1
+Ouais, si tu veux ce que je questionne beaucoup sur la longueur du texte, c'est quoi le
+
+Microphone
+Oui, c'est pour ça que moi j'étais parti dans l'idée que dans ma tête sentait que c'était. c'était le plus fréquent. Donc je vois que je me suis trompé. Mais donc effectivement, on est en contrôle, on peut considérer que. .
+
+Alors c'est pas ta fait contrôle, c'est référence.
+
+Du coup après, si tu changes la référence, les effets se décalent, mais les calculs sont les mêmes.
+
+Speaker 1
+Oui, ma fabule, c'est quand même ce qu'on oblige. C'est-à-dire, oui, il faudra arriver. Il faut qu'il y ait des hypothèses, parce que sinon on.
+
+Microphone
+Oui, bien sûr, c'est mieux de choisir comme hypothèse des références qui sont les plus neutres possibles, pour que les effets qu'on voit soient les plus clairs et cohérents.
+
+Speaker 1
+Ouais, c'est ça. C'est ça.
+
+Microphone
+ça c'est sûr explicable potentiellement oui mais je note que ça on se le on se levait en distribution classique et on ne l'intègre pas dans la distribu
+
+Speaker 1
+Et explicable, enfin, et voilà.
+
+Microphone
+Ok. Présence de photos dans la vie, on va la garder. C'est oui ou non. Ça va être assez simple celui-ci.
+
+Speaker 1
+Ouais, ça c'est ça, c'est un vrai boulot encore.
+
+Microphone
+Oui. Après il y a des 1, 2, 3, 4 photos, mais de toute façon il y en a rarement 50.
+
+Speaker 1
+Ouais mais en vrai pour le coup à mon avis là c'est pas impactful ça réponse c'est pareil
+
+Microphone
+Donc c'est s'il y en a une ou pas.
+
+J'ai mis deux fois pour photo dans la vie. Donc prénom dans la vie. présence de photo, réponse du propriétaire, le pic dont on a parlé. Et après, ça on peut le faire. Je vais garder région parce qu'en fait j'en ai besoin pour. . Là c'est un. . c'est un. ça te montre Europe et US, mais dans l'idée je pense qu'il faut que je regarde Europe et US.
+
+Globalement, ça ne fait pas de différence énorme. Mais c'est quand même intéressant pour contrôle de vérifier qu'on n'a pas un effet très divergent suivant l'un des pays qu'on regarde.
+
+Speaker 1
+Ouais mais à ce moment là moi je serais tenté de dire on fait deux règles quoi.
+
+Microphone
+Oui, c'est ça, on fait deux règles, oui. Mais du coup, on le.
+
+Speaker 1
+deux règles différentes, mais à ce moment-là, c'est un paramètre qui n'est pas vraiment dans la règle, c'est un.
+
+Microphone
+.
+
+Alors, il est dans la règle pour contrôle, mais c'est un paramètre de contrôle dans la règle. Il est fixé comme étant on choisit de prendre l'Europe et après on choisit prendre l'Europe et après on choisit de prendre l'US.
+
+Mais c'est un paramètre de contrôle.
+
+Microphone
+Okay. Il reste un secteur à taille.
+
+Speaker 1
+Moi vraiment secteur et taille pour moi c'est la même chose, c'est des distributs que je regarderai. C'est quoi le taux dans chacun des trucs ? en vrai, moi tu me fais un char taille secteur. un peu comme Tavelle, un peu plus bas, une matrice quoi, ça raconte une histoire pour moi. Enfin, on verra, ça se trouve, ça ne dit rien du tout, mais.
+
+Microphone
+Tu veux dire un truc comme ça, c'est ça?
+
+Speaker 1
+.
+
+Speaker 1
+Mais ouais. Ouais, sauf que tu mets, voilà, secteur, taille.
+
+Et là, ça te dit, si t'es petit auto, attends-toi à ça. En gros, ça te dit. Je ne sais pas ce qu'on met, la moyenne, la médiane, on va ce qu'on veut, mais ce sera un peu la proportion moyenne d'avis supprimé d'après ce qu'on a observé. Et la proportion moyenne d'avis supprimée, je pense qu'il faut la calculer sur les deux semaines pour le coup. prend les 5000 avis supprimés, enfin ou les 3000 4 et 5 étoiles supprimées sur le total des avis 4 et 5 étoiles à ce moment-là
+
+Microphone
+Attends.
+
+Speaker 1
+Tu vois, on peut faire KT5 étoiles et puis Total, mais à mon avis, on va vraiment se concentrer sur KT5 quand même.
+
+Microphone
+Non mais on a une première partie qui est un peu plus générale, qui fait le descriptif du dataset, ok.
+
+Et puis après on peut faire des focus plus précis. Et là on peut se dire qu'on fait donc en secteur.
+
+Speaker 1
+Alors moi, juste pour info, je ne sais pas comment.
+
+le format qui prendra ce truc là ce sera a priori un pdf ou un truc comme ça non je sais je sais pas
+
+Microphone
+Oui, c'est. Ben en fait, c'est une question aussi qu'il faut qu'on tranche pour.
+
+Speaker 1
+Ouais, on peut en parler. Mais pour moi, la description du dataset, ce n'est pas la première chose qu'on met du tout. C'est la dernière.
+
+La première chose qu'on met, c'est les insights. Je ne sais pas, on retrouve trois insights saignants et c'est ça qu'on dit.
+
+Microphone
+Oui, oui, l'idée pour moi c'était de créer un tour un truc le plus Le plus nôtre possible pour après choisir dedans ce qu'on a envie de mettre dedans et qu'on ait un truc solide pour eux.
+
+Speaker 1
+Oui, oui, ça je comprends.
+
+Microphone
+En fait, c'est juste que si on n'a pas un truc solide, si quelqu'un vient de dire on a mis un truc saignant entre guillemets et on nous montre de le justifier, s'il faut replonger dans. Je ne sais combien de fichiers ça va être infernal.
+
+Speaker 1
+Oui, tout à fait.
+
+Microphone
+Donc je préfère rédiger un truc pour nous qui soit de façon.
+
+Speaker 1
+Il faut que ce soit dans le même documentaire.
+
+Microphone
+Voilà, tu vois, c'est en annexe sur ce document-là, et après, il y a un texte qui sera un texte plus journalistique entre guillemets, ou en tout cas plus actionnable, comme tu disais, pour. qui était Eras qui aura derrière les gens qui vont aller lire la publiée complète quoi. Large.
+
+Et donc du coup là tu aurais tendance à dire que tu mettrais quoi là-dedans en fait?
+
+Speaker 1
+La proportion d'avis supprimé sur nos deux semaines.
+
+Non, attends, la proportion d'avis 4 et 5 étoiles, il n'y a qu'à être avis 4 et 5 étoiles supprimés divisé par.
+
+Microphone
+Oh, scream you know.
+
+Speaker 1
+. Avis 4 et 5 étoiles collectées sur ces deux semaines aussi. Et ça ne va pas être les mêmes qui sont supprimés, on s'entend. On ne fait pas de la cohorte là. On fait juste un truc de gros bourrin comme tout le monde fait.
+
+Sur deux semaines, j'ai collecté tant d'avis, j'en ai perdu tant.
+
+Microphone
+Ok, ok ok, oui non c'est vraiment ça revient dans la partie du haut là
+
+Speaker 1
+Plus x moins y.
+
+Microphone
+dans la partie où on regarde un peu sur tout le dataset en fait quelque part. Enfin, sur les deux semaines, pardon.
+
+Speaker 1
+Ça revient à la partie où on veut dire qu'on pense que le secteur et la taille, c'est des choses intéressantes.
+
+Microphone
+D'accord, bien
+
+Speaker 1
+Est-ce que c'est un insight ou est-ce que c'est une description du dataset ?
+
+Microphone
+Non, ce que je veux dire par là, c'est en fait la vraie question pour moi, c'est que quand tu dis avis 4 et 5 étoiles supprimées sur les deux semaines, je vais en avoir 300 en automobile.
+
+Speaker 1
+'en sais rien, mais euh.
+
+Microphone
+Oui, non, il y en a 5 minutes au total, mais par exemple, en mono.
+
+Speaker 1
+Non, 3000 au total. Des 4 et 5 étoiles, il y en a 3080
+
+Microphone
+Ah pardon, pardon, pardon, excuse-moi, oui. Mais donc ok, dans les 4 et 5 étoiles auto, taï mono, il va y en avoir, je fais un chiffre au hasard, 50. Et ça, si je le divise par tous les collectés en auto-mono sur l'intégralité du dataset, on va avoir peut-être.
+
+Speaker 1
+Non, non, il est écrit sur ces deux
+
+Il n'est pas écrit sur l'intégralité du dataset.
+
+Microphone
+Alors donc du coup quelle est la date que tu considères comme à prendre en vigueur?
+
+Speaker 1
+La même date, on fait un truc de bourrin.
+
+Microphone
+Putain, je bloque là parce que c'est. . Donc je prends à partir du 11 août.
+
+Speaker 1
+Je recommence. Je suis un patron d'hôtel et j'ai un hôtel et ce mois-ci, en septembre, j'ai gagné 50 avis et j'en ai perdu 3.
+
+C'est ça qu'on fait, sauf qu'on ne le fait que sur deux semaines.
+
+Microphone
+Donc, à partir du onze août et jusqu'au vingt-quatre
+
+Speaker 1
+Mais non, ça a commencé avant le 11 août, je crois.
+
+Microphone
+Ça a commencé le 11 août et ça s'est terminé le 24 la régression. Peut-être le 10 août, je dis peut-être une connerie, mais je crois que c'est le 11, le premier jour.
+
+Speaker 1
+Le premier jour du dataset, c'est le onze août.
+
+Microphone
+Je crois. Non, ok on se comprend pas. T'as la date de création de la review, t'as la date de création de la review.
+
+Speaker 1
+Non, on ne se comprend pas là.
+
+Microphone
+D'accord ? Moi, ce que je te demande, c'est est-ce que je prends les.
+
+Speaker 1
+C'est quoi le premier jour où j'ai commencé à scraper de la review ?
+
+Microphone
+. .
+
+août.
+
+Speaker 1
+C'est le onze août le premier jour où on a des rieuses.
+
+Microphone
+Le 10 ou le 11 août. Et là, on en a 4 millions et quelques. Ce jour-là, tu as récolté plus de 4 millions à vie.
+
+créé jusqu'en 2002 à peu près ou 2004 à partir du 12 août on en récupère chaque jour de mémoire 2500 de plus chaque jour pardon
+
+Speaker 1
+Ah oui, d'accord, ok, j'ai compris.
+
+On a les dates des avis. On s'en fout de la date à laquelle je collecte l'avis.
+
+à la date des avis et bah oui bah c'est ça sur la période sur la période où on a pu observer les suppressions quoi donc même à partir du deuxième jour en réalité
+
+Microphone
+Et c'est pour ça que j'ai la date des avis, je me demande où j'arrête la date des avis.
+
+Est-ce que je regarde sur le mois d'août ?
+
+Speaker 1
+Le premier jour, on ne pouvait pas savoir si elle était supprimée.
+
+Microphone
+Oui, ça y a pas de problème. Là, on prend les avis 4 et 5 étoiles supprimées sur les deux semaines et les avis 4 et 5 étoiles collectés sur les deux semaines, je suis d'accord. Je demande juste sur quel. Sur quelle fourchette on regarde ? Est-ce qu'on regarde ?
+
+Speaker 1
+Eh bien, à partir de J plus 1 jusqu'à max.
+
+Microphone
+Ok, donc sur les avis créés dans le secteur. Et cette taille à partir de J plus un jusqu'à J plus quatorze.
+
+Okay.
+
+Speaker 1
+Voilà, J plus 1, parce qu'en J plus 0, on ne pouvait pas savoir s'il y avait des avis supprimés.
+
+On a créé zéro avis supprimé, on dit zéro.
+
+Microphone
+On a créé zéro avis supprimé, on a surtout créé plusieurs millions d'avis non supprimés.
+
+qu'on verra pas là.
+
+Speaker 1
+Mais ça, on s'en fout.
+
+Microphone
+Voilà.
+
+Speaker 1
+C'est un jour pendant lequel on n'a pas pu observer des suppressions d'avis.
+
+Microphone
+Très bien. Ouais, ok, très clair. Ok. Donc on fait ça pour secteur étail.
+
+Speaker 2
+Juste que, vu qu'on a passé du temps pour être sûr que ce soit bien clair. . les avis le le numérateur, les avis 4 et 5 étoiles exprimés sur les deux semaines, on fait bourrin, on prend même des avis qui ont été publiés avant.
+
+Microphone
+Non non non non ça c'est tout euh c'est tout sur ces dossiers.
+
+Speaker 2
+Non?
+
+Non, ok donc. Non je parle du numérateur.
+
+Microphone
+Pour tout.
+
+Speaker 1
+Ok, ok, la qualité de la. .
+
+qui ont été publiés avant, bien sûr, oui. Ok, d'accord, c'était pour le truc. On regarde au jour sur une période de temps combien d'avis sont créés et combien d'avis sont supprimés.
+
+Microphone
+Okay.
+
+Speaker 1
+Et le fait que ce soit les mêmes avis, on s'entend, c'est pas important.
+
+Microphone
+Yeah, yeah, yeah, yeah, yeah.
+
+Speaker 1
+C'est juste que pour observer qu'un avis a été supprimé, il faut qu'on ait tous les avis d'avant. Donc le J plus 1, il est obligatoire. En J0, on ne peut pas savoir. On a zéro avis qui ont été marqués, supprimés en J0.
+
+Ou alors il y a un problème même.
+
+Microphone
+Non, non, non, il n'y en a pas. C'est bon, il n'y en a aucun.
+
+Ce qui est ok, c'est que ça va faire un chiffre de. . Je répète peut-être 20 suppressions ou 30 suppressions sur l'intégralité du dataset observée pendant les deux semaines. Peut-être une suppression d'un avis qui a été publié en 2025, ça on va la compter. et on va le diviser par les avis qui ont été créés à partir de J plus 1. Donc on va avoir à peu près dans les 300 000 avis qui ont été publiés au total sur l'intégralité du corpus.
+
+Speaker 1
+Voilà, très bien. Donc c'est les 3 000 sur 300 000, oui c'est très bien, c'est dans les clous quoi.
+
+Microphone
+Ok. Ok. Ok.
+
+Speaker 1
+Ça fait 1% à peu près.
+
+Microphone
+Très bien.
+
+Speaker 1
+C'est à peu près les métriques qu'on a observées, non?
+
+Microphone
+Ah oui, oui, oui, bien sûr, mais c'est d'être bien sûr qu'on le fait correct, toi.
+
+Speaker 1
+On aura même moins de 300 000 parce qu'on regarde que les 4 et 5 étoiles, donc je pense qu'on se rendra compte qu'on a 2% en fait.
+
+Microphone
+C'est tout. Oui, oui, il y en aura moins.
+
+Ok. Donc là, on a toutes les infos pour l'agression, à moins que tu vois un truc qu'il faut qu'on redemande Mathieu de ton côté.
+
+Est-ce que c'est clair pour toi?
+
+Speaker 1
+À moi votre liste elle n'est pas très claire pour moi, peut-être qu'on peut la la faire liste genre niveau local guide donc du coup on peut le sortir de la liste peut-être après sachant que sur la régression
+
+Microphone
+Ok, attends, on va la faire comme ça. Hop, je la relève, hop.
+
+Speaker 2
+Vas-y vas-y. On peut faire des charts, mais on peut aussi juste isoler une partie, par exemple. On s'en fout, mais niveau local guide, on isole un chart qui vient de la régression logistique avec tout, mais comme ça on le voit. Et on reste sur le principe de régression logistique qui est quand même un peu plus solide sur les effets de dépendance que juste un graphique.
+
+Speaker 1
+Alors explique moi pourquoi il est plus solide, j'ai pas compris.
+
+Speaker 2
+Parce que pour moi, si jamais on enlève complètement. . Après c'est ce que j'ai compris de l'agrégation logistique, mais si on enlève complètement une catégorie, par exemple si on enlève les étoiles, tu avais dit tout à l'heure que les textes plus longs, ils étaient. surreprésenté dans les 1 étoile. Et bah là, l'effet, il est attribué aux étoiles, parce que les 1 étoile sont plus supprimées.
+
+Mais là, si jamais on enlève la catégorie notes, vu que les textes plus longs sont plus supprimés, avant on le reportait sur l'effet étoile, mais là on ne le reporte plus sur l'effet étoile et on le reporte sur l'effet longueur du texte. Donc Donc si on enlève complètement la section notes, pour moi, du coup, si le dataset est orienté comme tu l'as dit, les plus de 200 caractères vont monter en suppression.
+
+Microphone
+Let's go.
+
+Speaker 1
+C'est ce que j'ai compris de la régression logistique.
+
+Speaker 2
+Oui, mais ce sera vrai.
+
+Microphone
+Ce sera vrai si on perdra un tout petit peu d'informations.
+
+Speaker 1
+Ça sera vrai, mais on n'aura pas isolé les effets.
+
+Microphone
+Mais effectivement, si le nombre d'étoiles n'est pas important.
+
+Speaker 1
+Mais je ne suis pas sûr.
+
+Microphone
+.
+
+Speaker 1
+Moi, je ne suis pas tellement d'accord avec l'idée qu'on perde de l'information. bon là on a plein de choses et tout donc voilà mais mais pour moi les avis qu'on regarde ce sont les avis 4 et 5 étoiles c'est ça qui nous intéresse donc isoler l'effet sur les avis 1 2 et 3 C'est pas une information dont on a besoin et au contraire c'est de la complexité quoi.
+
+Speaker 2
+Sur ça je suis d'accord.
+
+Microphone
+No me
+
+Speaker 2
+Gardez que 4 et 5 étoiles, c'est pertinent pour l'analyse des pestes qui sont supprimées en 5 étoiles.
+
+Microphone
+Okay.
+
+Speaker 1
+Non mais pas que les pests, de tous les avis. La question qu'on pose dans l'étude, c'est est-ce que Google supprime des avis? Enfin, quels sont les avis que Google supprime ? gens qui s'intéressent à cette question, c'est pas est-ce qu'ils suppriment des avis une étoile?
+
+Speaker 2
+Vas-y.
+
+Speaker 1
+I mean, really.
+
+Microphone
+Comme paramètre pour faire deux règles. Ok, donc on récupère prénom dans la vie, présence de photo dans la vie, réponse du propriétaire. et si on était sur un pic et on revoit ce calcul en le faisant peut-être avec les semaines pour justifier.
+
+Speaker 1
+Bon, et euh. . Préondrait 1, 2, 3, 4, 5.
+
+Microphone
+Ça me semble au quai.
+
+Speaker 1
+Ça, ça vous paraît léger ou quoi?
+
+parce que moi j'ai l'impression que je suis en train de tuer votre règle et que ça vous brise le cœur.
+
+Microphone
+Non, non, non, non.
+
+Microphone
+Well, you can't do that. En fait, l'idée après, c'était de croiser des caractéristiques pour voir si elles avaient un effet ensemble.
+
+Speaker 1
+Ouais.
+
+Microphone
+Donc on verra, on verra si on a quelque chose à croiser.
+
+Speaker 1
+Mais d'autre part, j'ajoute un truc quand même, moi il me semble que dans une régression, il faut que toutes les variables soient indépendantes, non?
+
+Microphone
+Ce n'est pas si dangereux.
+
+Speaker 1
+pour que ce soit un peu viable.
+
+Microphone
+Uh comment independent.
+
+Speaker 1
+Il faut qu'on pense que les variables n'influent pas les unes sur les autres.
+
+Microphone
+Là, la régression logistique telle qu'elle est faite, c'est qu'on calcule pour chaque vecteur, hop, xab, on va mettre, je vais mettre un vecteur. pas b mais donc x bêta normalement c'est je sais pas écrire bêta là dessus voilà x i bêta i et on fait une somme de ça
+
+Globalement, bêta i ça va être la valeur qu'on a trouvée ici, enfin pardon c'est le x i d'ailleurs en l'occurrence, c'est ça, et bêta i ça va être la
+
+Speaker 1
+Les cours de stade, moi ça fait une plombe, mais j'ai.
+
+Il me semblait moi qu'il fallait que les variables soient indépendantes.
+
+Microphone
+C'est vrai que ça Je crois que c'est dans la régression linéaire, ça n'est pas dans la logistique, justement. Bah elles sont indépendantes de toute façon là en l'occurrence. C'est le résultat qui n'est pas forcément indépendant.
+
+Speaker 1
+Bah non, on a vu par exemple que les notes et la longueur du texte, a priori, c'est pas tellement indépendant.
+
+Microphone
+Basti, en fait s'il y a plus de textes de 200 caractères qui sont supprimés en une étoile, l'effet va être reporté sur une étoile. Mais après. .
+
+Faisons le test, on va voir. On part là dessus.
+
+Microphone
+Ouais, moi je pense qu'on va parler de Moi je pense qu'en fait ça ne va pas être. . En fait, je pense qu'il faut que on la joue moins statisticien et plus pratico-pratique. Je pense que l'objectif c'est d'avoir de l'insight pour toi. Se faire plaisir, ça se fait plaisir. d'aller chercher des choses, c'est cool. Je pense que c'est intéressant de le faire. Et de toute façon, ça nous sert parce qu'en fait, ça a débunké plein de choses qu'il fallait qu'on regarde de toute façon de faire ce travail au préalable.
+
+Et ça c'est indispensable parce que de toute façon ça permet de voir quand même des effets qui permettent de les séparer et de les enlever.
+
+Speaker 1
+Ne faites d'exclure les 1 à 3, on n'y serait pas arrivé.
+
+Microphone
+Voilà. Donc on ne peut pas le décider sans ça.
+
+Speaker 1
+Shaw salts over the colour.
+
+Microphone
+Donc on était obligé de faire assez par là. Donc moi ce que je propose c'est qu'on fait la régression logistique là-dessus, on fait les dernières analyses sur le sujet que tu proposes là, et puis voilà, donc on fait les distributions et on refait ce tableau-là. avec la matrice code telle que tu la proposes. On garde tous les avis 5 et 7, 5 étoiles quand effectivement c'est pertinent et notamment pour la règle. Et donc dernière question pour moi c'est la forme du livrable. Et parce que du coup j'ai un peu comme mission de dire que faut que j'arrête. Donc il faut que je termine, quoi.
+
+Enfin, qu'on termine avec Mathieu. Donc voilà, qu'est-ce que.
+
+Speaker 1
+Bien sûr, je comprends. Oui, oui. La forme du livrable. Moi, la forme du livrable, je vais vous dire ce que je vais faire, moi.
+
+Microphone
+.
+
+Speaker 1
+Après, il faut qu'on voit ce que vous, vous voulez en faire et comment on fait. Moi, ce que je veux faire, c'est un PDF téléchargeable en anglais d'une dizaine de pages avec deux pages d'inside saignant et huit pages de. regardez ce qu'on a fait c'est solide et on vous dit pas n'importe quoi. Voilà.
+
+Microphone
+Oh my god.
+
+Speaker 1
+C'est tout. Et donc, il y aura 8 pages où on raconte l'histoire de comment on a construit le dataset, de on s'est fait chier, aller scrapper je ne sais pas combien de millions de reviews, machin et tout, c'est une galère, c'est compliqué, machin, regardez ce qu'on a fait, c'est un truc de ouf.
+
+Et il y aura deux pages où on apporte de la valeur quoi. Et donc apporter de la valeur, c'est pour ça que je te.
+
+Speaker 1
+. Ce matin, je te disais. . Ah non, c'est bon. C'est ma carte graphique qui travaille. Ce matin, je te disais, les titres, pour moi, il faut que ce soit des claims, il faut que ce soit des trucs qui disent.
+
+voilà on a on a on a trouvé tel truc quoi et ça il en faut je sais pas moi cinq ou six où on peut dire quelque chose
+
+Microphone
+We
+
+Speaker 1
+Et Et si dire quelque chose, c'est dire on a trouvé, on a regardé ça et il n'y a rien, c'est-à-dire que ça n'a aucun impact, par exemple les photos, si c'est prouvé que.
+
+si on arrive à le démontrer à peu près que mettre des photos dans les reviews ça n'a aucun impact sur la suppression des reviews bah moi je suis intimement convaincu qu'il y a énormément de gens qui se font chier à demander des reviews et qui te racontent que c'est leur idée, même des agences qui te racontent ça et compagnie, alors que. . vraisemblablement c'est bidon quoi. Donc si c'est le cas, c'est un inside, tu vois, c'est intéressant.
+
+Microphone
+Ok, très clair, donc une partie vraiment beaucoup plus.
+
+actionable rigolote, enfin en tout cas pas rigolote mais en tout cas forte et après on avance appuie et ces insights doivent s'appuyer sur les 8 pages qui sont derrière.
+
+Donc moi ce que je sais, c'est ça.
+
+Speaker 1
+Voilà, Mais les 8 pages, c'est un peu des résultats et des charts et des machins, mais c'est aussi un peu une histoire qu'on raconte.
+
+quoi tu vois on a fait ci on a fait ça on a choisi ça on a pris ça on a pris tel dataset machin tout ça d'ailleurs il ya plein plein d'éléments dans le notion que Claude avait écrit là où on a été chercher la base de données je ne sais pas quoi avec toutes les adresses machin enfin
+
+Microphone
+Oui OpenStreetMach. Oui, on va reconstruire cette histoire.
+
+Speaker 1
+Il y a plein de trucs.
+
+Microphone
+Ok, donc ça remonte toute l'histoire.
+
+Speaker 1
+Voilà. Mais moi, faire du remplissage et faire des trucs comme ça, je ne suis pas très inquiet. à quoi Claude fait ça très bien, ça devrait aller. Pour moi, ce qui a beaucoup de valeur, c'est les cinq ou six titres un peu forts. Et évidemment, il faut être à l'aise sur la technique, c'est-à-dire sur les trucs de régression et tout. Donc, il faut qu'on puisse l'expliquer clairement et voilà, ce qui est l'énoncé clairement.
+
+Microphone
+But
+
+Speaker 1
+Mais en vrai, le truc important pour moi, c'est les cinq ou six titres un peu forts.
+
+Microphone
+Moi j'en vois déjà au moins au moins deux à la hâte qu'il faut qu'on. une fois qu'on aura bien tout bien tout fait. Moi le premier truc qui m'a étonné c'est passer huit jours, votre avis est sauvé ou à peu près quoi.
+
+Et il y a répondre répondre sauve un avis.
+
+Speaker 1
+Ça déjà j'en fais deux, vrai.
+
+Microphone
+Oui, c'est les deux que je vois là de ce qu'on a vu.
+
+Speaker 1
+Ça en fait deux. Ouais, carrément. Et je pense que. . Mais tu vois, mais même sur des distributions, des trucs comme ça, on peut trouver des insights. Sur les prénoms, moi c'est sûr qu'il y aura un insight. Quel qu'il soit, il faut qu'on trouve quelque chose et qu'on dise. En fait, soit on va trouver que c'est plus supprimé, et à ce moment-là, on dira bah en fait c'était vrai, Google a raison, il ne faut plus mettre des prénoms dans les reviews, ou alors idéalement il faudra arriver à le quantifier. et vous pouvez mettre des prénoms mais en gros vous allez paumer x% de vos reduces en le faisant donc si vous mettez des prénoms que si vous pensez que les mettre va augmenter de x pour cent votre votre vos reduce quoi Et l'alternative, c'est de dire, en fait, c'était bidon et Google, ils disent ça, mais ils ont quand même besoin d'avoir des reviews.
+
+Microphone
+Ouais, au quai, au quai, au quai.
+
+Speaker 1
+Je suis sûr qu'on peut trouver un truc sur les. sur les sur les secteurs aussi, là ce que tu disais sur les pest contrôles, c'est un secteur qui se fait tabasser, machin et tout, bon bah c'est un inside de ouf quoi. Si t'es dans le pest contrôle, tu vois ça, tu dis ah bah en fait tous les autres qui sont dans vos métiers c'est pareil. Tu l'as beaucoup moins mauvaise quand elle supprime les avis, tu t'en fous quoi. Enfin tu t'en fous pas, tu te bagarres pour qu'ils les remettent et tout, mais t'as compris que c'était un truc du marché, c'est comme ça.
+
+Microphone
+Oui, tout à fait, je comprends.
+
+Speaker 1
+Tu vois ce que je veux dire ? n'a rien à voir en fait avec le fait de penser qu'il n'y a que toi.
+
+Microphone
+Oui, oui, bien sûr. Ça, c'est ce que montre plutôt bien le travail qu'on a fait jusque-là.
+
+Speaker 1
+Voilà, et donc en fait, on les a à peu près les insights quand même. L'idée c'est juste.
+
+voilà, essayer de voir si on arrive à en trouver par des distributions ou par des moyens peut-être un peu plus simples et un peu plus bruts de décoffrage sur certains de ces sujets.
+
+Microphone
+Au quai, très bien
+
+Concrètement, moi ça me semble bien, de toute façon je pense qu'on a absolument besoin d'avoir 8 pages solides en PDF derrière qui explique l'histoire de façon un peu. du front, mais vraiment pour celui qui veut se pioncer dedans, qui voit ce qu'on a fait, qu'il voit qu'on n'a pas décrété.
+
+Speaker 1
+Oui, que c'est défendable, quoi.
+
+Microphone
+C'est défendable.
+
+Après et
+
+Speaker 1
+En plus, d'ailleurs, c'est intéressant, mais parce que moi, ce que j'avais compris avec Anta, c'est que l'idée c'est aussi de. que Cartélis . l'étude et puisse s'en servir aussi en disant bah voilà enfin mettre le logo et tout pour le coup c'est plutôt les huit pages enfin les deux pages aussi mais c'est plutôt les huit pages de voici comment on a fait l'étude et tout ça qui vont être qui vont être un peu plus
+
+Microphone
+Oui.
+
+Speaker 1
+C'est nant, je dirais, pour Cartélis, comme j'ai compris.
+
+Microphone
+Oui, moi ce que j'ai compris aussi, oui, donc c'est pour ça que je les négligerai pas. Mais voilà, et les deux pages saignants, je vois à peu près l'angle, et de toute façon en fait, effectivement, après, tu auras tout loisir aussi de. . de venir et faire ce que ce que tu as envie dessus. En termes de de livrable, là je vois encore quand même un petit peu de boulot par rapport à ça. Pas forcément énormément de boulot de programmation, mais quand même pas mal de boulot de recherche encore pour finaliser un peu tout ça.
+
+Et après donc de la rédaction
+
+Speaker 1
+Moi Romain je peux vous être utile. Là par exemple j'ai essayé un truc tout à l'heure sur les prénoms. Il arrive à plus de à moins d'un pourcent de faux positifs, je crois. Et il mange 100% sur les extras qu'il a fait. C'est pour ça qu'il a rame là, il est en train de faire tourner le truc sur un plus gros dataset.
+
+Mais ça par exemple c'est un truc que je peux faire moi.
+
+Microphone
+Ah bah
+
+Speaker 1
+Labelliser toutes les reviews avec un prénom un appât. Et même à l'échelle de toutes les reviews, pour vous donner de la distribution, par exemple la distribution des reviews qui ont un prénom ou qu'on n'ont pas par secteur, par taille, etc. ça aussi c'est de l'insight en vrai sur un sujet qui est très très actuel entre guillemets ça j'insiste un peu sur le prénom mais c'est vraiment à mon avis un angle de distribution majeur quoi c'est un truc dont tout le monde parle depuis six mois Tout le monde dit tout et tout et son contraire, je pense que c'est très structurant d'en parler.
+
+Microphone
+Okay.
+
+Speaker 1
+Donc voilà, moi ça c'est le genre de choses où je peux aider.
+
+Microphone
+But
+
+Speaker 1
+Et s'il y a des choses où vous voulez que je regarde, machin et tout, moi je ne suis pas statisticien, mais bon, j'ai Claude, je peux réfléchir à un problème et essayer de trouver des solutions. Voilà.
+
+Et puis même me reprocher un peu dans les maths s'il faut, mais voilà quoi.
+
+Microphone
+Très honnêtement, si tu parce qu'en fait, pour la régression logistique, si tu as la possibilité de C'est surtout de nous ressortir le dataset avec 1 ou 0 pour s'y imprennent ou pas, boy note.
+
+mais il faut qu'on récupère le dataset sur tout mais pas sur les sur ce qu'on va regarder quoi du coup sur
+
+Speaker 1
+Donc vous donnez tout le
+
+Microphone
+Bref, on marque à la limite, je ne sais pas si tout le dataset, c'est pas plus mal, mais.
+
+Speaker 1
+Bah de toute façon, moi je vais tout tailler, je
+
+Microphone
+.
+
+Si tu tag tout, à la limite, tu peux nous ressortir le review avec les prénoms, comme ça on part de ça direct, ça nous évite de le faire de notre côté. Et nous on se concentre plus sur la partie.
+
+Speaker 1
+Ouais carrément, ça je peux vous l'avoir. Alors il faut que ça tourne, ça met du temps, mais je peux vous l'avoir, je sais pas, moi, ce week-end.
+
+Microphone
+. Oui, si on l'a lundi, c'est très bien. Et du coup, on essaie de boucler ça dans la semaine.
+
+Moi je vois avec Mathieu pour qu'on s'organise un peu en plan de bataille pour voir comment on construit. On va construire de toute façon en priorité les 8 pages solides, quoi qu'il en soit. Elles appuieront, ce ne sera rien d'en tirer les deux pages d'insights saignant. si les 8 pages solides sont là quoi. Et on a déjà quand même quelques idées de ce qu'on a envie de mettre dans le côté de pages saignant. Donc c'est bien qu'on va pouvoir les appuyer en allant les chercher directement dans les graphes qu'on va mettre derrière. Mais je pense qu'il faut le construire comme ça, le page senior doit vraiment s'appuyer sur les pages solides et pas l'inverse.
+
+On sait ce qu'on cherche maintenant à peu près, donc je pense que c'est mieux de faire comme ça.
+
+Speaker 1
+Oui, oui, effectivement. Et puis il ne faut pas mettre la charrue avant les buts.
+
+Ça, c'est des hypothèses, quoi.
+
+Microphone
+Oui, voilà.
+
+Speaker 1
+Effectivement, il faut quand même arriver à les démontrer à peu près.
+
+Microphone
+Mais euh. Et donc voilà, on construit ça sur la semaine en échangeant par mail avec Mathieu, toi et moi. Et puis l'idée c'est de sortir les 8 pages fin de semaine prochaine et les 2 pages senior dans la foulée.
+
+Est-ce que ça te convient comme calendrier?
+
+Speaker 1
+Ouais, je crois que ça me convient. Est-ce qu'on se met un truc la semaine prochaine ?
+
+Microphone
+Bah moi je pense que c'est bien de se le refaire peut-être attend du coup la semaine prochaine
+
+Microphone
+Mercredi, on n'y arrive pas, c'est trop tôt. J'y croirai pas un instant mercredi. Jeudi, c'est quand même le mieux pour moi.
+
+Jeudi 10h c'est cool pour moi.
+
+Speaker 1
+Ok, je dis à toi.
+
+Microphone
+Jeudi à 10h c'est bon pour moi Mathieu.
+
+Microphone
+Je dis quoi ? On a perdu Mathieu.
+
+Microphone
+Ah non, mais très bien, jeudi dix heures, ouais. Je dis 10 heures, c'est le mieux. De toute façon, comme tu le dis, la rédaction derrière, je pense que ça peut être un gros gros question.
+
+Oh yeah, you are Euh non pas
+
+Microphone
+Mais là on a quand même beaucoup beaucoup de trucs dans tous les sens. Nous il y a un gros travail d'élagage pour garder que ce qui nous intéresse parce que sinon nous on va s'y perdre méchamment quand même.
+
+parce qu'on a vraiment creusé dans tous les sens quoi bah oui il fallait chercher
+
+Speaker 1
+Oui, c'est ça, j'ai l'impression qu'il y a beaucoup de pistes qui ont été ouvertes et finalement, ouais, ouais, pour arriver à.
+
+à recentrer sur les insights qu'on peut démontrer.
+
+Microphone
+Voilà, mais c'était indispensable d'aller tout chercher parce qu'on ne savait pas ce qu'on cherchait, donc voilà quoi.
+
+Microphone
+Ah ouais, c'est vrai, c'est bon. On a trouvé quelques trucs, mais maintenant il faut qu'on se dise les corpus qu'on garde et qu'on s'y fixe et où est-ce qu'on va les chercher, etc. donc c'est pour ça qu'il y a un petit travail avec Mathieu demain pour faire ça, cleaner notre notre VS Code.
+
+Microphone
+Oui, t'as déjà cette quoi? Et puis les 70 datasets qui existent, review doublon, review doublon hall, etc. Ok, on.
+
+Microphone
+Ah j'ai parlé. . Ah ouais, on a on a fait du bordel, oui, on a fait du joli bordel.
+
+Microphone
+Euh ok. Mais bon, c'est intéressant.
+
+Speaker 1
+Ben ouais, je sais pas.
+
+Microphone
+Si, si, si, c'est intéressant. Moi, je trouve ça intéressant.
+
+Microphone
+J'en sais rien. Donc ok, écoute, on fait comme ça et donc l'indice tu peux nous refourguer le dataset review, c'est top
+
+Speaker 1
+Ouais, dessus là, j'ai le truc qui tourne et tout, ça va, ça va, je vais y arriver.
+
+Speaker 2
+Je vous envoie ça dès que je peux. Merci à vous et bonne soirée. A plus
+
+Microphone
+Super, merci beaucoup. Bonne journée à tous. Au revoir.
+
+Jo, bon
+
+Je pense qu'il
+
+Comme je lui dis qu'il fallait connaître, at all moment
+
+La 70ème fois qu'il a dit qu'il ne comprenait pas la régression logistique, je peux. Uh, I'm not sure what I'm saying.
+

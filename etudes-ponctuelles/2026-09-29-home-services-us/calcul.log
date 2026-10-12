@@ -1,0 +1,49 @@
+[10:08:46] tous_home_services : 4180 avis, 439 supprimés, 443 fiches
+[10:08:59]   kmeans 2 : 2 groupes, écart global au rang 99.7 % (note) / 82.0 % (fiche)
+[10:08:59]   kmeans 3 : 3 groupes, écart global au rang 99.3 % (note) / 79.5 % (fiche)
+[10:08:59]   kmeans 4 : 4 groupes, écart global au rang 99.9 % (note) / 96.8 % (fiche)
+[10:08:59]   kmeans 5 : 5 groupes, écart global au rang 100.0 % (note) / 49.6 % (fiche)
+[10:08:59]   kmeans 6 : 6 groupes, écart global au rang 100.0 % (note) / 42.9 % (fiche)
+[10:08:59]   kmeans 7 : 7 groupes, écart global au rang 100.0 % (note) / 36.4 % (fiche)
+[10:08:59]   kmeans 8 : 8 groupes, écart global au rang 100.0 % (note) / 40.5 % (fiche)
+[10:08:59]   kmeans 9 : 9 groupes, écart global au rang 100.0 % (note) / 28.7 % (fiche)
+[10:08:59]   kmeans 10 : 10 groupes, écart global au rang 100.0 % (note) / 48.0 % (fiche)
+[10:09:00]   hdbscan  : 26 groupes, écart global au rang 100.0 % (note) / 98.6 % (fiche)
+[10:09:01]   voisins : écart 4.31 points ; hasard note -0.03, fiche 3.94
+[10:09:01] sans_chaines : 2328 avis, 124 supprimés, 349 fiches
+[10:09:07]   kmeans 2 : 2 groupes, écart global au rang 99.5 % (note) / 96.1 % (fiche)
+[10:09:07]   kmeans 3 : 3 groupes, écart global au rang 99.8 % (note) / 99.4 % (fiche)
+[10:09:07]   kmeans 4 : 4 groupes, écart global au rang 100.0 % (note) / 99.7 % (fiche)
+[10:09:07]   kmeans 5 : 5 groupes, écart global au rang 100.0 % (note) / 98.7 % (fiche)
+[10:09:08]   kmeans 6 : 6 groupes, écart global au rang 100.0 % (note) / 100.0 % (fiche)
+[10:09:08]   kmeans 7 : 7 groupes, écart global au rang 100.0 % (note) / 58.1 % (fiche)
+[10:09:08]   kmeans 8 : 8 groupes, écart global au rang 99.9 % (note) / 79.0 % (fiche)
+[10:09:08]   kmeans 9 : 9 groupes, écart global au rang 99.8 % (note) / 84.8 % (fiche)
+[10:09:08]   kmeans 10 : 10 groupes, écart global au rang 100.0 % (note) / 99.8 % (fiche)
+[10:09:08]   hdbscan  : 16 groupes, écart global au rang 99.8 % (note) / 31.7 % (fiche)
+[10:09:08]   voisins : écart 3.64 points ; hasard note -0.03, fiche 3.90
+[10:09:08] tous_home_services_5_etoiles : 3848 avis, 406 supprimés, 425 fiches
+[10:09:20]   kmeans 2 : 2 groupes, écart global au rang 98.3 % (note) / 68.5 % (fiche)
+[10:09:20]   kmeans 3 : 3 groupes, écart global au rang 99.8 % (note) / 96.4 % (fiche)
+[10:09:20]   kmeans 4 : 4 groupes, écart global au rang 100.0 % (note) / 40.6 % (fiche)
+[10:09:20]   kmeans 5 : 5 groupes, écart global au rang 100.0 % (note) / 42.2 % (fiche)
+[10:09:20]   kmeans 6 : 6 groupes, écart global au rang 100.0 % (note) / 30.9 % (fiche)
+[10:09:21]   kmeans 7 : 7 groupes, écart global au rang 100.0 % (note) / 39.9 % (fiche)
+[10:09:21]   kmeans 8 : 8 groupes, écart global au rang 100.0 % (note) / 36.7 % (fiche)
+[10:09:21]   kmeans 9 : 9 groupes, écart global au rang 100.0 % (note) / 25.4 % (fiche)
+[10:09:21]   kmeans 10 : 10 groupes, écart global au rang 100.0 % (note) / 30.1 % (fiche)
+[10:09:22]   hdbscan  : 24 groupes, écart global au rang 100.0 % (note) / 13.1 % (fiche)
+[10:09:23]   voisins : écart 3.70 points ; hasard note -0.03, fiche 3.70
+[10:09:23] sans_chaines_5_etoiles : 2172 avis, 111 supprimés, 333 fiches
+[10:09:29]   kmeans 2 : 2 groupes, écart global au rang 98.4 % (note) / 94.2 % (fiche)
+[10:09:29]   kmeans 3 : 3 groupes, écart global au rang 98.6 % (note) / 99.4 % (fiche)
+[10:09:29]   kmeans 4 : 4 groupes, écart global au rang 99.8 % (note) / 88.8 % (fiche)
+[10:09:29]   kmeans 5 : 5 groupes, écart global au rang 100.0 % (note) / 94.8 % (fiche)
+[10:09:30]   kmeans 6 : 6 groupes, écart global au rang 100.0 % (note) / 96.7 % (fiche)
+[10:09:30]   kmeans 7 : 7 groupes, écart global au rang 99.9 % (note) / 74.4 % (fiche)
+[10:09:30]   kmeans 8 : 8 groupes, écart global au rang 98.0 % (note) / 84.4 % (fiche)
+[10:09:30]   kmeans 9 : 9 groupes, écart global au rang 100.0 % (note) / 23.4 % (fiche)
+[10:09:30]   kmeans 10 : 10 groupes, écart global au rang 100.0 % (note) / 69.2 % (fiche)
+[10:09:30]   hdbscan  : 14 groupes, écart global au rang 100.0 % (note) / 61.8 % (fiche)
+[10:09:31]   voisins : écart 0.55 points ; hasard note -0.03, fiche 1.51
+[10:09:31] terminé

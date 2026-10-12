@@ -1,0 +1,32 @@
+Passage : Europe
+105764 avis-jours, 10176 avis, 166 suppressions, 2248 fiches
+secteur_*, taille_* et region_US sont des contrôles, non affichés.
+
+                 Generalized Linear Model Regression Results                  
+==============================================================================
+Dep. Variable:                      y   No. Observations:               105764
+Model:                            GLM   Df Residuals:                   105751
+Model Family:                Binomial   Df Model:                           12
+Link Function:                  Logit   Scale:                          1.0000
+Method:                          IRLS   Log-Likelihood:                -1185.9
+Date:                Mon, 05 Oct 2026   Deviance:                       2371.9
+Time:                        11:24:24   Pearson chi2:                 1.10e+05
+No. Iterations:                    10   Pseudo R-squ. (CS):          0.0009788
+Covariance Type:              cluster                                         
+============================================================================================
+                               coef    std err          z      P>|z|      [0.025      0.975]
+--------------------------------------------------------------------------------------------
+const                       -6.8555      0.688     -9.968      0.000      -8.203      -5.508
+prenom                       0.4341      0.266      1.635      0.102      -0.086       0.955
+photo                        0.1120      0.268      0.417      0.677      -0.414       0.638
+sans_reponse                 0.7268      0.361      2.014      0.044       0.020       1.434
+pic                          1.1637      0.349      3.333      0.001       0.479       1.848
+secteur_food_beverage       -0.8388      0.950     -0.883      0.377      -2.700       1.022
+secteur_healthcare          -1.3910      0.839     -1.658      0.097      -3.036       0.254
+secteur_home_services        0.5671      0.889      0.638      0.524      -1.176       2.310
+secteur_hospitality         -0.4401      0.661     -0.666      0.506      -1.736       0.856
+secteur_travel              -0.7879      0.924     -0.852      0.394      -2.599       1.024
+secteur_wellness_fitness    -0.1031      0.809     -0.128      0.899      -1.688       1.482
+taille_large                -0.4163      0.594     -0.700      0.484      -1.581       0.749
+taille_small                -0.0504      0.643     -0.078      0.938      -1.311       1.210
+============================================================================================

@@ -1,0 +1,6 @@
+chaine,avis_de_la_chaine,supprimes_de_la_chaine,copies,supprimes,part_supprimee_pct,attendus_periode_note,rapport_observe_attendu,hasard_fiche_moyenne,rang_periode_pct,seuil_periode,rang_fiche_pct,seuil_fiche
+EcoShield,74052,258,855,9,1.05,4.1,2.2,4.5,97.8,8,98.2,8
+Insight,10858,117,153,6,3.92,1.1,5.5,2.1,100.0,3,98.9,5
+Pointe,24036,68,446,0,0.0,0.7,0.0,0.4,0.0,3,0.0,2
+Bulwark,32286,122,222,16,7.21,2.6,6.1,4.9,100.0,6,100.0,9
+autres,17155,80,164,1,0.61,0.8,1.3,1.0,46.0,3,34.0,3

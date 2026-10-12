@@ -1,0 +1,31 @@
+Passage : Europe, secteur et taille en contrôle (et région pour tous)
+10177 avis, 119 suppressions
+
+                 Generalized Linear Model Regression Results                  
+==============================================================================
+Dep. Variable:               supprime   No. Observations:                10177
+Model:                            GLM   Df Residuals:                    10164
+Model Family:                Binomial   Df Model:                           12
+Link Function:                  Logit   Scale:                          1.0000
+Method:                          IRLS   Log-Likelihood:                -600.75
+Date:                Mon, 05 Oct 2026   Deviance:                       1201.5
+Time:                        11:40:59   Pearson chi2:                 1.16e+04
+No. Iterations:                     8   Pseudo R-squ. (CS):           0.009184
+Covariance Type:              cluster                                         
+=============================================================================================
+                                coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------------------
+const                        -4.8828      0.806     -6.059      0.000      -6.462      -3.303
+prenom                        0.5755      0.306      1.883      0.060      -0.023       1.174
+photo                         0.0540      0.326      0.166      0.868      -0.585       0.693
+sans_reponse_j7               1.0201      0.441      2.314      0.021       0.156       1.884
+pic                           1.0110      0.373      2.708      0.007       0.279       1.743
+industry_food_beverage       -1.1301      0.953     -1.186      0.236      -2.998       0.738
+industry_healthcare          -1.1233      0.871     -1.290      0.197      -2.830       0.584
+industry_home_services        0.7873      0.920      0.856      0.392      -1.016       2.591
+industry_hospitality         -0.6400      0.716     -0.894      0.372      -2.044       0.764
+industry_travel              -1.2663      0.958     -1.322      0.186      -3.144       0.612
+industry_wellness_fitness    -0.0933      0.823     -0.113      0.910      -1.706       1.520
+bucket_large                 -0.6055      0.566     -1.070      0.284      -1.714       0.503
+bucket_small                  0.0383      0.614      0.062      0.950      -1.165       1.242
+=============================================================================================

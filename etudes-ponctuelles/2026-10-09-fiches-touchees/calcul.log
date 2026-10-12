@@ -1,0 +1,82 @@
+cohorte : 15502 avis 4-5 étoiles publiés du 2026-08-11 au 2026-08-17, 503 supprimés au plus tard au 7e jour, 3905 fiches
+
+== Sélection ==
+                                             etape  fiches  avis_publies  avis_supprimes  supprimes_pour_100
+                              fiches de la cohorte    3905         15502             503                 3.2
+                                dont six enseignes      91          1231             206                16.7
+étudiées (au moins 5 avis publiés, hors enseignes)     792          8925             229                 2.6
+                                           touchée      44           649             196                30.2
+                                    entre les deux      31           574              33                 5.7
+                                            témoin     717          7702               0                 0.0
+
+fiches touchées par région :
+region
+US        37
+Europe     7
+
+fiches touchées par secteur :
+industry
+home_services       14
+healthcare          14
+travel               5
+wellness_fitness     4
+automotive           3
+food_beverage        2
+hospitality          2
+
+appariement : 44 fiches touchées sur 44 ont des témoins dans leur strate (21 strates, 344 témoins)
+
+== Comparaison (témoins pondérés) ==
+                                                  libelle        statistique  touchees  temoins  fiches_touchees  fiches_temoins
+                       Volume habituel (avis par semaine)            médiane     6.367    6.712               44             344
+           Intensité de la semaine (× le rythme habituel)            médiane     1.776    1.466               44             344
+                          Délai médian de réponse (jours)            médiane     2.000    1.000               33             300
+                  Au moins un jour de pic dans la semaine    part des fiches     0.545    0.332               44             344
+                             Jours de pic dans la semaine       nombre moyen     0.864    0.485               44             344
+                              Part du jour le plus chargé moyenne des fiches     0.407    0.376               44             344
+                          Comptes neufs (2 avis ou moins) moyenne des fiches     0.434    0.433               44             344
+                          Auteurs sans niveau Local Guide moyenne des fiches     0.118    0.083               44             344
+Au moins un auteur actif sur une autre fiche le même jour    part des fiches     0.045    0.052               44             344
+                                           Avis 5 étoiles moyenne des fiches     0.971    0.952               44             344
+                                          Avis sans texte moyenne des fiches     0.274    0.237               44             344
+                          Texte court (1 à 40 caractères) moyenne des fiches     0.083    0.131               44             344
+                                              Prénom cité moyenne des fiches     0.359    0.332               44             344
+                                             Photo jointe moyenne des fiches     0.065    0.088               44             344
+                         Au moins deux avis au même texte    part des fiches     0.045    0.000               44             344
+       Taux de réponse du propriétaire (année précédente) moyenne des fiches     0.588    0.743               44             344
+                Réponses standardisées (année précédente) moyenne des fiches     0.250    0.238               33             300
+
+modèle : 670 fiches (au moins 5 avis l'année précédente), 7645 avis, 173 supprimés
+  échelle de Pearson : 2.43 (non utilisée)
+
+== Modèle ==
+                parametre       role    lecture rapport_de_cotes borne_basse borne_haute p_value
+           log2_intensite indicateur doublement             0.97        0.67        1.39   0.859
+                jours_pic indicateur     1 jour             1.13        0.82        1.57   0.457
+            part_jour_max indicateur +10 points             1.22        1.01        1.48   0.041
+       part_comptes_neufs indicateur +10 points             0.87        0.73        1.03   0.105
+         part_sans_niveau indicateur +10 points             1.91        1.49        2.45   0.000
+          auteur_ailleurs indicateur  oui / non             0.30        0.09        1.03   0.057
+           part_5_etoiles indicateur +10 points             1.18        0.73        1.89   0.498
+          part_sans_texte indicateur +10 points             0.91        0.76        1.09   0.309
+         part_texte_court indicateur +10 points             0.62        0.45        0.85   0.003
+              part_prenom indicateur +10 points             0.94        0.83        1.06   0.324
+               part_photo indicateur +10 points             0.86        0.58        1.27   0.456
+             texte_double indicateur  oui / non            12.34        2.58       59.14   0.002
+             taux_reponse indicateur +10 points             0.89        0.79        0.99   0.035
+   part_reponses_standard indicateur +10 points             1.01        0.91        1.13   0.829
+                region_US   contrôle                        1.61        0.91        2.84   0.103
+   industry_food_beverage   contrôle                        0.57        0.14        2.38   0.444
+      industry_healthcare   contrôle                        3.13        0.66       14.82   0.150
+   industry_home_services   contrôle                        4.94        1.29       18.85   0.019
+     industry_hospitality   contrôle                        0.50        0.05        5.04   0.560
+          industry_travel   contrôle                        3.49        0.48       25.54   0.218
+industry_wellness_fitness   contrôle                        0.89        0.17        4.61   0.885
+             bucket_large   contrôle                        1.10        0.37        3.27   0.859
+             bucket_small   contrôle                        4.98        1.93       12.89   0.001
+              log2_volume   contrôle                        1.10        0.84        1.44   0.494
+                    const  constante                        0.00        0.00        0.81   0.043
+
+six enseignes : 91 fiches, 1231 avis, 206 supprimés
+
+écrit dans C:\Matt\reviewflowz_shared\review-google\livrables\restitution_finale_v2\analyse_exploratoire

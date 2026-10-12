@@ -1,0 +1,43 @@
+case,n_avis,n_supprimes,population
+automotive | 1,329,37,toutes_fiches
+automotive | 2-4,150,5,toutes_fiches
+automotive | 5,2164,36,toutes_fiches
+food_beverage | 1,175,10,toutes_fiches
+food_beverage | 2-4,356,3,toutes_fiches
+food_beverage | 5,2307,43,toutes_fiches
+healthcare | 1,142,11,toutes_fiches
+healthcare | 2-4,111,2,toutes_fiches
+healthcare | 5,1772,76,toutes_fiches
+home_services | 1,186,16,toutes_fiches
+home_services | 2-4,146,17,toutes_fiches
+home_services | 5,3848,406,toutes_fiches
+hospitality | 1,139,9,toutes_fiches
+hospitality | 2-4,333,6,toutes_fiches
+hospitality | 5,736,7,toutes_fiches
+tous secteurs | 1,19,1,toutes_fiches
+travel | 2-4,41,0,toutes_fiches
+travel | 5,1037,36,toutes_fiches
+wellness_fitness | 1,71,11,toutes_fiches
+wellness_fitness | 2-4,45,3,toutes_fiches
+wellness_fitness | 5,831,40,toutes_fiches
+automotive | 1,329,37,sans_enseignes
+automotive | 2-4,150,5,sans_enseignes
+automotive | 5,2164,36,sans_enseignes
+food_beverage | 1,175,10,sans_enseignes
+food_beverage | 2-4,356,3,sans_enseignes
+food_beverage | 5,2307,43,sans_enseignes
+healthcare | 1,142,11,sans_enseignes
+healthcare | 2-4,111,2,sans_enseignes
+healthcare | 5,1772,76,sans_enseignes
+home_services | 1,75,4,sans_enseignes
+home_services | 2-4,81,9,sans_enseignes
+home_services | 5,2172,111,sans_enseignes
+hospitality | 1,139,9,sans_enseignes
+hospitality | 2-4,333,6,sans_enseignes
+hospitality | 5,736,7,sans_enseignes
+tous secteurs | 1,19,1,sans_enseignes
+travel | 2-4,41,0,sans_enseignes
+travel | 5,1037,36,sans_enseignes
+wellness_fitness | 1,71,11,sans_enseignes
+wellness_fitness | 2-4,45,3,sans_enseignes
+wellness_fitness | 5,831,40,sans_enseignes

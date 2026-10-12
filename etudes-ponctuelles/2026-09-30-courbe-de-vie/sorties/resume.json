@@ -1,0 +1,7 @@
+{
+  "corpus": "reviews_doublons_cleaned_all",
+  "avis_publies": 32997,
+  "avis_exposables": 28559,
+  "suppressions": 744,
+  "suppressions_sans_enseignes": 526
+}

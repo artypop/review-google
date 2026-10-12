@@ -1,0 +1,17 @@
+[07F] 24248 avis 4-5 étoiles dans 03C
+  écartés, prénom inconnu          : 55
+  écartés, fiche plus relevée      : 2 (1 fiches)
+  gardés : 24191 avis, 4705 fiches, 631 suppressions au plus tard au 7e jour
+  réponse au plus tard au 7e jour : 50.1% des avis -> référence : réponse
+         secteur  fiches  avis  avis_jour_de_pic  supprimes_jour_de_pic  avis_jour_normal  supprimes_jour_normal  pour_1000_jour_de_pic  pour_1000_jour_normal  ecart_pct  borne_basse_pct  borne_haute_pct  tirages_valides
+      automotive     675  3108               982                      6              2126                     34                    6.1                   16.0      -61.8            -96.4             31.0             2000
+   food_beverage     888  5028              1192                     16              3836                     27                   13.4                    7.0       90.7            -72.3            796.8             2000
+      healthcare     717  2812               450                     23              2362                     51                   51.1                   21.6      136.7              9.6            357.2             2000
+   home_services     532  2679               439                     32              2240                     72                   72.9                   32.1      126.8            -35.2            317.3             2000
+     hospitality     901  4501               887                     10              3614                     24                   11.3                    6.6       69.8            -77.6            329.8             2000
+          travel     296  1886               656                     16              1230                     18                   24.4                   14.6       66.7           -100.0            663.1             1999
+wellness_fitness     605  2364               368                     12              1996                     38                   32.6                   19.0       71.3            -85.9            324.3             2000
+            tous    4614 22378              4974                    115             17404                    264                   23.1                   15.2       52.4             -4.7            132.5             2000
+à secteur et taille égaux : ×1.78 [1.13 ; 2.80]
+écrit : C:\Matt\reviewflowz_shared\review-google\livrables\restitution_finale\graphiques\faits-saignants\graphiques\pic_jour_par_secteur.png
+écrit : C:\Matt\reviewflowz_shared\review-google\livrables\restitution_finale\graphiques\faits-saignants\donnees\pic_jour_par_secteur.csv

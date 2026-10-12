@@ -1,0 +1,44 @@
+Passage : Europe_sans_enseignes
+Corpus : reviews_doublons_cleaned_180.parquet
+173316 avis, 524 suppressions, 4308 fiches
+log_age_premiere_observation, fenetre_observation_j et region_US sont des
+contrôles : ils ne s'affichent pas dans le rendu client.
+
+                 Generalized Linear Model Regression Results                  
+==============================================================================
+Dep. Variable:               supprime   No. Observations:               173316
+Model:                            GLM   Df Residuals:                   173293
+Model Family:                Binomial   Df Model:                           22
+Link Function:                  Logit   Scale:                          1.0000
+Method:                          IRLS   Log-Likelihood:                -2919.3
+Date:                Wed, 30 Sep 2026   Deviance:                       5838.6
+Time:                        18:03:01   Pearson chi2:                 1.89e+05
+No. Iterations:                    10   Pseudo R-squ. (CS):           0.007402
+Covariance Type:              cluster                                         
+==================================================================================================
+                                     coef    std err          z      P>|z|      [0.025      0.975]
+--------------------------------------------------------------------------------------------------
+const                             -5.5496      0.447    -12.414      0.000      -6.426      -4.673
+etoiles_1                          1.5605      0.227      6.865      0.000       1.115       2.006
+etoiles_2                          0.7373      0.301      2.451      0.014       0.148       1.327
+etoiles_3                          0.2057      0.318      0.647      0.518      -0.418       0.829
+etoiles_4                         -0.1886      0.259     -0.728      0.467      -0.697       0.319
+texte_1_50                         0.2013      0.195      1.032      0.302      -0.181       0.584
+texte_51_200                       0.3037      0.173      1.755      0.079      -0.036       0.643
+texte_201_plus                     0.2384      0.162      1.472      0.141      -0.079       0.556
+guide_sans_niveau                  1.3189      0.212      6.225      0.000       0.904       1.734
+guide_5_et_plus                   -0.2498      0.205     -1.221      0.222      -0.651       0.151
+secteur_food_beverage             -0.1691      0.422     -0.401      0.688      -0.995       0.657
+secteur_healthcare                -0.2544      0.416     -0.612      0.540      -1.069       0.560
+secteur_home_services              0.2974      0.416      0.714      0.475      -0.519       1.113
+secteur_hospitality               -0.3047      0.377     -0.807      0.419      -1.044       0.435
+secteur_travel                     0.3039      0.549      0.554      0.580      -0.772       1.379
+secteur_wellness_fitness           0.2955      0.379      0.779      0.436      -0.448       1.039
+taille_small                       0.2380      0.349      0.682      0.495      -0.445       0.921
+taille_large                       0.2015      0.324      0.622      0.534      -0.434       0.837
+has_photo                          0.0424      0.200      0.212      0.832      -0.350       0.435
+log_photos_auteur                 -0.0834      0.051     -1.624      0.104      -0.184       0.017
+log_ratio_pic_journalier_fiche     0.2671      0.081      3.317      0.001       0.109       0.425
+log_age_premiere_observation      -0.9159      0.058    -15.793      0.000      -1.030      -0.802
+fenetre_observation_j              0.1307      0.031      4.173      0.000       0.069       0.192
+==================================================================================================

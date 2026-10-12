@@ -1,0 +1,1217 @@
+Speaker 1  •  02:20
+Salut Romain, comment ça va ? 
+
+Microphone  •  02:21
+Salut, Axel, ça va bien, toi? 
+
+Speaker 1  •  02:24
+Ça va super. C'était bien les vacances ? 
+
+Microphone  •  02:27
+Écoute, c'était très bien. C'était la Vosges, c'était la randonnée dans les Vosges, c'était de la balade sous les arbres. Et en plus il a fait un tendement donc c'était vraiment trop trop bien. 
+
+Speaker 1  •  02:40
+Ah c'est cool, c'est trop bien ça. 
+
+Microphone  •  02:41
+Donc ouais, et. . Pardon ? 
+
+Speaker 1  •  02:44
+Tu connaissais les vols? 
+
+Microphone  •  02:45
+non pas particulièrement, j'avais fait la forêt noire l'année dernière, salut Mathieu. Et donc voilà, c'était l'occasion. J'ai fait venir Mathieu qui a bossé avec moi sur le sujet, qui a notamment pas mal travaillé sur toute la partie embedding et puis sur plein de petites questions qu'on avait posées la semaine dernière. Pardon, il y a deux semaines. Donc ce que. . Et toi ça va du coup quand même? 
+
+Speaker 1  •  03:08
+Moi ça va super, oui, t'inquiète. 
+
+Microphone  •  03:10
+Bon bah très bien. L'idée là c'est de te présenter un petit peu tout ce qui a été fait. On va revenir sur des points qu'on avait évoqués la dernière fois et je te présente le plan de Restit qui a un peu avancé, enfin qui a bien avancé quand même là, qu'on se qualifie dessus. L'idée derrière c'est que tu aies le go pour enfin tu donnes le go où tu dis un peu les trucs que tu veux qu'on recreuse un peu pour finaliser et qu'on puisse te produire le truc maxi début de semaine prochaine. Là, il est quand même bien avancé. Et je pense que de toute façon, pour être clair, on l'a poncé avec Mathieu dans tous les sens le dataset. Je pense qu'on en a extirpé ce qu'on pouvait. Non, il n'y a pas tout, il y a beaucoup de choses qui sont un peu tristes parce qu'effectivement, on n'a pas pu montrer ce qu'on voulait forcément. mais on le savait un peu de toute façon ce que tu avais dit même Quentin au départ pour mais il y a quelques insights qui sont intéressants voilà et on va et on va t'en parler Je vais partager mon écran et puis euh. . On répondra un peu collégialement, parce que comme il a fait pas mal de trucs, peut-être qu'il aura plus d'insight sur certaines choses. je cherche mon truc je peux pas partager juste mon écran vas-y un bav comme ça est ce que analyse complémentaire c'est ce que je voulais le 1 Putain. Ah oui, c'est comme ça qu'il le met. Excuse-moi. Fenêtre d'application, écran entier, voilà, on va faire ça. je vais vous enlever et je vais venir toc donc en partie sur le travail qu'on avait regardé et je vais enlever ça parce que c'est bien outil mais c'est un peu au milieu de l'écran Donc, on s'était posé la question sur les phénomènes qu'on avait repérés. Alors je ne sais pas si je te remette dans le contexte, je pense que ce n'est pas la peine, mais tu me dis si jamais tu as besoin. Mais il y avait un phénomène de clignotement qui apparaissait, de fiches qui se voyaient un jour, puis deux jours et puis ils disparaissaient. qu'on a regardé un petit peu combien a été touché, combien ça touchait David Lecteur, enfin millions d'avis de lecteurs, et globalement on voit quels étaient les secteurs les plus touchés. Il n'y a rien de trop intéressant en donner. Alors d'une façon générale, dans les États-Unis, on va toujours avoir saïs à la personne qui remonte très haut, très souvent. C'est vraiment le phénomène qu'on a remarqué le plus. Et au terrain et voyage finalement en restauration, on les trouve assez peu touchés de façon générale. Vraiment, il y a. Dans les faits, les suppressions elles touchent plutôt les secteurs saïs, domicile, santé, restoir et bien-être. Donc pas grand chose à en dire sur le fait que c'est la licenciée, il n'y a pas de système, il n'y a pas de présence particulière qui nous surprenne là-dessus. Il n'y a rien sur lequel on se dit, tiens, il y a quelque chose d'aller chercher. Sur les suppressions, c'est les suppressions des fils les plus touchés. C'était pour remettre en avant effectivement les deux phénomènes qu'on avait mis en exergue. Je te les montrerai, ils sont dans le plan de récit final, celui-ci, qui sont donc les boutiques et les pestes. Globalement, ça c'est du 5 étoiles, ça c'est du 1 étoile, tu le verras, il y a un tableau qui est dessus dans la site finale sur le sujet. 
+
+Speaker 1  •  06:21
+La part du stop est ce que t'as du flux est ce que donc on a la part du stock qui est supprimé est ce qu'on a la part du flux qui est supprimé du flux de nouvelles réguses 
+
+Microphone  •  06:26
+La part du flux ouais Euh. . Alors là on l'a pas là, mais on peut l'ajouter parce que de mémoire. globalement si tu veux, bah de toute façon je peux te le montrer sinon là mais je te spoil le plan de restit je te le ferai plus tard je pense que je peux te le retrouver enfin on peut le retrouver sans trop de problèmes en gros sur la le phénomène Pour les boutiques, les deux boutiques, on est sur quelques jours sur ce qu'elles s'est arrivé, je crois que c'est un week-end. Et on peut te mettre le flux de de dépôt. 
+
+Speaker 1  •  07:03
+Oui, oui, ça je me suis bien. Non, je te parle plutôt pour les pestes et même le breakdown en fait par industrie. Pour comprendre, quand on voit qu'ils ont 1% de leur stock qui est supprimé, ça représente quoi de leur nouvelle review ce qu'ils sont supprimés en fait? 
+
+Microphone  •  07:19
+Au quai, d'accord 
+
+Speaker 1  •  07:19
+Parce qu'eux, ils ne réfléchissent pas forcément en stock, ils réfléchissent vraiment en flux en mode ce mois-ci j'ai collecté X reviews et j'en ai paumé Y quoi. Et c'est combien par rapport à X quoi. Tu vois ce que je veux dire ? 
+
+Microphone  •  07:28
+Okay. 
+
+Speaker 1  •  07:29
+fait, la part du stock, je. Je comprends la donnée et c'est pertinent, c'est clair. 
+
+Microphone  •  07:33
+Yeah, I can't do it. 
+
+Speaker 1  •  07:36
+C'est juste que ce n'est pas des gens qui résonnent vraiment comme ça. Et globalement, le stock, c'est plutôt lié à l'âge de l'affiche. 
+
+Microphone  •  07:42
+D'accord, oui, je comprends. 
+
+Speaker 1  •  07:43
+Tu vois, parce que là, s'ils en ont 11 000, c'est parce qu'ils sont plus vieux que ceux qui en ont 5 000 a priori. C'est pas tellement parce qu'ils en prennent plus. 
+
+Microphone  •  07:51
+Potentiellement. 
+
+Speaker 2  •  07:52
+Ça peut, mais. 
+
+Microphone  •  07:52
+Après, globalement, je ne sais plus lesquels, il y en a quatre qui sont du même groupe. contre Mathieu jamais si je me trompe tu me corriges mais voilà lui Echo Shield il y a trois fois et je crois que Bulkwart de mémoire c'est aussi Echo Shield je suis plus tout à fait sûr mais un sous-nom de la chose 
+
+Speaker 1  •  08:08
+Okay, all 
+
+Microphone  •  08:10
+On peut te mettre la part du flux, ça c'est pas un trop gros, c'est pas un problème du tout. la part du flux donc donc mais sur des nouveaux avis sur sur quoi sur la journée sur le 
+
+Speaker 1  •  08:24
+dans la part du flux d'avis supprimés, la part d'avis supprimé sur les nouveaux avis. Donc sur une semaine donnée, on t'a supprimé. Là, je sais pas, les suppressions, vous avez compté sur quoi, sur une semaine? 
+
+Microphone  •  08:33
+Yeah, yeah. Là c'est tout sur là on est sur le stock. On a regardé toutes les suppressions sur les deux semaines. Globalement ces suppressions elles arrivent pendant entre le 10 et le 16. 
+
+Speaker 1  •  08:43
+D'accord. Sur ces deux semaines, combien ils en ont collecté ? 
+
+Microphone  •  08:47
+Ok, d'accord. 
+
+Speaker 1  •  08:47
+'ailleurs, c'est très ce qui est écrit à côté. Ah non, les avis, c'est le total, oui. Sur ces deux semaines, combien ils en ont collecté, toi ? nouveau? 
+
+Microphone  •  08:53
+Okay. 
+
+Speaker 1  •  08:54
+Juste pour avoir une idée du net en fait, parce que en gros c'est des industries où il faut compter, il y en a 30% qui vont être retirés. 
+
+Microphone  •  08:55
+Uh okay, well, d'accord 
+
+Speaker 1  •  09:02
+Donc si tu veux un chiffre, il faut compter. C'est ça le raisonnement. 
+
+Microphone  •  09:06
+Est-ce qu'on a cru quand même est-ce qu'on a augmenté quand même le nombre de reviews? 
+
+Speaker 1  •  09:12
+Oui, ben je pense que oui, mais 
+
+Microphone  •  09:13
+En gros. Je ne sais pas trop parce que. . Bon, il y aura. Parce que. Bon, on regardera. Là on avait regardé spécifiquement, parce qu'on s'était posé la question, pourquoi l'antiparasitaire était tellement représenté dans les home services américains. Mais bon, effectivement, il est beaucoup dans les fiches. 
+
+Speaker 1  •  09:31
+C'est intéressant ce que tu montes là. 
+
+Microphone  •  09:33
+Donc oui, voilà. 
+
+Speaker 1  •  09:33
+C'est vraiment une industrie. Ça confirme que c'est une industrie qui se fait massacrer. 
+
+Microphone  •  09:38
+Mais elle a aussi dans notre stock, elle a beaucoup d'avis. 
+
+Speaker 1  •  09:42
+Oui, oui, oui, c'est 
+
+Microphone  •  09:42
+Tu vois, on a regardé 38% des fiches qui sont de l'antiparasitaire. Je ne sais pas si la distribution est conforme par rapport à ce qu'on appellerait du home service aux Etats-Unis. Mais tu vois, c'est 70%. Par contre, elle se fait aligner complètement. Et c'est globalement toujours des grosses entreprises. C'est rarement des. . Alors de fait, c'est aussi un peu logique, c'est parce que les grosses entreprises, elles ont plus de reviews, elles embrassent plus et on va plus les mettre en avant, alors que s'il y en a un qui en a perdu une, on va moins la voir. 
+
+Speaker 1  •  10:04
+Oui, alors oui et non Ouais mais en fait je sais un peu pourquoi aussi c'est parce que c'est beaucoup des philo et souvent ils n'ont pas vraiment 20 locations quand ils disent qu'ils en ont 20. Ils ont juste 20 employés et ils font comme si les 20 maisons des employés étaient des locations. 
+
+Microphone  •  10:16
+D'accord 
+
+Speaker 1  •  10:20
+Parce que ça leur permet de brasser plus large sur Google Maps. 
+
+Microphone  •  10:23
+D'accord, au quai 
+
+Speaker 1  •  10:24
+En fait, c'est ce qui c'est. Je pense qu'on pourrait comparer ça à nos serruriers en France. C'est un peu le même genre, tu vois. c'est genre ah j'ai une merde je cherche sur google machin et c'est extrêmement transactionnel et c'est des clics à 400-500 balles sur AdWords quoi et donc c'est pour ça qu'ils ils sont ils sont complètement fous sur Google Maps c'est 
+
+Microphone  •  10:36
+D'accord. 
+
+Speaker 1  •  10:41
+On comprend quoi. Par rapport à des trucs un peu plus, je sais pas genre un plombier, un machin, où tu vas prendre trois devis. Enfin tu vois, c'est pas tout à fait pareil quoi. Là c'est vraiment, tu es tout le temps dans l'urgence en fait quand tu fais appel à des trucs comme ça. 
+
+Microphone  •  10:50
+Oui, oui, il faut qu'ils arrivent très vite et qu'ils le travail rapidement. 
+
+Speaker 1  •  10:54
+All right. 
+
+Microphone  •  10:55
+Là on avait séparé parce qu'en fait il y avait quatre fiches qui avaient remporté énormément de suppression. on voulait voir un petit peu ce qu'il en était, c'est du détail. Là, après on a fait des questions de données, ça je te le passe parce qu'on va le regarder ailleurs, enfin on va le regarder à côté. C'est le grosso modo, c'est toujours le modèle d'organisation logistique, on en reparlera après. ça tu verras donc globalement c'est le seul insight vraiment un peu fort qu'on a enfin pardon pas un peu fort mais le truc que je trouve vraiment activable pour toi d'une façon générale c'est que globalement on constate dans tout ce qu'on a pu voir que alors Tu ne seras pas censé OK, mais on a regardé sur un corpus assez restreint pour regarder vraiment des fenêtres de 8 jours, comment ça se passait, donc forcément on n'a pas sur tout le corpus. Mais globalement, en fait, répondre vite, enfin répondre en tout cas marche bien. Répondre marche bien. Là on avait voulu essayer de voir si quelqu'un qui répondait beaucoup, souvent quasiment tout le temps, avait plus d'efficacité que quelqu'un qui répondait que de façon occasionnel parce qu'on s'est dit que quelqu'un qui fait occasionnellement tu vois c'est peut-être qu'il a vu une review méchante et puis il va répondre. Alors que quelqu'un qui révue, qui répond tout le temps, et typiquement les home services américains, les antiparasitaires, c'est tous systématiques, ils répondent à toutes, les positifs, négatifs, ils répondent à tout le moins. Donc on se posait un peu la question, il n'y a pas un effet ultra fort de répondre systématiquement ou pas. Le modèle nous dit que c'est mieux, mais en fait le modèle nous dit surtout qu'en dessous il ne sait pas le dire. Donc il dit ok quelqu'un qui a répondu à 75% de ses avis, globalement il se fait moins supprimer. Mais pour ceux qui ont répondu moins, le modèle te dit bah j'en sais rien en fait, je suis pas capable de te dire. Mais en tout cas, je trouve ça intéressant de constater que. 
+
+Speaker 1  •  12:36
+Mais donc ils sont moins supprimés que quoi alors que aucune réponse d'accord ok 
+
+Microphone  •  12:39
+. Ouais, qu'il n'y ait aucune réponse. Ça a un petit intérêt. Voilà, ce que je te dis sur l'habitude de la réponse de la fiche, ils ne répondaient souvent ou pas et ça n'a pas un impact très clair. Le contenu du texte, on a plusieurs analyses complémentaires, on peut deep dive dedans, mais c'est pour te dire en gros pas d'impact. C'était un peu ta question de se dire en gros est-ce que Google, en tout cas est-ce qu'on arrive à rétro-enginier un système qui nous montrerait comment Google va décider de striker les antiparasitaires? Même si les reviews, on a l'impression qu'elles se ressemblent un petit peu toutes. En réalité, quand on fait le test, et c'est ce qu'a fait aussi beaucoup Mathieu, on ne constate pas réellement d'effet massif sur le sujet. 
+
+Speaker 1  •  13:29
+Attends, pour comprendre, qu'est-ce qu'on a testé en fait? Je peux bien comprendre. 
+
+Microphone  •  13:33
+Alors on a fait plusieurs tests, si je ne me trompe pas et Mathieu tu me reprends. Il y a un test où on a regardé tout le corpus et on a justement. . C'est le corpus restreint, un corpus sur les trois semaines, donc deux semaines de vision et une semaine d'avant. 
+
+Speaker 1  •  13:44
+Okay. 
+
+Microphone  •  13:46
+Donc J-7, J plus 14. Et là-dedans, on a regardé comment étaient orientés les vecteurs de chaque texte. Et on a essayé de voir si deux textes pareillent. si quelqu'un qui mettait des trucs similaires se répondait et si ça voulait dire qu'il ait plus de chances de se faire supprimer. Là, on l'a fait, normalement sans regarder spécifiquement quel était le secteur. Et du coup. 
+
+Speaker 1  •  14:13
+Et donc la La question de ça, c'est que il n'y a pas une proximité sémantique entre les radios supprimés qui serait supérieure à celle entre les radios qui ne sont pas supprimés. 
+
+Microphone  •  14:27
+Pas vraiment mieux que le hasard en gros 
+
+Speaker 1  •  14:29
+D'accord. 
+
+Microphone  •  14:30
+Donc on n'a pas Mathieu, tu parles ? 
+
+Unknown  •  14:31
+Ouais. 
+
+Unknown  •  14:34
+Non. 
+
+Unknown  •  14:36
+Euh ouais. 
+
+Speaker 3  •  14:41
+On n'arrive pas à dégager un groupe en particulier. uh qui concentrent des textes assez proches et qui diffèrent de groupes non supprimés. On n'arrive pas à isoler un groupe unique. 
+
+Speaker 1  •  14:53
+D'accord. 
+
+Microphone  •  14:55
+Donc peut-être qu'il faudrait. 
+
+Speaker 3  •  14:55
+On a essayé avec plusieurs groupes. 
+
+Microphone  •  14:56
+. Voilà, on essaye plusieurs solutions et voilà quoi. Là, avec les méthodes un peu, on va dire, faciles, il n'y a rien qui sort de vraiment estimable, ou en tout cas de remarquable. Donc on n'est pas. 
+
+Speaker 1  •  15:12
+Mais donc le learning c'est quoi? J'ai du mal à le. . 
+
+Microphone  •  15:15
+Là il n'y en a pas justement, c'est de te dire en fait que malgré tout on a essayé de voir s'il y avait un système pour se dire ah ok les avis génériques ils sont plus supprimés. Bah pas vraiment. 
+
+Speaker 1  •  15:27
+Générique, ça veut dire qui dit super, mais rien de spécial, c'est ça ? 
+
+Microphone  •  15:29
+Super, c'était génial. Voilà, ouais. 
+
+Speaker 1  •  15:31
+d'accord. 
+
+Microphone  •  15:32
+En fait, il n'y a rien de remarquable. 
+
+Speaker 1  •  15:32
+Ok, ça y est, j'ai compris. 
+
+Microphone  •  15:36
+Uh toc toc toc. 
+
+Speaker 1  •  15:37
+Alors juste, mais bon, c'est peut-être parce que je. 
+
+Microphone  •  15:38
+Ouais. 
+
+Speaker 1  •  15:42
+coupe des cheveux en quatre mais est ce que on pourrait à ce moment là regarder si la distribution des avis génériques machin peut influer ça sur une fiche 
+
+Microphone  •  15:55
+Alors attends, si je veux bien que tu recommences. . Regardez si quoi ? Si la distribution 
+
+Speaker 1  •  16:01
+L'idée c'est de dire si une fiche a 80% d'avis générique alors que la moyenne c'est 5% Est-ce que Google tape sur cette fiche plus fort que les autres ? Tu vois ce que je veux dire ? 
+
+Microphone  •  16:20
+Ouais, je crains que le modèle va avoir du mal à choisir. 
+
+Speaker 1  •  16:24
+Bon, si c'est compliqué, c'est pas grave. 
+
+Microphone  •  16:25
+En fait non parce que par défaut si tu veux c'est lui qui définit les catégories dans lesquelles il range les choses en fait. On peut lui donner le nombre de catégories qu'on veut, mais c'est un peu compliqué d'aller lui forcer un choix de catégories. Il faut peut-être que Mathieu, tu as plus de visibilité là-dessus sur l'étude. Donc est-ce que tu peux compléter? Ou sinon on regarde, on en parlera pas. 
+
+Speaker 3  •  16:42
+Ouais, le problème c'est que là les méthodes qu'on a fait c'était des méthodes non supervisées, donc les avis qui étaient proches entre eux, ils se rapprochaient naturellement. Mais du coup, c'est C'est vrai que si jamais on faisait ça, on pourrait s'isoler au secteur des home services ou même des pests de réalisation. Et on pourrait essayer de faire l'étude comme ça et comme ça on n'aura pas des embeddings qui se rapprocheront par fiche, mais vraiment on sera très isolé. Et on pourrait peut-être isoler des catégories plus comme on veut. 
+
+Speaker 1  •  17:09
+Mais attends, ton truc non supervisé, tu l'as fait sur la totalité des reviews, c'est ça? 
+
+Microphone  •  17:13
+What 
+
+Speaker 3  •  17:14
+La ouest, c'est la totalité des reviews. Et on l'a fait aussi à un approuvement si je voulais. 
+
+Microphone  •  17:17
+On l'a fait aussi, on l'a aussi en fait en pendant sur le sur uniquement les home services en fait. 
+
+Speaker 1  •  17:22
+D'accord, mais ce que je veux dire, c'est que du coup, tu as une catégorisation des reduces qui a été faite. 
+
+Microphone  •  17:27
+Oui, tu par ici là. 
+
+Speaker 1  •  17:28
+Donc on peut regarder sur un. . Après, si tu as une catégorie par review, tu peux le breakdown par. siche c'est pas grave ouais ouais mais on doit du mal à pas besoin de refaire les embeddings c'est ça que je veux dire ouais ouais 
+
+Microphone  •  17:38
+Ah, right. 
+
+Speaker 1  •  17:43
+Si tu as la catégorisation, on peut juste regarder sur cette catégorisation-là. Est-ce que la distribution a un impact sur le taux de suppression de l'affiche, par exemple? 
+
+Microphone  •  17:53
+Donc regardez sur les 
+
+Speaker 1  •  17:54
+Est-ce qu'on arrive à voir un parallèle entre la distribution des catégories et le taux de suppression sur cette fiche ? 
+
+Microphone  •  18:07
+Par secteur plutôt faire par secteur 
+
+Speaker 1  •  18:13
+Ah non, moi je dirais par fiche, vraiment. C'est-à-dire. 
+
+Microphone  •  18:16
+Ah donc regardez sur une fiche particulièrement donc je vais regarder sur EchoShield Pest quelque chose c'est ça? 
+
+Unknown  •  18:17
+. 
+
+Speaker 1  •  18:21
+Moi ce que je veux dire c'est si EchoShield peste machin il a 80% d'avis qui sont génériques, c'est un outlier, c'est pas normal. Est-ce que ça, c'est quelque chose qui veut dire, qui a pour conséquence que son taux de suppression est supérieur ou pas? 
+
+Microphone  •  18:34
+D'accord. Okay. 
+
+Speaker 1  •  18:42
+Je ne sais pas si c'est clair ce que je dis. 
+
+Speaker 3  •  18:44
+Ouais ouais, en gros les catégories qui ont été faites, on regarde si jamais il y a une fiche qui a été surreprésentée dans une catégorie. Et si c'est le cas, on regarde cette fiche si jamais elle a été plus supprimée. 
+
+Speaker 1  •  18:55
+L'idée c'est de regarder s'il y a une corrélation entre la distribution des catégories pour chaque fiche et le taux de suppression. 
+
+Microphone  •  19:04
+But 
+
+Speaker 1  •  19:06
+Tu vois ce que je veux dire ? ta distribution là que t'as par catégorie, mais par fiche quoi. 
+
+Microphone  •  19:13
+Okay. 
+
+Speaker 1  •  19:14
+et regarder si ça a un impact. Parce que en fait, ce qui est derrière ça, c'est de dire. . On dit que les génériques, ça n'a pas d'impact sur les suppressions et tout. Mais. à échelle globale ça dit pas grand chose parce que ce qui pue pour google c'est quand ta distribution est très différente tu vois ce que je veux dire 
+
+Microphone  •  19:37
+Right. 
+
+Speaker 1  •  19:38
+C'est pas tant. 
+
+Unknown  •  19:40
+. 
+
+Unknown  •  19:40
+. 
+
+Speaker 1  •  19:41
+Enfin bon bref, je suis pas sûr qu'il évalue les avis indépendamment de l'affiche, quoi. Je pense pas même. 
+
+Microphone  •  19:48
+Ah tu penses qu'il regarde pas la fiche et il regarde juste le type d'avis que c'est? Il se pose pas de questions. 
+
+Speaker 1  •  19:52
+Non, justement, je pense qu'il évalue toujours la vie par rapport aux moyennes mobiles et compagnie de la fiche. 
+
+Microphone  •  19:53
+Ah ok, d'accord. Oui. Oui. 
+
+Speaker 1  •  19:58
+Quand tu fais de l'antifraude, normalement t'es vraiment obsédé par les moyennes mobiles, c'est ton truc. 
+
+Microphone  •  20:04
+Ouais, les moyens mobiles, c'est un truc ouais. 
+
+Speaker 1  •  20:05
+La variance moyenne mobile, quoi 
+
+Microphone  •  20:09
+D'accord. Sur cette dernière partie, on avait regardé, donc alors je crois qu'on a regardé surtout pour les US, parce qu'on avait encore plus de prénoms. Et du coup, oui, on constate une légère surreprésentation. Enfin, une surreprésentation des avis. 5 étoiles ciblées avec un prénom qui est en grande partie portée par le fait que 90% des home services c'est 5 ce john It was amazing, etc. En fait, ça rebellement, pour être très clair, quand on regarde le corpus et les suppressions, on en a énormément qui sont dans ce secteur-là. malgré tout sur l'intégralité on en a plus de 1000 je crois sur les 4050 qui ont du totalité donc de fait elles sont souvent présentes d'une façon générale quoi 
+
+Speaker 1  •  21:03
+Ok, bon c'est peut-être dans le plan restitution, je sais pas, mais ça pour moi c'est le le finding de la de la. . C'est le truc à dire. Il y a une étude qui est sortie, il y a un truc qui est sorti soi-disant en avril sur Twitter par un des mecs de Google qui dit qu'il ne faut surtout pas forcer les gens à dire ce que tu mets dans la review. Depuis, il y a toute une industrie aux Etats-Unis qui parle que de ça, de la nouvelle règle de Google, de machin, de trucs, que ça a changé le game, qu'on ne peut plus mettre de prénom dans les reviews, que du coup on ne peut plus payer les gens. Parce qu'il y a quand même toute une industrie dans les reviews, que ce soit home service, tourisme, hôtellerie, restaurant, etc. Il y a énormément d'industries où les gens sont payés 5 dollars la review. Vraiment, ça fait partie du modèle de rémunération de je sais pas combien de gens quoi. 
+
+Microphone  •  21:45
+Ah. C'est évidence sur le homme service. 
+
+Speaker 2  •  21:46
+En centaines de millions. 
+
+Microphone  •  21:47
+C'est évidence sur les hommes services. 
+
+Speaker 1  •  21:47
+Donc ça, si tu veux, c'est vraiment hyper structurant, je pense. Pour tous les gens qui gèrent des fiches Google, c'est un truc fondamental. Donc s'il y a une surreprésentation, c'est très intéressant. Si on arrive à la mesurer, c'est encore mieux. Mais à ce moment-là, il faut qu'on arrive à être un peu, tu vois, là quand tu me dis en fait on pense que c'est peut-être aussi parce que le secteur est surreprésenté et tôt, ce serait cool qu'on arrive à peu près à faire la part des choses en disant en gros ton surrisque il est de. Vous avez écrit 12 suppressions pour 1000. D'accord. Donc est-ce que tu penses que tu vas gagner plus de 12 reviews pour 1000 en disant aux gens de mentionner tes gars? 
+
+Microphone  •  22:24
+And I said, 
+
+Speaker 1  •  22:26
+Et la réponse est évidemment oui, très très largement. Tu vois ce que je veux dire ? fait, l'arbitrage pour les gens, c'est est-ce que je continue à dire à Mégas de mettre leur prénom et à leur filer 5 dollars à chaque fois ou pas? 
+
+Microphone  •  22:33
+Yeah, you can put the right. 
+
+Speaker 1  •  22:35
+C'est vraiment ça l'arbitrage, c'est la question que se posent plein de gens. Et d'ailleurs, il y a plein de gens qui vendent des solutions qui, soi-disant, permettent de ne plus mettre le prénom et de savoir quand même qui c'est qui a demandé la review. Et c'est des solutions qui coûtent des. 
+
+Microphone  •  22:46
+Because it's just self-componed. 
+
+Speaker 1  •  22:47
+500 000 dollars par mois quoi qui vendent ça à des à des boîtes qui font pas des chiffres déconnants. Tu vois ce que je veux dire ? Il y a un énorme enjeu là-dessus pour moi. 
+
+Microphone  •  22:56
+D'accord. Ok, donc concrètement, tu. . Enfin ça pour le moment il est dans la restite, enfin dans le plan de récite, il est juste copier-coller pour le moment parce que on était. que sur pour le moment on est on n'est que sur de l'US là et sur des prénoms un peu enfin on a pris encore plus de noms assez assez simples Donc c ce qui était bien, mais voilà, donc du coup on n'était pas tout à fait sur le même corps puisque le reste. Mais est-ce que tu veux qu'on creuse quelque chose de plus là-dessus ? -ce que ça te suffit? Est-ce qu'il faut aller plus loin ? Est-ce que. 
+
+Speaker 1  •  23:28
+Pour moi c'est 90% de l'étude, très honnêtement. Parce que sur les replies, bon on a on n'a pas un truc de fou. ça pour moi c'est extrêmement intéressant quoi après je ne sais pas je n'ai pas vu temps dans l'esprit donc on va voir mais 
+
+Microphone  •  23:36
+D'accord. pousser cette analyse sur. Alors ce sera globalement site c'est plus ou moins ce que tu m'as demandé la semaine dernière mais avec quelques trucs en plus mais ça doit être globalement la même chose. c'est les éléments que tu es en train de voir là mais mais repackager. La seule chose que je voulais savoir c'était globalement là on a fait que sur l'us. Moi ça me semble plutôt pertinent de le faire sur l'US, mais effectivement, on peut le mettre à l'Europe. Le problème de l'Europe c'est que on a une disparité de prénoms qui est plus complexe, donc voilà quoi. C'était de savoir aussi si tu voulais qu'on fasse l'étude sur l'Europe. 
+
+Speaker 1  •  24:15
+Ah bah ouais, pour moi je ne fais pas s'en priver, hein. Enfin, je ne sais pas, mais. 
+
+Microphone  •  24:18
+Ok. 
+
+Unknown  •  24:19
+. 
+
+Speaker 1  •  24:19
+Mais vous avez vous avez, sinon je regarderai cette semaine si vous voulez, mais moi quand j'avais demandé à Claude, il m'avait trouvé une librairie de prénom, il y a des trucs qui sont hyper complets en librairie prénom. 
+
+Microphone  •  24:19
+Voir celui-là. Non, non, on peut trouver un corpus, hein. Non mais euh. . Oui, non mais on peut trouver son problème, t'inquiète. Ok pour cette partie. Pour le reste, il n'y a pas d'impact particulier. Je te montre donc juste l'autre partie qui est donc l'idée de pas le point de récit qui remontre les mêmes trucs mais globalement ça c'est ce que tu as vu l'autre fois. C'est donc la présentation du corpus. Je te passe dessus. On a rajouté ici la description des avis. Parce que du coup, on s'était. Effectivement, il y a aussi un truc qui est assez flagrant, c'est que même si les entreprises sont distribuées de manière égale, effectivement, à mon avis, on n'a pas tout à fait les mêmes ratios. Ce qui explique que probablement le voyage arrive très bas et on a presque peu d'infos dessus. 
+
+Speaker 1  •  25:21
+Attends, ça me paraît curieux cette histoire-là. Pourquoi 5% des avis sont dans le voyage? En plein mois d'août. 
+
+Microphone  •  25:30
+C'est ce qu'on a dans le dans le corpus. Je peux pas dire 
+
+Speaker 1  •  25:35
+Ok. 
+
+Microphone  •  25:35
+Là on a regardé des secteurs par secteur et le nombre d'avis qu'il y avait dans notre. 
+
+Speaker 1  •  25:39
+Le voyage, je crois qu'on avait que les micros, non, c'est ça ? 
+
+Microphone  •  25:39
+. On n'a que des micros à 430, ouais. Et globalement, les voyages, globalement, ils ont un, deux avis par fiche. Les restaurations, les services à domicile sont portés par des acteurs larges qui vont avoir des 1000-1500 avis par fiche. 
+
+Speaker 1  •  25:57
+Remonte à Je comprends pas comment ils peuvent avoir un ou deux avis par fiche. Les tours opérateurs, ils font 20 avis par. mes plus gros clients moi c'est des tours opérateurs en volume de reviews si tu vois juste à la distribution des trucs le travel là il y en a trois fois moins que les autres en fait 
+
+Microphone  •  26:06
+Abbey coûte sucrement 
+
+Speaker 1  •  26:17
+du travel donc 5% des reviews mais euh 3 d'accord donc déjà c'est plus en fait 
+
+Microphone  •  26:20
+Oui, de me dire. Ah oui, mais en termes de ce que de ce que de ce que je regarde moi, de ce que de ce qu'on regarde de Ouais, mais en contrepartie, ce que nous on regarde en termes de review et de supprimer, c'est trois fois moins que les autres. Ouais moins de monde quoi 
+
+Speaker 1  •  26:44
+Ouais, donc 5% des reviews comptent comme. . Il faudrait faire trois fois plus pour avoir une distribution ISO. 
+
+Microphone  •  26:50
+Alors on peut définir qu'il faut compter trois fois ces reviews en termes de valeur dans la régression. Mais bon, peu potentiel. 
+
+Speaker 1  •  26:59
+Non, non, c'est pas ce que je veux dire. Ce que je veux dire, c'est que quand on affiche 5% des distributions de reviews là, ça paraît très surprenant. Non, moi je mettrai bien une étoile en disant attention, on n'avait que le tiers des entreprises de voyage par rapport aux autres. 
+
+Microphone  •  27:08
+Don't Okay. 
+
+Speaker 1  •  27:16
+Parce que sinon ça paraît très surprenant qu'il y ait moins de reviews dans le voyage que dans la santé. La santé c'est quand même hyper sensitive, machin et tout. Les gens laissent moins de reviews a priori qu'au gars qui t'a emmené en bateau faire un tour de lac. Tu vois ce que je veux dire ? C'est quand même moins un peu surprenant. Bon bref, ok. 
+
+Microphone  •  27:35
+La suite c'est l'analyse directe, donc c'est ce que tu m'avais demandé, c'est l'idée de. Je ne t'en fais pas la petite histoire, c'est sur les distributions. Là où il y a les suppressions qu'on a observées, ça c'est tout ce qu'on s'est vu la dernière fois. 
+
+Speaker 1  •  27:47
+We sell 
+
+Microphone  •  27:51
+la même chose c'est globalement les gens sont supprimés enfin les avis qu'on a observé sont massivement supprimés sur les huit premiers jours Et globalement, après, on reste relativement stable. Donc moi, ce que je trouve du coup quand même vraiment valable comme truc, en tout cas, c'est qu'il y a. c'est que google une fois qu'un autre fois une fois que Google a validé un avis en globacement il le il le supprime plus vraiment quoi ça arrive mais au bout d'une semaine c'est ce qu'on dit 
+
+Speaker 2  •  28:18
+Oui. Je mettrais bien au lieu de. 
+
+Speaker 1  •  28:21
+. Enfin bon, le taux de survie c'est cool, mais moi je mettrai bien le spike qu'on avait vu la dernière fois à 7. 
+
+Microphone  •  28:26
+Well, but je l'as, tu veux 
+
+Speaker 1  •  28:28
+Si on regarde que les en fait la distribution en fonction du jour que des avis supprimés. Et à ce moment-là, on voit clairement un énorme spike sur le jour 7. Et je trouve que ça communique mieux le point que en gros si ton avis il a passé 7 jours c'est bon quoi voilà quitte à 
+
+Microphone  •  28:43
+Où est-ce qu'il est le truc ? C'est plus ou moins celui-là. là on était allé, j'étais allé plus loin en fait, j'étais allé à 43 jours. 
+
+Speaker 1  •  28:49
+Oui, quitte à aller jusqu'à 30 par exemple. 
+
+Microphone  •  28:49
+J'étais allé plus loin. Bon, c'était possible. 
+
+Speaker 1  •  28:51
+Mais là, ce chart montre mieux l'histoire qu'on a envie de raconter que le. que le taux de survie je trouve pas je sais pas non je sais pas ouais ouais mais il y en a un qui le dit mieux je trouve 
+
+Microphone  •  28:59
+D'accord, ok. Mais écoute. Non, non, moi après, j'ai pas de préférence. Les deux disent la même chose en fait. Ok, très bien, je le remplace. Pas de soucis, c'est où ? hop, on est ici. uh a remplacer par le uh le graphe avec le spike Là on vient sur les deux événements enregistrés par le scrapper dont on a parlé. Et donc voilà l'idée que je te disais, c'est que grosso modo, ça a été publié entre. . Les avis supprimés ont été publiés entre le 1er et le 8 août, le 15 août. Et où est-ce qu'ils ont été supprimés en grande majorité ? là, c'est quasiment que du 5 étoiles pour les chaînes parasitaires qu'on a regardées. Soit la salle de sport, ils ont été publiées le 1 et le 2. Voyage de publication le 2 et le 2. Et ils ont été supprimés, donc là deux jours, enfin on peut mettre les jours ici du truc, j'ai préféré mettre le passage de la vague, mais je peux mettre potentiellement le jour si tu préfères. Globalement ils ont été supprimés à la première vague, à la sixième vague et à la treizième vague en fait. Mais là ceux-là je pense qu'ils ont été supprimés parce que le gars a fait une demande. Et là par contre tu vois que c'est beaucoup plus. . . parce que je pense que c'est vraiment le robot passe sur le celle du jour, celle du jour, celle du jour, celle du jour, enfin tu vois j'ai l'impression que c'est un peu plus à côté comme ça quoi 
+
+Speaker 1  •  30:35
+Pourquoi ça glisse vers la droite comme ça ? Comment on explique ça ? 
+
+Microphone  •  30:38
+Bah parce qu'en fait elles sont pas publiées le même jour en fait, elles sont euh ça dépend du jour où elles sont publiées. 
+
+Speaker 1  •  30:39
+Je ne comprends pas. 
+
+Microphone  •  30:43
+Et ça elles sont supprimées, et ça c'est le nombre de le jour où elles sont supprimées. Globalement, en fait, on va dire que celles qui ont été massivement publiées aux alentours du. aux alentours du 29 juillet. Il y en a pas mal qui ont été publiées. Et elles ont été supprimées du coup le 13 août massivement. celles qui ont été publiées le 23 juillet. Ça glisse parce qu'elles sont beaucoup plus. . C'est pas du tout le même système en fait. Là on voit que c'est un. . Là le gars en fait si tu veux, je pense que le gars il a dit tiens je vais en faire un publier un tous les jours, tous les deux jours, tous les trois jours. Et globalement uh point c'est uh c'est une suppression. 
+
+Speaker 1  •  31:23
+Je crois que j'arrive pas à comprendre le chat. On regarde. . C'est quoi un point ? Un point, c'est une suppression. 
+
+Microphone  •  31:36
+Plus il est gros, plus il y a de suppression en gros. 
+
+Speaker 1  •  31:39
+Et donc. 
+
+Unknown  •  31:40
+. 
+
+Unknown  •  31:41
+. 
+
+Microphone  •  31:42
+No, no, no, no, we're gonna have to. 
+
+Speaker 1  •  31:42
+je le comprends. . je comprends pas. Donc là, si je prends si tu prends un point quelconque, là, ça veut dire quoi ? 
+
+Microphone  •  31:50
+Prenons à celle suicide, une publication le premier juillet. il y a eu je ne sais pas combien parce que j'ai pas les refs là, a été supprimé 7 jours après la première vague qu'on a qu'il a été vue. Globalement, il a vécu pratiquement un mois et demi lui. Quelque chose qui a été publié le 8 août. Donc là c'est plus remarquable pour cela quoi. C'est ceux qui ont été publiés entre le 1er et le 8 août globalement. Ils ont été supprimés. Attends plutôt là. Le 15 août, 22 août. 
+
+Speaker 1  •  32:20
+Ah mais donc en fait ce qu'on voit là avec la truque c'est 7 jours quoi c'est ça si je comprends bien 
+
+Microphone  •  32:24
+Ouais, c'est les 7 jours qu'on voit. C'est les suppressions massives qui ont été faites en strike à partir du jour de publication. 
+
+Speaker 1  •  32:31
+Parce que le fait qu'il n'y en ait pas avant le 1er août, c'est tout simplement parce qu'on ne le sait pas. 
+
+Microphone  •  32:37
+Oui, voilà. On ne peut pas le savoir cela, on ne le sait pas, tout à fait. 
+
+Speaker 1  •  32:41
+Ouais ben non mais donc on peut pas avoir ces dates là, faut pas les mettre dans le chat je pense, on peut pas commencer si loin 
+
+Microphone  •  32:46
+Bah je le supprime. Ok, très bien, je le supprime. Hoquet, supprimez 
+
+Speaker 1  •  32:51
+Mais du coup, non mais je ne sais pas si supprimer les dates suffit, sûrement je ne comprends pas bien le chart. 
+
+Microphone  •  33:00
+Je vais je vais passer dessus, je passe dessus, je le clarifierai. Je le clarifierai. Je le clarifie, je te pâterai. Là, c'est des comparaisons directes d'avis. C'est vraiment du pour 10 000. Je crois que c'est pour 10 000, c'est ça qu'on a fait ? 10 000. le nombre de suppressions pour 10 000 avis normalisés quoi donc ça c'était ce qu'on avait dit c'était juste de regarder sans avis par avis 
+
+Speaker 1  •  33:27
+Est-ce qu'on arriverait pour la prochaine fois à mettre à chaque fois qu'on met un chart un titre qui dit un claim, qui dit quelque chose ? 
+
+Microphone  •  33:35
+Oui, oui, là je l'ai mis ici en fait, suppression par niveau de local guide. 
+
+Speaker 1  •  33:38
+Donc ça, c'est pas un claim, ça c'est une description. Suppression des machins, c'est une description. Les local guides, les avis des local guides ne sont pas plus supprimés que les avis des PAL guides, c'est un statement. Tu vois ce que je veux dire ? 
+
+Microphone  •  33:51
+Ok, moi j'ai mis en dessous, hoquet. 
+
+Speaker 1  •  33:52
+La présence d'un niveau semble jouer un rôle sur la suppression des avis. Mais je. Non, non, je. . enfin, semble, je comprends pas, semble dire quel rôle. 
+
+Microphone  •  34:09
+Tu vois bien que là pour dix mille avis d'un niveau 5 et plus, tu as moins de suppression que pour le niveau d'avis d'un sans niveau. 
+
+Speaker 1  •  34:20
+D'accord, donc les local guides, plus le niveau de local guide du reviewer est élevé, moins son avis est susceptible d'être supprimé. 
+
+Microphone  •  34:29
+Globalement oui. 
+
+Speaker 1  •  34:31
+Mais ça on. On pense que c'est vrai statistiquement ou on peut juste dire Uh yeah. 
+
+Microphone  •  34:37
+Là on peut dire que dans le corpus des 4 millions de revues qu'on a vues, globalement En fait, c'est avant la régulation logistique, c'est de se poser juste la question globalement. Um Uh 
+
+Speaker 1  •  34:49
+C'est pour ça que je dis qu'il faut regarder des statements, parce que là, tu vois, en fait là, ça, ça invite la question. Ah bon donc en fait un local guide il est moins supprimé et là on répond bah non on peut pas dire ça et donc bah ok cool quoi 
+
+Microphone  •  34:59
+Bah en fait pour moi je suis d'accord c'est qu'en fait tu voulais que je fasse plutôt un truc qui soit pas euh. On arrive sur la partie plutôt régression logistique cette fois-ci où on fait justement la comparaison des avis et cette fois-ci plus raisonnée en mettant des références. Donc là on est sur la référence 3 étoiles, pas de pique, il n'a pas de niveau de référence, etc. Et là ça te montre globalement review par review. Donc sur le corpus, là cette fois-ci restreint, qui est celui où on a pu les observer pendant 8 jours. C'est-à-dire qu'on n'a plus les autres serveurs de J-1 à J plus 8 à peu près. Donc on a moins de reviews que sur l'intégralité des reviews qu'on a vues ensemble. Là on regarde effectivement les effets par rapport aux références. C'est toujours pareil. Plus on est à droite, plus l'effet plus la review va disparaître par rapport à la référence, et plus on est à gauche, moins la chance de disparaître par rapport à la référence. 
+
+Speaker 1  •  36:02
+D'accord, et donc alors attends, parce que pas de pic, ça veut dire pas de photo ? 
+
+Microphone  •  36:08
+Pas de pic, c'était non, est-ce qu'il y avait un pic d'avis sur ce jour-là sur la review? 
+
+Speaker 1  •  36:12
+Ah oui, d'accord, ok. local guy donc si il n'y a pas de sans niveau ça veut dire quoi c'est à dire que c'est pas un local guide 
+
+Microphone  •  36:19
+C'est pas un local guide. On prend ça comme référence. 
+
+Speaker 1  •  36:23
+Statistiquement, la vie d'un local guide est moins supprimé que la vie d'un local guide. 
+
+Microphone  •  36:26
+Oui, tout à fait, oui. 
+
+Speaker 1  •  36:27
+D'accord. 
+
+Microphone  •  36:28
+C'est ça. 
+
+Speaker 1  •  36:30
+Une photo. 
+
+Microphone  •  36:31
+Là, ça ne joue pas en fait. A partir du moment où on croise le 1, ça ne peut rien dire. 
+
+Speaker 1  •  36:34
+Oui, j'ai compris. 
+
+Microphone  •  36:36
+Donc tout ça, ça ne veut rien dire, enfin là on pourrait rien en dire. Le fait qu'il ait lui-même des photos sur son profil. 
+
+Unknown  •  36:39
+Voilà. 
+
+Speaker 1  •  36:41
+La réponse, ça veut dire quelque chose. Et si on continue encore un peu ? 
+
+Microphone  •  36:44
+Et après c'était les secteurs et la taille. Il faut qu'on rajoute le prénom en fait en l'occurrence de celle-là. C'est ce qui manque aujourd'hui. 
+
+Speaker 1  •  36:54
+Ah oui, oui, c'est vrai, d'accord. 
+
+Microphone  •  36:56
+Il nous manque le prénom parce qu'elle a été faite avant le prénom. Mais on va la rajouter en rajoutant cette feature-là. Un prénom n'a pas de prénom et c'est celle qui va nous permettre d'identifier s'il y a un pic par rapport à ça. Donc voilà l'idée. Derrière l'idée c'était d'aller croiser les caractéristiques entre elles. Donc je t'en ai proposé globalement deux, enfin surtout une en fait, c'était l'écart du taux de suppression quand le propriétaire répond par secteur. Et donc globalement, en fait, voilà, vous voulez voir par secteur, donc effectivement ça et sa domicile, le fait qu'ils répondent à peu d'impact. Là, on n'a pas assez de review pour avoir vraiment un impact sur voyage, espoir et bien-être. Mais par contre, en santé, restauration automobile, on voit que globalement le taux de réponse abaisse. uh de quasiment 80% le taux de suppression. Ce qui montre potentiellement un impact, ce qui me semble intéressant. et on a les prénoms à mettre derrière. 
+
+Speaker 1  •  38:01
+Je ne comprends pas là. Pourquoi on la breakdown par industrie ça ? 
+
+Microphone  •  38:06
+C'est un essai, je voulais voir par industrie ce que ça donnait. Si tu vois une meilleure idée de le breakdown, tu me dis. Je l'ai breakdown par industrie. je l'avais prêt que d'un par note mais par note ça faisait aucun effet enfin ça ça ça montrait à rien de particulier et après on peut choisir en fait on peut choisir de croiser des données entre elles en fait donc là je ne sais pas ce qui te semble le plus pertinent toi J'avais fait quoi ? J'avais fait les avis supprimés par secteur et par note. Voilà, les 1 étoiles, il y en a à peu près 100 pour 1000 avis qui sont supprimés dans ce secteur-là. Mais là honnêtement c'est à voir de ce qui toit semble pertinent qu'on analyse qu'on croise comme feature en fait. Là, on a le consommation de la régression logistique. Qu'est-ce que toi, tu penses pertinent ? il me semblait que... Pour les effets remarquables, t'as les notes qui jouent, t'as la présence du local guide qui joue, potentiellement le pic, mais bon, il y a le pic. 
+
+Speaker 1  •  39:03
+Ah mais les notes c'est un truc de statisticien, mais les gens n'ont aucun impact sur la note de la rivio. 
+
+Microphone  •  39:03
+Et il y a. Oui ben voilà. 
+
+Speaker 1  •  39:09
+Donc on rentre. 
+
+Microphone  •  39:09
+Et donc en fait le seul truc sur Catherine Impact c'était la réponse du propriétaire. 
+
+Speaker 1  •  39:16
+Ouais. Et l'industrie quand même. Tu m'avais dit que le service à domicile, mais là, on ne le voit pas. 
+
+Microphone  •  39:19
+Et l'industrie Ah bah on le voit ici quand même, le saïs à domicile à pas d'impact. 
+
+Speaker 1  •  39:25
+Mais pourquoi automobile c'est la référence des industries ? 
+
+Microphone  •  39:27
+Enfin répondre dans le saïs à domicile, ça fera rien, tu vas te faire striker tout autant. 
+
+Speaker 1  •  39:31
+il y a quelque chose avec l'industrie qu'on n'a pas du tout compris et on pense quand même que c'est indépendant. Le taux de réponse est l'industrie. Le taux de suppression est là. 
+
+Microphone  •  39:43
+Il est peut-être indépendant, mais dans le corpus qu'on a là comme on a massivement des Là dessus, bah de fait oui, euh parasite 
+
+Speaker 1  •  39:50
+Mais justement, là, dans ta régression, on ne le voit pas, si tu remontes un peu sur les industries, pourquoi l'automobile, c'est la référence? comprends pas ouais mais enfin si tu prends la restauration d'un seul coup tout le monde est significativement plus à droite quoi 
+
+Microphone  •  39:57
+Parce qu'il faut en choisir une, donc on a pris l'automobile comme référence. On peut en choisir un autre, mais on a pris l'automobile. Ah bah oui, mais c'est pour ça qu'en fait c'est par rapport à la référence à chaque fois qu'on fait le truc. 
+
+Speaker 1  •  40:14
+Oui, mais donc ce que je dis, c'est que le choix de la référence impacte directement ton résultat. 
+
+Microphone  •  40:19
+Alors, il va le slider, quoi, il va le 
+
+Speaker 1  •  40:22
+Oui, et donc le rendre significatif. 
+
+Microphone  •  40:25
+Plus ou moins, mais normalement quand tu vas croiser les effets, tu es censé l'atténuer cet effet. L'automobile, tu vois bien qu'elle a. . On voit que quand on croise les deux effets, elle montre quand même que la réponse a de l'impact. 
+
+Speaker 1  •  40:37
+Je parle du fait que dans la dernière conversation qu a eu moi j'avais compris que les services à domicile ils étaient quatre fois plus à bah si mais on le voit là on le voit clairement quatre fois plus supprimés que les autres et que les autres c'était grosso merdo kiff kiff quoi 
+
+Microphone  •  40:47
+Oui, oui, toujours. Oui, oui, c'est ça. Après, on est sur du 1 x 55, ça reste. . C'est pas énorme. mais de toute façon une fois de plus, à partir du moment où tu as 
+
+Speaker 1  •  40:58
+Mais moi je ne comprends pas pourquoi c'est l'automobile la référence vraiment. Je comprends pas pourquoi on ne fait pas une industrie par rapport à toutes les autres à chaque fois. Et même par rapport à cette industrie incluse quoi, incluse. 
+
+Microphone  •  41:17
+On peut se décider, On peut faire une régression par industrie et s'affranchir de vouloir les comparer. Le secteur, on peut ne pas le mettre. S'il ne semble pas pertinent, on l'enlève. 
+
+Speaker 1  •  41:27
+Si juste je comprends pas pourquoi l'automobile serait la référence, moi vraiment je comprends 
+
+Microphone  •  41:33
+De même que là j'ai décidé que c'est trois étoiles la référence. 
+
+Speaker 1  •  41:35
+Oui c'est pareil, j'ai pas compris pourquoi. Mais les étoiles, je t'ai dit, on s'en fout un peu, donc c'est pas grave. 
+
+Microphone  •  41:41
+En fait, quand tu fais une réaction logistique, il faut que tu fixes une référence parce que les probabilités vont être cherchées par rapport à cette référence. 
+
+Speaker 1  •  41:47
+Oui, mais la référence, il faut qu'elle soit pertinente, quoi. 
+
+Microphone  •  41:50
+Pour moi, j'ai pris la référence pour celle qui était le plus fréquent, on va dire, afin que je vois des effets. 
+
+Speaker 1  •  41:55
+Mais non, mais le fait que les PES contrôles soient plus supprimées que l'automobile, ils n'en ont rien à foutre. veul savoir est-ce qu'ils sont plus supprimés que tout le monde. Et pareil pour sport et bien-être, est-ce qu'ils sont moins ou restaurations, est-ce qu'ils sont moins supprimés que tout le monde ? qu'automobile. Tout le monde s'en fout de l'automobile. Enfin, l'automobile ou n'importe laquelle d'ailleurs, je veux dire. Pour moi, il faut comparer par rapport à toutes les autres. Là, je ne comprends pas trop le. 
+
+Unknown  •  42:19
+. 
+
+Speaker 1  •  42:20
+Ce qu'on cherche à dire, c'est pest control, ils ont leurs reviews qui sont plus supprimés que les autres industries. 
+
+Microphone  •  42:26
+Oui mais à ce moment-là on revient à juste ça alors. Parce que ça c'est. . Je sais pas s'il est quelque part, suppression par secteur. C'est juste ça alors. Mais Mais c'est plus la peine de faire une réaction logistique si je veux faire ça. Là je monte la situation par secteur. Ça y sait bien être 1175 reviews supprimés pour 10 000. Et c'est plus que les autres secteurs. 
+
+Speaker 1  •  42:49
+Pour moi, c'est beaucoup plus parlant qu'une régression logistique là-dessus. Comparer. Je sais pas. Non, moi la régression logistique, je trouve ça intéressant, mais pas. . Enfin, ça dépend pourquoi. Il faut effectivement que le point de comparaison soit un petit peu cohérent. 
+
+Microphone  •  43:02
+Yeah, I mean they're not going to be able to do this. 
+
+Speaker 1  •  43:05
+Je comprends pas trop le. . Non mais c'est peut-être moi qui sais pas, je sais pas. 
+
+Microphone  •  43:10
+En fait, la réalisation jouristique, elle sert juste à calculer une fonction qui va déterminer une probabilité que ta review soit supprimée ou pas. Et elle va le faire par rapport à des caractéristiques qu'on définit, et on a choisi de mettre dedans les notes la présence d'un avis d'un local guide, etc. tout ce qu'on en a en gras ici c'est ce qu'on a pris comme caractéristique en fait pour calculer ça il faut qu'il dise il faut qu'ils fassent par rapport à une référence oui voilà 
+
+Speaker 1  •  43:29
+Mais donc tu détermines en faisant ça une review moyenne. Et ensuite, tu dis quelle est la probabilité par rapport à cette review moyenne quand je change tel aspect que ce soit machin. 
+
+Microphone  •  43:36
+Exactly, exactly. 
+
+Speaker 1  •  43:39
+Et donc pour toi une review moyenne, c'est une review 3 étoiles dans l'automobile. Pas de pique, bon ça je te l'accord, mais moi je suis pas du tout d'accord avec ça, une review moyenne elle n'est pas du tout 3 étoiles, c'est extrêmement rare les reviews 3 étoiles 
+
+Microphone  •  43:50
+Ah mais changeons, il n'y a pas de problème, on l'avait fait sur 5 étoiles la dernière fois. J'ai mis sur 3 étoiles pour que ça pouvait être plus intéressant d'avoir le pic de 1 et de 5 étoiles. 
+
+Speaker 1  •  44:00
+Mais c'est pas moyen 3 étoiles. En fait, encore une fois, étoile d'ailleurs. 
+
+Microphone  •  44:05
+On peut l'enlever si tu sens que si tu penses que c'est pas pertinent. 
+
+Speaker 1  •  44:06
+C'est pas un critère. Non, mais pour moi, c'est pas un critère. 
+
+Microphone  •  44:11
+En fait, 
+
+Speaker 1  •  44:13
+Ou alors on enlève les êtoiles, quoi. Mais bon. Non, je pense pas que sur un critère, ouais. En fait, le vrai critère, c'est ce qu'elle est positive ou négative, quoi. Mais du coup, ça ne peut pas être une moyenne. 
+
+Microphone  •  44:24
+Ah bah à ce moment-là on fait autre chose. Mais euh Il y a je vais dire une bêtise parce que je ne sais pas mais il y a la grande majorité il n'y a pas de texte. il y a juste des étoiles qui ont été mises. 
+
+Speaker 1  •  44:34
+Non, positif c'est 4 et 5 étoiles et négatif c'est 1 à 3, il n'y a pas besoin de pas compliquer. 
+
+Microphone  •  44:37
+Ah oui d'accord ok. On peut complètement segmenter comme ça, si tu préfères. 
+
+Speaker 1  •  44:42
+Ben oui, mais le problème, c'est que ça ne va pas te donner une moyenne. 
+
+Microphone  •  44:43
+Mais tu mettras quoi comme point de référence ? 
+
+Speaker 1  •  44:45
+Ça ne nous dit pas ce qui est moyen, ça nous dit ce qui est positif ou ce qui est négatif. 
+
+Microphone  •  44:51
+on peut calculer une moyenne par rapport à toutes les revues qu'on a si tu veux. et le déterminer concrètement par rapport aux moteurs journal. 
+
+Speaker 1  •  45:02
+Non, moi je ne comprends pas très bien ce qu'on fait là. Moi, ma compréhension d'une régression logistique, c'est qu'on a une review moyenne et on. on mesure si on change un aspect de la review sa probabilité d'être supprimé par rapport à notre review moyenne. Bon, je pense que la note n'entre pas dans les critères en l'occurrence. Pour moi, une review moyenne, elle peut être une étoile, cinq étoiles, peu importe. En fait, la radio moyenne, elle est moyenne, et puis c'est tout. La note, je ne pense pas qu'elle soit. qu'il faille considérer que c'est un critère. 
+
+Unknown  •  45:39
+Uh, 
+
+Microphone  •  45:40
+Si tu enlèves la note du critère, on se retrouve avec peut-être 10 000 reviews parce qu'il y a très peu de reviews qui ont autre chose qu'une note. Elles vont avoir des trucs sur la personne qui l'a écrite ou s'il y a une réponse du propriétaire, etc. Mais on va vraiment avoir plus grand chose, quoi. 
+
+Speaker 1  •  45:56
+Ah, j'ai pas compris ce que tu viens de dire. Pourquoi? 
+
+Microphone  •  46:02
+Je veux bien l'enlever la note, mais en fait en vrai après on va comparer des secteurs, on va comparer des pics d'activité, potentiellement la personne qui a publié. Quoi d'autre? Qu'est-ce qu'on va comparer d'autre? 
+
+Speaker 1  •  46:14
+On va comparer est-ce qu'il y a une réponse et est-ce qu'il y a un prénom. Non, enfin je ne sais pas. 
+
+Microphone  •  46:22
+En fait, oui, en fait, il n'y a pas de problème par rapport à ça, mais On peut restreindre assez à ces à ces phénomènes là. 
+
+Speaker 1  •  46:33
+La note n'a pas d'impact. qu'une réduite la note n'a pas d'impact sur le fait qu'une réduite est supprimée. Moi j'en suis très content. 
+
+Microphone  •  46:44
+Oui, d'accord, hoquet 
+
+Speaker 1  •  46:46
+Opérationnellement, ça n'a pas d'impact sur le fait qu'une radio est supprimée. Si tu prends une 1 étoile, tu as envie de la supprimer. Si tu prends une 5 étoiles, enfin je sais pas. Ou alors on ne regarde que les 4 et 5 étoiles, si tu veux. J'en sais rien. De toute façon, c'est ça qui intéresse les gens d'ailleurs, c'est les 4 et 5 étoiles. Une étoile, c'est une autre analyse, c'est l'analyse de est-ce que quand je demande à Google de la supprimer, il la supprime ? a un peu des réponses en disant il le fait, mais ça met du temps. Bon donc ça ça peut être ad hoc mais moi à ce moment là je serais tenté effectivement dans le VR23 et dire bah en fait ce qui nous intéresse, ce qu'on regarde vraiment c'est les taux de suppression des bonnes reviews. 
+
+Microphone  •  47:14
+I've got the computer and I can find 
+
+Speaker 1  •  47:17
+Et donc en fait c'est surtout les 4 et 5 étoiles. Et en fait c'est essentiellement les 5 étoiles, mais on peut regarder que 4 et 5 étoiles. Bon, si on pense que c'est vraiment un comportement très différent des 1, 2, 3, oui, ça doit être un comportement très différent des 1, 2, 3, en effet. Je pense pas que Google fasse les mêmes. . Enfin, j'en sais rien. 
+
+Microphone  •  47:37
+No, 
+
+Speaker 1  •  47:37
+Mais de toute façon, si on te supprime une 1, 2 ou 3, tu t'en fous, t'es content, quoi. 
+
+Microphone  •  47:42
+Non mais je suis d'accord sur un point avec toi, c'est que potentiellement s'il y a plus de suppression d'une étoile, c'est que potentiellement les gens qui reçoivent d'une étoile vont demander à ce qu'on les enlève. 
+
+Speaker 1  •  47:52
+Oui, et surtout, ce qu'on analyse, c'est est-ce que Google les supprime sans. que tu le saches sans que ce soit de ton faible quoi oui mais on le sait un peu quand c'est 4 et 5 étoiles a priori c'est pas toi qui a demandé ce qu'on les enlève quoi donc on le sait un peu quand même 
+
+Microphone  •  47:56
+Mais ça, de toute façon, ça on le sait pas. Ça, on ne le sait pas dans le corpus. On peut pas le décider. Non, non, bien sûr, mais bon. Oui. Mais donc du coup alors on si si on en tu voudrais que enfin Grosso modo en fait, est-ce qu'on restreint le corpus à prendre que des 4 ou 5 étoiles et on ne regarde que là-dedans ? 
+
+Speaker 1  •  48:22
+All right. What's still quicker? 
+
+Unknown  •  48:25
+It does. 
+
+Speaker 1  •  48:26
+Pour comprendre l'analyse de la régression statistique, parce que moi j'ai toujours pas compris ce qu'on faisait là. Si on dit qu'on prend la review moyenne, c'est une radio qui est 4 ou 5 étoiles. Indépendamment, on s'en fout. 
+
+Microphone  •  48:35
+Très bien, hoquet, auquet, ok, review moyen, hoquet, ok, très bien. 
+
+Speaker 1  •  48:36
+On regarde tous les quatre et cinq étoiles et on dit la radio moyenne, elle est quatre ou cinq étoiles. Elle a cette caractéristique là. 
+
+Microphone  •  48:44
+Ouais, il n'y a pas de problème. 
+
+Speaker 1  •  48:45
+Quelle autre caractéristique est-ce qu'elle a ? C'est quoi mon défaut là ? C'est quoi mon. 
+
+Unknown  •  48:50
+. 
+
+Speaker 1  •  48:51
+mon contrôle. 
+
+Microphone  •  48:51
+Ah ben ce sera ce sera oui. 
+
+Speaker 1  •  48:53
+Elle n'a pas de photo. Bon, ok, pourquoi pas. 
+
+Microphone  •  48:56
+Oui. 
+
+Speaker 1  •  48:56
+Elle n'a pas de local guide. OK, pourquoi pas. Il n'y a pas de pic, mais ça à la limite, moi je te dirais, je les exclurais, celles qui viennent d'un pic complètement. 
+
+Microphone  •  49:05
+Texturer les revues qui donnent dans le pique? 
+
+Speaker 2  •  49:10
+C'est quoi un pic? 
+
+Microphone  •  49:10
+C'est-à-dire en fait il y a eu plusieurs dépôts le même jour sur l'affiche. On a calculé, globalement, on a calculé la moyenne qu'elle recevait de review par an. et on a regardé si au moment de la suppression il y avait beaucoup de plus, on était au-dessus de ce ratio. 
+
+Speaker 1  •  49:30
+Combien os tu parce que c'est quoi comment on sait? 
+
+Microphone  •  49:31
+Combien au dessus ? Je crois qu'on a choisi 10 fois plus. c'est un peu... Non, qu'un soit plus, parce que sinon ceux qui n'avaient qu'une review, quand ils ont reçu une deuxième, ça doublait. Donc ils étaient comme si c'était un pic. Donc ça n'avait pas beaucoup de sens. Mais globalement ça veut dire que si tu as trois reviews sur ton truc, il faudrait que tu aies deux reviews pour que tu sois nommé comme pic. le même jour c'est par rapport à ce que tu as eu comme review sur un an on regarde la moyenne sur un an du nombre de reviews que tu as eu et on le divise juste par 12 
+
+Speaker 1  •  49:56
+C'est par rapport au stock ou par rapport au flux d'un an? 
+
+Unknown  •  50:00
+Je n'ai pas compris. 
+
+Speaker 1  •  50:06
+Ouais. Donc c'est une variance à la moyenne mobile, oui, d'accord. 
+
+Microphone  •  50:08
+Ouais, voilà. 
+
+Speaker 1  •  50:11
+Et donc c'est quoi la variance minimum pour être appelée pic ? 
+
+Microphone  •  50:13
+Pour attendre les pics, il faut que tu aies plus de. quinze fois ce que t'avais euh au quotidien. Soit un zéro quinze quoi. Enfin, ouais, ça c'est plus de deux fois. Enfin, ouais, ça parce que je crois que c'était pour trois. Il fallait que tu en aies deux. et pour une si tu avais deux avis et que tu n'en avais que un, ça va pas c'était pas un pic. Globalement. 
+
+Speaker 1  •  50:37
+Non mais bon, moi je pense que si on veut calculer des variances à la moyenne mobile, il faut exclure les gens qui n'ont pas beaucoup de moyenne mobile. Tu peux tu peux pas faire une variance à la moyenne mobile quand la moyenne c'est un t'as raison. C'est comme Brevo qui te dit <unk> Ah t'as plus de 2% d'un sub alors que t'as envoyé 300 mails ? 
+
+Microphone  •  50:55
+Oui, du coup je les avais exclus d'être de pouvoir les appeler piques celles-là. 
+
+Unknown  •  50:56
+C'est complètement débile. 
+
+Speaker 1  •  51:01
+Donc elles sont exclues là. 
+
+Microphone  •  51:02
+Ah, ils ne sont pas considérés comme des piquels. 
+
+Speaker 1  •  51:05
+Parce que ça, pique, c'est un truc extrêmement actionnable aussi. C'est-à-dire que tu dis l'immense majorité des gens, ils ont comme process pour demander des reviews, je me sors les doigts du cul une fois par quarter et j'envoie un mail à tous mes clients. 
+
+Microphone  •  51:16
+I should not be able to do that. 
+
+Speaker 1  •  51:17
+Voilà. Ça, si on dit bah ça tu vas en avoir plus qui sont supprimés que si tu le fais proprement tous les mois, etc. c'est hyper actionnable, c'est hyper intéressant pour un pour un honneur. 
+
+Microphone  •  51:26
+Ok, mais alors du coup, quelle serait pour toi la définition correcte du pic en fait pour toi? Qu'est-ce que X pour cent 
+
+Speaker 1  •  51:31
+Eh bien, c'est pour ça, je ne sais pas, il faut regarder. Moi j'en sais rien. Mais il faut que la variance à la moyenne mobile soit significative. Donc il faut regarder des moyennes mobiles qui ne sont pas un ou deux ou je ne sais pas quoi. Et il faut regarder que il y a effectivement bien eu un pic à ce moment-là. En fait, il faut les charter. Je ne sais pas, il faut compter. Il faut regarder en fonction du dataset, si tu veux. Mais je pense que c'est assez facile de les identifier, les pics. 
+
+Microphone  •  52:00
+Oui, oui, oui, on peut les identifier et en fait en gros on peut dire qu'il n'y en a pas de pique. pas de pique ça voulait dire qu'en fait on était en dessous de ce que j'avais défini et je crois que c'était quoi oui c'est ça c'était fallait qu'on ait plus de 15 reviews enfin 15 fois je crois que c'était plus que je sais plus c'était 10 ou 15 fois 
+
+Speaker 1  •  52:14
+Et donc là on compte on compte parce que en gros On est d'accord qu'on regarde que des reviews là. Donc quand on ne dit pas de pic ou pic, ça veut dire fais partie d'un pic ou fais pas partie d'un pic, c'est ça ? 
+
+Microphone  •  52:25
+Elle a été publiée le jour d'un pic. Est-ce qu'elle en fait ça peut être une. . Mais oui, elle a été publiée le jour d'un pic. 
+
+Speaker 1  •  52:36
+J'ai pas compris, alors c'est pas comment aller publier le bureau, mais c'est pas compris. 
+
+Microphone  •  52:37
+En fait, c'est pareil, en fait, on ne sait pas ce qui. Il y a peut-être quelqu'un qui a publié le jour d'un pic. Mais ce que je peux te dire, c'est que ce qu'on regarde là, c'est est-ce que la. 
+
+Speaker 1  •  52:47
+Mais attends, il a publié le jour d'un pic, mais donc c'est il fait partie de. 
+
+Microphone  •  52:51
+Ah oui, il fait partie, il en fait partie, oui, oui, il fait partie du pic, oui. 
+
+Unknown  •  52:52
+. 
+
+Unknown  •  52:52
+Donc la review fait partie de. 
+
+Microphone  •  52:54
+Il est compté dedans, oui, bien sûr. 
+
+Speaker 1  •  52:56
+D'accord. 
+
+Microphone  •  52:57
+Oui. 
+
+Speaker 1  •  52:57
+D'accord. D'accord, parce que le pic c'est par fiche, c'est ça ? 
+
+Microphone  •  53:00
+Oui, oui, oui. 
+
+Speaker 1  •  53:01
+date, par fiche. D'accord, donc cette review-là, elle a été publiée un jour où cette fiche a vu un pic. 
+
+Microphone  •  53:06
+Tout à fait. 
+
+Speaker 1  •  53:09
+D'accord. Donc elle est attribuée, elle est comptée dans le pic. 
+
+Microphone  •  53:10
+Oui, bien sûr. 
+
+Speaker 1  •  53:13
+D'accord. Ah bah ça, effectivement, moi je trouve que c'est extrêmement intéressant. Et c'est un gros insac. Et je reviens sur mon histoire de titre, machin. Pour moi, il faut juste deux chartes qui disent, bah voilà, si t'es publié le jour d'un pic, t'as. 1,5 à 2,5 fois plus de chances que ta review soit supprimée. Donc quand tu fais. . Autrement dit, quand tu publies le jour d'un pic, sur 100 reviews, tu en perds X. 
+
+Microphone  •  53:39
+D'accord, 
+
+Speaker 1  •  53:42
+Tu vois, je ne sais pas, il faut le quantifier, mais voilà. Et je pense que si on le quantifie avec des reviews 4 et 5 étoiles uniquement, on n'aura peut-être pas tout à fait le même truc d'ailleurs. 
+
+Microphone  •  53:51
+Peut-être bien, peut-être bien. 
+
+Speaker 1  •  53:56
+Bon niveau local guide c'est très intéressant mais ça va en bas de l'étude parce que c'est pas très actionnable pour le coup. 
+
+Microphone  •  54:00
+Mm-hmm. 
+
+Speaker 1  •  54:02
+à moins de choisir tes gens, tes clients, c'est compliqué. Les photos, moi je trouve que c'est très intéressant de dire que ce n'est pas le cas. Mais ça me surprend énormément, donc en fait je serais assez curieux. Mais je trouve que c'est très intéressant de dire, en fait, demander des photos, ça change que dalle. 
+
+Microphone  •  54:18
+Okay. 
+
+Speaker 1  •  54:21
+En fait, il faut dire, on s'est posé la question et on a montré que. . Voilà. Là, sur tout cela, moi je comprends le contrôle et ce qu'on a évalué, quoi. Tu vois, effectivement, une review normale, c'est une review sans photo. Une review avec photo, c'est une feature supplémentaire. Est-ce que ça a du sens? longueur du texte, là c'est pareil, je ne sais pas si son texte c'est la référence, mais bon. 
+
+Microphone  •  54:41
+Moi je pars du principe que la review sans texte c'est la référence parce que. Dans le corpus, il y a beaucoup plus de reviews sans texte qu'avec review, qu'avec texte. 
+
+Speaker 1  •  54:50
+Ah, c'est vrai? 
+
+Unknown  •  54:51
+Combien plus? 
+
+Microphone  •  54:51
+Je sais plus mais c'est énorme, je crois qu'il y a même. . Il y en a 30% qui ont du texte, non? Une bêtise, il faut que je vérifierai. 30 ou 20%? C'est la grande majorité à votre texte 
+
+Speaker 1  •  55:03
+Pour moi, c'est aussi un insight. Parce qu'en tant que business owner, c'est un peu la même chose. Je ne peux pas dire aux gens quoi écrire dans la review, mais par contre je sais qu'une review où il y a du texte a plus de valeur qu'une review où il n'y a pas de texte. A plein d'égards. Si tu me dis qu'en fait, il n'y a que 20% des reviews qui sont publiées qui ont du texte, ça décuple l'opportunité si tu veux. parce que c'est-à-dire que personne ne le fait. 
+
+Microphone  •  55:28
+Ouais, mais par contre, du coup, on n'arrive pas par contre à montrer que ça a un impact. 
+
+Speaker 1  •  55:29
+Donc c'est hyper intéressant d'avoir du texte. 
+
+Microphone  •  55:33
+Par contre, sur la situation. 
+
+Speaker 1  •  55:35
+Sur la suppression. Alors sur la suppression, le fait que plus de 200 caractères existent, moi ça pue à une étoile. Et donc ça ne m'étonne pas que ce soit un peu plus à droite. Je pense que si on enlève les 1 étoiles, déjà, on n'aura pas tout à fait la même chose. 
+
+Microphone  •  55:47
+D'accord. 
+
+Speaker 1  •  55:49
+Et après, dire ça n'a pas d'impact sur le fait qu'elle soit supprimée ou pas, c'est intéressant. Mais surtout dire la distribution c'est 20% avec texte et 800, c'est hyper intéressant, moi je trouve. Ça dit que c'est une super opportunité de si par exemple tu incentivises tes guides, tu dis à tes guides, je te donne 5 euros si tu me fais une review. Et que Tu changes de message et tu dis à tes guides bah il faut qu'il y ait du texte dans la review, sinon je te donne pas 5 euros. Bon bah toi tes réduits, elles auront toujours du texte. Et donc tu fais beaucoup plus de mots-clés, beaucoup plus de textes, etc. Google que la moyenne du marché parce que le marché ne fait que 20%. 
+
+Microphone  •  56:23
+D'accord. 
+
+Speaker 1  •  56:24
+Pour moi, c'est un inside, si tu veux. 
+
+Microphone  •  56:24
+Ok ok, je comprends. Mais si si si mais après moi je suis pas du métier, donc forcément je ne fais pas forcément la même réflexion. 
+
+Unknown  •  56:27
+Non ? 
+
+Microphone  •  56:31
+Moi je me dis juste, tiens, il n'a pas d'effet. Donc effectivement, je ne réfléchis pas par rapport à ça. 
+
+Speaker 1  •  56:36
+Sur la suppression, ça n'a pas d'effet, mais ça, ça a un effet c'est intéressant de connaître la distribution des reviews 
+
+Microphone  •  56:40
+Okay. 
+
+Speaker 1  •  56:43
+Donc là pour le coup c'est plus la la distribution. Et par ailleurs, je pense qu'en refaisant l'analyse, avec que des 4 et 5 étoiles, on n'aura pas du tout le même résultat sur le truc là. 
+
+Microphone  •  56:57
+Je reviens juste là-dessus. Quand tu dis qu'on fera clanalise avec les 4 ou 5 étoiles, tu es ok, que ça veut dire que je mets 1, 2, 3, je les mets ensemble et on dit que c'est la ref et 4 et 5, je les mets comme étant une. 
+
+Unknown  •  56:59
+No, no, no. 
+
+Microphone  •  57:08
+. Non, j'enlève tout ce qui n'est pas 1-2-3. 
+
+Speaker 1  •  57:09
+Non, non, non, on enlève notre comme paramètre et on ne regarde que des étoiles, que des 4 et 5 étoiles. 
+
+Microphone  •  57:10
+C'est ça ? D'accord, ok. 'accord. Ok. Ok. D'accord. Donc on regarde que les suppressions sur les 4 et 5 étoiles. 
+
+Speaker 1  •  57:16
+Pour moi, c'est ça que ça veut dire. 
+
+Unknown  •  57:20
+Oui. 
+
+Speaker 1  •  57:24
+On scope l'analyse aux 4 et 5 étoiles. 
+
+Microphone  •  57:26
+D'accord, d'accord. 
+
+Speaker 1  •  57:27
+Parce qu'on pense que les 4 et 5 étoiles, c'est Google qui les supprime et c'est pas toi qui as demandé. Et donc ce n'est pas le même comportement que les. . On peut d'ailleurs scoper l'analyse et en faire une autre sur les 1, 2 et 3. Mais ça, c'est si on s'ennuie, parce que franchement, c'est moins intéressant. 
+
+Microphone  •  57:37
+Non, on n'a déjà pas mal à faire là. 
+
+Speaker 1  •  57:40
+Voilà. Non mais c'est ça que je veux dire. 
+
+Microphone  •  57:41
+Ok ok. 
+
+Unknown  •  57:43
+Mais c'est pas tout. 
+
+Speaker 1  •  57:44
+Ouais. Mais c'est pas pareil, on est d'accord quand même. 
+
+Microphone  •  57:48
+On est d'accord que ça ne va pas du tout être la même chose là, puisqu'il n'y aura plus ça, et il y aura je ne sais pas combien de supprimés, mais il y en aura pour le moins un peu moins aussi. Mais ok. 
+
+Speaker 1  •  57:59
+Ah bah oui, il y en aura moins, vous voyez de supprimer. Mais encore une fois, l'objet de l'analyse c'est de regarder ce que Google supprime parce que Google a décidé de supprimer. Si on regarde les 1 étoile, on ne sait pas du tout en fait. 
+
+Microphone  •  58:12
+Okay. 
+
+Speaker 1  •  58:13
+Les 2 et 3, moi je postule qu'il y en a très très peu qui sont supprimés. et donc c'est 4 et 5 où il y en a probablement qui sont supprimés quoi. 
+
+Microphone  •  58:21
+Okay. 
+
+Speaker 1  •  58:23
+Mais pour moi la note c'est pas un paramètre à regarder là-dedans. C'est un parallèle d'exclusion, on regarde que 4 et 5 étoiles. 
+
+Microphone  •  58:29
+Il faut juste la dire un petit peu parce qu'à 11h j'ai une autre réunion qui commence du coup. Je peux pas traîner trop. 
+
+Speaker 1  •  58:35
+Bon, bah peut-être qu'on reprend un. . on reprend un call à un autre moment, celui-là. 
+
+Microphone  •  58:39
+Pour finaliser ça, pour regarder la fin. Ça te va? 
+
+Speaker 1  •  58:43
+Oui, parce que pour moi peut-être 
+
+Microphone  •  58:44
+Il faut qu'on se mette bien au clair parce que la régation la fait un peu dans tous les sens et du coup c'est bien qu'on se mette toutes d'accord sur ce qu'on va faire. Ok on reprend un call et puis on finalise ça. Ok puisque tu m'as dit que l'après-midi t'avais pas de temps toi. 
+
+Speaker 1  •  58:57
+Ouais mais on peut le faire aujourd'hui le call ou pas. 
+
+Unknown  •  59:04
+Si si 
+
+Microphone  •  59:05
+Je pense que c'est bon. 
+
+Speaker 1  •  59:08
+Ici, mets-moi à 15h là quand tu veux. 
+
+Microphone  •  59:10
+Je te laisse le pusher. 15h15 trente, ça te va ? 
+
+Speaker 1  •  59:13
+Ouais. 
+
+Microphone  •  59:15
+Pour un petit peu 15. 
+
+Speaker 1  •  59:16
+Euh. Bah je mets une heure, on verra ce qu'on fera. 
+
+Microphone  •  59:18
+heure et voilà. Très bien, on fait ça tout à l'heure. Je te remercie. 
+
+Speaker 1  •  59:24
+Bon, première, merci beaucoup. 
+
+Microphone  •  59:24
+A tout à l'heure. Chocolate. And then the network is considering regularly, I don't know. This isn't two people that tool and not Bonjour Comment allez-vous? Aye. 

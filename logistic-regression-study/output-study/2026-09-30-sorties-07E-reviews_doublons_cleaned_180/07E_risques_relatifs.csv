@@ -1,0 +1,151 @@
+passage,famille,variable,caracteristique,risque_relatif,borne_basse,borne_haute
+US_toutes_fiches,Note,etoiles_1,1 étoile,2.769518798176347,1.9548890652763742,3.9236161834931385
+US_toutes_fiches,Note,etoiles_2,2 étoiles,1.323808716271659,0.7849314265970389,2.2326402764562574
+US_toutes_fiches,Note,etoiles_3,3 étoiles,0.7503659834768949,0.4172658207207353,1.3493774979860649
+US_toutes_fiches,Note,etoiles_4,4 étoiles,0.7100117402462274,0.5133523908634089,0.9820090064051342
+US_toutes_fiches,Note,etoiles_5,5 étoiles (référence),1.0,,
+US_toutes_fiches,Longueur du texte,texte_sans_texte,sans texte (référence),1.0,,
+US_toutes_fiches,Longueur du texte,texte_1_50,1 à 50 caractères,1.1358057806273774,0.9304710216627597,1.386453464183363
+US_toutes_fiches,Longueur du texte,texte_51_200,51 à 200 caractères,0.9487973328216062,0.7765023531485601,1.1593221515932284
+US_toutes_fiches,Longueur du texte,texte_201_plus,plus de 200 caractères,0.9851126890402356,0.7801624285474885,1.2439038007955199
+US_toutes_fiches,Photo jointe,has_photo,photo jointe à l'avis (contre aucune),0.8053251180615968,0.5696686345630401,1.1384663055539104
+US_toutes_fiches,Photos de l'auteur,log_photos_auteur,"photos publiées par l'auteur, par multiplication par 2,7",0.9074411959561544,0.8496937096818763,0.9691133578317694
+US_toutes_fiches,Profil Local Guide,guide_sans_niveau,compte sans niveau,1.7336300307843546,1.3817864458211413,2.1750633701225284
+US_toutes_fiches,Profil Local Guide,guide_1_4,niveau 1 à 4 (référence),1.0,,
+US_toutes_fiches,Profil Local Guide,guide_5_et_plus,niveau 5 et plus,0.6913056538337526,0.5437960031661121,0.8788286494200808
+US_toutes_fiches,Afflux sur la fiche,log_ratio_pic_journalier_fiche,"avis du jour sur la fiche, par multiplication par 2,7",0.8531279692548921,0.7032133467489531,1.035002158718711
+US_toutes_fiches,Secteur,secteur_automotive,automobile (référence),1.0,,
+US_toutes_fiches,Secteur,secteur_food_beverage,restauration,0.600287518556149,0.23918653519462374,1.5065442736610972
+US_toutes_fiches,Secteur,secteur_healthcare,santé,1.5784447205151408,0.8719543627574773,2.8573602497302897
+US_toutes_fiches,Secteur,secteur_home_services,services à domicile,5.173056740224905,3.0919878792526463,8.654793318288982
+US_toutes_fiches,Secteur,secteur_hospitality,hôtellerie,0.9617010911468293,0.4592326929362647,2.013944135378361
+US_toutes_fiches,Secteur,secteur_travel,voyage,2.6678264619582213,0.8738081623289312,8.145149402307053
+US_toutes_fiches,Secteur,secteur_wellness_fitness,sport et bien-être,1.992654577742898,0.9726607655368773,4.082278639056694
+US_toutes_fiches,Taille de l'entreprise,taille_mono,un seul établissement (référence),1.0,,
+US_toutes_fiches,Taille de l'entreprise,taille_small,groupe de 4 à 10 établissements,1.4948750696662574,0.8175021101994636,2.733511566550528
+US_toutes_fiches,Taille de l'entreprise,taille_large,groupe de 20 à 50 établissements,1.2063293457702167,0.6809888445582905,2.1369373405966794
+US_sans_enseignes,Note,etoiles_1,1 étoile,3.7182471000320008,2.563729061473838,5.392676513542525
+US_sans_enseignes,Note,etoiles_2,2 étoiles,1.6281941742024688,0.949406191144195,2.7922887944431203
+US_sans_enseignes,Note,etoiles_3,3 étoiles,0.9506344618244192,0.51355457948999,1.7597075678025729
+US_sans_enseignes,Note,etoiles_4,4 étoiles,0.8009260683285576,0.5393760445583314,1.1893048892327427
+US_sans_enseignes,Note,etoiles_5,5 étoiles (référence),1.0,,
+US_sans_enseignes,Longueur du texte,texte_sans_texte,sans texte (référence),1.0,,
+US_sans_enseignes,Longueur du texte,texte_1_50,1 à 50 caractères,1.2910752035266935,0.9656529401372587,1.7261638336901477
+US_sans_enseignes,Longueur du texte,texte_51_200,51 à 200 caractères,1.1443597722926884,0.8839178793515923,1.4815395400785591
+US_sans_enseignes,Longueur du texte,texte_201_plus,plus de 200 caractères,1.229974008094738,0.9573754496301804,1.5801909910819416
+US_sans_enseignes,Photo jointe,has_photo,photo jointe à l'avis (contre aucune),0.9230870593030103,0.6449569592079063,1.3211574925854892
+US_sans_enseignes,Photos de l'auteur,log_photos_auteur,"photos publiées par l'auteur, par multiplication par 2,7",0.8850586767594396,0.8140717240184735,0.9622356829204822
+US_sans_enseignes,Profil Local Guide,guide_sans_niveau,compte sans niveau,2.0696546432698657,1.564322527531119,2.73822710280141
+US_sans_enseignes,Profil Local Guide,guide_1_4,niveau 1 à 4 (référence),1.0,,
+US_sans_enseignes,Profil Local Guide,guide_5_et_plus,niveau 5 et plus,0.7231560495713598,0.5534877402301447,0.944835149942447
+US_sans_enseignes,Afflux sur la fiche,log_ratio_pic_journalier_fiche,"avis du jour sur la fiche, par multiplication par 2,7",0.7225726997791552,0.5921759379894278,0.8816827448930529
+US_sans_enseignes,Secteur,secteur_automotive,automobile (référence),1.0,,
+US_sans_enseignes,Secteur,secteur_food_beverage,restauration,0.6619683473373743,0.2645752010444637,1.656247793242465
+US_sans_enseignes,Secteur,secteur_healthcare,santé,1.749385508942564,0.9625219765297431,3.1795114641765942
+US_sans_enseignes,Secteur,secteur_home_services,services à domicile,3.72367854240495,2.049256990343379,6.766248426871862
+US_sans_enseignes,Secteur,secteur_hospitality,hôtellerie,0.9229834039617115,0.4373283122849459,1.9479606969367316
+US_sans_enseignes,Secteur,secteur_travel,voyage,2.306775370160162,0.7590026252384422,7.010796051865939
+US_sans_enseignes,Secteur,secteur_wellness_fitness,sport et bien-être,1.9321781729004566,0.9392581645948268,3.974745850033049
+US_sans_enseignes,Taille de l'entreprise,taille_mono,un seul établissement (référence),1.0,,
+US_sans_enseignes,Taille de l'entreprise,taille_small,groupe de 4 à 10 établissements,1.41874810942756,0.7863431050640851,2.559755639798271
+US_sans_enseignes,Taille de l'entreprise,taille_large,groupe de 20 à 50 établissements,0.721824980323167,0.3967349381932574,1.313298255483453
+Europe_toutes_fiches,Note,etoiles_1,1 étoile,12.811345941478352,6.787941329067339,24.179729446009414
+Europe_toutes_fiches,Note,etoiles_2,2 étoiles,4.096668348867526,1.86328680766045,9.007036110391072
+Europe_toutes_fiches,Note,etoiles_3,3 étoiles,1.4633489465645595,0.7686234563616777,2.786006752315362
+Europe_toutes_fiches,Note,etoiles_4,4 étoiles,0.8335499104058058,0.4989182915802072,1.39262373190787
+Europe_toutes_fiches,Note,etoiles_5,5 étoiles (référence),1.0,,
+Europe_toutes_fiches,Longueur du texte,texte_sans_texte,sans texte (référence),1.0,,
+Europe_toutes_fiches,Longueur du texte,texte_1_50,1 à 50 caractères,0.8213109005827245,0.6075220016548423,1.1103327839626882
+Europe_toutes_fiches,Longueur du texte,texte_51_200,51 à 200 caractères,0.7611835279266574,0.5427112740083051,1.0676033296813472
+Europe_toutes_fiches,Longueur du texte,texte_201_plus,plus de 200 caractères,0.5062004879657451,0.3024448880915868,0.8472252106280067
+Europe_toutes_fiches,Photo jointe,has_photo,photo jointe à l'avis (contre aucune),1.1880110658569907,0.7952436574800893,1.7747646011675358
+Europe_toutes_fiches,Photos de l'auteur,log_photos_auteur,"photos publiées par l'auteur, par multiplication par 2,7",0.9219211110084182,0.8443306207338213,1.0066418462761675
+Europe_toutes_fiches,Profil Local Guide,guide_sans_niveau,compte sans niveau,3.954744566770328,2.7759831097939323,5.63404169615442
+Europe_toutes_fiches,Profil Local Guide,guide_1_4,niveau 1 à 4 (référence),1.0,,
+Europe_toutes_fiches,Profil Local Guide,guide_5_et_plus,niveau 5 et plus,0.7304838847211141,0.513914985696239,1.0383170771218768
+Europe_toutes_fiches,Afflux sur la fiche,log_ratio_pic_journalier_fiche,"avis du jour sur la fiche, par multiplication par 2,7",2.0555078269111577,1.6846298163371616,2.508036118985215
+Europe_toutes_fiches,Secteur,secteur_automotive,automobile (référence),1.0,,
+Europe_toutes_fiches,Secteur,secteur_food_beverage,restauration,0.973690504304871,0.41077421136814546,2.308015381529852
+Europe_toutes_fiches,Secteur,secteur_healthcare,santé,0.8320324328527733,0.3576699118267602,1.9355219615291936
+Europe_toutes_fiches,Secteur,secteur_home_services,services à domicile,1.2403222729223136,0.5154348749513131,2.984662884622404
+Europe_toutes_fiches,Secteur,secteur_hospitality,hôtellerie,0.9207579756202219,0.42374498608426453,2.000720427402672
+Europe_toutes_fiches,Secteur,secteur_travel,voyage,2.476617133504047,0.7570740712267714,8.101759998234774
+Europe_toutes_fiches,Secteur,secteur_wellness_fitness,sport et bien-être,3.5830704522194208,1.6532783880909903,7.76541564811244
+Europe_toutes_fiches,Taille de l'entreprise,taille_mono,un seul établissement (référence),1.0,,
+Europe_toutes_fiches,Taille de l'entreprise,taille_small,groupe de 4 à 10 établissements,1.6331030094151253,0.7929040774530843,3.363616754157182
+Europe_toutes_fiches,Taille de l'entreprise,taille_large,groupe de 20 à 50 établissements,2.3021288929487147,1.1490205718241435,4.612447827052834
+Europe_sans_enseignes,Note,etoiles_1,1 étoile,4.760985242777695,3.049405301607126,7.433246236569738
+Europe_sans_enseignes,Note,etoiles_2,2 étoiles,2.0902766926707566,1.1592543451963915,3.769023312293379
+Europe_sans_enseignes,Note,etoiles_3,3 étoiles,1.2283612461179967,0.6586054800350332,2.2910094080667176
+Europe_sans_enseignes,Note,etoiles_4,4 étoiles,0.8280787122447498,0.4982402647614593,1.3762724576288916
+Europe_sans_enseignes,Note,etoiles_5,5 étoiles (référence),1.0,,
+Europe_sans_enseignes,Longueur du texte,texte_sans_texte,sans texte (référence),1.0,,
+Europe_sans_enseignes,Longueur du texte,texte_1_50,1 à 50 caractères,1.2229983712937678,0.8344179676403451,1.7925369229727603
+Europe_sans_enseignes,Longueur du texte,texte_51_200,51 à 200 caractères,1.3548642409273326,0.9650775974643243,1.9020823985207622
+Europe_sans_enseignes,Longueur du texte,texte_201_plus,plus de 200 caractères,1.2692410280798179,0.9239290841422779,1.743610862576803
+Europe_sans_enseignes,Photo jointe,has_photo,photo jointe à l'avis (contre aucune),1.043348580923285,0.7045590064508325,1.545046264894491
+Europe_sans_enseignes,Photos de l'auteur,log_photos_auteur,"photos publiées par l'auteur, par multiplication par 2,7",0.920003723020504,0.83195021204008,1.0173768070760607
+Europe_sans_enseignes,Profil Local Guide,guide_sans_niveau,compte sans niveau,3.7394807280764453,2.468722660857447,5.66435279967749
+Europe_sans_enseignes,Profil Local Guide,guide_1_4,niveau 1 à 4 (référence),1.0,,
+Europe_sans_enseignes,Profil Local Guide,guide_5_et_plus,niveau 5 et plus,0.7789649043572163,0.5215776739475084,1.1633671311654228
+Europe_sans_enseignes,Afflux sur la fiche,log_ratio_pic_journalier_fiche,"avis du jour sur la fiche, par multiplication par 2,7",1.306212344882816,1.115488492504375,1.5295457563113968
+Europe_sans_enseignes,Secteur,secteur_automotive,automobile (référence),1.0,,
+Europe_sans_enseignes,Secteur,secteur_food_beverage,restauration,0.8443868740768719,0.369561471483911,1.9292844306805703
+Europe_sans_enseignes,Secteur,secteur_healthcare,santé,0.7753440472238985,0.3432868803731822,1.751183706502341
+Europe_sans_enseignes,Secteur,secteur_home_services,services à domicile,1.3463073351039636,0.5953144119167288,3.0446826152232824
+Europe_sans_enseignes,Secteur,secteur_hospitality,hôtellerie,0.7373401168812456,0.35191725973017013,1.5448814541784737
+Europe_sans_enseignes,Secteur,secteur_travel,voyage,1.3551032694576222,0.4622328490946724,3.972683625777175
+Europe_sans_enseignes,Secteur,secteur_wellness_fitness,sport et bien-être,1.3437797152287843,0.6388751940682603,2.82644237845838
+Europe_sans_enseignes,Taille de l'entreprise,taille_mono,un seul établissement (référence),1.0,,
+Europe_sans_enseignes,Taille de l'entreprise,taille_small,groupe de 4 à 10 établissements,1.2686490368974168,0.6405227344715538,2.512745125508455
+Europe_sans_enseignes,Taille de l'entreprise,taille_large,groupe de 20 à 50 établissements,1.2232292315572293,0.6481483595528613,2.3085605801244893
+tous_toutes_fiches,Note,etoiles_1,1 étoile,6.604797519720716,3.8141951854489733,11.43710485581088
+tous_toutes_fiches,Note,etoiles_2,2 étoiles,2.3476149983927836,1.3866223641048339,3.9746194229578107
+tous_toutes_fiches,Note,etoiles_3,3 étoiles,1.0186855529157905,0.6721354684587376,1.5439153331677742
+tous_toutes_fiches,Note,etoiles_4,4 étoiles,0.6956250870655115,0.5240110380236346,0.9234428793331549
+tous_toutes_fiches,Note,etoiles_5,5 étoiles (référence),1.0,,
+tous_toutes_fiches,Longueur du texte,texte_sans_texte,sans texte (référence),1.0,,
+tous_toutes_fiches,Longueur du texte,texte_1_50,1 à 50 caractères,0.9526946656273444,0.7804081892704513,1.1630158914186617
+tous_toutes_fiches,Longueur du texte,texte_51_200,51 à 200 caractères,0.8036156101107118,0.6411622184652536,1.0072303548382104
+tous_toutes_fiches,Longueur du texte,texte_201_plus,plus de 200 caractères,0.6142659681395846,0.39977771160350356,0.9438312058494317
+tous_toutes_fiches,Photo jointe,has_photo,photo jointe à l'avis (contre aucune),0.918068518279046,0.7097271977027718,1.1875686982029143
+tous_toutes_fiches,Photos de l'auteur,log_photos_auteur,"photos publiées par l'auteur, par multiplication par 2,7",0.906977817093947,0.8608025018068834,0.9556300765550623
+tous_toutes_fiches,Profil Local Guide,guide_sans_niveau,compte sans niveau,2.2364097037910002,1.8575437943005848,2.6925493646806644
+tous_toutes_fiches,Profil Local Guide,guide_1_4,niveau 1 à 4 (référence),1.0,,
+tous_toutes_fiches,Profil Local Guide,guide_5_et_plus,niveau 5 et plus,0.6542338752632372,0.5368398349105484,0.7972991862894687
+tous_toutes_fiches,Afflux sur la fiche,log_ratio_pic_journalier_fiche,"avis du jour sur la fiche, par multiplication par 2,7",1.3734454122309208,1.0669757949714642,1.7679429179821402
+tous_toutes_fiches,Secteur,secteur_automotive,automobile (référence),1.0,,
+tous_toutes_fiches,Secteur,secteur_food_beverage,restauration,0.7423448431733547,0.38601797622561757,1.4275912007371978
+tous_toutes_fiches,Secteur,secteur_healthcare,santé,1.4910552978656617,0.8732555350444438,2.545928210097296
+tous_toutes_fiches,Secteur,secteur_home_services,services à domicile,5.718787961614748,3.48355196004309,9.388272695523453
+tous_toutes_fiches,Secteur,secteur_hospitality,hôtellerie,0.9967082928795494,0.573822771568241,1.7312443324266436
+tous_toutes_fiches,Secteur,secteur_travel,voyage,3.347395237768694,1.307977704162241,8.566701742835413
+tous_toutes_fiches,Secteur,secteur_wellness_fitness,sport et bien-être,3.9211688458905734,1.9658870354543674,7.821184452965844
+tous_toutes_fiches,Taille de l'entreprise,taille_mono,un seul établissement (référence),1.0,,
+tous_toutes_fiches,Taille de l'entreprise,taille_small,groupe de 4 à 10 établissements,1.6472191855418077,1.0051264684374202,2.6994921837400105
+tous_toutes_fiches,Taille de l'entreprise,taille_large,groupe de 20 à 50 établissements,1.9514963140677166,1.1214353301555589,3.39594960263256
+tous_sans_enseignes,Note,etoiles_1,1 étoile,4.003493962917785,3.0125406442096274,5.320414163349575
+tous_sans_enseignes,Note,etoiles_2,2 étoiles,1.8382841822759197,1.244365101879522,2.715673020483843
+tous_sans_enseignes,Note,etoiles_3,3 étoiles,1.074597588288151,0.698387628874677,1.6534656815376205
+tous_sans_enseignes,Note,etoiles_4,4 étoiles,0.7922342197144069,0.5748434132239733,1.0918365670512657
+tous_sans_enseignes,Note,etoiles_5,5 étoiles (référence),1.0,,
+tous_sans_enseignes,Longueur du texte,texte_sans_texte,sans texte (référence),1.0,,
+tous_sans_enseignes,Longueur du texte,texte_1_50,1 à 50 caractères,1.2719668749263806,1.0055384345403346,1.6089884536831045
+tous_sans_enseignes,Longueur du texte,texte_51_200,51 à 200 caractères,1.2015872351114956,0.9736372659109069,1.4829053222732798
+tous_sans_enseignes,Longueur du texte,texte_201_plus,plus de 200 caractères,1.2167727604693965,0.9956219883670478,1.4870462564297025
+tous_sans_enseignes,Photo jointe,has_photo,photo jointe à l'avis (contre aucune),0.9600013583120908,0.734484103442171,1.2547618166846015
+tous_sans_enseignes,Photos de l'auteur,log_photos_auteur,"photos publiées par l'auteur, par multiplication par 2,7",0.8991408760875205,0.8432318805773789,0.9587568184659573
+tous_sans_enseignes,Profil Local Guide,guide_sans_niveau,compte sans niveau,2.4712083858870564,1.9205208618262881,3.1797992970882283
+tous_sans_enseignes,Profil Local Guide,guide_1_4,niveau 1 à 4 (référence),1.0,,
+tous_sans_enseignes,Profil Local Guide,guide_5_et_plus,niveau 5 et plus,0.7291620175910345,0.5833473449708284,0.9114248183027486
+tous_sans_enseignes,Afflux sur la fiche,log_ratio_pic_journalier_fiche,"avis du jour sur la fiche, par multiplication par 2,7",0.9036967515753814,0.7826486628793133,1.0434667016531134
+tous_sans_enseignes,Secteur,secteur_automotive,automobile (référence),1.0,,
+tous_sans_enseignes,Secteur,secteur_food_beverage,restauration,0.7333160274424094,0.3932678513520861,1.3673947520883822
+tous_sans_enseignes,Secteur,secteur_healthcare,santé,1.471985809422631,0.8928445843896966,2.426785423829023
+tous_sans_enseignes,Secteur,secteur_home_services,services à domicile,3.3189173300282713,2.007209768448067,5.48782315466645
+tous_sans_enseignes,Secteur,secteur_hospitality,hôtellerie,0.9476809480905262,0.5504574656327323,1.631550547400468
+tous_sans_enseignes,Secteur,secteur_travel,voyage,1.996758457392448,0.8459743604289797,4.712961200321135
+tous_sans_enseignes,Secteur,secteur_wellness_fitness,sport et bien-être,1.7094217198756607,1.0082755271220278,2.8981389885792677
+tous_sans_enseignes,Taille de l'entreprise,taille_mono,un seul établissement (référence),1.0,,
+tous_sans_enseignes,Taille de l'entreprise,taille_small,groupe de 4 à 10 établissements,1.3730555147589603,0.8588898149234624,2.195021309896421
+tous_sans_enseignes,Taille de l'entreprise,taille_large,groupe de 20 à 50 établissements,0.8438470357879424,0.5307477857065679,1.3416501000755565

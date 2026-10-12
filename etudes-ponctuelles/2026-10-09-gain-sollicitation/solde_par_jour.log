@@ -1,0 +1,49 @@
+commerces avec au moins 15 avis 4-5 étoiles dans 03C, relevés jusqu'au 2026-08-24 : 321
+  écartés, moins de 20 avis annotés avant le 2026-08-07 (part de prénoms non mesurable) : 0
+  retenus : 321 ; seuil de vitesse (quart haut) : 74.7 avis par mois
+                   commerces  dont_enseignes
+  groupe                                    
+  autres                 268              20
+  prenoms_vitesse         53              23
+
+== Par jour ==
+         groupe       jour  commerces  stock_depart  publies_jour  nouveaux_disparus_jour  anciens_disparus_jour  solde_cumule  solde_pct_groupe  solde_pct_mediane  solde_pct_q1  solde_pct_q3  commerces_solde_negatif
+         autres 2026-08-07        268        553573           825                       0                      0           825              0.15               0.13          0.05          0.30                        0
+         autres 2026-08-08        268        553573           667                       0                      0          1492              0.27               0.24          0.10          0.47                        0
+         autres 2026-08-09        268        553573           572                       0                      0          2064              0.37               0.35          0.18          0.69                        0
+         autres 2026-08-10        268        553573           764                       0                      0          2828              0.51               0.52          0.27          0.93                        0
+         autres 2026-08-11        268        553573           701                       0                      0          3529              0.64               0.67          0.35          1.18                        0
+         autres 2026-08-12        268        553573           696                       0                    115          4110              0.74               0.75          0.42          1.38                        1
+         autres 2026-08-13        268        553573           766                       3                     52          4821              0.87               0.90          0.49          1.59                        2
+         autres 2026-08-14        268        553573           837                       1                     17          5640              1.02               1.08          0.59          1.95                        3
+         autres 2026-08-15        268        553573           649                       8                     29          6252              1.13               1.25          0.68          2.17                        2
+         autres 2026-08-16        268        553573           584                      58                     74          6704              1.21               1.38          0.74          2.29                        4
+         autres 2026-08-17        268        553573           652                      44                    143          7169              1.30               1.51          0.82          2.55                        4
+prenoms_vitesse 2026-08-07         53        228045           249                       0                      0           249              0.11               0.10          0.06          0.16                        0
+prenoms_vitesse 2026-08-08         53        228045           253                       0                      0           502              0.22               0.21          0.12          0.30                        0
+prenoms_vitesse 2026-08-09         53        228045           170                       0                      0           672              0.29               0.25          0.15          0.45                        0
+prenoms_vitesse 2026-08-10         53        228045           190                       0                      0           862              0.38               0.32          0.21          0.56                        0
+prenoms_vitesse 2026-08-11         53        228045           234                       0                      0          1096              0.48               0.42          0.28          0.76                        0
+prenoms_vitesse 2026-08-12         53        228045           233                       0                     83          1246              0.55               0.51          0.31          0.84                        1
+prenoms_vitesse 2026-08-13         53        228045           273                      15                     43          1461              0.64               0.59          0.40          0.92                        1
+prenoms_vitesse 2026-08-14         53        228045           253                       0                      8          1706              0.75               0.70          0.46          1.05                        0
+prenoms_vitesse 2026-08-15         53        228045           253                       6                     13          1940              0.85               0.76          0.51          1.07                        0
+prenoms_vitesse 2026-08-16         53        228045           168                      45                     39          2024              0.89               0.77          0.55          1.20                        0
+prenoms_vitesse 2026-08-17         53        228045           186                      11                    159          2040              0.89               0.80          0.60          1.35                        2
+
+== Synthèse ==
+groupe                               autres  prenoms_vitesse
+commerces                            268.00            53.00
+stock_depart                      553573.00        228045.00
+publies                             7713.00          2462.00
+nouveaux_disparus_au_17              114.00            77.00
+anciens_disparus                     430.00           345.00
+solde_au_17                         7169.00          2040.00
+nouveaux_disparus_apres_17           165.00            78.00
+solde_suivi_complet                 7004.00          1962.00
+commerces_negatifs_au_17               4.00             2.00
+commerces_negatifs_suivi_complet       8.00             2.00
+solde_au_17_pct                        1.30             0.89
+solde_suivi_complet_pct                1.27             0.86
+
+écrit dans C:\Matt\reviewflowz_shared\review-google\livrables\restitution_finale_v2\gain_sollicitation

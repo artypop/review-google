@@ -1,0 +1,27 @@
+population,k,groupe,textes,n_avis,n_supprimes,part_supprimee_pct
+tous_home_services,4,0,courts du groupe,653,91,13.9
+tous_home_services,4,0,courts des autres groupes,303,30,9.9
+tous_home_services,4,0,longs du groupe,7,2,28.6
+tous_home_services,4,0,longs des autres groupes,3217,316,9.8
+tous_home_services,4,0,note 1 du groupe,2,0,0.0
+tous_home_services,4,0,note 3 du groupe,2,0,0.0
+tous_home_services,4,0,note 4 du groupe,26,7,26.9
+tous_home_services,4,0,note 5 du groupe,630,86,13.7
+sans_chaines,4,0,courts du groupe,352,32,9.1
+sans_chaines,4,0,courts des autres groupes,144,5,3.5
+sans_chaines,4,0,longs du groupe,9,3,33.3
+sans_chaines,4,0,longs des autres groupes,1823,84,4.6
+sans_chaines,4,0,note 1 du groupe,1,0,0.0
+sans_chaines,4,0,note 3 du groupe,2,0,0.0
+sans_chaines,4,0,note 4 du groupe,18,7,38.9
+sans_chaines,4,0,note 5 du groupe,340,28,8.2
+tous_home_services_5_etoiles,4,2,courts du groupe,4,1,25.0
+tous_home_services_5_etoiles,4,2,courts des autres groupes,913,113,12.4
+tous_home_services_5_etoiles,4,2,longs du groupe,653,99,15.2
+tous_home_services_5_etoiles,4,2,longs des autres groupes,2278,193,8.5
+tous_home_services_5_etoiles,4,2,note 5 du groupe,657,100,15.2
+sans_chaines_5_etoiles,4,0,courts du groupe,334,25,7.5
+sans_chaines_5_etoiles,4,0,courts des autres groupes,136,5,3.7
+sans_chaines_5_etoiles,4,0,longs du groupe,8,3,37.5
+sans_chaines_5_etoiles,4,0,longs des autres groupes,1694,78,4.6
+sans_chaines_5_etoiles,4,0,note 5 du groupe,342,28,8.2

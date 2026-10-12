@@ -1,0 +1,31 @@
+Passage : US, secteur et taille en contrôle (et région pour tous)
+14014 avis, 512 suppressions
+
+                 Generalized Linear Model Regression Results                  
+==============================================================================
+Dep. Variable:               supprime   No. Observations:                14014
+Model:                            GLM   Df Residuals:                    14001
+Model Family:                Binomial   Df Model:                           12
+Link Function:                  Logit   Scale:                          1.0000
+Method:                          IRLS   Log-Likelihood:                -1954.3
+Date:                Mon, 05 Oct 2026   Deviance:                       3908.6
+Time:                        11:40:59   Pearson chi2:                 1.53e+04
+No. Iterations:                     8   Pseudo R-squ. (CS):            0.03404
+Covariance Type:              cluster                                         
+=============================================================================================
+                                coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------------------
+const                        -5.7604      0.570    -10.103      0.000      -6.878      -4.643
+prenom                       -0.0271      0.149     -0.182      0.856      -0.319       0.265
+photo                        -0.6703      0.349     -1.922      0.055      -1.354       0.013
+sans_reponse_j7               0.3894      0.226      1.725      0.084      -0.053       0.832
+pic                           0.6232      0.237      2.629      0.009       0.159       1.088
+industry_food_beverage       -0.0436      0.782     -0.056      0.956      -1.576       1.489
+industry_healthcare           1.3371      0.556      2.405      0.016       0.247       2.427
+industry_home_services        2.2786      0.538      4.233      0.000       1.224       3.334
+industry_hospitality         -0.7201      0.702     -1.025      0.305      -2.097       0.656
+industry_travel               1.7074      0.740      2.307      0.021       0.257       3.158
+industry_wellness_fitness     1.1354      0.646      1.758      0.079      -0.130       2.401
+bucket_large                  0.8927      0.289      3.088      0.002       0.326       1.459
+bucket_small                  1.0581      0.333      3.176      0.001       0.405       1.711
+=============================================================================================

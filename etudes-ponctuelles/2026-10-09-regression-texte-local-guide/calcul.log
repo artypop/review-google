@@ -1,0 +1,76 @@
+[07F] 24248 avis 4-5 étoiles dans 03C
+  écartés, prénom inconnu          : 55
+  écartés, fiche plus relevée      : 2 (1 fiches)
+  gardés : 24191 avis, 4705 fiches, 631 suppressions au plus tard au 7e jour
+  réponse au plus tard au 7e jour : 50.1% des avis -> référence : réponse
+  écartés, sans niveau Local Guide : 2071 avis, 104 supprimés
+  gardés : 22120 avis, 527 suppressions
+
+== Effectifs ==
+passage      variable   valeur  avis  suppressions  taux_pour_1000
+     US tranche_texte  131_240  2064            64            31.0
+     US tranche_texte     1_40  1595            56            35.1
+     US tranche_texte 241_plus  2100            73            34.8
+     US tranche_texte    41_80  2026            64            31.6
+     US tranche_texte   81_130  1786            61            34.2
+     US tranche_texte     sans  3133           123            39.3
+     US tranche_guide      1_3  9150           355            38.8
+     US tranche_guide      4_6  3233            82            25.4
+     US tranche_guide     7_10   321             4            12.5
+ Europe tranche_texte  131_240  1278            24            18.8
+ Europe tranche_texte     1_40   953            12            12.6
+ Europe tranche_texte 241_plus  1870            21            11.2
+ Europe tranche_texte    41_80  1103             6             5.4
+ Europe tranche_texte   81_130   989            12            12.1
+ Europe tranche_texte     sans  3223            11             3.4
+ Europe tranche_guide      1_3  5192            49             9.4
+ Europe tranche_guide      4_6  3710            35             9.4
+ Europe tranche_guide     7_10   514             2             3.9
+
+== États-Unis ==
+passage                 parametre rapport_de_cotes borne_basse borne_haute p_value
+     US                     const             0.00        0.00        0.01   0.000
+     US                    prenom             1.10        0.80        1.51   0.563
+     US                     photo             0.48        0.22        1.01   0.054
+     US           sans_reponse_j7             1.30        0.83        2.03   0.253
+     US                       pic             1.88        1.18        3.00   0.008
+     US                texte_1_40             0.97        0.69        1.38   0.877
+     US               texte_41_80             0.78        0.56        1.10   0.153
+     US              texte_81_130             0.81        0.55        1.21   0.312
+     US             texte_131_240             0.73        0.51        1.04   0.082
+     US            texte_241_plus             0.97        0.64        1.48   0.889
+     US                 guide_4_6             1.03        0.72        1.47   0.888
+     US                guide_7_10             0.96        0.34        2.68   0.933
+     US    industry_food_beverage             0.91        0.17        4.75   0.909
+     US       industry_healthcare             5.20        1.57       17.26   0.007
+     US    industry_home_services            13.61        4.26       43.45   0.000
+     US      industry_hospitality             0.61        0.13        2.81   0.522
+     US           industry_travel             7.17        1.49       34.45   0.014
+     US industry_wellness_fitness             4.18        1.06       16.50   0.041
+     US              bucket_large             2.44        1.32        4.51   0.005
+     US              bucket_small             2.54        1.27        5.07   0.008
+
+== Europe ==
+passage                 parametre rapport_de_cotes borne_basse borne_haute p_value
+ Europe                     const             0.00        0.00        0.02   0.000
+ Europe                    prenom             1.14        0.53        2.43   0.735
+ Europe                     photo             0.89        0.37        2.12   0.794
+ Europe           sans_reponse_j7             2.61        1.11        6.14   0.028
+ Europe                       pic             2.28        1.03        5.01   0.041
+ Europe                texte_1_40             3.29        1.09        9.99   0.035
+ Europe               texte_41_80             1.41        0.44        4.53   0.564
+ Europe              texte_81_130             3.39        0.95       12.09   0.060
+ Europe             texte_131_240             5.54        1.93       15.94   0.001
+ Europe            texte_241_plus             3.46        1.05       11.43   0.042
+ Europe                 guide_4_6             1.24        0.67        2.31   0.488
+ Europe                guide_7_10             0.53        0.12        2.28   0.391
+ Europe    industry_food_beverage             0.41        0.07        2.31   0.311
+ Europe       industry_healthcare             0.30        0.05        1.95   0.208
+ Europe    industry_home_services             1.40        0.21        9.26   0.726
+ Europe      industry_hospitality             0.47        0.11        2.04   0.311
+ Europe           industry_travel             0.13        0.02        0.81   0.028
+ Europe industry_wellness_fitness             0.95        0.22        4.06   0.947
+ Europe              bucket_large             0.56        0.20        1.55   0.265
+ Europe              bucket_small             0.76        0.24        2.49   0.655
+
+écrit dans C:\Matt\reviewflowz_shared\review-google\livrables\restitution_finale_v2\regression_logistique

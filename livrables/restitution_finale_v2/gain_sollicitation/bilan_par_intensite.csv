@@ -1,0 +1,11 @@
+groupe,intensite,fiches,avis_attendus,avis_publies,nouveaux_supprimes,gardes,anciens_disparus,solde,surplus,gain_net,nouveaux_supprimes_pour_100_publies,pertes_pour_100_publies,gain_net_pour_100_surplus,fiches_solde_negatif,fiches_gain_net_negatif,fiches_avec_surplus
+Autres fiches,aucun avis publié,5062,2445,0,0,0,108,-108,-2445,-2553,,,,101,0,0
+84 fiches,aucun avis publié,4,6,0,0,0,38,-38,-6,-44,,,,4,0,0
+Autres fiches,rythme habituel ou moins (≤ ×1),865,3497,2104,11,2093,89,2004,-1393,-1493,0.5,4.8,,6,0,0
+84 fiches,rythme habituel ou moins (≤ ×1),20,135,105,20,85,174,-89,-30,-224,19.0,184.8,,13,0,0
+Autres fiches,de ×1 à ×2,1145,3194,4549,20,4529,117,4412,1355,1218,0.4,3.0,89.9,3,52,1145
+84 fiches,de ×1 à ×2,33,328,462,104,358,307,51,134,-277,22.5,89.0,-207.2,13,26,33
+Autres fiches,de ×2 à ×4,984,1367,3645,24,3621,63,3558,2278,2191,0.7,2.4,96.2,2,12,984
+84 fiches,de ×2 à ×4,16,91,238,48,190,127,63,147,-28,20.2,73.5,-19.3,5,8,16
+Autres fiches,plus de ×4,740,462,2989,25,2964,27,2937,2527,2475,0.8,1.7,97.9,1,7,740
+84 fiches,plus de ×4,11,17,179,45,134,33,101,162,84,25.1,43.6,51.8,6,7,11

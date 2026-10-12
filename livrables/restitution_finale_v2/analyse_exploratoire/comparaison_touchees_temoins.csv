@@ -1,0 +1,18 @@
+indicateur,libelle,famille,touchees,statistique,fiches_touchees,temoins,fiches_temoins
+volume_semaine,Volume habituel (avis par semaine),Volume et sollicitation,6.367123287671233,médiane,44,6.712328767123287,344
+intensite,Intensité de la semaine (× le rythme habituel),Volume et sollicitation,1.775762936753649,médiane,44,1.4656639215953176,344
+delai_reponse_j,Délai médian de réponse (jours),Propriétaire,2.0,médiane,33,1.0,300
+au_moins_un_pic,Au moins un jour de pic dans la semaine,Sollicitation,0.5454545454545454,part des fiches,44,0.33230893019253377,344
+jours_pic,Jours de pic dans la semaine,Sollicitation,0.8636363636363636,nombre moyen,44,0.48506093779079806,344
+part_jour_max,Part du jour le plus chargé,Sollicitation,0.4072013627996007,moyenne des fiches,44,0.37599641131623235,344
+part_comptes_neufs,Comptes neufs (2 avis ou moins),Auteurs,0.4336782754908821,moyenne des fiches,44,0.4332299518847716,344
+part_sans_niveau,Auteurs sans niveau Local Guide,Auteurs,0.1183056798738463,moyenne des fiches,44,0.08321557474554452,344
+auteur_ailleurs,Au moins un auteur actif sur une autre fiche le même jour,Auteurs,0.045454545454545456,part des fiches,44,0.051704977438115265,344
+part_5_etoiles,Avis 5 étoiles,Contenu,0.9713224492715947,moyenne des fiches,44,0.9524895738918491,344
+part_sans_texte,Avis sans texte,Contenu,0.27443417475993337,moyenne des fiches,44,0.2369969339442794,344
+part_texte_court,Texte court (1 à 40 caractères),Contenu,0.08294072034043866,moyenne des fiches,44,0.13058605048739505,344
+part_prenom,Prénom cité,Contenu,0.35897256116147547,moyenne des fiches,44,0.3322274016340293,344
+part_photo,Photo jointe,Contenu,0.06477495998217207,moyenne des fiches,44,0.08825268799752861,344
+texte_double,Au moins deux avis au même texte,Contenu,0.045454545454545456,part des fiches,44,0.0,344
+taux_reponse,Taux de réponse du propriétaire (année précédente),Propriétaire,0.5881394028822388,moyenne des fiches,44,0.7431611036949822,344
+part_reponses_standard,Réponses standardisées (année précédente),Propriétaire,0.25028435353639905,moyenne des fiches,33,0.23770224495193895,300

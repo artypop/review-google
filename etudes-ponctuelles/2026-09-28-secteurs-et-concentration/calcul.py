@@ -59,6 +59,20 @@ Mesuré le 2026-09-28 : 4 003 suppressions retenues. La colonne brute
 `deleted_detected_at` de la table en compte 4 035 ; les 32 d'écart sont des
 absences d'un jour ou des bugs de réécriture, que la définition du rapport
 écarte. Sorties dans `sorties/doublons-cleaned/`.
+
+------------------------------------------------------------------------------
+L'OPTION --corpus (2026-09-30)
+------------------------------------------------------------------------------
+Même mécanique pour n'importe quelle table de `data/bigquery/` : la suppression
+garde la définition du rapport, le corpus est restreint aux avis de la table.
+Demande de Matthieu du 2026-09-30, pour les tableaux 12 et 13 de
+`livrables/analyses-complémentaires.docx` :
+
+    python etudes-ponctuelles/2026-09-28-secteurs-et-concentration/calcul.py --corpus reviews_doublons_cleaned_all
+
+`reviews_doublons_cleaned_all` (tirée de BigQuery le 2026-09-30) compte
+4 876 933 avis : tous ceux de `reviews_doublons_cleaned`, plus 125 253.
+Sorties dans `sorties/doublons-cleaned-all/`.
 """
 from __future__ import annotations
 
@@ -103,17 +117,22 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--doublons-cleaned", action="store_true",
                     help="restreint le corpus aux avis de reviews_doublons_cleaned")
+    ap.add_argument("--corpus",
+                    help="restreint le corpus aux avis d'une table de data/bigquery/, "
+                         "par exemple reviews_doublons_cleaned_all")
     args = ap.parse_args()
+    corpus = "reviews_doublons_cleaned" if args.doublons_cleaned else args.corpus
 
     con = connexion("1500MB")
     con.execute("SET threads=2")
     con.execute("SET enable_progress_bar=false")
     creer_vue_avis(con, source="reviews")
     perimetre = "TRUE"
-    if args.doublons_cleaned:
-        SORTIES = SORTIES / "doublons-cleaned"
-        perimetre = "a.review_id IN (SELECT review_id FROM reviews_doublons_cleaned)"
-        print("Corpus : avis de reviews_doublons_cleaned")
+    if corpus:
+        # reviews_doublons_cleaned → sorties/doublons-cleaned/, comme avant.
+        SORTIES = SORTIES / corpus.removeprefix("reviews_").replace("_", "-")
+        perimetre = f'a.review_id IN (SELECT review_id FROM "{corpus}")'
+        print(f"Corpus : avis de {corpus}")
 
     chaines = " OR ".join(f"lower(b.name) LIKE '{r}%'" for r in RACINES_CHAINES_US)
     con.execute(f"""

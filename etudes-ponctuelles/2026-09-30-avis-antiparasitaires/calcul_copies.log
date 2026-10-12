@@ -1,0 +1,34 @@
+[15:06:04] lecture
+[15:06:19] 231913 avis d'au moins 30 caractères, 230843 textes différents
+[15:06:21]   512/230843 textes, 2 s
+[15:07:22]   26112/230843 textes, 63 s
+[15:08:17]   51712/230843 textes, 118 s
+[15:09:12]   77312/230843 textes, 174 s
+[15:10:05]   102912/230843 textes, 226 s
+[15:11:01]   128512/230843 textes, 282 s
+[15:11:56]   154112/230843 textes, 338 s
+[15:12:54]   179712/230843 textes, 395 s
+[15:13:50]   205312/230843 textes, 451 s
+[15:14:50]   230843/230843 textes, 511 s
+[15:14:51] 54589 paires de textes différents, 116521 paires d'avis
+[15:14:52] 80 caractères et plus : 158387 avis, 645 supprimés ; tirages
+[15:16:32]   tous les avis : {'avis': 158387, 'supprimes': 645, 'part_supprimee_pct': np.float64(0.41), 'attendus_periode_note': 645.0, 'rapport_observe_attendu': 1.0, 'hasard_fiche_moyenne': 645.0, 'rang_periode_pct': 0.0, 'seuil_periode': 645, 'rang_fiche_pct': 0.0, 'seuil_fiche': 645, 'fiches': 174, 'fiches_avec_suppression': 79}
+[15:16:32]   toutes copies : {'avis': 1840, 'supprimes': 32, 'part_supprimee_pct': np.float64(1.74), 'attendus_periode_note': 9.3, 'rapport_observe_attendu': 3.4, 'hasard_fiche_moyenne': 13.0, 'rang_periode_pct': 100.0, 'seuil_periode': 15, 'rang_fiche_pct': 100.0, 'seuil_fiche': 19, 'fiches': 138, 'fiches_avec_suppression': 13}
+[15:16:32]   doublon : {'avis': 0, 'supprimes': 0, 'part_supprimee_pct': '', 'attendus_periode_note': 0.0, 'rapport_observe_attendu': '', 'hasard_fiche_moyenne': 0.0, 'rang_periode_pct': 0.0, 'seuil_periode': 0, 'rang_fiche_pct': 0.0, 'seuil_fiche': 0, 'fiches': 0, 'fiches_avec_suppression': 0}
+[15:16:32]   un auteur, plusieurs fiches : {'avis': 189, 'supprimes': 9, 'part_supprimee_pct': np.float64(4.76), 'attendus_periode_note': 1.3, 'rapport_observe_attendu': 6.7, 'hasard_fiche_moyenne': 3.1, 'rang_periode_pct': 100.0, 'seuil_periode': 4, 'rang_fiche_pct': 100.0, 'seuil_fiche': 6, 'fiches': 58, 'fiches_avec_suppression': 7}
+[15:16:32]   gabarit sur une fiche : {'avis': 678, 'supprimes': 16, 'part_supprimee_pct': np.float64(2.36), 'attendus_periode_note': 4.0, 'rapport_observe_attendu': 4.0, 'hasard_fiche_moyenne': 6.3, 'rang_periode_pct': 100.0, 'seuil_periode': 8, 'rang_fiche_pct': 100.0, 'seuil_fiche': 11, 'fiches': 86, 'fiches_avec_suppression': 3}
+[15:16:32]   gabarit sur une enseigne : {'avis': 532, 'supprimes': 2, 'part_supprimee_pct': np.float64(0.38), 'attendus_periode_note': 2.2, 'rapport_observe_attendu': 0.9, 'hasard_fiche_moyenne': 1.7, 'rang_periode_pct': 34.8, 'seuil_periode': 5, 'rang_fiche_pct': 49.2, 'seuil_fiche': 5, 'fiches': 95, 'fiches_avec_suppression': 2}
+[15:16:32]   rencontre : {'avis': 441, 'supprimes': 5, 'part_supprimee_pct': np.float64(1.13), 'attendus_periode_note': 1.8, 'rapport_observe_attendu': 2.8, 'hasard_fiche_moyenne': 1.9, 'rang_periode_pct': 96.2, 'seuil_periode': 5, 'rang_fiche_pct': 97.0, 'seuil_fiche': 5, 'fiches': 119, 'fiches_avec_suppression': 5}
+[15:16:32]   sans jumeau : {'avis': 156547, 'supprimes': 613, 'part_supprimee_pct': np.float64(0.39), 'attendus_periode_note': 635.7, 'rapport_observe_attendu': 1.0, 'hasard_fiche_moyenne': 632.0, 'rang_periode_pct': 0.0, 'seuil_periode': 641, 'rang_fiche_pct': 0.0, 'seuil_fiche': 638, 'fiches': 174, 'fiches_avec_suppression': 78}
+[15:16:32]   sorties 80 faites
+[15:16:33] 30 caractères et plus : 231913 avis, 971 supprimés ; tirages
+[15:19:43]   tous les avis : {'avis': 231913, 'supprimes': 971, 'part_supprimee_pct': np.float64(0.42), 'attendus_periode_note': 971.0, 'rapport_observe_attendu': 1.0, 'hasard_fiche_moyenne': 971.0, 'rang_periode_pct': 0.0, 'seuil_periode': 971, 'rang_fiche_pct': 0.0, 'seuil_fiche': 971, 'fiches': 174, 'fiches_avec_suppression': 83}
+[15:19:43]   toutes copies : {'avis': 19821, 'supprimes': 119, 'part_supprimee_pct': np.float64(0.6), 'attendus_periode_note': 85.9, 'rapport_observe_attendu': 1.4, 'hasard_fiche_moyenne': 92.1, 'rang_periode_pct': 100.0, 'seuil_periode': 102, 'rang_fiche_pct': 99.9, 'seuil_fiche': 108, 'fiches': 168, 'fiches_avec_suppression': 40}
+[15:19:43]   doublon : {'avis': 0, 'supprimes': 0, 'part_supprimee_pct': '', 'attendus_periode_note': 0.0, 'rapport_observe_attendu': '', 'hasard_fiche_moyenne': 0.0, 'rang_periode_pct': 0.0, 'seuil_periode': 0, 'rang_fiche_pct': 0.0, 'seuil_fiche': 0, 'fiches': 0, 'fiches_avec_suppression': 0}
+[15:19:43]   un auteur, plusieurs fiches : {'avis': 341, 'supprimes': 15, 'part_supprimee_pct': np.float64(4.4), 'attendus_periode_note': 2.1, 'rapport_observe_attendu': 7.0, 'hasard_fiche_moyenne': 6.3, 'rang_periode_pct': 100.0, 'seuil_periode': 5, 'rang_fiche_pct': 100.0, 'seuil_fiche': 10, 'fiches': 72, 'fiches_avec_suppression': 11}
+[15:19:43]   gabarit sur une fiche : {'avis': 7004, 'supprimes': 31, 'part_supprimee_pct': np.float64(0.44), 'attendus_periode_note': 24.4, 'rapport_observe_attendu': 1.3, 'hasard_fiche_moyenne': 27.4, 'rang_periode_pct': 91.1, 'seuil_periode': 34, 'rang_fiche_pct': 74.2, 'seuil_fiche': 37, 'fiches': 123, 'fiches_avec_suppression': 10}
+[15:19:43]   gabarit sur une enseigne : {'avis': 7500, 'supprimes': 35, 'part_supprimee_pct': np.float64(0.47), 'attendus_periode_note': 36.3, 'rapport_observe_attendu': 1.0, 'hasard_fiche_moyenne': 29.1, 'rang_periode_pct': 37.5, 'seuil_periode': 48, 'rang_fiche_pct': 86.7, 'seuil_fiche': 39, 'fiches': 133, 'fiches_avec_suppression': 22}
+[15:19:43]   rencontre : {'avis': 4976, 'supprimes': 38, 'part_supprimee_pct': np.float64(0.76), 'attendus_periode_note': 23.0, 'rapport_observe_attendu': 1.6, 'hasard_fiche_moyenne': 29.2, 'rang_periode_pct': 99.8, 'seuil_periode': 32, 'rang_fiche_pct': 95.9, 'seuil_fiche': 39, 'fiches': 165, 'fiches_avec_suppression': 22}
+[15:19:43]   sans jumeau : {'avis': 212092, 'supprimes': 852, 'part_supprimee_pct': np.float64(0.4), 'attendus_periode_note': 885.1, 'rapport_observe_attendu': 1.0, 'hasard_fiche_moyenne': 878.9, 'rang_periode_pct': 0.0, 'seuil_periode': 902, 'rang_fiche_pct': 0.1, 'seuil_fiche': 895, 'fiches': 174, 'fiches_avec_suppression': 82}
+[15:19:43]   sorties 30 faites
+[15:19:43] terminé

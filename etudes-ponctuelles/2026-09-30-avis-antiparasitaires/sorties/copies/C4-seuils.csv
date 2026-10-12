@@ -1,0 +1,7 @@
+longueur_min,similarite_min,avis,supprimes,part_supprimee_pct,attendus_periode_note,rapport_observe_attendu,hasard_fiche_moyenne,rang_periode_pct,seuil_periode,rang_fiche_pct,seuil_fiche
+80,0.95,25891,116,0.45,99.5,1.2,102.0,95.8,118,94.4,119
+80,0.97,1840,32,1.74,9.3,3.4,13.0,100.0,15,100.0,19
+80,0.99,179,22,12.29,3.1,7.0,7.3,100.0,7,100.0,12
+30,0.95,68114,305,0.45,278.0,1.1,282.1,97.8,304,95.8,307
+30,0.97,19821,119,0.6,85.9,1.4,92.1,100.0,102,99.9,108
+30,0.99,3689,37,1.0,18.8,2.0,23.8,100.0,27,99.7,33

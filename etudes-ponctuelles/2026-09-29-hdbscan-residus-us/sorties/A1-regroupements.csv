@@ -1,0 +1,5 @@
+population,vecteurs,n_avis,n_supprimes,n_groupes,n_groupes_stables,part_sans_groupe_pct,taille_mediane,part_secteur_principal_pct,part_secteur_principal_hasard_pct,n_groupes_enseignes_majoritaires,part_avis_enseignes_dans_ces_groupes_pct
+toutes_fiches,bruts,14938,775,96,,52.0,57,80.9,27.2,7,19.9
+toutes_fiches,corriges,14938,775,88,25.0,58.6,54,62.9,32.8,4,14.1
+sans_enseignes,bruts,13086,460,85,,50.8,56,79.6,23.9,0,
+sans_enseignes,corriges,13086,460,80,26.0,59.9,55,62.6,26.7,0,

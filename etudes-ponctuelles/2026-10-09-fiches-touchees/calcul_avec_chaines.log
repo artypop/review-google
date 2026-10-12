@@ -1,0 +1,84 @@
+cohorte : 15502 avis 4-5 étoiles publiés du 2026-08-11 au 2026-08-17, 503 supprimés au plus tard au 7e jour, 3905 fiches
+
+== Sélection ==
+                                                                 etape  fiches  avis_publies  avis_supprimes  supprimes_pour_100
+                                                  fiches de la cohorte    3905         15502             503                 3.2
+                                  dont quatre chaînes antiparasitaires      91          1231             206                16.7
+étudiées (au moins 5 avis publiés, chaînes antiparasitaires comprises)     863         10109             421                 4.2
+                                                               touchée      75          1186             383                32.3
+                                                        entre les deux      36           627              38                 6.1
+                                                                témoin     752          8296               0                 0.0
+
+fiches touchées des chaînes antiparasitaires : 31 sur 75
+
+fiches touchées par région :
+region
+US        68
+Europe     7
+
+fiches touchées par secteur :
+industry
+home_services       45
+healthcare          14
+travel               5
+wellness_fitness     4
+automotive           3
+food_beverage        2
+hospitality          2
+
+appariement : 75 fiches touchées sur 75 ont des témoins dans leur strate (21 strates, 381 témoins)
+
+== Comparaison (témoins pondérés) ==
+                                                  libelle        statistique  touchees  temoins  fiches_touchees  fiches_temoins
+                       Volume habituel (avis par semaine)            médiane     6.847    6.501               75             381
+           Intensité de la semaine (× le rythme habituel)            médiane     1.715    1.461               75             381
+                          Délai médian de réponse (jours)            médiane     1.000    0.500               63             333
+                  Au moins un jour de pic dans la semaine    part des fiches     0.507    0.315               75             381
+                             Jours de pic dans la semaine       nombre moyen     0.800    0.456               75             381
+                              Part du jour le plus chargé moyenne des fiches     0.378    0.365               75             381
+                          Comptes neufs (2 avis ou moins) moyenne des fiches     0.410    0.429               75             381
+                          Auteurs sans niveau Local Guide moyenne des fiches     0.096    0.084               75             381
+Au moins un auteur actif sur une autre fiche le même jour    part des fiches     0.107    0.039               75             381
+                                           Avis 5 étoiles moyenne des fiches     0.966    0.962               75             381
+                                          Avis sans texte moyenne des fiches     0.303    0.240               75             381
+                          Texte court (1 à 40 caractères) moyenne des fiches     0.100    0.122               75             381
+                                              Prénom cité moyenne des fiches     0.401    0.418               75             381
+                                             Photo jointe moyenne des fiches     0.041    0.056               75             381
+                         Au moins deux avis au même texte    part des fiches     0.027    0.000               75             381
+       Taux de réponse du propriétaire (année précédente) moyenne des fiches     0.635    0.690               75             381
+                Réponses standardisées (année précédente) moyenne des fiches     0.218    0.232               63             333
+
+modèle : 737 fiches (au moins 5 avis l'année précédente), 8748 avis, 335 supprimés
+  échelle de Pearson : 2.94 (non utilisée)
+
+== Modèle ==
+                parametre       role    lecture rapport_de_cotes borne_basse borne_haute p_value
+           log2_intensite indicateur doublement             0.84        0.59        1.20   0.338
+                jours_pic indicateur     1 jour             1.24        0.96        1.61   0.104
+            part_jour_max indicateur +10 points             1.15        0.96        1.36   0.122
+       part_comptes_neufs indicateur +10 points             0.84        0.73        0.97   0.015
+         part_sans_niveau indicateur +10 points             1.47        1.16        1.87   0.002
+          auteur_ailleurs indicateur  oui / non             3.25        1.45        7.31   0.004
+           part_5_etoiles indicateur +10 points             1.08        0.74        1.60   0.682
+          part_sans_texte indicateur +10 points             0.99        0.84        1.15   0.865
+         part_texte_court indicateur +10 points             0.80        0.61        1.04   0.090
+              part_prenom indicateur +10 points             0.98        0.86        1.11   0.738
+               part_photo indicateur +10 points             0.87        0.64        1.19   0.386
+             texte_double indicateur  oui / non             5.85        0.76       45.17   0.090
+             taux_reponse indicateur +10 points             0.95        0.87        1.03   0.221
+   part_reponses_standard indicateur +10 points             0.98        0.88        1.10   0.739
+                region_US   contrôle                        1.84        1.03        3.29   0.040
+   industry_food_beverage   contrôle                        1.08        0.19        6.12   0.934
+      industry_healthcare   contrôle                        4.59        0.79       26.66   0.090
+   industry_home_services   contrôle                       13.52        2.91       62.87   0.001
+     industry_hospitality   contrôle                        0.75        0.07        8.18   0.817
+          industry_travel   contrôle                        7.56        0.98       58.41   0.052
+industry_wellness_fitness   contrôle                        1.45        0.21        9.86   0.706
+             bucket_large   contrôle                        2.37        0.86        6.51   0.095
+             bucket_small   contrôle                        4.20        1.52       11.62   0.006
+              log2_volume   contrôle                        0.83        0.65        1.06   0.137
+                    const  constante                        0.00        0.00        0.58   0.030
+
+six enseignes : 0 fiches, 0 avis, 0 supprimés
+
+écrit dans C:\Matt\reviewflowz_shared\review-google\livrables\restitution_finale_v2\analyse_exploratoire\avec_chaines_antiparasitaires

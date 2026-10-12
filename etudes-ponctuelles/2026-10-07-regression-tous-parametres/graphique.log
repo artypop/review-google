@@ -1,0 +1,100 @@
+[07F] 24248 avis 4-5 étoiles dans 03C
+  écartés, prénom inconnu          : 55
+  écartés, fiche plus relevée      : 2 (1 fiches)
+  gardés : 24191 avis, 4705 fiches, 631 suppressions au plus tard au 7e jour
+  réponse au plus tard au 7e jour : 50.1% des avis -> référence : réponse
+six enseignes comprises  4 étoiles :   2407 avis,   32 supprimés (13.3 pour 1 000)
+six enseignes comprises  5 étoiles :  21784 avis,  599 supprimés (27.5 pour 1 000)
+sans les six enseignes   4 étoiles :   2352 avis,   23 supprimés (9.8 pour 1 000)
+sans les six enseignes   5 étoiles :  20026 avis,  356 supprimés (17.8 pour 1 000)
+                    jeu passage                 parametre rapport_de_cotes borne_basse borne_haute p_value
+six enseignes comprises      US                     const             0.00        0.00        0.01   0.000
+six enseignes comprises      US                    prenom             0.98        0.73        1.31   0.885
+six enseignes comprises      US                     photo             0.51        0.26        1.01   0.055
+six enseignes comprises      US           sans_reponse_j7             1.47        0.95        2.30   0.086
+six enseignes comprises      US                       pic             1.87        1.17        2.98   0.008
+six enseignes comprises      US              cinq_etoiles             0.86        0.57        1.31   0.483
+six enseignes comprises      US    industry_food_beverage             0.95        0.20        4.40   0.946
+six enseignes comprises      US       industry_healthcare             3.82        1.28       11.36   0.016
+six enseignes comprises      US    industry_home_services             9.78        3.40       28.12   0.000
+six enseignes comprises      US      industry_hospitality             0.48        0.12        1.89   0.292
+six enseignes comprises      US           industry_travel             5.50        1.29       23.49   0.021
+six enseignes comprises      US industry_wellness_fitness             3.12        0.88       11.09   0.078
+six enseignes comprises      US              bucket_large             2.43        1.38        4.29   0.002
+six enseignes comprises      US              bucket_small             2.87        1.50        5.53   0.002
+six enseignes comprises  Europe                     const             0.01        0.00        0.04   0.000
+six enseignes comprises  Europe                    prenom             1.73        0.95        3.16   0.075
+six enseignes comprises  Europe                     photo             1.05        0.55        2.00   0.880
+six enseignes comprises  Europe           sans_reponse_j7             2.79        1.17        6.64   0.021
+six enseignes comprises  Europe                       pic             2.72        1.32        5.61   0.007
+six enseignes comprises  Europe              cinq_etoiles             1.37        0.68        2.73   0.378
+six enseignes comprises  Europe    industry_food_beverage             0.32        0.05        2.12   0.240
+six enseignes comprises  Europe       industry_healthcare             0.32        0.06        1.77   0.193
+six enseignes comprises  Europe    industry_home_services             2.19        0.36       13.14   0.393
+six enseignes comprises  Europe      industry_hospitality             0.55        0.13        2.32   0.414
+six enseignes comprises  Europe           industry_travel             0.28        0.04        1.87   0.191
+six enseignes comprises  Europe industry_wellness_fitness             0.91        0.18        4.55   0.904
+six enseignes comprises  Europe              bucket_large             0.56        0.18        1.68   0.298
+six enseignes comprises  Europe              bucket_small             1.05        0.32        3.47   0.939
+six enseignes comprises    tous                     const             0.00        0.00        0.01   0.000
+six enseignes comprises    tous                    prenom             1.05        0.80        1.38   0.718
+six enseignes comprises    tous                     photo             0.65        0.40        1.08   0.095
+six enseignes comprises    tous           sans_reponse_j7             1.66        1.14        2.41   0.008
+six enseignes comprises    tous                       pic             1.99        1.35        2.94   0.001
+six enseignes comprises    tous              cinq_etoiles             1.07        0.72        1.57   0.745
+six enseignes comprises    tous    industry_food_beverage             0.76        0.23        2.50   0.646
+six enseignes comprises    tous       industry_healthcare             2.46        1.00        6.04   0.049
+six enseignes comprises    tous    industry_home_services             6.98        3.02       16.14   0.000
+six enseignes comprises    tous      industry_hospitality             0.89        0.30        2.62   0.832
+six enseignes comprises    tous           industry_travel             2.26        0.66        7.79   0.195
+six enseignes comprises    tous industry_wellness_fitness             2.13        0.76        5.97   0.152
+six enseignes comprises    tous              bucket_large             1.54        0.88        2.68   0.131
+six enseignes comprises    tous              bucket_small             1.91        1.00        3.63   0.049
+six enseignes comprises    tous                 region_US             1.94        1.18        3.20   0.009
+ sans les six enseignes      US                     const             0.00        0.00        0.01   0.000
+ sans les six enseignes      US                    prenom             1.08        0.75        1.55   0.683
+ sans les six enseignes      US                     photo             0.58        0.28        1.19   0.137
+ sans les six enseignes      US           sans_reponse_j7             2.71        1.61        4.56   0.000
+ sans les six enseignes      US                       pic             1.33        0.78        2.28   0.296
+ sans les six enseignes      US              cinq_etoiles             0.94        0.52        1.67   0.823
+ sans les six enseignes      US    industry_food_beverage             0.86        0.20        3.70   0.834
+ sans les six enseignes      US       industry_healthcare             3.50        1.24        9.87   0.018
+ sans les six enseignes      US    industry_home_services             3.90        1.33       11.46   0.013
+ sans les six enseignes      US      industry_hospitality             0.31        0.08        1.19   0.089
+ sans les six enseignes      US           industry_travel             3.42        0.87       13.44   0.078
+ sans les six enseignes      US industry_wellness_fitness             1.98        0.58        6.73   0.272
+ sans les six enseignes      US              bucket_large             1.12        0.56        2.23   0.744
+ sans les six enseignes      US              bucket_small             3.14        1.67        5.90   0.000
+ sans les six enseignes  Europe                     const             0.01        0.00        0.04   0.000
+ sans les six enseignes  Europe                    prenom             1.73        0.95        3.16   0.075
+ sans les six enseignes  Europe                     photo             1.05        0.55        2.00   0.880
+ sans les six enseignes  Europe           sans_reponse_j7             2.79        1.17        6.64   0.021
+ sans les six enseignes  Europe                       pic             2.72        1.32        5.61   0.007
+ sans les six enseignes  Europe              cinq_etoiles             1.37        0.68        2.73   0.378
+ sans les six enseignes  Europe    industry_food_beverage             0.32        0.05        2.12   0.240
+ sans les six enseignes  Europe       industry_healthcare             0.32        0.06        1.77   0.193
+ sans les six enseignes  Europe    industry_home_services             2.19        0.36       13.14   0.393
+ sans les six enseignes  Europe      industry_hospitality             0.55        0.13        2.32   0.414
+ sans les six enseignes  Europe           industry_travel             0.28        0.04        1.87   0.191
+ sans les six enseignes  Europe industry_wellness_fitness             0.91        0.18        4.55   0.904
+ sans les six enseignes  Europe              bucket_large             0.56        0.18        1.68   0.298
+ sans les six enseignes  Europe              bucket_small             1.05        0.32        3.47   0.939
+ sans les six enseignes    tous                     const             0.00        0.00        0.01   0.000
+ sans les six enseignes    tous                    prenom             1.17        0.83        1.63   0.372
+ sans les six enseignes    tous                     photo             0.73        0.44        1.21   0.220
+ sans les six enseignes    tous           sans_reponse_j7             2.75        1.76        4.28   0.000
+ sans les six enseignes    tous                       pic             1.77        1.13        2.79   0.013
+ sans les six enseignes    tous              cinq_etoiles             1.16        0.73        1.86   0.534
+ sans les six enseignes    tous    industry_food_beverage             0.64        0.19        2.09   0.459
+ sans les six enseignes    tous       industry_healthcare             2.38        1.00        5.65   0.050
+ sans les six enseignes    tous    industry_home_services             3.44        1.41        8.39   0.007
+ sans les six enseignes    tous      industry_hospitality             0.73        0.25        2.10   0.555
+ sans les six enseignes    tous           industry_travel             1.52        0.46        4.99   0.492
+ sans les six enseignes    tous industry_wellness_fitness             1.67        0.61        4.57   0.318
+ sans les six enseignes    tous              bucket_large             0.85        0.45        1.62   0.625
+ sans les six enseignes    tous              bucket_small             2.04        1.09        3.81   0.026
+ sans les six enseignes    tous                 region_US             1.59        0.93        2.72   0.090
+
+écrit : C:\Matt\reviewflowz_shared\review-google\livrables\restitution_finale\graphiques\regression_03C_prenom_tous_parametres.png
+écrit : C:\Matt\reviewflowz_shared\review-google\livrables\restitution_finale\graphiques\regression_03C_prenom_tous_parametres_sans_enseignes.png
+écrit : C:\Matt\reviewflowz_shared\review-google\livrables\restitution_finale\donnees\regression_03C_prenom_tous_parametres.csv

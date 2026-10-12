@@ -1,0 +1,49 @@
+[07F] 24248 avis 4-5 étoiles dans 03C
+  écartés, prénom inconnu          : 55
+  écartés, fiche plus relevée      : 2 (1 fiches)
+  gardés : 24191 avis, 4705 fiches, 631 suppressions au plus tard au 7e jour
+  réponse au plus tard au 7e jour : 50.1% des avis -> référence : réponse
+  contrôle : les 12 rapports de cotes du graphique 3.1 sont retrouvés
+passage                 parametre      role rapport_de_cotes borne_basse borne_haute p_value
+     US                     const constante             0.00        0.00        0.01   0.000
+     US                    prenom   affiché             0.97        0.73        1.30   0.856
+     US                     photo   affiché             0.51        0.26        1.01   0.055
+     US           sans_reponse_j7   affiché             1.48        0.95        2.30   0.084
+     US                       pic   affiché             1.86        1.17        2.97   0.009
+     US    industry_food_beverage  contrôle             0.96        0.21        4.43   0.956
+     US       industry_healthcare  contrôle             3.81        1.28       11.32   0.016
+     US    industry_home_services  contrôle             9.76        3.40       28.04   0.000
+     US      industry_hospitality  contrôle             0.49        0.12        1.93   0.305
+     US           industry_travel  contrôle             5.51        1.29       23.53   0.021
+     US industry_wellness_fitness  contrôle             3.11        0.88       11.04   0.079
+     US              bucket_large  contrôle             2.44        1.39        4.30   0.002
+     US              bucket_small  contrôle             2.88        1.50        5.53   0.001
+ Europe                     const constante             0.01        0.00        0.04   0.000
+ Europe                    prenom   affiché             1.78        0.98        3.24   0.060
+ Europe                     photo   affiché             1.06        0.56        2.00   0.868
+ Europe           sans_reponse_j7   affiché             2.77        1.17        6.58   0.021
+ Europe                       pic   affiché             2.75        1.32        5.71   0.007
+ Europe    industry_food_beverage  contrôle             0.32        0.05        2.09   0.236
+ Europe       industry_healthcare  contrôle             0.33        0.06        1.79   0.197
+ Europe    industry_home_services  contrôle             2.20        0.36       13.34   0.392
+ Europe      industry_hospitality  contrôle             0.53        0.13        2.15   0.372
+ Europe           industry_travel  contrôle             0.28        0.04        1.84   0.186
+ Europe industry_wellness_fitness  contrôle             0.91        0.18        4.57   0.910
+ Europe              bucket_large  contrôle             0.55        0.18        1.65   0.284
+ Europe              bucket_small  contrôle             1.04        0.31        3.46   0.950
+   tous                     const constante             0.00        0.00        0.01   0.000
+   tous                    prenom   affiché             1.05        0.80        1.38   0.705
+   tous                     photo   affiché             0.66        0.40        1.08   0.096
+   tous           sans_reponse_j7   affiché             1.65        1.14        2.41   0.008
+   tous                       pic   affiché             2.00        1.35        2.95   0.001
+   tous    industry_food_beverage  contrôle             0.75        0.23        2.48   0.641
+   tous       industry_healthcare  contrôle             2.47        1.00        6.06   0.049
+   tous    industry_home_services  contrôle             6.98        3.02       16.17   0.000
+   tous      industry_hospitality  contrôle             0.88        0.30        2.57   0.819
+   tous           industry_travel  contrôle             2.26        0.66        7.79   0.195
+   tous industry_wellness_fitness  contrôle             2.13        0.76        5.98   0.152
+   tous              bucket_large  contrôle             1.53        0.88        2.68   0.133
+   tous              bucket_small  contrôle             1.91        1.00        3.63   0.050
+   tous                 region_US  contrôle             1.95        1.18        3.21   0.009
+
+écrit dans C:\Matt\reviewflowz_shared\review-google\livrables\restitution_finale_v2\regression_logistique_2

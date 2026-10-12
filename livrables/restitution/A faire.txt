@@ -1,0 +1,9 @@
+A faire :
+- regénérer graphiques + creuser là ou besoin
+- refaire les insights propres et envoyer à romain
+- regarder le mail d'axel et regarder de quoi il parle sur les prénoms
+
+
+Les services à domicile aux États-Unis sont le secteur le plus touché du corpus.
+
+Ça je veux bien qu'on s'assure que c'est toujours vrai en retirant les 3 grosses chaînes de pest control qui concentrent un tiers des suppressions du corpus. 

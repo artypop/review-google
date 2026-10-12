@@ -1,0 +1,57 @@
+24191 avis, 631 supprimés au plus tard au 7e jour
+
+== tous
+            avis  supprimes  pour_1000
+g                                     
+sans texte  6915        163       23.6
+1-40        2889         78       27.0
+41-80       3449         80       23.2
+81-130      3056         93       30.4
+131-240     3633        106       29.2
+241+        4249        111       26.1
+
+== sans enseignes
+            avis  supprimes  pour_1000
+g                                     
+sans texte  6335         87       13.7
+1-40        2680         45       16.8
+41-80       3171         46       14.5
+81-130      2810         56       19.9
+131-240     3351         71       21.2
+241+        4031         74       18.4
+
+== sans enseignes, US
+            avis  supprimes  pour_1000
+g                                     
+sans texte  2883         71       24.6
+1-40        1618         30       18.5
+41-80       1973         35       17.7
+81-130      1728         34       19.7
+131-240     1976         43       21.8
+241+        2023         47       23.2
+
+== sans enseignes, Europe
+            avis  supprimes  pour_1000
+g                                     
+sans texte  3452         16        4.6
+1-40        1062         15       14.1
+41-80       1198         11        9.2
+81-130      1082         22       20.3
+131-240     1375         28       20.4
+241+        2008         27       13.4
+
+## à secteur, taille et région égaux, tous (comparé à sans texte)
+                                          risque   bas  haut
+C(g, Treatment('sans texte'))[T.1-40]       1.07  0.81  1.41
+C(g, Treatment('sans texte'))[T.41-80]      0.81  0.60  1.11
+C(g, Treatment('sans texte'))[T.81-130]     1.04  0.71  1.52
+C(g, Treatment('sans texte'))[T.131-240]    1.02  0.74  1.41
+C(g, Treatment('sans texte'))[T.241+]       1.11  0.77  1.62
+
+## à secteur, taille et région égaux, sans enseignes (comparé à sans texte)
+                                          risque   bas  haut
+C(g, Treatment('sans texte'))[T.1-40]       1.18  0.77  1.79
+C(g, Treatment('sans texte'))[T.41-80]      0.93  0.60  1.45
+C(g, Treatment('sans texte'))[T.81-130]     1.24  0.71  2.17
+C(g, Treatment('sans texte'))[T.131-240]    1.34  0.87  2.08
+C(g, Treatment('sans texte'))[T.241+]       1.24  0.84  1.84

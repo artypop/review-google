@@ -1,0 +1,7 @@
+Corpus : C:\Matt\reviewflowz_shared\review-google\data\local\reviews_doublons_cleaned_180.parquet
+Caractéristiques : C:\Matt\reviewflowz_shared\review-google\data\local\features_reviews_doublons_cleaned_180.parquet
+Lancé le : 2026-09-30 18:01
+Moteur : statsmodels
+Avis du corpus : 418982
+Avis écartés, fenêtre d'observation nulle : 4443
+Suppression : absent deux jours de suite ou plus (03C_features_corpus.py)

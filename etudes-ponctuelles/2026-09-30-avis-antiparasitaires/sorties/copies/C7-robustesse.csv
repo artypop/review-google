@@ -1,0 +1,5 @@
+population,avis_population,supprimes_population,copies,supprimes,part_supprimee_pct,attendus_periode_note,rapport_observe_attendu,hasard_fiche_moyenne,rang_periode_pct,seuil_periode,rang_fiche_pct,seuil_fiche,fiches_avec_copie_supprimee
+toutes les fiches,158387,645,1840,32,1.74,9.3,3.4,13.0,100.0,15,100.0,19,13
+sans la fiche la plus touchée,154399,601,1802,19,1.05,7.4,2.6,9.0,100.0,13,99.9,14,12
+avis publiés avant août 2026,156313,407,1799,8,0.44,4.8,1.7,4.4,89.5,9,92.5,9,7
+avis publiés en août 2026,2074,238,41,24,58.54,4.5,5.3,8.6,100.0,9,100.0,13,8

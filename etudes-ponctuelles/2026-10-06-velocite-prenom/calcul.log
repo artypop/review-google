@@ -1,0 +1,76 @@
+avis de tous âges : 2444287 avis, 8324 fiches, 1676 suppressions
+
+== Étape 1 ==
+               fiches     avis  supprimes  pour_100000  vitesse_mediane  part_avis_moins_90j
+classe_prenom                                                                               
+moins de 10 %    3812  1037605        267       25.732            2.167                0.038
+10-25 %          1999   532340        253       47.526            2.833                0.061
+25-50 %          1404   420876        486      115.473            3.167                0.070
+50 % et plus     1109   453466        670      147.751            3.583                0.080
+
+== Étape 2 ==
+                  quart_vitesse classe_prenom  fiches   avis  supprimes  pour_1000
+ 1er quart\n0,0 à 1,1 avis/mois       10-25 %     543  38076          7       0.18
+ 1er quart\n0,0 à 1,1 avis/mois       25-50 %     314  23725          7       0.30
+ 1er quart\n0,0 à 1,1 avis/mois  50 % et plus     234  21321         13       0.61
+ 1er quart\n0,0 à 1,1 avis/mois moins de 10 %    1126  76331         17       0.22
+  2e quart\n1,1 à 2,7 avis/mois       10-25 %     443  52091         16       0.31
+  2e quart\n1,1 à 2,7 avis/mois       25-50 %     314  41575         17       0.41
+  2e quart\n1,1 à 2,7 avis/mois  50 % et plus     220  30694         21       0.68
+  2e quart\n1,1 à 2,7 avis/mois moins de 10 %    1037 136006         37       0.27
+  3e quart\n2,7 à 6,9 avis/mois       10-25 %     459 101483         47       0.46
+  3e quart\n2,7 à 6,9 avis/mois       25-50 %     365  77530         28       0.36
+  3e quart\n2,7 à 6,9 avis/mois  50 % et plus     294  71422         62       0.87
+  3e quart\n2,7 à 6,9 avis/mois moins de 10 %     908 252961         59       0.23
+4e quart\n6,9 à 568,5 avis/mois       10-25 %     554 340690        183       0.54
+4e quart\n6,9 à 568,5 avis/mois       25-50 %     411 278046        434       1.56
+4e quart\n6,9 à 568,5 avis/mois  50 % et plus     361 330029        574       1.74
+4e quart\n6,9 à 568,5 avis/mois moins de 10 %     741 572307        154       0.27
+[07F] 24248 avis 4-5 étoiles dans 03C
+  écartés, prénom inconnu          : 55
+  écartés, fiche plus relevée      : 2 (1 fiches)
+  gardés : 24191 avis, 4705 fiches, 631 suppressions au plus tard au 7e jour
+  232 905 avis-jours  560 suppressions
+
+robustesse : 84 fiches retirées, 1043 des 1676 suppressions ; classes de prénoms de ces fiches :
+classe_prenom
+50 % et plus     43
+25-50 %          24
+10-25 %          10
+moins de 10 %     7
+[07F] 24248 avis 4-5 étoiles dans 03C
+  écartés, prénom inconnu          : 55
+  écartés, fiche plus relevée      : 2 (1 fiches)
+  gardés : 24191 avis, 4705 fiches, 631 suppressions au plus tard au 7e jour
+  219 206 avis-jours  137 suppressions
+robustesse 03C : {'avis': 20879, 'suppressions': 137, 'fiches': 4530}
+
+== Modèles == (03C : {'avis': 22378, 'suppressions': 560, 'fiches': 4614})
+                                                modele     variable  rapport_de_cotes  borne_basse  borne_haute  p_value  ecart_pct
+                      M1 secteur, taille, région égaux      p_10_25             1.398        0.834        2.345    0.204     39.821
+                      M1 secteur, taille, région égaux      p_25_50             2.883        1.766        4.708    0.000    188.341
+                      M1 secteur, taille, région égaux     p_50_100             3.343        1.925        5.803    0.000    234.260
+                                    M2 + vitesse égale      p_10_25             1.174        0.697        1.977    0.547     17.358
+                                    M2 + vitesse égale      p_25_50             2.500        1.545        4.044    0.000    149.970
+                                    M2 + vitesse égale     p_50_100             2.484        1.440        4.282    0.001    148.358
+                                    M2 + vitesse égale log2_vitesse             1.281        1.183        1.386    0.000     28.079
+                                M3 + âge des avis égal      p_10_25             0.928        0.561        1.535    0.772     -7.172
+                                M3 + âge des avis égal      p_25_50             1.743        1.090        2.788    0.020     74.311
+                                M3 + âge des avis égal     p_50_100             1.690        0.980        2.916    0.059     69.028
+                                M3 + âge des avis égal log2_vitesse             1.117        1.033        1.208    0.006     11.704
+                                   M4 avis neufs (03C)       prenom             0.793        0.633        0.994    0.045    -20.661
+                                   M4 avis neufs (03C)      p_10_25             0.821        0.273        2.470    0.726    -17.892
+                                   M4 avis neufs (03C)      p_25_50             2.271        0.933        5.527    0.071    127.133
+                                   M4 avis neufs (03C)     p_50_100             3.328        1.283        8.635    0.013    232.845
+                                   M4 avis neufs (03C) log2_vitesse             1.084        0.972        1.210    0.147      8.440
+ R3 tous âges, sans le 1 % de fiches les plus touchées      p_10_25             1.251        0.962        1.628    0.095     25.123
+ R3 tous âges, sans le 1 % de fiches les plus touchées      p_25_50             1.357        1.021        1.802    0.035     35.653
+ R3 tous âges, sans le 1 % de fiches les plus touchées     p_50_100             1.544        1.135        2.102    0.006     54.427
+ R3 tous âges, sans le 1 % de fiches les plus touchées log2_vitesse             0.925        0.884        0.967    0.001     -7.519
+R4 avis neufs, sans le 1 % de fiches les plus touchées       prenom             0.743        0.445        1.240    0.255    -25.748
+R4 avis neufs, sans le 1 % de fiches les plus touchées      p_10_25             0.619        0.292        1.312    0.211    -38.070
+R4 avis neufs, sans le 1 % de fiches les plus touchées      p_25_50             1.779        0.899        3.520    0.098     77.912
+R4 avis neufs, sans le 1 % de fiches les plus touchées     p_50_100             2.012        0.870        4.655    0.102    101.205
+R4 avis neufs, sans le 1 % de fiches les plus touchées log2_vitesse             0.860        0.774        0.954    0.005    -14.049
+écrit : C:\Matt\reviewflowz_shared\review-google\livrables\restitution_finale\graphiques\faits-saignants\graphiques\velocite_prenom_taux.png
+écrit : C:\Matt\reviewflowz_shared\review-google\livrables\restitution_finale\graphiques\faits-saignants\graphiques\velocite_prenom_modeles.png

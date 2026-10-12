@@ -1,0 +1,37 @@
+modele,test,contrainte,statistique,p_value
+sans enseignes,les quatre délais ont le même effet,"rep_j0 = rep_j1, rep_j1 = rep_j2, rep_j2 = rep_j3plus",5.064111824636946,0.16716230859079773
+sans enseignes,2e jour = 3e jour ou après,rep_j2 = rep_j3plus,3.416681310574346,0.06454063738356891
+"sans enseignes, sans jour d'âge",les quatre délais ont le même effet,"rep_j0 = rep_j1, rep_j1 = rep_j2, rep_j2 = rep_j3plus",4.722704670913742,0.19326515923017162
+"sans enseignes, sans jour d'âge",2e jour = 3e jour ou après,rep_j2 = rep_j3plus,3.1648885034401113,0.07523757311211023
+avec enseignes,les quatre délais ont le même effet,"rep_j0 = rep_j1, rep_j1 = rep_j2, rep_j2 = rep_j3plus",19.056120825435624,0.0002661902486316795
+avec enseignes,2e jour = 3e jour ou après,rep_j2 = rep_j3plus,2.2752540992569616,0.13145357867820917
+"sans enseignes, US",les quatre délais ont le même effet,"rep_j0 = rep_j1, rep_j1 = rep_j2, rep_j2 = rep_j3plus",4.075450406275792,0.2534312633043843
+"sans enseignes, US",2e jour = 3e jour ou après,rep_j2 = rep_j3plus,2.263332609686424,0.13246871896068366
+"sans enseignes, Europe",les quatre délais ont le même effet,"rep_j0 = rep_j1, rep_j1 = rep_j2, rep_j2 = rep_j3plus",11.870873805381086,0.007838839116927246
+"sans enseignes, Europe",2e jour = 3e jour ou après,rep_j2 = rep_j3plus,0.8172549108093683,0.36598398979543456
+B1 taux seul,le taux n'a aucun effet (hors moins de 10 avis),"t_1_25 = 0, t_25_75 = 0, t_75_100 = 0",4.006383954587718,0.2607756028284365
+B2 taux + réponse à l'avis,le taux n'a aucun effet (hors moins de 10 avis),"t_1_25 = 0, t_25_75 = 0, t_75_100 = 0",0.24979975950771124,0.969175647788405
+"complet, sans enseignes, US",les quatre délais ont le même effet,"rep_j0 = rep_j1, rep_j1 = rep_j2, rep_j2 = rep_j3plus",3.3905466607996875,0.335237751382314
+"complet, sans enseignes, US",le taux n'a aucun effet (hors moins de 10 avis),"t_1_25 = 0, t_25_75 = 0, t_75_100 = 0",1.5019783961641344,0.6818137928599168
+"complet, sans enseignes, US, + jour d'âge",les quatre délais ont le même effet,"rep_j0 = rep_j1, rep_j1 = rep_j2, rep_j2 = rep_j3plus",3.998533885386572,0.2616224873652419
+"complet, sans enseignes, US, + jour d'âge",le taux n'a aucun effet (hors moins de 10 avis),"t_1_25 = 0, t_25_75 = 0, t_75_100 = 0",1.4028502626916595,0.7048667499580679
+"complet, sans enseignes, Europe",les quatre délais ont le même effet,"rep_j0 = rep_j1, rep_j1 = rep_j2, rep_j2 = rep_j3plus",14.73106333294422,0.002061511748365926
+"complet, sans enseignes, Europe",le taux n'a aucun effet (hors moins de 10 avis),"t_1_25 = 0, t_25_75 = 0, t_75_100 = 0",2.722477357716711,0.4364210077359043
+"complet, sans enseignes, Europe, + jour d'âge",les quatre délais ont le même effet,"rep_j0 = rep_j1, rep_j1 = rep_j2, rep_j2 = rep_j3plus",12.747932945382836,0.005214670950435783
+"complet, sans enseignes, Europe, + jour d'âge",le taux n'a aucun effet (hors moins de 10 avis),"t_1_25 = 0, t_25_75 = 0, t_75_100 = 0",2.4917152343309303,0.4767901868305373
+"complet, sans enseignes, tous",les quatre délais ont le même effet,"rep_j0 = rep_j1, rep_j1 = rep_j2, rep_j2 = rep_j3plus",4.792532364570863,0.18763474110348707
+"complet, sans enseignes, tous",le taux n'a aucun effet (hors moins de 10 avis),"t_1_25 = 0, t_25_75 = 0, t_75_100 = 0",0.2069083007823228,0.9764664317124606
+"complet, sans enseignes, tous, + jour d'âge",les quatre délais ont le même effet,"rep_j0 = rep_j1, rep_j1 = rep_j2, rep_j2 = rep_j3plus",5.165556125035074,0.16006803434702183
+"complet, sans enseignes, tous, + jour d'âge",le taux n'a aucun effet (hors moins de 10 avis),"t_1_25 = 0, t_25_75 = 0, t_75_100 = 0",0.2527096856369897,0.9686624450044913
+"complet, avec enseignes, US",les quatre délais ont le même effet,"rep_j0 = rep_j1, rep_j1 = rep_j2, rep_j2 = rep_j3plus",15.70633735375489,0.0013025170289310754
+"complet, avec enseignes, US",le taux n'a aucun effet (hors moins de 10 avis),"t_1_25 = 0, t_25_75 = 0, t_75_100 = 0",5.464765795272267,0.1407612668532407
+"complet, avec enseignes, US, + jour d'âge",les quatre délais ont le même effet,"rep_j0 = rep_j1, rep_j1 = rep_j2, rep_j2 = rep_j3plus",17.119575288191843,0.0006678280790264757
+"complet, avec enseignes, US, + jour d'âge",le taux n'a aucun effet (hors moins de 10 avis),"t_1_25 = 0, t_25_75 = 0, t_75_100 = 0",5.304953679775265,0.1507812771033207
+"complet, avec enseignes, Europe",les quatre délais ont le même effet,"rep_j0 = rep_j1, rep_j1 = rep_j2, rep_j2 = rep_j3plus",14.73106333294422,0.002061511748365926
+"complet, avec enseignes, Europe",le taux n'a aucun effet (hors moins de 10 avis),"t_1_25 = 0, t_25_75 = 0, t_75_100 = 0",2.722477357716711,0.4364210077359043
+"complet, avec enseignes, Europe, + jour d'âge",les quatre délais ont le même effet,"rep_j0 = rep_j1, rep_j1 = rep_j2, rep_j2 = rep_j3plus",12.747932945382836,0.005214670950435783
+"complet, avec enseignes, Europe, + jour d'âge",le taux n'a aucun effet (hors moins de 10 avis),"t_1_25 = 0, t_25_75 = 0, t_75_100 = 0",2.4917152343309303,0.4767901868305373
+"complet, avec enseignes, tous",les quatre délais ont le même effet,"rep_j0 = rep_j1, rep_j1 = rep_j2, rep_j2 = rep_j3plus",16.09374673425439,0.0010848865164663278
+"complet, avec enseignes, tous",le taux n'a aucun effet (hors moins de 10 avis),"t_1_25 = 0, t_25_75 = 0, t_75_100 = 0",1.7754372661776776,0.6202945928692458
+"complet, avec enseignes, tous, + jour d'âge",les quatre délais ont le même effet,"rep_j0 = rep_j1, rep_j1 = rep_j2, rep_j2 = rep_j3plus",17.771994801310978,0.0004901330414037413
+"complet, avec enseignes, tous, + jour d'âge",le taux n'a aucun effet (hors moins de 10 avis),"t_1_25 = 0, t_25_75 = 0, t_75_100 = 0",1.8208517003002145,0.6104079187690794

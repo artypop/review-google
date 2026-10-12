@@ -1,0 +1,45 @@
+[14:31:31] lecture
+[14:31:47] cinq_etoiles : 242011 avis, 1035 supprimés ; tirages
+[14:35:05]   ACP
+[14:35:09]   KMeans 2
+[14:35:11]   KMeans 3
+[14:35:14]   KMeans 4
+[14:35:17]   KMeans 5
+[14:35:20]   KMeans 6
+[14:35:25]   KMeans 7
+[14:35:31]   KMeans 8
+[14:35:36]   KMeans 9
+[14:35:43]   KMeans 10
+[14:35:43]   kmeans 2 : excès 0.7, rang période 3.2 %, fiche 2.7 %, part max 0.43 %
+[14:35:44]   kmeans 3 : excès 7.1, rang période 17.4 %, fiche 15.0 %, part max 0.44 %
+[14:35:44]   kmeans 4 : excès 3.5, rang période 1.1 %, fiche 0.8 %, part max 0.45 %
+[14:35:45]   kmeans 5 : excès 7.1, rang période 7.0 %, fiche 4.8 %, part max 0.52 %
+[14:35:45]   kmeans 6 : excès 5.6, rang période 2.4 %, fiche 1.2 %, part max 0.52 %
+[14:35:45]   kmeans 7 : excès 5.6, rang période 1.8 %, fiche 0.8 %, part max 0.52 %
+[14:35:46]   kmeans 8 : excès 10.8, rang période 20.8 %, fiche 17.5 %, part max 0.53 %
+[14:35:46]   kmeans 9 : excès 13.1, rang période 38.6 %, fiche 29.3 %, part max 0.52 %
+[14:35:47]   kmeans 10 : excès 10.6, rang période 18.4 %, fiche 9.3 %, part max 0.55 %
+[14:35:47] cinq_etoiles_recents : 10715 avis, 540 supprimés ; tirages
+[14:35:53]   ACP
+[14:35:53]   KMeans 2
+[14:35:53]   KMeans 3
+[14:35:53]   KMeans 4
+[14:35:53]   KMeans 5
+[14:35:54]   KMeans 6
+[14:35:54]   KMeans 7
+[14:35:54]   KMeans 8
+[14:35:55]   KMeans 9
+[14:35:55]   KMeans 10
+[14:36:24]   HDBSCAN
+[14:36:24]   kmeans 2 : excès 11.1, rang période 69.8 %, fiche 67.3 %, part max 5.14 %
+[14:36:24]   kmeans 3 : excès 13.5, rang période 74.3 %, fiche 68.5 %, part max 5.47 %
+[14:36:24]   kmeans 4 : excès 8.7, rang période 37.5 %, fiche 30.4 %, part max 5.27 %
+[14:36:24]   kmeans 5 : excès 10.8, rang période 52.5 %, fiche 41.9 %, part max 5.93 %
+[14:36:24]   kmeans 6 : excès 8.5, rang période 32.6 %, fiche 16.4 %, part max 5.68 %
+[14:36:24]   kmeans 7 : excès 7.4, rang période 19.4 %, fiche 15.8 %, part max 5.65 %
+[14:36:25]   kmeans 8 : excès 7.9, rang période 22.3 %, fiche 13.7 %, part max 5.73 %
+[14:36:25]   kmeans 9 : excès 9.6, rang période 40.5 %, fiche 32.0 %, part max 5.82 %
+[14:36:25]   kmeans 10 : excès 13.5, rang période 76.4 %, fiche 70.9 %, part max 5.95 %
+[14:36:25]   hdbscan  : excès 17.0, rang période 94.0 %, fiche 90.4 %, part max 17.14 %
+[14:36:30]   voisins : {'population': 'cinq_etoiles_recents', 'avis': 10715, 'supprimes': 540, 'voisins_supprimes_si_supprime_pct': np.float64(5.41), 'voisins_supprimes_si_reste_pct': np.float64(5.16), 'ecart_points': 0.24, 'hasard_periode_points': np.float64(0.01), 'rang_periode_pct': 74.6, 'hasard_fiche_points': np.float64(0.33), 'rang_fiche_pct': 43.6}
+[14:36:40] terminé

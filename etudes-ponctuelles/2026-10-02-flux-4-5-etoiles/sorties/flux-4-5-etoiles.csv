@@ -1,0 +1,18 @@
+jeu,secteur,flux_nouveaux_avis,flux_supprimes_7j,flux_pour_100,periode_nouveaux_avis,periode_pertes,pertes_pour_100_nouveaux,stock_avis,stock_pour_100
+toutes les fiches,Automobile,2055,34,1.65,3647,234,6.42,523352,0.04
+toutes les fiches,Restauration,3073,32,1.04,5585,279,5.00,985823,0.03
+toutes les fiches,Santé,1847,61,3.30,3432,413,12.03,507986,0.08
+toutes les fiches,Services à domicile,2967,292,9.84,5553,1926,34.68,706949,0.27
+toutes les fiches,Hôtellerie,2880,24,0.83,5519,193,3.50,815092,0.02
+toutes les fiches,Voyage,1141,27,2.37,2134,161,7.54,203902,0.08
+toutes les fiches,Sport et bien-être,1539,33,2.14,2941,314,10.68,452238,0.07
+toutes les fiches,Total,15502,503,3.24,28811,3520,12.22,4195342,0.08
+toutes les fiches,Chaînes antiparasitaires,1231,206,16.73,2285,1199,52.47,276967,0.43
+sans les 6 enseignes,Automobile,2055,34,1.65,3647,234,6.42,523352,0.04
+sans les 6 enseignes,Restauration,3073,32,1.04,5585,279,5.00,985823,0.03
+sans les 6 enseignes,Santé,1847,61,3.30,3432,413,12.03,507986,0.08
+sans les 6 enseignes,Services à domicile,1736,86,4.95,3268,727,22.25,429982,0.17
+sans les 6 enseignes,Hôtellerie,2880,24,0.83,5519,193,3.50,815092,0.02
+sans les 6 enseignes,Voyage,1141,27,2.37,2134,161,7.54,203902,0.08
+sans les 6 enseignes,Sport et bien-être,1539,33,2.14,2941,312,10.61,451162,0.07
+sans les 6 enseignes,Total,14271,297,2.08,26526,2319,8.74,3917299,0.06

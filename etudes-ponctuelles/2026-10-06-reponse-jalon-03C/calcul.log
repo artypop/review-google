@@ -1,0 +1,25 @@
+[07F] 24248 avis 4-5 étoiles dans 03C
+  écartés, prénom inconnu          : 55
+  écartés, fiche plus relevée      : 2 (1 fiches)
+  gardés : 24191 avis, 4705 fiches, 631 suppressions au plus tard au 7e jour
+  réponse au plus tard au 7e jour : 50.1% des avis -> référence : réponse
+
+== tous : 19322 avis, 575 supprimés du 3e au 7e jour
+  réponse au 2e jour : non 11198 avis, 326 supprimés, 29.1 pour 1 000 ; oui 8124 avis, 249 supprimés, 30.6 pour 1 000
+  réponse au 2e jour : ×0.93 [0.60 ; 1.43]
+  réponse au 2e jour (secteur, taille égaux) : ×0.76 [0.50 ; 1.17]
+
+== sans enseignes : 17915 avis, 332 supprimés du 3e au 7e jour
+  réponse au 2e jour : non 10273 avis, 223 supprimés, 21.7 pour 1 000 ; oui 7642 avis, 109 supprimés, 14.3 pour 1 000
+  réponse au 2e jour : ×0.59 [0.36 ; 0.94]
+  réponse au 2e jour (secteur, taille égaux) : ×0.51 [0.31 ; 0.84]
+
+== sans enseignes, US : 9709 avis, 231 supprimés du 3e au 7e jour
+  réponse au 2e jour : non 4584 avis, 146 supprimés, 31.8 pour 1 000 ; oui 5125 avis, 85 supprimés, 16.6 pour 1 000
+  réponse au 2e jour : ×0.48 [0.28 ; 0.84]
+  réponse au 2e jour (secteur, taille égaux) : ×0.49 [0.28 ; 0.86]
+
+== Europe : 8206 avis, 101 supprimés du 3e au 7e jour
+  réponse au 2e jour : non 5689 avis, 77 supprimés, 13.5 pour 1 000 ; oui 2517 avis, 24 supprimés, 9.5 pour 1 000
+  réponse au 2e jour : ×0.70 [0.28 ; 1.75]
+  réponse au 2e jour (secteur, taille égaux) : ×0.64 [0.27 ; 1.51]

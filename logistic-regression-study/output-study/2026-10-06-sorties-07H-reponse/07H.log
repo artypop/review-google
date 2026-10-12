@@ -1,0 +1,237 @@
+[07F] 24248 avis 4-5 étoiles dans 03C
+  écartés, prénom inconnu          : 55
+  écartés, fiche plus relevée      : 2 (1 fiches)
+  gardés : 24191 avis, 4705 fiches, 631 suppressions au plus tard au 7e jour
+  250 503 avis-jours  903 suppressions
+  sans enseignes : 22378 avis, 4614 fiches, 560 suppressions sur tout le suivi
+  classes de taux (sans enseignes) :
+                 fiches   avis  suppressions
+classe_taux                                 
+t_0                1100   4107           116
+t_1_25              395   2077            65
+t_25_75             713   3779            77
+t_75_100           2025  11926           299
+t_moins_10_avis     381    489             3
+
+== VITE ==
+                         modele   variable rapport_de_cotes borne_basse borne_haute p_value  avis  avis_jours  suppressions ecart_pct borne_basse_pct borne_haute_pct
+                 sans enseignes     rep_j0             0.47        0.29        0.75   0.002  4272       44502           105       -53             -71             -25
+                 sans enseignes     rep_j1             0.52        0.32        0.85   0.009  3633       37255            68       -48             -68             -15
+                 sans enseignes     rep_j2             0.51        0.29        0.91   0.022  1454       14412            22       -49             -71              -9
+                 sans enseignes rep_j3plus             0.25        0.14        0.44   0.000  2482       19478            16       -75             -86             -56
+sans enseignes, sans jour d'âge     rep_j0             0.47        0.29        0.76   0.002  4272       44502           105       -53             -71             -24
+sans enseignes, sans jour d'âge     rep_j1             0.53        0.33        0.87   0.011  3633       37255            68       -47             -67             -13
+sans enseignes, sans jour d'âge     rep_j2             0.52        0.29        0.91   0.022  1454       14412            22       -48             -71              -9
+sans enseignes, sans jour d'âge rep_j3plus             0.26        0.15        0.46   0.000  2482       19478            16       -74             -85             -54
+                 avec enseignes     rep_j0             0.87        0.60        1.27   0.478  4836       49547           283       -13             -40              27
+                 avec enseignes     rep_j1             0.57        0.36        0.88   0.011  3690       37815            83       -43             -64             -12
+                 avec enseignes     rep_j2             0.45        0.25        0.80   0.007  1455       14425            22       -55             -75             -20
+                 avec enseignes rep_j3plus             0.25        0.14        0.44   0.000  2507       19530            17       -75             -86             -56
+             sans enseignes, US     rep_j0             0.50        0.29        0.85   0.011  3234       33760           100       -50             -71             -15
+             sans enseignes, US     rep_j1             0.43        0.24        0.79   0.007  2207       22454            45       -57             -76             -21
+             sans enseignes, US     rep_j2             0.45        0.22        0.94   0.034   842        8342            14       -55             -78              -6
+             sans enseignes, US rep_j3plus             0.20        0.09        0.45   0.000  1263        9895             9       -80             -91             -55
+         sans enseignes, Europe     rep_j0             0.22        0.07        0.67   0.008  1038       10742             5       -78             -93             -33
+         sans enseignes, Europe     rep_j1             0.81        0.42        1.55   0.518  1426       14801            23       -19             -58              55
+         sans enseignes, Europe     rep_j2             0.56        0.19        1.68   0.299   612        6070             8       -44             -81              68
+         sans enseignes, Europe rep_j3plus             0.33        0.15        0.75   0.008  1219        9583             7       -67             -85             -25
+
+== SOUVENT ==
+                    modele                  variable rapport_de_cotes borne_basse borne_haute p_value  avis  avis_jours  suppressions ecart_pct borne_basse_pct borne_haute_pct
+              B1 taux seul                    t_1_25             1.08        0.41        2.81   0.877  2077       21607            65         8             -59             181
+              B1 taux seul                   t_25_75             0.74        0.38        1.46   0.389  3777       39107            77       -26             -62              46
+              B1 taux seul                  t_75_100             0.60        0.33        1.08   0.090 11925      124106           299       -40             -67               8
+              B1 taux seul           t_moins_10_avis             0.21        0.06        0.71   0.012   489        5148             3       -79             -94             -29
+B2 taux + réponse à l'avis                    t_1_25             1.13        0.44        2.94   0.795  2077       21607            65        13             -56             194
+B2 taux + réponse à l'avis                   t_25_75             0.91        0.46        1.80   0.784  3777       39107            77        -9             -54              80
+B2 taux + réponse à l'avis                  t_75_100             1.05        0.51        2.14   0.897 11925      124106           299         5             -49             114
+B2 taux + réponse à l'avis           t_moins_10_avis             0.25        0.07        0.85   0.027   489        5148             3       -75             -93             -15
+B2 taux + réponse à l'avis                   repondu             0.44        0.26        0.76   0.003 11841      115647           211       -56             -74             -24
+     B3 réponse par classe                    t_1_25             1.16        0.45        3.01   0.754  2077       21607            65        16             -55             201
+     B3 réponse par classe                   t_25_75             0.55        0.28        1.07   0.079  3777       39107            77       -45             -72               7
+     B3 réponse par classe                  t_75_100             1.36        0.71        2.60   0.354 11925      124106           299        36             -29             160
+     B3 réponse par classe           t_moins_10_avis             0.10        0.01        0.75   0.025   489        5148             3       -90             -99             -25
+     B3 réponse par classe             repondu_x_t_0             2.34        0.27       20.65   0.443    20         165             1       134             -73            1965
+     B3 réponse par classe          repondu_x_t_1_25             0.30        0.09        0.99   0.049   224        2064             2       -70             -91              -1
+     B3 réponse par classe         repondu_x_t_25_75             2.01        1.03        3.93   0.042  1142       10549            39       101               3             293
+     B3 réponse par classe        repondu_x_t_75_100             0.30        0.19        0.47   0.000 10328      101648           167       -70             -81             -53
+     B3 réponse par classe repondu_x_t_moins_10_avis             4.63        0.43       49.84   0.206   127        1221             2       363             -57            4884
+         B2 avec enseignes                    t_1_25             0.62        0.29        1.32   0.217  3107       32110           164       -38             -71              32
+         B2 avec enseignes                   t_25_75             0.71        0.38        1.32   0.278  3800       39339            79       -29             -62              32
+         B2 avec enseignes                  t_75_100             0.88        0.46        1.70   0.713 12550      129725           496       -12             -54              70
+         B2 avec enseignes           t_moins_10_avis             0.20        0.06        0.69   0.011   489        5148             3       -80             -94             -31
+         B2 avec enseignes                   repondu             0.61        0.38        0.97   0.036 12488      121317           405       -39             -62              -3
+
+== COMPLET ==
+                                       modele   variable rapport_de_cotes borne_basse borne_haute p_value  avis  avis_jours  suppressions ecart_pct borne_basse_pct borne_haute_pct     population passage  jour_age
+                  complet, sans enseignes, US     prenom             1.11        0.80        1.53   0.534  4751       49471           156        11             -20              53 sans enseignes      US     False
+                  complet, sans enseignes, US      photo             0.56        0.30        1.06   0.074  1004       10702            19       -44             -70               6 sans enseignes      US     False
+                  complet, sans enseignes, US        pic             1.17        0.77        1.78   0.459  2805       29529            92        17             -23              78 sans enseignes      US     False
+                  complet, sans enseignes, US     rep_j0             0.62        0.31        1.22   0.165  3234       33760           100       -38             -69              22 sans enseignes      US     False
+                  complet, sans enseignes, US     rep_j1             0.54        0.27        1.10   0.088  2207       22454            45       -46             -73              10 sans enseignes      US     False
+                  complet, sans enseignes, US     rep_j2             0.58        0.28        1.21   0.149   842        8342            14       -42             -72              21 sans enseignes      US     False
+                  complet, sans enseignes, US rep_j3plus             0.27        0.12        0.62   0.002  1263        9895             9       -73             -88             -38 sans enseignes      US     False
+                  complet, sans enseignes, US     t_1_25             0.92        0.33        2.59   0.877  1021       10738            43        -8             -67             159 sans enseignes      US     False
+                  complet, sans enseignes, US    t_25_75             0.71        0.33        1.56   0.399  1384       14469            42       -29             -67              56 sans enseignes      US     False
+                  complet, sans enseignes, US   t_75_100             0.63        0.28        1.42   0.262  7788       81097           220       -37             -72              42 sans enseignes      US     False
+    complet, sans enseignes, US, + jour d'âge     prenom             1.11        0.80        1.54   0.527  4751       49471           156        11             -20              54 sans enseignes      US      True
+    complet, sans enseignes, US, + jour d'âge      photo             0.57        0.30        1.07   0.080  1004       10702            19       -43             -70               7 sans enseignes      US      True
+    complet, sans enseignes, US, + jour d'âge        pic             1.17        0.77        1.78   0.456  2805       29529            92        17             -23              78 sans enseignes      US      True
+    complet, sans enseignes, US, + jour d'âge     rep_j0             0.60        0.30        1.19   0.142  3234       33760           100       -40             -70              19 sans enseignes      US      True
+    complet, sans enseignes, US, + jour d'âge     rep_j1             0.53        0.26        1.07   0.075  2207       22454            45       -47             -74               7 sans enseignes      US      True
+    complet, sans enseignes, US, + jour d'âge     rep_j2             0.56        0.26        1.19   0.130   842        8342            14       -44             -74              19 sans enseignes      US      True
+    complet, sans enseignes, US, + jour d'âge rep_j3plus             0.25        0.11        0.56   0.001  1263        9895             9       -75             -89             -44 sans enseignes      US      True
+    complet, sans enseignes, US, + jour d'âge     t_1_25             0.94        0.33        2.66   0.911  1021       10738            43        -6             -67             166 sans enseignes      US      True
+    complet, sans enseignes, US, + jour d'âge    t_25_75             0.71        0.33        1.56   0.395  1384       14469            42       -29             -67              56 sans enseignes      US      True
+    complet, sans enseignes, US, + jour d'âge   t_75_100             0.64        0.28        1.47   0.295  7788       81097           220       -36             -72              47 sans enseignes      US      True
+              complet, sans enseignes, Europe     prenom             1.42        0.83        2.43   0.203  1209       12637            31        42             -17             143 sans enseignes  Europe     False
+              complet, sans enseignes, Europe      photo             1.11        0.65        1.91   0.702  1105       11494            18        11             -35              91 sans enseignes  Europe     False
+              complet, sans enseignes, Europe        pic             2.94        1.48        5.84   0.002  2168       22218            75       194              48             484 sans enseignes  Europe     False
+              complet, sans enseignes, Europe     rep_j0             0.13        0.03        0.59   0.008  1038       10742             5       -87             -97             -41 sans enseignes  Europe     False
+              complet, sans enseignes, Europe     rep_j1             0.51        0.20        1.31   0.160  1426       14801            23       -49             -80              31 sans enseignes  Europe     False
+              complet, sans enseignes, Europe     rep_j2             0.34        0.09        1.37   0.131   612        6070             8       -66             -91              37 sans enseignes  Europe     False
+              complet, sans enseignes, Europe rep_j3plus             0.20        0.08        0.48   0.000  1219        9583             7       -80             -92             -52 sans enseignes  Europe     False
+              complet, sans enseignes, Europe     t_1_25             1.53        0.37        6.32   0.559  1056       10869            22        53             -63             532 sans enseignes  Europe     False
+              complet, sans enseignes, Europe    t_25_75             1.33        0.40        4.49   0.644  2393       24638            35        33             -60             349 sans enseignes  Europe     False
+              complet, sans enseignes, Europe   t_75_100             2.72        0.80        9.32   0.111  4137       43009            79       172             -20             832 sans enseignes  Europe     False
+complet, sans enseignes, Europe, + jour d'âge     prenom             1.43        0.84        2.44   0.187  1209       12637            31        43             -16             144 sans enseignes  Europe      True
+complet, sans enseignes, Europe, + jour d'âge      photo             1.12        0.65        1.93   0.680  1105       11494            18        12             -35              93 sans enseignes  Europe      True
+complet, sans enseignes, Europe, + jour d'âge        pic             2.92        1.45        5.91   0.003  2168       22218            75       192              45             491 sans enseignes  Europe      True
+complet, sans enseignes, Europe, + jour d'âge     rep_j0             0.14        0.03        0.62   0.010  1038       10742             5       -86             -97             -38 sans enseignes  Europe      True
+complet, sans enseignes, Europe, + jour d'âge     rep_j1             0.52        0.20        1.33   0.173  1426       14801            23       -48             -80              33 sans enseignes  Europe      True
+complet, sans enseignes, Europe, + jour d'âge     rep_j2             0.36        0.09        1.50   0.160   612        6070             8       -64             -91              50 sans enseignes  Europe      True
+complet, sans enseignes, Europe, + jour d'âge rep_j3plus             0.21        0.08        0.52   0.001  1219        9583             7       -79             -92             -48 sans enseignes  Europe      True
+complet, sans enseignes, Europe, + jour d'âge     t_1_25             1.52        0.37        6.29   0.560  1056       10869            22        52             -63             529 sans enseignes  Europe      True
+complet, sans enseignes, Europe, + jour d'âge    t_25_75             1.30        0.39        4.32   0.667  2393       24638            35        30             -61             332 sans enseignes  Europe      True
+complet, sans enseignes, Europe, + jour d'âge   t_75_100             2.64        0.77        9.09   0.123  4137       43009            79       164             -23             809 sans enseignes  Europe      True
+                complet, sans enseignes, tous     prenom             1.13        0.84        1.50   0.426  5960       62108           187        13             -16              50 sans enseignes    tous     False
+                complet, sans enseignes, tous      photo             0.75        0.48        1.16   0.201  2109       22196            37       -25             -52              16 sans enseignes    tous     False
+                complet, sans enseignes, tous        pic             1.68        1.10        2.57   0.016  4973       51747           167        68              10             157 sans enseignes    tous     False
+                complet, sans enseignes, tous     rep_j0             0.46        0.24        0.86   0.016  4272       44502           105       -54             -76             -14 sans enseignes    tous     False
+                complet, sans enseignes, tous     rep_j1             0.52        0.29        0.92   0.026  3633       37255            68       -48             -71              -8 sans enseignes    tous     False
+                complet, sans enseignes, tous     rep_j2             0.51        0.26        0.98   0.045  1454       14412            22       -49             -74              -2 sans enseignes    tous     False
+                complet, sans enseignes, tous rep_j3plus             0.25        0.14        0.46   0.000  2482       19478            16       -75             -86             -54 sans enseignes    tous     False
+                complet, sans enseignes, tous     t_1_25             1.12        0.43        2.91   0.816  2077       21607            65        12             -57             191 sans enseignes    tous     False
+                complet, sans enseignes, tous    t_25_75             0.91        0.46        1.82   0.799  3777       39107            77        -9             -54              82 sans enseignes    tous     False
+                complet, sans enseignes, tous   t_75_100             1.04        0.52        2.11   0.907 11925      124106           299         4             -48             111 sans enseignes    tous     False
+  complet, sans enseignes, tous, + jour d'âge     prenom             1.13        0.84        1.51   0.417  5960       62108           187        13             -16              51 sans enseignes    tous      True
+  complet, sans enseignes, tous, + jour d'âge      photo             0.76        0.49        1.17   0.214  2109       22196            37       -24             -51              17 sans enseignes    tous      True
+  complet, sans enseignes, tous, + jour d'âge        pic             1.68        1.10        2.56   0.015  4973       51747           167        68              10             156 sans enseignes    tous      True
+  complet, sans enseignes, tous, + jour d'âge     rep_j0             0.45        0.24        0.85   0.014  4272       44502           105       -55             -76             -15 sans enseignes    tous      True
+  complet, sans enseignes, tous, + jour d'âge     rep_j1             0.51        0.28        0.91   0.023  3633       37255            68       -49             -72              -9 sans enseignes    tous      True
+  complet, sans enseignes, tous, + jour d'âge     rep_j2             0.50        0.25        0.98   0.044  1454       14412            22       -50             -75              -2 sans enseignes    tous      True
+  complet, sans enseignes, tous, + jour d'âge rep_j3plus             0.24        0.13        0.44   0.000  2482       19478            16       -76             -87             -56 sans enseignes    tous      True
+  complet, sans enseignes, tous, + jour d'âge     t_1_25             1.14        0.44        2.95   0.794  2077       21607            65        14             -56             195 sans enseignes    tous      True
+  complet, sans enseignes, tous, + jour d'âge    t_25_75             0.91        0.46        1.80   0.786  3777       39107            77        -9             -54              80 sans enseignes    tous      True
+  complet, sans enseignes, tous, + jour d'âge   t_75_100             1.05        0.52        2.14   0.885 11925      124106           299         5             -48             114 sans enseignes    tous      True
+                  complet, avec enseignes, US     prenom             1.00        0.78        1.28   0.993  5654       58229           325         0             -22              28 avec enseignes      US     False
+                  complet, avec enseignes, US      photo             0.49        0.27        0.91   0.024  1014       10798            20       -51             -73              -9 avec enseignes      US     False
+                  complet, avec enseignes, US        pic             1.66        1.22        2.26   0.001  3044       31637           192        66              22             126 avec enseignes      US     False
+                  complet, avec enseignes, US     rep_j0             0.99        0.57        1.72   0.970  3798       38805           278        -1             -43              72 avec enseignes      US     False
+                  complet, avec enseignes, US     rep_j1             0.55        0.30        1.01   0.053  2264       23014            60       -45             -70               1 avec enseignes      US     False
+                  complet, avec enseignes, US     rep_j2             0.46        0.22        0.97   0.041   843        8355            14       -54             -78              -3 avec enseignes      US     False
+                  complet, avec enseignes, US rep_j3plus             0.27        0.13        0.59   0.001  1288        9947            10       -73             -87             -41 avec enseignes      US     False
+                  complet, avec enseignes, US     t_1_25             0.45        0.21        0.99   0.047  2051       21241           142       -55             -79              -1 avec enseignes      US     False
+                  complet, avec enseignes, US    t_25_75             0.53        0.27        1.05   0.068  1407       14701            44       -47             -73               5 avec enseignes      US     False
+                  complet, avec enseignes, US   t_75_100             0.58        0.28        1.18   0.132  8413       86716           417       -42             -72              18 avec enseignes      US     False
+    complet, avec enseignes, US, + jour d'âge     prenom             1.00        0.78        1.29   0.988  5654       58229           325         0             -22              29 avec enseignes      US      True
+    complet, avec enseignes, US, + jour d'âge      photo             0.50        0.27        0.92   0.026  1014       10798            20       -50             -73              -8 avec enseignes      US      True
+    complet, avec enseignes, US, + jour d'âge        pic             1.65        1.21        2.25   0.001  3044       31637           192        65              21             125 avec enseignes      US      True
+    complet, avec enseignes, US, + jour d'âge     rep_j0             0.96        0.54        1.69   0.879  3798       38805           278        -4             -46              69 avec enseignes      US      True
+    complet, avec enseignes, US, + jour d'âge     rep_j1             0.52        0.28        0.97   0.041  2264       23014            60       -48             -72              -3 avec enseignes      US      True
+    complet, avec enseignes, US, + jour d'âge     rep_j2             0.44        0.20        0.93   0.033   843        8355            14       -56             -80              -7 avec enseignes      US      True
+    complet, avec enseignes, US, + jour d'âge rep_j3plus             0.25        0.12        0.54   0.000  1288        9947            10       -75             -88             -46 avec enseignes      US      True
+    complet, avec enseignes, US, + jour d'âge     t_1_25             0.45        0.20        1.00   0.050  2051       21241           142       -55             -80              -0 avec enseignes      US      True
+    complet, avec enseignes, US, + jour d'âge    t_25_75             0.53        0.26        1.05   0.068  1407       14701            44       -47             -74               5 avec enseignes      US      True
+    complet, avec enseignes, US, + jour d'âge   t_75_100             0.59        0.28        1.23   0.160  8413       86716           417       -41             -72              23 avec enseignes      US      True
+              complet, avec enseignes, Europe     prenom             1.42        0.83        2.43   0.203  1209       12637            31        42             -17             143 avec enseignes  Europe     False
+              complet, avec enseignes, Europe      photo             1.11        0.65        1.91   0.702  1105       11494            18        11             -35              91 avec enseignes  Europe     False
+              complet, avec enseignes, Europe        pic             2.94        1.48        5.84   0.002  2168       22218            75       194              48             484 avec enseignes  Europe     False
+              complet, avec enseignes, Europe     rep_j0             0.13        0.03        0.59   0.008  1038       10742             5       -87             -97             -41 avec enseignes  Europe     False
+              complet, avec enseignes, Europe     rep_j1             0.51        0.20        1.31   0.160  1426       14801            23       -49             -80              31 avec enseignes  Europe     False
+              complet, avec enseignes, Europe     rep_j2             0.34        0.09        1.37   0.131   612        6070             8       -66             -91              37 avec enseignes  Europe     False
+              complet, avec enseignes, Europe rep_j3plus             0.20        0.08        0.48   0.000  1219        9583             7       -80             -92             -52 avec enseignes  Europe     False
+              complet, avec enseignes, Europe     t_1_25             1.53        0.37        6.32   0.559  1056       10869            22        53             -63             532 avec enseignes  Europe     False
+              complet, avec enseignes, Europe    t_25_75             1.33        0.40        4.49   0.644  2393       24638            35        33             -60             349 avec enseignes  Europe     False
+              complet, avec enseignes, Europe   t_75_100             2.72        0.80        9.32   0.111  4137       43009            79       172             -20             832 avec enseignes  Europe     False
+complet, avec enseignes, Europe, + jour d'âge     prenom             1.43        0.84        2.44   0.187  1209       12637            31        43             -16             144 avec enseignes  Europe      True
+complet, avec enseignes, Europe, + jour d'âge      photo             1.12        0.65        1.93   0.680  1105       11494            18        12             -35              93 avec enseignes  Europe      True
+complet, avec enseignes, Europe, + jour d'âge        pic             2.92        1.45        5.91   0.003  2168       22218            75       192              45             491 avec enseignes  Europe      True
+complet, avec enseignes, Europe, + jour d'âge     rep_j0             0.14        0.03        0.62   0.010  1038       10742             5       -86             -97             -38 avec enseignes  Europe      True
+complet, avec enseignes, Europe, + jour d'âge     rep_j1             0.52        0.20        1.33   0.173  1426       14801            23       -48             -80              33 avec enseignes  Europe      True
+complet, avec enseignes, Europe, + jour d'âge     rep_j2             0.36        0.09        1.50   0.160   612        6070             8       -64             -91              50 avec enseignes  Europe      True
+complet, avec enseignes, Europe, + jour d'âge rep_j3plus             0.21        0.08        0.52   0.001  1219        9583             7       -79             -92             -48 avec enseignes  Europe      True
+complet, avec enseignes, Europe, + jour d'âge     t_1_25             1.52        0.37        6.29   0.560  1056       10869            22        52             -63             529 avec enseignes  Europe      True
+complet, avec enseignes, Europe, + jour d'âge    t_25_75             1.30        0.39        4.32   0.667  2393       24638            35        30             -61             332 avec enseignes  Europe      True
+complet, avec enseignes, Europe, + jour d'âge   t_75_100             2.64        0.77        9.09   0.123  4137       43009            79       164             -23             809 avec enseignes  Europe      True
+                complet, avec enseignes, tous     prenom             1.04        0.83        1.31   0.726  6863       70866           356         4             -17              31 avec enseignes    tous     False
+                complet, avec enseignes, tous      photo             0.67        0.43        1.04   0.073  2119       22292            38       -33             -57               4 avec enseignes    tous     False
+                complet, avec enseignes, tous        pic             1.97        1.43        2.70   0.000  5212       53855           267        97              43             170 avec enseignes    tous     False
+                complet, avec enseignes, tous     rep_j0             0.81        0.49        1.33   0.400  4836       49547           283       -19             -51              33 avec enseignes    tous     False
+                complet, avec enseignes, tous     rep_j1             0.54        0.32        0.91   0.021  3690       37815            83       -46             -68              -9 avec enseignes    tous     False
+                complet, avec enseignes, tous     rep_j2             0.43        0.22        0.83   0.013  1455       14425            22       -57             -78             -17 avec enseignes    tous     False
+                complet, avec enseignes, tous rep_j3plus             0.25        0.14        0.44   0.000  2507       19530            17       -75             -86             -56 avec enseignes    tous     False
+                complet, avec enseignes, tous     t_1_25             0.65        0.30        1.39   0.270  3107       32110           164       -35             -70              39 avec enseignes    tous     False
+                complet, avec enseignes, tous    t_25_75             0.70        0.38        1.31   0.269  3800       39339            79       -30             -62              31 avec enseignes    tous     False
+                complet, avec enseignes, tous   t_75_100             0.87        0.45        1.67   0.666 12550      129725           496       -13             -55              67 avec enseignes    tous     False
+  complet, avec enseignes, tous, + jour d'âge     prenom             1.04        0.83        1.32   0.716  6863       70866           356         4             -17              32 avec enseignes    tous      True
+  complet, avec enseignes, tous, + jour d'âge      photo             0.68        0.43        1.05   0.081  2119       22292            38       -32             -57               5 avec enseignes    tous      True
+  complet, avec enseignes, tous, + jour d'âge        pic             1.96        1.43        2.70   0.000  5212       53855           267        96              43             170 avec enseignes    tous      True
+  complet, avec enseignes, tous, + jour d'âge     rep_j0             0.78        0.47        1.30   0.344  4836       49547           283       -22             -53              30 avec enseignes    tous      True
+  complet, avec enseignes, tous, + jour d'âge     rep_j1             0.52        0.31        0.88   0.015  3690       37815            83       -48             -69             -12 avec enseignes    tous      True
+  complet, avec enseignes, tous, + jour d'âge     rep_j2             0.41        0.21        0.81   0.010  1455       14425            22       -59             -79             -19 avec enseignes    tous      True
+  complet, avec enseignes, tous, + jour d'âge rep_j3plus             0.23        0.13        0.41   0.000  2507       19530            17       -77             -87             -59 avec enseignes    tous      True
+  complet, avec enseignes, tous, + jour d'âge     t_1_25             0.65        0.30        1.41   0.277  3107       32110           164       -35             -70              41 avec enseignes    tous      True
+  complet, avec enseignes, tous, + jour d'âge    t_25_75             0.70        0.38        1.31   0.267  3800       39339            79       -30             -62              31 avec enseignes    tous      True
+  complet, avec enseignes, tous, + jour d'âge   t_75_100             0.89        0.46        1.73   0.734 12550      129725           496       -11             -54              73 avec enseignes    tous      True
+
+== JALONS ==
+ jalon_j repondu_au_jalon  avis  supprimes pour_1000 rapport_de_cotes_secteur_taille borne_basse borne_haute p_value
+       1              non 10109        251      24.8                            0.47        0.30        0.74   0.001
+       1              oui  5981         97      16.2                            0.47        0.30        0.74   0.001
+       2              non 10273        223      21.7                            0.51        0.31        0.84   0.008
+       2              oui  7642        109      14.3                            0.51        0.31        0.84   0.008
+       3              non 10664        206      19.3                            0.46        0.27        0.80   0.005
+       3              oui  9214        106      11.5                            0.46        0.27        0.80   0.005
+
+== TESTS ==
+                                       modele                                            test                                            contrainte statistique p_value
+                               sans enseignes             les quatre délais ont le même effet rep_j0 = rep_j1, rep_j1 = rep_j2, rep_j2 = rep_j3plus        5.06   0.167
+                               sans enseignes                      2e jour = 3e jour ou après                                   rep_j2 = rep_j3plus        3.42   0.065
+              sans enseignes, sans jour d'âge             les quatre délais ont le même effet rep_j0 = rep_j1, rep_j1 = rep_j2, rep_j2 = rep_j3plus        4.72   0.193
+              sans enseignes, sans jour d'âge                      2e jour = 3e jour ou après                                   rep_j2 = rep_j3plus        3.16   0.075
+                               avec enseignes             les quatre délais ont le même effet rep_j0 = rep_j1, rep_j1 = rep_j2, rep_j2 = rep_j3plus       19.06   0.000
+                               avec enseignes                      2e jour = 3e jour ou après                                   rep_j2 = rep_j3plus        2.28   0.131
+                           sans enseignes, US             les quatre délais ont le même effet rep_j0 = rep_j1, rep_j1 = rep_j2, rep_j2 = rep_j3plus        4.08   0.253
+                           sans enseignes, US                      2e jour = 3e jour ou après                                   rep_j2 = rep_j3plus        2.26   0.132
+                       sans enseignes, Europe             les quatre délais ont le même effet rep_j0 = rep_j1, rep_j1 = rep_j2, rep_j2 = rep_j3plus       11.87   0.008
+                       sans enseignes, Europe                      2e jour = 3e jour ou après                                   rep_j2 = rep_j3plus        0.82   0.366
+                                 B1 taux seul le taux n'a aucun effet (hors moins de 10 avis)                 t_1_25 = 0, t_25_75 = 0, t_75_100 = 0        4.01   0.261
+                   B2 taux + réponse à l'avis le taux n'a aucun effet (hors moins de 10 avis)                 t_1_25 = 0, t_25_75 = 0, t_75_100 = 0        0.25   0.969
+                  complet, sans enseignes, US             les quatre délais ont le même effet rep_j0 = rep_j1, rep_j1 = rep_j2, rep_j2 = rep_j3plus        3.39   0.335
+                  complet, sans enseignes, US le taux n'a aucun effet (hors moins de 10 avis)                 t_1_25 = 0, t_25_75 = 0, t_75_100 = 0        1.50   0.682
+    complet, sans enseignes, US, + jour d'âge             les quatre délais ont le même effet rep_j0 = rep_j1, rep_j1 = rep_j2, rep_j2 = rep_j3plus        4.00   0.262
+    complet, sans enseignes, US, + jour d'âge le taux n'a aucun effet (hors moins de 10 avis)                 t_1_25 = 0, t_25_75 = 0, t_75_100 = 0        1.40   0.705
+              complet, sans enseignes, Europe             les quatre délais ont le même effet rep_j0 = rep_j1, rep_j1 = rep_j2, rep_j2 = rep_j3plus       14.73   0.002
+              complet, sans enseignes, Europe le taux n'a aucun effet (hors moins de 10 avis)                 t_1_25 = 0, t_25_75 = 0, t_75_100 = 0        2.72   0.436
+complet, sans enseignes, Europe, + jour d'âge             les quatre délais ont le même effet rep_j0 = rep_j1, rep_j1 = rep_j2, rep_j2 = rep_j3plus       12.75   0.005
+complet, sans enseignes, Europe, + jour d'âge le taux n'a aucun effet (hors moins de 10 avis)                 t_1_25 = 0, t_25_75 = 0, t_75_100 = 0        2.49   0.477
+                complet, sans enseignes, tous             les quatre délais ont le même effet rep_j0 = rep_j1, rep_j1 = rep_j2, rep_j2 = rep_j3plus        4.79   0.188
+                complet, sans enseignes, tous le taux n'a aucun effet (hors moins de 10 avis)                 t_1_25 = 0, t_25_75 = 0, t_75_100 = 0        0.21   0.976
+  complet, sans enseignes, tous, + jour d'âge             les quatre délais ont le même effet rep_j0 = rep_j1, rep_j1 = rep_j2, rep_j2 = rep_j3plus        5.17   0.160
+  complet, sans enseignes, tous, + jour d'âge le taux n'a aucun effet (hors moins de 10 avis)                 t_1_25 = 0, t_25_75 = 0, t_75_100 = 0        0.25   0.969
+                  complet, avec enseignes, US             les quatre délais ont le même effet rep_j0 = rep_j1, rep_j1 = rep_j2, rep_j2 = rep_j3plus       15.71   0.001
+                  complet, avec enseignes, US le taux n'a aucun effet (hors moins de 10 avis)                 t_1_25 = 0, t_25_75 = 0, t_75_100 = 0        5.46   0.141
+    complet, avec enseignes, US, + jour d'âge             les quatre délais ont le même effet rep_j0 = rep_j1, rep_j1 = rep_j2, rep_j2 = rep_j3plus       17.12   0.001
+    complet, avec enseignes, US, + jour d'âge le taux n'a aucun effet (hors moins de 10 avis)                 t_1_25 = 0, t_25_75 = 0, t_75_100 = 0        5.30   0.151
+              complet, avec enseignes, Europe             les quatre délais ont le même effet rep_j0 = rep_j1, rep_j1 = rep_j2, rep_j2 = rep_j3plus       14.73   0.002
+              complet, avec enseignes, Europe le taux n'a aucun effet (hors moins de 10 avis)                 t_1_25 = 0, t_25_75 = 0, t_75_100 = 0        2.72   0.436
+complet, avec enseignes, Europe, + jour d'âge             les quatre délais ont le même effet rep_j0 = rep_j1, rep_j1 = rep_j2, rep_j2 = rep_j3plus       12.75   0.005
+complet, avec enseignes, Europe, + jour d'âge le taux n'a aucun effet (hors moins de 10 avis)                 t_1_25 = 0, t_25_75 = 0, t_75_100 = 0        2.49   0.477
+                complet, avec enseignes, tous             les quatre délais ont le même effet rep_j0 = rep_j1, rep_j1 = rep_j2, rep_j2 = rep_j3plus       16.09   0.001
+                complet, avec enseignes, tous le taux n'a aucun effet (hors moins de 10 avis)                 t_1_25 = 0, t_25_75 = 0, t_75_100 = 0        1.78   0.620
+  complet, avec enseignes, tous, + jour d'âge             les quatre délais ont le même effet rep_j0 = rep_j1, rep_j1 = rep_j2, rep_j2 = rep_j3plus       17.77   0.000
+  complet, avec enseignes, tous, + jour d'âge le taux n'a aucun effet (hors moins de 10 avis)                 t_1_25 = 0, t_25_75 = 0, t_75_100 = 0        1.82   0.610
+
+Sorties : C:\Matt\reviewflowz_shared\review-google\logistic-regression-study\output-study\2026-10-06-sorties-07H-reponse
+Restitution : C:\Matt\reviewflowz_shared\review-google\livrables\restitution_finale\graphiques\faits-saignants

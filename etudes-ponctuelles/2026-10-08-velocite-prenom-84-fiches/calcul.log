@@ -1,0 +1,54 @@
+84 fiches : 90044 avis de tous âges, 1043 suppressions
+
+industry
+home_services       33
+healthcare          17
+wellness_fitness     9
+travel               8
+automotive           7
+food_beverage        6
+hospitality          4
+
+bucket
+small    36
+large    26
+mono     22
+
+region
+US        70
+Europe    14
+
+== Classes ==
+               fiches   avis  supprimes  pour_100000  vitesse_mediane  part_avis_moins_90j
+classe_prenom                                                                             
+moins de 10 %       7   4021         80     1989.555            7.167                0.066
+10-25 %            10  10663         96      900.309           27.875                0.113
+25-50 %            24  21237        351     1652.776           22.250                0.091
+50 % et plus       43  54123        516      953.384           25.583                0.091
+[07F] 24248 avis 4-5 étoiles dans 03C
+  écartés, prénom inconnu          : 55
+  écartés, fiche plus relevée      : 2 (1 fiches)
+  gardés : 24191 avis, 4705 fiches, 631 suppressions au plus tard au 7e jour
+  13 699 avis-jours  423 suppressions
+
+== Modèles == (03C : {'avis': 1499, 'suppressions': 423, 'fiches': 84})
+                          modele     variable  rapport_de_cotes  borne_basse  borne_haute  p_value  ecart_pct
+M1 secteur, taille, région égaux      p_10_25             0.580        0.262        1.284    0.179    -42.012
+M1 secteur, taille, région égaux      p_25_50             0.764        0.382        1.525    0.445    -23.646
+M1 secteur, taille, région égaux     p_50_100             0.615        0.315        1.202    0.155    -38.488
+              M2 + vitesse égale      p_10_25             0.906        0.406        2.023    0.810     -9.355
+              M2 + vitesse égale      p_25_50             1.202        0.583        2.479    0.619     20.181
+              M2 + vitesse égale     p_50_100             0.996        0.505        1.964    0.991     -0.399
+              M2 + vitesse égale log2_vitesse             0.820        0.714        0.941    0.005    -17.997
+          M3 + âge des avis égal      p_10_25             0.610        0.325        1.145    0.124    -39.013
+          M3 + âge des avis égal      p_25_50             0.846        0.466        1.536    0.582    -15.434
+          M3 + âge des avis égal     p_50_100             0.612        0.333        1.125    0.114    -38.794
+          M3 + âge des avis égal log2_vitesse             0.769        0.692        0.854    0.000    -23.120
+             M4 avis neufs (03C)       prenom             0.849        0.665        1.082    0.186    -15.147
+             M4 avis neufs (03C)      p_10_25             0.255        0.103        0.629    0.003    -74.502
+             M4 avis neufs (03C)      p_25_50             0.621        0.273        1.413    0.256    -37.901
+             M4 avis neufs (03C)     p_50_100             0.524        0.226        1.212    0.131    -47.634
+             M4 avis neufs (03C) log2_vitesse             0.793        0.663        0.948    0.011    -20.711
+écrit : C:\Matt\reviewflowz_shared\review-google\livrables\restitution_finale\graphiques\faits-saignants\graphiques\velocite_prenom_modeles_84_fiches.png
+écrit : C:\Matt\reviewflowz_shared\review-google\livrables\restitution_finale\graphiques\faits-saignants\donnees\velocite_prenom_modeles_84_fiches.csv
+écrit : C:\Matt\reviewflowz_shared\review-google\livrables\restitution_finale\graphiques\faits-saignants\donnees\velocite_prenom_fiches_84_fiches.csv

@@ -1,0 +1,15 @@
+groupe,local_guide,avis,suppressions,part_supprimee_pct,dans_le_graphique
+niveau 1,non,281423,295,0.1048,oui
+niveau 2,non,856446,1003,0.1171,oui
+niveau 3,non,952594,1164,0.1222,oui
+niveau 4,oui,481018,445,0.0925,oui
+niveau 5,oui,705070,227,0.0322,oui
+niveau 6,oui,582370,79,0.0136,oui
+niveau 7 à 10,oui,323770,51,0.0158,oui
+sans niveau,,12651,256,2.0236,non
+total des niveaux,,4182691,3264,0.0780,
+détail des niveaux regroupés,,,,,
+niveau 7,oui,242041,34,0.0140,non
+niveau 8,oui,70284,14,0.0199,non
+niveau 9,oui,8324,0,0.0000,non
+niveau 10,oui,3121,3,0.0961,non

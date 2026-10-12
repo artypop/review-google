@@ -1,0 +1,5 @@
+population,n_avis,n_supprimes,part_supprimee_pct,voisins_supprimes_si_supprime_pct,voisins_supprimes_si_reste_pct,ecart_points,hasard_note_moyen_points,rang_note_pct,hasard_fiche_moyen_points,rang_fiche_pct
+tous_home_services,4180,439,10.5,15.19,10.89,4.31,-0.03,100.0,3.94,69.2
+sans_chaines,2328,124,5.33,9.27,5.64,3.64,-0.03,100.0,3.9,39.6
+tous_home_services_5_etoiles,3848,406,10.55,14.68,10.98,3.7,-0.03,100.0,3.7,52.2
+sans_chaines_5_etoiles,2172,111,5.11,6.22,5.67,0.55,-0.03,77.2,1.51,14.0

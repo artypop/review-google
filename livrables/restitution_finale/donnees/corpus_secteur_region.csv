@@ -1,0 +1,25 @@
+secteur,region,avis,fiches
+Automobile,États-Unis,411205,711
+Automobile,Europe,242652,717
+Automobile,Total,653857,1428
+Restauration,États-Unis,625397,715
+Restauration,Europe,557681,713
+Restauration,Total,1183078,1428
+Santé,États-Unis,338296,714
+Santé,Europe,220605,714
+Santé,Total,558901,1428
+Services à domicile,États-Unis,546908,714
+Services à domicile,Europe,214115,714
+Services à domicile,Total,761023,1428
+Hôtellerie,États-Unis,389531,702
+Hôtellerie,Europe,601037,726
+Hôtellerie,Total,990568,1428
+Voyage,États-Unis,123816,240
+Voyage,Europe,93667,240
+Voyage,Total,217483,480
+Sport et bien-être,États-Unis,192456,712
+Sport et bien-être,Europe,319567,716
+Sport et bien-être,Total,512023,1428
+Total,États-Unis,2627609,4508
+Total,Europe,2249324,4540
+Total,Total,4876933,9048

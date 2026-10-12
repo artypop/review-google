@@ -1,0 +1,11 @@
+groupe,enseignes,jour_de_pic,avis,supprimes,pour_1000,effet_secteur_taille_egaux,borne_basse,borne_haute
+Ensemble,sans,non,17404,264,15.1689,1.7772,1.1280,2.7998
+Ensemble,sans,oui,4974,115,23.1202,1.7772,1.1280,2.7998
+États-Unis,sans,non,9395,193,20.5428,1.3303,0.7781,2.2744
+États-Unis,sans,oui,2806,67,23.8774,1.3303,0.7781,2.2744
+Europe,sans,non,8009,71,8.8650,2.7484,1.3222,5.7132
+Europe,sans,oui,2168,48,22.1402,2.7484,1.3222,5.7132
+Ensemble,avec,non,18978,451,23.7644,1.9951,1.3509,2.9463
+Ensemble,avec,oui,5213,180,34.5291,1.9951,1.3509,2.9463
+États-Unis,avec,non,10969,380,34.6431,1.8649,1.1719,2.9678
+États-Unis,avec,oui,3045,132,43.3498,1.8649,1.1719,2.9678

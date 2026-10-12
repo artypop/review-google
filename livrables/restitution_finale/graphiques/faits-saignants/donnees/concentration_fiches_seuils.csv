@@ -1,0 +1,15 @@
+enseignes,mesure,valeur,part_nouveaux_avis_pct
+sans,fiches du corpus,4614,
+sans,nouveaux avis,22378,
+sans,avis supprimés,379,
+sans,fiches qui ont perdu au moins un avis,148,
+sans,fiches portant 25 % des suppressions,9,1.38
+sans,fiches portant 50 % des suppressions,26,2.88
+sans,fiches portant 75 % des suppressions,59,4.44
+avec,fiches du corpus,4705,
+avec,nouveaux avis,24191,
+avec,avis supprimés,631,
+avec,fiches qui ont perdu au moins un avis,191,
+avec,fiches portant 25 % des suppressions,11,2.28
+avec,fiches portant 50 % des suppressions,34,4.68
+avec,fiches portant 75 % des suppressions,72,6.61
